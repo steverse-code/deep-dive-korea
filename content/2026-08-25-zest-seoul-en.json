@@ -1,0 +1,106 @@
+{
+  "slug": "2026-08-25-zest-seoul-en",
+  "pillar": "bar",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-25T13:45:12+09:00",
+  "photo": "zest-seoul-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "BAR · SEOUL",
+      "headline": "Most bars bin the peel.\nHere it's the gin.",
+      "subline": "Zest, Cheongdam — No. 2 on Asia's 50 Best Bars 2026",
+      "bg_image": "assets/photos/zest-seoul-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "No. 2",
+      "label": "Zest's rank on Asia's 50 Best Bars 2026\n— and Best Bar in Korea, four years running",
+      "note": "List announced 29 July 2026 in Macao · theworlds50best.com · The Korea Herald"
+    },
+    {
+      "type": "list",
+      "title": "One name,\ntwo meanings",
+      "items": [
+        {
+          "t": "Zest = citrus peel",
+          "d": "The part most bars grate once and bin"
+        },
+        {
+          "t": "Zest = zero waste",
+          "d": "The bar's stated operating philosophy, per Gangnam-gu's official tourism listing"
+        },
+        {
+          "t": "Around ten signature cocktails at a time",
+          "d": "Built on house-made spirits and seasonal Korean produce"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Sustainability isn't\nthe garnish here.",
+      "body": "Plenty of bars treat zero waste as a line on the menu. Zest builds the drink around it. Jeju hallabong is juiced for its Garibaldi, the peels then infuse the house gin, and the leftover pulp becomes a cordial or gets fermented.\n\nThe bar also carbonates its own water on site to cut plastic, and uses reusable towels in place of paper napkins.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "26 Dosan-daero 55-gil, Gangnam-gu, Seoul",
+          "d": "Cheongdam-dong, a short walk from Apgujeong"
+        },
+        {
+          "t": "Weekdays 18:30-02:00 · Weekends 15:00-02:00",
+          "d": "Per Gangnam-gu's official tourism listing, as of August 2026"
+        },
+        {
+          "t": "Ask about the Z&T or the Jeju Garibaldi",
+          "d": "Both built on the in-house gin; the Z&T shifts with the season"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in August 2026.",
+      "by": "Hours, prices and menus change, and a bar this ranked tends to fill up — worth checking @zest.seoul before you go.\nTaste is always personal."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Asia's 50 Best Bars 2026 — Zest, No. 2 (theworlds50best.com)",
+        "The Korea Herald, 'Four Seoul bars make Asia's 50 Best Bars 2026' (29 July 2026)",
+        "Visit Gangnam — official Gangnam-gu tourism listing for Zest (address, hours, zero-waste practices)",
+        "50 Best Discovery — Zest, Seoul",
+        "* Cover photo is a licensed stock image of a cocktail bar, not a photo of Zest itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "A Cheongdam bar named for the thing most bars bin — citrus peel — and for \"zero waste\".\n\nZest took No. 2 on Asia's 50 Best Bars 2026 and Best Bar in Korea for a fourth year. Hallabong is juiced, the peels infuse the house gin, the pulp becomes cordial.\n\nHours and menus change, so it's worth checking before you go.\n\nSources in the last slide. Save this for your next trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#cocktails",
+    "#foodie",
+    "#seoultravel",
+    "#cocktailbar",
+    "#bestbars",
+    "#seoulnightlife",
+    "#koreatravel",
+    "#hiddengem",
+    "#zerowaste",
+    "#sustainablebar",
+    "#cheongdam",
+    "#gangnam",
+    "#asias50bestbars",
+    "#zestseoul",
+    "#hallabong",
+    "#koreancocktails",
+    "#deepdivekorea"
+  ]
+}
