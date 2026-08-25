@@ -1,0 +1,45 @@
+{
+  "_note": [
+    "필러별 라이선스 배경음 등록표. 여기에 등록된 필러는 합성음 대신 이 음원을 씁니다.",
+    "출처: Incompetech (Kevin MacLeod) — CC BY 3.0, 크레딧 표기 조건으로 상업적 이용 포함 자유 사용 가능.",
+    "음원 파일 자체는 이 저장소에 커밋하지 않습니다 (assets/music/*.mp3 는 .gitignore 대상).",
+    "릴스는 현재 로컬에서 수동으로 만듭니다 (daily-content.yml 자동 파이프라인은 카드뉴스만 생성).",
+    "",
+    "각 항목 필드:",
+    "  file   : assets/music/ 기준 상대 경로",
+    "  title  : 곡 제목",
+    "  artist : 아티스트 — 캡션에 크레딧 표기용",
+    "  url    : 출처 페이지",
+    "  start  : 곡에서 쓸 구간의 시작 초"
+  ],
+  "pillars": {
+    "restaurant": {
+      "file": "restaurant.mp3",
+      "title": "Airport Lounge",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "url": "https://incompetech.com/music/royalty-free/index.html?keywords=airport+lounge",
+      "start": 10
+    },
+    "cafe": {
+      "file": "cafe.mp3",
+      "title": "Autumn Day",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "url": "https://incompetech.com/music/royalty-free/index.html?keywords=autumn+day",
+      "start": 0
+    },
+    "bar": {
+      "file": "bar.mp3",
+      "title": "Ambiment",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "url": "https://incompetech.com/music/royalty-free/index.html?keywords=ambiment",
+      "start": 30
+    },
+    "local": {
+      "file": "local.mp3",
+      "title": "At The Shore",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "url": "https://incompetech.com/music/royalty-free/index.html?keywords=at+the+shore",
+      "start": 0
+    }
+  }
+}
