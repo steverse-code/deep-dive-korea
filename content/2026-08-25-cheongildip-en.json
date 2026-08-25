@@ -1,0 +1,105 @@
+{
+  "slug": "2026-08-25-cheongildip-en",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-25T14:00:00+09:00",
+  "photo": "cheongildip-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "LOCAL SPOT",
+      "headline": "The alley disappeared.\nThe pancake shop didn't.",
+      "subline": "A 1945 Seoul institution that outlived its own neighborhood",
+      "bg_image": "assets/photos/cheongildip-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "81 years",
+      "label": "How long Cheongildip has been\nfrying mung bean pancakes",
+      "note": "Opened 1945 · Seoul Institute for Urban Data archive · Seoul city 'My Hands Seoul' records"
+    },
+    {
+      "type": "list",
+      "title": "Two addresses\nin 80 years",
+      "items": [
+        {
+          "t": "1945-2018  →  Cheongjin-dong, Jongno",
+          "d": "In the old Pimatgol alley — a favorite of writers, journalists, even a former president"
+        },
+        {
+          "t": "2018-now  →  Yeonseo Market, Eunpyeong",
+          "d": "Moved when redevelopment erased most of Pimatgol"
+        },
+        {
+          "t": "4th generation running it",
+          "d": "From founders Park Dong-hyeok and his wife, down to their granddaughter-in-law today"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The neighborhood is gone.\nThe shop isn't.",
+      "body": "Most of Jongno's old Pimatgol alley was demolished in the 2000s redevelopment. For people who remember it, Cheongildip is the closest thing left — a piece of a vanished neighborhood, still frying the same recipe four generations later.\n\nThe address changed. The technique didn't.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "Mung bean pancake (nokdu-bindaetteok) — ₩14,000",
+          "d": "The shop's signature dish, pan-fried thick"
+        },
+        {
+          "t": "Open 10:00-23:00 (11:00-23:00 weekends)",
+          "d": "Yeonseo Market, Bldg A 1F #24, Tongil-ro 850, Eunpyeong-gu, Seoul"
+        },
+        {
+          "t": "Pair it with a Bukhansan hike",
+          "d": "Yeonseo Market itself is a favorite stop for hikers coming off the mountain"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This information is current\nas of August 2026, based on public sources.",
+      "by": "Hours and prices can change — worth confirming before you go.\nTaste is always personal."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Seoul Institute for Urban Data, '[13] Cheongildip' — Seoul old-shop archive (data.si.re.kr)",
+        "Seoul Metropolitan Government, 'My Hands Seoul' media hub — Seoul old-shop records (mediahub.seoul.go.kr)",
+        "Butter Popcorn, 'Yeonseo Market spots including a 70+ year old shop' (2026)",
+        "* Every place on this account has been checked for real, current operation. This is research, not a personal review."
+      ],
+      "cta": "We only feature places that actually exist.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "When Seoul's old Pimatgol alley was redeveloped, one pancake shop from it moved across the city and kept going — now run by the 4th generation.\n\nCheongildip · opened 1945 · now at Yeonseo Market (per Seoul Institute for Urban Data archive)\n\nHours and prices are worth confirming before you visit.\n\nFull sources in the last slide. Save this for your next trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#foodie",
+    "#seouleats",
+    "#koreanfood",
+    "#localfood",
+    "#hiddengem",
+    "#streetfood",
+    "#bindaetteok",
+    "#koreantravel",
+    "#seoultravel",
+    "#oldschool",
+    "#eunpyeong",
+    "#yeonseomarket",
+    "#pimatgol",
+    "#4thgeneration",
+    "#realkorea",
+    "#offthebeatenpath",
+    "#deepdivekorea"
+  ]
+}

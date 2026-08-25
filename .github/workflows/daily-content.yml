@@ -89,15 +89,25 @@ jobs:
             --model claude-opus-5
             --allowedTools Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch
           prompt: |
-            너는 인스타그램 계정 @deep_dive_korea 의 일일 카드뉴스 파이프라인을
-            자동으로 실행하고 있다. 이 저장소의 체크아웃 안에서 작업한다.
-            사람이 검토하지 않는 완전 자동 실행이므로 검증 규칙을 예외 없이 지켜라.
+            You are running the daily card-news content pipeline for the Instagram
+            account @deep_dive_korea. Work inside this repo's checkout. This runs
+            fully unattended with no human review, so follow the verification rules
+            with zero exceptions.
 
-            오늘 슬롯: ${{ steps.slot.outputs.slot }}   (am = 오전, pm = 오후)
+            IMPORTANT — two things that differ from this pipeline's sibling
+            (ig-studio) and are easy to miss if you skim: (1) this is an
+            ENGLISH-language account — all post text (headline, captions,
+            hashtags, everything) must be in English, not Korean. (2) every post
+            requires a real, properly-licensed photo (this is a food/venue account
+            — a typography-only cover doesn't work here). Full detail on both is
+            in PIPELINE.md §3-4 — read it, don't skip it.
 
-            가장 먼저 저장소 루트의 PIPELINE.md 를 전문으로 읽고, 거기 적힌 절차를
-            §0 부터 §8 까지 순서대로 그대로 수행해라. PIPELINE.md 가 이 실행의
-            유일한 기준이다. 이 프롬프트와 어긋나면 PIPELINE.md 를 따른다.
+            Today's slot: ${{ steps.slot.outputs.slot }}   (am / pm)
+
+            First, read PIPELINE.md at the repo root in full, and follow its
+            procedure §0 through §9 in order exactly as written. PIPELINE.md is
+            the single source of truth for this run — if this prompt and
+            PIPELINE.md disagree, follow PIPELINE.md.
 
             이 실행 환경에 대해 알아둘 것:
             - python3 와 pillow 가 이미 설치돼 있으므로 scripts/cardnews.py 로

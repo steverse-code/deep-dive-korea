@@ -1,80 +1,113 @@
-# 콘텐츠 운영 설계 — DeepDive Korea (@deep_dive_korea)
+# Content Playbook — DeepDive Korea (@deep_dive_korea)
 
-> "Let's deep dive into the real Korea." 한국의 진짜 맛집·카페·바를 근거 있게 소개하는 계정.
-> ig-studio(@your_ground_zero)와 같은 렌더링·발행 파이프라인을 쓰되, 필러 대신
-> **음식 콘텐츠 4개 서브카테고리**를 매일 오전/오후로 순환한다.
+> "Let's deep dive into the real Korea." An English-language account introducing
+> real, verified restaurants, cafes, and bars in Korea to an international audience.
+> Same rendering/publishing pipeline as ig-studio (@your_ground_zero), but:
+> **all post content is in English**, and **every post uses a real, properly-licensed
+> photo** (food is a visual category — a typography-only cover doesn't work here).
 
 ---
 
-## 1. 매일 오전·오후 배치
+## 1. Daily AM/PM schedule
 
-| 요일 | 오전 | 오후 |
+| Day | AM | PM |
 |---|---|---|
-| 월 | restaurant | cafe |
-| 화 | bar | local |
-| 수 | restaurant | cafe |
-| 목 | bar | local |
-| 금 | restaurant | cafe |
-| 토 | bar | local |
-| 일 | restaurant | cafe |
+| Mon | restaurant | cafe |
+| Tue | bar | local |
+| Wed | restaurant | cafe |
+| Thu | bar | local |
+| Fri | restaurant | cafe |
+| Sat | bar | local |
+| Sun | restaurant | cafe |
 
-서브카테고리 정의:
+Subcategory definitions:
 
-| 키 | 한글 | 다루는 것 |
-|---|---|---|
-| `restaurant` | 레스토랑 | 파인다이닝·특색 있는 레스토랑 |
-| `cafe` | 카페 | 분위기·커피·디저트가 좋은 카페 |
-| `bar` | 바 | 칵테일바·와인바·전통주바 |
-| `local` | 로컬맛집 | 노포·동네 맛집·숨은 로컬 스팟 |
+| key | meaning |
+|---|---|
+| `restaurant` | Fine dining / distinctive restaurants |
+| `cafe` | Cafes with strong atmosphere, coffee, or dessert |
+| `bar` | Cocktail bars, wine bars, traditional Korean liquor (makgeolli/soju) bars |
+| `local` | Old-school (노포) spots, neighborhood favorites, hidden local gems |
 
-## 2. 톤 규칙
+## 2. Tone rules
 
-1. **실존 검증이 전부다.** 가게 이름·주소·현재 영업 여부를 실제 검색(예약 플랫폼·
-   공식 등재·최근 보도)으로 확인한다. 확신이 없으면 절대 지어내지 말고 스킵한다.
-   이 계정의 신뢰는 "가봤더니 진짜 있더라"에서 나온다.
-2. **취향은 주장하지 않는다.** "최고다/무조건 가라" 대신 "이런 걸 원한다면"으로 프레이밍.
-   맛은 주관적이라는 걸 항상 인정한다.
-3. **확인 가능한 사실만 캡션에 쓴다.** 메뉴·가격·영업시간은 실제 출처(공식 페이지·
-   예약 사이트)에 있는 것만. 직접 가본 것처럼 쓰지 않는다 — 계정은 리서치 기반이다.
-4. **"~습니다" 종결.** 정중하되 단정적, 반말·물음표 없음 (ig-studio와 동일 톤).
+1. **Verified existence is everything.** Confirm the place's name, address, and that
+   it is currently operating (booking platform, official listing, recent press).
+   If you're not confident, do not invent it — skip. This account's trust comes
+   entirely from "we checked, it's really there."
+2. **Don't claim taste as fact.** Frame as "if you want this kind of thing" rather
+   than "the best" or "you must go." Taste is acknowledged as subjective, always.
+3. **Only write facts you can source.** Menu items, prices, hours — only from real
+   sources (official page, booking site). Never write as if you personally visited —
+   this account is research-based, and the tone should own that honestly.
+4. **End declaratively, politely.** No commands, no exclamation-mark hype, no
+   clickbait superlatives.
 
-## 3. 카드뉴스 7장 구조
+## 3. Photography — required, not optional
 
-ig-studio와 동일한 렌더러(`scripts/cardnews.py`)를 쓴다:
+Every post needs a **real, properly-licensed photo** representing the cuisine/venue
+type. Source from Unsplash (free license, no attribution required) or an equivalent
+CC0/free-license source — never scrape a specific venue's own photos unless you can
+verify usage rights. The photo should evoke the right mood/cuisine (e.g. Korean
+market food, traditional pancake, cocktail bar ambience) — it does **not** need to
+be literally that exact venue's interior unless you have verified rights to a real
+photo of it.
 
-```
-1  cover    ★ 에디토리얼 표지 — eyebrow + 2행 헤드라인("1행 긴장/2행 해소") + subline + anchor
-2  stat     핵심 수치/사실 하나 (예: "OO년째 영업", 랭킹, 가격대)
-3  list     비교·맥락 (예: 비슷한 곳들과 비교, 메뉴 구성)
-4  point    ★ 이 가게를 고른 진짜 이유 — 통념과 다른 지점
-5  list     실용 정보 (위치·예약 팁·같이 가면 좋은 조합)
-6  quote    캐비엇 — "취향에 따라 다름", 정보 출처 시점 명시
-7  source   출처(예약 링크·공식 페이지·보도) + 저장·팔로우 CTA
-```
-
-표지는 `bg_image` 없이 `anchor`(가게 관련 숫자·연도)로 시작한다. 사진을 쓸 필요가
-생기면 반드시 실제 촬영했거나 사용 권리가 있는 이미지만 (ig-studio §4 원칙과 동일).
-
-## 4. 캡션 구조 (~250자)
+Workflow to source a photo:
 
 ```
-1행    한 문장 훅
-2문단  가게명 + 확인된 핵심 사실 한 줄 (위치/특징/출처)
-3문단  캐비엇 한 줄 (취향 차이, 정보 시점)
-말미   "출처는 마지막 장에" + 저장 유도
+1. WebSearch for a relevant Unsplash photo (e.g. "Korean street food market unsplash")
+2. WebFetch the photo's page to confirm it's on images.unsplash.com (free),
+   NOT plus.unsplash.com (paid/premium — skip these)
+3. curl -sL "<direct images.unsplash.com URL>" -o assets/photos/<slug>.jpg
 ```
 
-## 5. 해시태그
+Use the photo in **two places** in the content JSON:
+- Cover slide: `"bg_image": "assets/photos/<slug>.jpg"` (full-bleed photo + scrim, per §4)
+- Top-level: `"photo": "<slug>.jpg"` (applies a duotone wash of the same photo to the
+  other 6 slides, via `scripts/cardnews.py`'s `photo_bases()` — keeps the whole
+  carousel visually cohesive instead of just the cover having a photo)
 
-~20개, 3계층: 대형(`#맛집` `#카페투어` `#서울맛집`) / 중형(`#파인다이닝` `#칵테일바` `#로컬맛집`) /
-소형(`#노포` `#숨은맛집` 등 지역·업종 구체 태그).
+If you truly cannot find a suitable free-license photo after a real search, fall back
+to the `anchor` typography treatment (no `bg_image`, no `photo`) rather than using an
+unlicensed image — but this should be rare for a food account.
 
-## 6. 발행 파이프라인
+## 4. Card structure (7 slides)
 
-ig-studio와 완전히 동일한 구조 (`PIPELINE.md` 참고) — 클라우드 전용, 로컬 Mac 불필요:
+Same renderer as ig-studio (`scripts/cardnews.py`):
 
 ```
-daily-content.yml  09:00 / 15:00 KST  →  리서치·집필·렌더링·커밋
-publish.yml        30분마다            →  큐에서 차례 된 글 1건 발행
-refresh-token.yml                      →  인스타그램 토큰 갱신
+1  cover    ★ editorial cover — eyebrow + 2-line headline ("line 1 hook / line 2 payoff")
+             + subline + REQUIRED bg_image (see §3)
+2  stat     one key fact/number (e.g. "since 1945", a ranking, a price point)
+3  list     comparison/context
+4  point    ★ the real reason this place matters — the non-obvious angle
+5  list     practical info (location, tips, what to order/pair)
+6  quote    caveat — "taste varies", note the info's as-of date
+7  source   sources (booking link/official page/press) + save/follow CTA
+```
+
+## 5. Caption structure (~250 chars)
+
+```
+line 1     one-sentence hook
+para 2     place name + one verified key fact (location/feature/source)
+para 3     one-line caveat (subjective taste, info as of a date)
+closer     "Sources in the last slide" + save prompt
+```
+
+## 6. Hashtags
+
+~20 tags, three tiers, **in English** (this is an English-language account):
+large (`#travel` `#foodie` `#korea`) / mid (`#seouleats` `#hiddengem` `#localfood`) /
+niche (specific neighborhood/cuisine tags).
+
+## 7. Publishing pipeline
+
+Identical structure to ig-studio (see `PIPELINE.md`) — cloud-only, no local Mac needed:
+
+```
+daily-content.yml  09:00 / 15:00 KST  →  research, write, render, commit
+publish.yml        every 30 min       →  publishes whichever queued post is due
+refresh-token.yml                     →  refreshes the Instagram token
 ```
