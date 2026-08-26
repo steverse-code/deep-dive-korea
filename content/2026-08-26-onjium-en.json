@@ -1,0 +1,108 @@
+{
+  "slug": "2026-08-26-onjium-en",
+  "pillar": "restaurant",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-26T09:41:04+09:00",
+  "photo": "onjium-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "RESTAURANT · SEOUL",
+      "headline": "This kitchen reads\nbefore it cooks.",
+      "subline": "Onjium, Jongno — No. 14 on Asia's 50 Best Restaurants 2026",
+      "bg_image": "assets/photos/onjium-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "No. 14",
+      "label": "Onjium's rank on Asia's 50 Best Restaurants 2026\n— and its chef took Asia's Best Female Chef",
+      "note": "Announced 26 March 2026 in Hong Kong · theworlds50best.com · The Korea Herald"
+    },
+    {
+      "type": "list",
+      "title": "One institute,\nthree studios",
+      "items": [
+        {
+          "t": "Clothing",
+          "d": "A hanbok studio researching how Korean dress was actually made"
+        },
+        {
+          "t": "Space",
+          "d": "A design studio working on traditional architecture and interiors"
+        },
+        {
+          "t": "Food",
+          "d": "The culinary studio — the only one of the three you can book a table at"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The menu starts\nin the archive.",
+      "body": "Onjium opened in 2013 as a research institute affiliated with the Arumjigi Culture Keepers Foundation, not as a restaurant with a research habit. Staff study centuries-old Korean cookbooks and royal court records together, and the tasting menu is what comes out the other end. The name itself means, roughly, to make something properly.\n\nChef Cho Eun-hee: \"Korean cuisine is not a culture of overpowering flavours, but a culinary culture that uses time to perfect relationships and balance.\"",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "4F, 49 Hyoja-ro, Jongno-gu, Seoul",
+          "d": "Facing the stone wall of Gyeongbokgung Palace, west side"
+        },
+        {
+          "t": "Lunch from 12:00, dinner from 18:00",
+          "d": "Listings report it closed weekends and Mondays — worth confirming when you book"
+        },
+        {
+          "t": "One MICHELIN Star, Seoul & Busan 2026",
+          "d": "Modern Korean royal court cuisine, served as a seasonal tasting menu"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in August 2026.",
+      "by": "Hours, menus and prices change, and a room this small books out — worth checking @onjium_restaurant before you go.\nTaste is always personal.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Asia's 50 Best Restaurants 2026 — Onjium, No. 14 (theworlds50best.com)",
+        "50 Best, Cho Eun-hee interview — Asia's Best Female Chef 2026 (26 March 2026)",
+        "The Korea Herald, 'Seoul's fine dining scene shines as 6 restaurants land on Asia's 50 Best list'",
+        "The MICHELIN Guide Seoul & Busan 2026 — Onjium, One Star",
+        "Arumjigi Culture Keepers Foundation — Onjium research institute and its three studios",
+        "* Cover photo is a licensed stock image of a Korean table, not a photo of Onjium itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "A Seoul restaurant that was a research institute first — the menu is the output, not the point.\n\nOnjium, Jongno: No. 14 on Asia's 50 Best Restaurants 2026, one MICHELIN Star, and chef Cho Eun-hee named Asia's Best Female Chef 2026.\n\nHours and menus change, so it's worth confirming before you go.\n\nSources in the last slide. Save this for your next trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#foodie",
+    "#finedining",
+    "#koreanfood",
+    "#seouleats",
+    "#seoultravel",
+    "#michelinstar",
+    "#koreatravel",
+    "#tastingmenu",
+    "#hiddengem",
+    "#asias50best",
+    "#onjium",
+    "#jongno",
+    "#gyeongbokgung",
+    "#royalcourtcuisine",
+    "#hansik",
+    "#realkorea",
+    "#deepdivekorea"
+  ]
+}
