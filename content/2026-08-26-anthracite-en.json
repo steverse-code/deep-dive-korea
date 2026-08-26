@@ -1,0 +1,108 @@
+{
+  "slug": "2026-08-26-anthracite-en",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-26T15:53:45+09:00",
+  "photo": "anthracite-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE · SEOUL",
+      "headline": "The bar you order at\nwas a conveyor belt.",
+      "subline": "Anthracite Coffee, Hapjeong — open since 2009 inside a disused shoe factory",
+      "bg_image": "assets/photos/anthracite-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "2009",
+      "label": "The year Anthracite opened inside an abandoned shoe factory in Hapjeong — and kept the factory",
+      "note": "Sources: Kinfolk · Sprudge Coffee · Seoul Metropolitan Government official tourism site (english.visitseoul.net)"
+    },
+    {
+      "type": "list",
+      "title": "What the factory\nleft behind",
+      "items": [
+        {
+          "t": "Concrete, stone, exposed beams",
+          "d": "The original shell was kept rather than stripped out and restyled"
+        },
+        {
+          "t": "A conveyor belt",
+          "d": "The line the factory ran shoes along is now the hand-drip bar"
+        },
+        {
+          "t": "Room for a roaster",
+          "d": "Beans are roasted in-house; a resident pastry chef bakes on site"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Nothing here was\nmade to look old.",
+      "body": "Seoul's cafe boom usually works the other way round — a room is gutted, then dressed back up in industrial style. Anthracite's first branch skipped the middle step. It moved into a shoe factory in Hapjeong in 2009 and left the concrete, the stone floor and the beams where they were, which is why the pour-over bar is a piece of the old production line.\n\nThe menu carries the same idea. Roasts are named after writers and artists, so an order can come out as a Natsume Soseki or a Pablo Neruda rather than a number.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "10 Tojeong-ro 5-gil, Mapo-gu, Seoul 04073",
+          "d": "Hapjeong, Mapo-gu — this is the original branch, and the one the rest grew out of"
+        },
+        {
+          "t": "Listed daily 09:00–21:50, last order 21:30",
+          "d": "Listings show no regular closing day — worth confirming before a long trip over"
+        },
+        {
+          "t": "Hand drip, house roasts, pastry",
+          "d": "Cakes, madeleines and financiers are baked in-house alongside the coffee"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in August 2026.",
+      "by": "Hours, menus and prices change — @anthracite_coffee_hapjeong is the quickest place to check before you go.\nTaste is always personal.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Seoul Metropolitan Government, official travel guide — Anthracite Coffee Roasters, Hapjeong Branch (english.visitseoul.net)",
+        "Kinfolk — Anthracite Coffee: opened in an old shoe factory building in Hapjeong",
+        "Sprudge Coffee — 'In Seoul, Anthracite Coffee Fuels The Hapjeong Neighborhood'",
+        "Filter Notes, Seoul cafe listing — address and hours checked 12 July 2026",
+        "anthracitecoffee.com — the roaster's own Hapjeong branch page",
+        "* Cover photo is a licensed stock image of hand-drip coffee, not a photo of Anthracite itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "A Seoul cafe that moved into a shoe factory and left the factory where it was.\n\nAnthracite Coffee, Hapjeong: open since 2009 on Tojeong-ro 5-gil, with roasts named after writers and a hand-drip bar made from the old conveyor line.\n\nHours change, so it's worth checking before you go.\n\nSources in the last slide. Save this for your trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#coffee",
+    "#cafe",
+    "#foodie",
+    "#seoulcafe",
+    "#koreatravel",
+    "#seouleats",
+    "#specialtycoffee",
+    "#coffeeshop",
+    "#hiddengem",
+    "#pourover",
+    "#handdrip",
+    "#coffeeroaster",
+    "#hapjeong",
+    "#mapogu",
+    "#anthracitecoffee",
+    "#realkorea",
+    "#deepdivekorea"
+  ]
+}
