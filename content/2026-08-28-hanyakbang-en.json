@@ -1,0 +1,107 @@
+{
+  "slug": "2026-08-28-hanyakbang-en",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-28T02:27:31+09:00",
+  "photo": "hanyakbang-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE · SEOUL",
+      "headline": "You will walk past\nthe door twice.",
+      "subline": "Coffee Hanyakbang, Euljiro — a coffeehouse down a shoulder-width alley, named after a herbal medicine shop",
+      "bg_image": "assets/photos/hanyakbang-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "1920s",
+      "label": "The decade the interior is deliberately fixed to — the era Seoul's first coffeehouses appeared",
+      "note": "Sources: The Korea Herald, 'Time travel to 1920s cafe scene at Coffee Hanyakbang' · Filter Notes, listing checked 9 July 2026 · Seoul Metropolitan Government tourism site (visitseoul.net)"
+    },
+    {
+      "type": "list",
+      "title": "What is\nin the room",
+      "items": [
+        {
+          "t": "A mother-of-pearl inlaid lacquer counter",
+          "d": "Najeon chilgi — the traditional Korean inlay technique — used as the service bar"
+        },
+        {
+          "t": "Antiques that were collected, not bought in as a set",
+          "d": "The Korea Herald reports the pieces were either gathered by owner Kang Yoon-seok or donated"
+        },
+        {
+          "t": "Hand-poured filter coffee, and ssanghwatang",
+          "d": "The herbal tonic tea sits on the same menu as the pour-over"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The name is not\na design choice.",
+      "body": "Euljiro is full of cafes styled to look old. This one works from the other direction. 'Hanyakbang' means herbal medicine shop, and the name points at what this pocket of central Seoul used to be — the area is tied to Hyeminseo, the Joseon dynasty's public medical office, which the Korea Herald connects to the royal physician Heo Jun.\n\nSo the slowness is the point. Coffee is roasted by hand and poured by hand, closer to steeping medicine than pulling a shot, and the room around it is furnished with objects that were actually collected rather than ordered to match.\n\nGetting in is part of it. The entrance is off a narrow alley between Euljiro's office towers, and there is no shopfront to aim for.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "16-6 Samil-daero 12-gil, Jung-gu, Seoul",
+          "d": "Euljiro 3-ga Station (Lines 2 and 3), Exit 6, then 2-3 minutes on foot into the alley"
+        },
+        {
+          "t": "Listed from 10:00 on weekdays, 11:00 at weekends",
+          "d": "Closing times differ by day across listings, so it is worth confirming before a long trip over"
+        },
+        {
+          "t": "Hyemindang is across the alley",
+          "d": "Reported as its sister bakery — cakes and tarts there, coffee at Hanyakbang"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in August 2026.",
+      "by": "Hours, menus and prices change, and taste is always personal.\nCheck the shop's own channels before you travel.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "The Korea Herald, Coffee Klatch — 'Time travel to 1920s cafe scene at Coffee Hanyakbang'",
+        "Filter Notes, Seoul cafe listing — address and hours checked 9 July 2026, updated 28 March 2026",
+        "Seoul Metropolitan Government official tourism site (visitseoul.net) — Coffee Hanyakbang listing",
+        "Siksin / DiningCode Korean listings — address 16-6 Samil-daero 12-gil, Jung-gu",
+        "* Cover photo is a licensed free-use stock image of coffee, not a photo of Coffee Hanyakbang itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "A Seoul coffeehouse you will probably walk past twice before you find the door.\n\nCoffee Hanyakbang, Euljiro: down a narrow alley off Samil-daero 12-gil, named after a herbal medicine shop, with hand-poured filter coffee and a room full of collected antiques.\n\nHours differ by day, so check before you go.\n\nSources in the last slide. Save this for your trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#coffee",
+    "#cafe",
+    "#foodie",
+    "#seoulcafe",
+    "#koreatravel",
+    "#seouleats",
+    "#specialtycoffee",
+    "#coffeeshop",
+    "#hiddengem",
+    "#pourover",
+    "#handdrip",
+    "#retrocafe",
+    "#euljiro",
+    "#junggu",
+    "#coffeehanyakbang",
+    "#realkorea",
+    "#deepdivekorea"
+  ]
+}
