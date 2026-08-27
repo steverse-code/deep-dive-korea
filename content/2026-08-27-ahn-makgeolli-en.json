@@ -1,0 +1,106 @@
+{
+  "slug": "2026-08-27-ahn-makgeolli-en",
+  "pillar": "bar",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-27T14:38:32+09:00",
+  "photo": "ahn-makgeolli-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "BAR · SEOUL",
+      "headline": "Five tables in Itaewon.\nKorea's first Michelin liquor bar.",
+      "subline": "Mr. Ahn's Craft Makgeolli, Gyeongnidan-gil — Bib Gourmand, MICHELIN Guide",
+      "bg_image": "assets/photos/ahn-makgeolli-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "5",
+      "label": "Tables in the entire room\n— which is why reservations aren't optional",
+      "note": "Seoul's official tourism guide suggests booking about a week ahead · Seoul Metropolitan Government, as of August 2026"
+    },
+    {
+      "type": "list",
+      "title": "Makgeolli,\nre-read",
+      "items": [
+        {
+          "t": "The cliché: a cheap bowl at a market stall",
+          "d": "Around 3,000 won at Gwangjang or Tongin Market, per Seoul's 2026 makgeolli guide"
+        },
+        {
+          "t": "Here: artisan bottles, chosen per dish",
+          "d": "Small-producer makgeolli on a list the owner curates and rotates"
+        },
+        {
+          "t": "Recognised by the MICHELIN Guide",
+          "d": "Bib Gourmand — and per Seoul's tourism guide, the first Korean traditional liquor bar to be listed at all"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The drink isn't\nthe afterthought here.",
+      "body": "In most Korean drinking houses the food is anju — something to eat so the drinking can continue. The MICHELIN Guide describes this room the other way round: banju culture read through a contemporary lens, with a wide makgeolli selection and dishes designed to complement it.\n\nThe signatures the guide lists — house-made tofu with saeujeot kimchi, pork belly, pollock roe — are built around contrast in texture rather than heat.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "3 Hoenamu-ro, Yongsan-gu, Seoul",
+          "d": "Gyeongnidan-gil — about an 8-minute walk from Itaewon Station, Line 6, Exit 3"
+        },
+        {
+          "t": "Evenings only, roughly 18:00 to midnight",
+          "d": "Listings differ slightly on the closing hour, so confirm when you reserve"
+        },
+        {
+          "t": "Ask about the house tofu spread",
+          "d": "Named a signature by the MICHELIN Guide; Diningcode lists it around 30,000 won"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in August 2026.",
+      "by": "Hours, prices and menus change, and a five-table room books out early — worth confirming before you travel.\nTaste is always personal."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "MICHELIN Guide South Korea — Mr. Ahn's Craft Makgeolli, Seoul (Bib Gourmand)",
+        "Seoul Metropolitan Government official tourism site — 'Seoul Makgeolli Guide 2026' and its Anssi Makgeolli listing",
+        "Diningcode — address, hours and menu prices for Hanguksuljip Anssi Makgeolli",
+        "Catch Table — live reservation listing, confirming the bar is operating",
+        "* Cover photo is a licensed stock image of a Korean drinking house, not a photo of this bar."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "In most Korean bars the food is anju — something to eat so the drinking can continue. One Itaewon room reads it the other way.\n\nMr. Ahn's Craft Makgeolli, on Gyeongnidan-gil, pairs artisan makgeolli with dishes built to complement it. The MICHELIN Guide lists it Bib Gourmand. About five tables, so book ahead.\n\nHours and menus change — worth confirming first.\n\nSources in the last slide. Save this for your next trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#foodie",
+    "#drinks",
+    "#koreatravel",
+    "#seoultravel",
+    "#seouleats",
+    "#hiddengem",
+    "#localfood",
+    "#makgeolli",
+    "#koreanfood",
+    "#ricewine",
+    "#bibgourmand",
+    "#michelinguide",
+    "#itaewon",
+    "#gyeongnidangil",
+    "#yongsan",
+    "#koreanbar",
+    "#deepdivekorea"
+  ]
+}
