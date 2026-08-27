@@ -1,0 +1,105 @@
+{
+  "slug": "2026-08-27-yonggeumok-en",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-27T17:56:03+09:00",
+  "photo": "yonggeumok-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "LOCAL · SEOUL",
+      "headline": "North Korean envoys kept asking\nif it was still open.",
+      "subline": "Yonggeumok — Seoul-style loach soup since 1932, Bib Gourmand in the 2026 MICHELIN Guide",
+      "bg_image": "assets/photos/yonggeumok-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "1932",
+      "label": "The year Yonggeumok opened\n— three generations, one family",
+      "note": "Designated a Seoul Future Heritage site in 2013 · Bib Gourmand, MICHELIN Guide Seoul & Busan 2026"
+    },
+    {
+      "type": "list",
+      "title": "One fish,\ntwo soups",
+      "items": [
+        {
+          "t": "Seoul style — chutang, whole loach",
+          "d": "The chunkier version, with the fish left intact in the broth. This is the one Seoul held onto."
+        },
+        {
+          "t": "Namdo style — chueotang, ground loach",
+          "d": "Smoother, the fish boiled down and pressed through. The version most of Korea eats today."
+        },
+        {
+          "t": "Yonggeumok serves both",
+          "d": "Per its MICHELIN Guide listing — so you can taste the difference in one sitting"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "A soup older than\nthe border itself",
+      "body": "In 1953, during the Korean War ceasefire talks, an interpreter for Kim Il Sung asked whether the restaurant was still around. In 1973 a North Korean delegate asked the same thing. In 1990, North Korean Premier Yon Hyong-muk ate here twice while visiting Seoul.\n\nThe original Mugyo-dong building came down in 1960s redevelopment. The family moved about 100 metres to Da-dong and carried on.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "Seochon branch — 41-2 Jahamun-ro, Jongno-gu, Seoul",
+          "d": "Roughly a 6-minute walk from Gyeongbokgung Station, Exit 2"
+        },
+        {
+          "t": "11:30-15:00 and 17:00-21:05 · closed Sundays",
+          "d": "Saturdays close at 20:00. Per Seoul city's official travel guide, as of August 2026"
+        },
+        {
+          "t": "Two branches, two price lists",
+          "d": "The older Da-dong room (24-2 Dadong-gil, Jung-gu) prices its bowl a little lower than Seochon — check the one you're heading to"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This information is current\nas of August 2026, based on public sources.",
+      "by": "Hours, prices and branch details can change — worth confirming before you go.\nTaste is always personal."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "MICHELIN Guide Seoul & Busan 2026 — Yonggeumok, Bib Gourmand (guide.michelin.com)",
+        "Seoul Metropolitan Government official travel guide — address, hours, menu (english.visitseoul.net)",
+        "Wikipedia, 'Yonggeumok' — 1932 founding, three generations, Seoul Future Heritage 2013, North Korean visits",
+        "* Every place on this account has been checked for real, current operation. This is research, not a personal review."
+      ],
+      "cta": "We only feature places that actually exist.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "Seoul quietly has its own version of loach soup — and a 1932 shop is still cooking it.\n\nYonggeumok · open since 1932, three generations · Bib Gourmand in the 2026 MICHELIN Guide · Seochon, near Gyeongbokgung\n\nHours and prices differ by branch, so worth checking first.\n\nFull sources in the last slide. Save this for your next trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#foodie",
+    "#seouleats",
+    "#koreanfood",
+    "#localfood",
+    "#hiddengem",
+    "#soup",
+    "#chueotang",
+    "#koreantravel",
+    "#seoultravel",
+    "#michelinbibgourmand",
+    "#oldschool",
+    "#seochon",
+    "#gyeongbokgung",
+    "#jongno",
+    "#realkorea",
+    "#offthebeatenpath",
+    "#deepdivekorea"
+  ]
+}
