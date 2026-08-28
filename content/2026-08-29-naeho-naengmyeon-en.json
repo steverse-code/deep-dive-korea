@@ -1,0 +1,106 @@
+{
+  "slug": "2026-08-29-naeho-naengmyeon-en",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-29T03:21:00+09:00",
+  "photo": "naeho-naengmyeon-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "LOCAL · BUSAN",
+      "headline": "The last ship out of Hungnam\ncarried a noodle shop.",
+      "subline": "Naeho Naengmyeon — open since 1919, and the alley where Busan's milmyeon is said to have been born",
+      "bg_image": "assets/photos/naeho-naengmyeon-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "1919",
+      "label": "The year this family opened\nits first noodle shop — in what\nis now North Korea",
+      "note": "Reopened in Busan in March 1953, after the December 1950 Hungnam evacuation · listed among South Korea's oldest still-operating restaurants"
+    },
+    {
+      "type": "list",
+      "title": "Two noodles,\none war",
+      "items": [
+        {
+          "t": "Naengmyeon — buckwheat and potato starch",
+          "d": "The northern original the family had made since 1919. Both ingredients were scarce and expensive in wartime Busan."
+        },
+        {
+          "t": "Milmyeon — wheat flour instead",
+          "d": "They switched to wheat, which was arriving as American army aid. Springier, chewier, and something refugees could afford."
+        },
+        {
+          "t": "Reportedly first served here in 1959",
+          "d": "Other Busan shops dispute the claim, but Naeho is the one most often named as milmyeon's starting point."
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "A Busan classic\ninvented by a shortage",
+      "body": "The shop opened in 1919 as Dongchun Myeonok, in Naeho-ri near Hungnam. In December 1950 the family boarded the Hungnam evacuation — the sealift South Koreans still call the Miracle of Christmas. The current owner-chef, You Sang-mo, told The Korea Times he was three, riding on his aunt's back on the last ship out.\n\nThey reopened in Busan in March 1953 and later renamed the shop Naeho, after the village they could no longer return to. Milmyeon began as a substitution — and became the dish the city is known for.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "17 Uambeonyeong-ro 26beon-gil, Nam-gu, Busan",
+          "d": "Inside the old Uam-dong market — a narrow back alley that even locals say is easy to walk straight past"
+        },
+        {
+          "t": "10:30-20:00 daily, last order around 19:30",
+          "d": "Per Korean listing platforms as of August 2026. Hours at a shop this old are worth confirming by phone"
+        },
+        {
+          "t": "Milmyeon, listed at around 9,000 won",
+          "d": "Served either in chilled broth (mul) or mixed with chilli sauce (bibim). Dumplings and hot onmyeon are on the menu too"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This information is current\nas of August 2026, drawn from public sources.",
+      "by": "Hours, prices and menus change — worth checking before you travel.\nAnd taste is always personal."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "The Korea Times (Dec 2023) — 'Wheat noodles that comforted homesick N. Korean refugees are now Busan specialty': owner interview, Hungnam evacuation, March 1953 reopening",
+        "South China Morning Post (2023) — milmyeon's refugee origins and Naeho Naengmyeon in Uam-dong, Nam-gu",
+        "Wikipedia, 'Naeho Naengmyeon' and 'List of oldest restaurants in South Korea' — 1919 founding as Dongchun Myeonok, family succession",
+        "Korean listing platforms (Siksin, DiningCode) — current address, hours and menu prices",
+        "* Every place on this account is checked for real, current operation. This is research, not a personal review."
+      ],
+      "cta": "We only feature places that actually exist.\nSave this for your next Busan trip"
+    }
+  ],
+  "caption": "Busan's signature noodle started as a substitution — and one shop still serves it where it began.\n\nNaeho Naengmyeon · founded 1919 near Hungnam, reopened in Busan in 1953 after the Hungnam evacuation · Uam-dong market, Nam-gu\n\nInfo is as of August 2026, and taste is personal.\n\nSources in the last slide. Save this for your next trip.",
+  "hashtags": [
+    "#korea",
+    "#busan",
+    "#travel",
+    "#foodie",
+    "#koreanfood",
+    "#localfood",
+    "#hiddengem",
+    "#busanfood",
+    "#milmyeon",
+    "#naengmyeon",
+    "#coldnoodles",
+    "#koreantravel",
+    "#busantravel",
+    "#namgu",
+    "#uamdong",
+    "#oldschool",
+    "#noodles",
+    "#realkorea",
+    "#offthebeatenpath",
+    "#deepdivekorea"
+  ]
+}
