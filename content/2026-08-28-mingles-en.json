@@ -1,0 +1,108 @@
+{
+  "slug": "2026-08-28-mingles-en",
+  "pillar": "restaurant",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-28T16:32:59+09:00",
+  "photo": "mingles-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "RESTAURANT · SEOUL",
+      "headline": "The dessert here\nis made of soy sauce.",
+      "subline": "Mingles, Cheongdam — Korea's only three-MICHELIN-star restaurant",
+      "bg_image": "assets/photos/mingles-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "1 of 1",
+      "label": "Mingles is Korea's only Three MICHELIN Star restaurant — held for a second year running",
+      "note": "MICHELIN Guide Seoul & Busan 2026, announced 5 March 2026 · 46 starred restaurants in total: 1 three-star, 10 two-star, 35 one-star"
+    },
+    {
+      "type": "list",
+      "title": "Three ferments,\none dessert",
+      "items": [
+        {
+          "t": "Doenjang",
+          "d": "Fermented soybean paste — turned into a crème brûlée"
+        },
+        {
+          "t": "Ganjang",
+          "d": "Korean soy sauce — glazed over pecans as a caramel"
+        },
+        {
+          "t": "Gochujang",
+          "d": "Fermented chilli paste — dusted over puffed grains"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The chef wrote\nthe book. Literally.",
+      "body": "The Jang Trio has anchored the Mingles menu for years — three Korean ferments most people meet in stews and side dishes, served as the last course instead of the first.\n\nIt isn't a gimmick. Chef Mingoo Kang, who opened Mingles in 2014 after training under Martin Berasategui in San Sebastián, published \"Jang: The Soul of Korean Cooking\" in 2024 — a whole book on doenjang, ganjang and gochujang. It won the James Beard Foundation Book Award 2025 in the Single Subject category.\n\nThe restaurant is the argument; the book is the footnotes.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "2F, 19 Dosan-daero 67-gil, Gangnam-gu, Seoul",
+          "d": "Cheongdam-dong — the restaurant moved to this larger space in 2019"
+        },
+        {
+          "t": "Listings report Tue–Sat lunch and dinner, closed Sun–Mon",
+          "d": "Bookings are handled by the restaurant directly — confirm before you travel"
+        },
+        {
+          "t": "No. 4, Asia's 50 Best Restaurants 2026",
+          "d": "Also named Best Restaurant in Korea 2026; in the MICHELIN Guide every year since 2017"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in August 2026.",
+      "by": "Menus change by season, hours change without notice, and a three-star room books out far ahead.\nTaste is always personal.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "The MICHELIN Guide Seoul & Busan 2026 — Mingles, Three Stars (ceremony 5 March 2026)",
+        "Asia's 50 Best Restaurants 2026 — Mingles, No. 4 (theworlds50best.com)",
+        "Seoul Economic Daily, 'Mingles Retains Korea's Only Three-Star Michelin Rating for Second Year'",
+        "James Beard Foundation Book Awards 2025 — Single Subject winner, 'Jang: The Soul of Korean Cooking'",
+        "Restaurant listing details (address, hours) via MICHELIN Guide and booking platforms",
+        "* Cover photo is a licensed stock image of Korean onggi fermentation jars, not a photo of Mingles itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "A Seoul restaurant that serves soy sauce and chilli paste as dessert.\n\nMingles, Cheongdam: Korea's only three-MICHELIN-star restaurant, No. 4 on Asia's 50 Best 2026. Chef Mingoo Kang's book on jang won a James Beard Award.\n\nMenus and hours change — confirm before you go.\n\nSources in the last slide. Save it for your next trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#foodie",
+    "#finedining",
+    "#koreanfood",
+    "#seouleats",
+    "#seoultravel",
+    "#michelinstar",
+    "#koreatravel",
+    "#tastingmenu",
+    "#threemichelinstars",
+    "#asias50best",
+    "#mingles",
+    "#cheongdam",
+    "#gangnam",
+    "#gochujang",
+    "#doenjang",
+    "#hansik",
+    "#deepdivekorea"
+  ]
+}
