@@ -1,0 +1,112 @@
+{
+  "slug": "2026-08-30-le-dorer-en",
+  "pillar": "restaurant",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-30T11:16:13+09:00",
+  "photo": "le-dorer-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "RESTAURANT · BUSAN",
+      "headline": "Busan's star list\nfinally moved.",
+      "subline": "Le DORER, Marine City — the city's fourth one-star restaurant, and its first new one since 2024",
+      "bg_image": "assets/photos/le-dorer-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "4",
+      "label": "One-MICHELIN-star restaurants in all of Busan — Le DORER became the fourth in 2026",
+      "note": "MICHELIN Guide Seoul & Busan 2026, announced 5 March 2026 at Signiel Busan · 233 restaurants in the selection, 55 of them in Busan"
+    },
+    {
+      "type": "list",
+      "title": "Busan's four\nstarred rooms",
+      "items": [
+        {
+          "t": "Mori",
+          "d": "Japanese — one star since the first Busan edition in 2024"
+        },
+        {
+          "t": "Palate",
+          "d": "French, avant-garde — one star since 2024"
+        },
+        {
+          "t": "Fiotto",
+          "d": "Pasta, up on Dalmaji Hill — one star since 2024, also a Green Star"
+        },
+        {
+          "t": "Le DORER",
+          "d": "Contemporary Korean, Marine City — promoted to one star in 2026"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The first change\ncame from home.",
+      "body": "The MICHELIN Guide added Busan in 2024 and handed out three stars: a Japanese room, a French one, an Italian one. All three kept them in 2025 and again in 2026. For three editions the list did not move.\n\nThe restaurant that moved it is the only one on that list cooking Korean. Le DORER runs a tasting menu built on seasonal local ingredients, reading traditional Korean cooking through French and Japanese technique. MICHELIN also gave chef Kim Chang-wook the 2026 Young Chef Award, citing refined simplicity and ingredient integrity.\n\nA port city's first new star went to someone from the port city.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "#213-214, 37 Marine City 3-ro, Haeundae-gu, Busan",
+          "d": "Reached through a small alley; the dining room looks out over the water"
+        },
+        {
+          "t": "Bookings via CatchTable or by phone (+82 51-747-8522)",
+          "d": "The restaurant's own site points reservations there — confirm before you travel"
+        },
+        {
+          "t": "Tasting menu only, built around what is in season",
+          "d": "Listings report lunch and dinner Wed-Sun, closed Mon-Tue"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in August 2026.",
+      "by": "Tasting menus change with the season and hours change without notice, and a newly starred room books out quickly.\nTaste is always personal.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "The MICHELIN Guide Seoul & Busan 2026 — Le DORER, One Star (ceremony 5 March 2026, Signiel Busan)",
+        "MICHELIN Korea 2026 selection release — 233 restaurants, Busan's four one-star restaurants",
+        "MICHELIN Guide Young Chef Award 2026 — Kim Chang-wook, Le DORER",
+        "Stripes Korea, 'Busan gets its fourth MICHELIN-starred restaurant in the 2026 Guide'",
+        "Le DORER official site (ledorer.com) — address, phone, reservations",
+        "* Cover photo is a licensed stock image of a plated fine-dining dish, not a photo of Le DORER itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Busan trip"
+    }
+  ],
+  "caption": "For three years, Busan's Michelin list didn't move.\n\nLe DORER in Marine City became the city's fourth one-star restaurant in the 2026 guide, and chef Kim Chang-wook took the Young Chef Award. Contemporary Korean, tasting menu only.\n\nMenus and hours change — confirm before you go.\n\nSources in the last slide. Save it for your next trip.",
+  "hashtags": [
+    "#korea",
+    "#busan",
+    "#travel",
+    "#foodie",
+    "#finedining",
+    "#koreanfood",
+    "#busanfood",
+    "#koreatravel",
+    "#michelinstar",
+    "#michelinguide",
+    "#tastingmenu",
+    "#haeundae",
+    "#marinecity",
+    "#busantravel",
+    "#hansik",
+    "#seafood",
+    "#foodtravel",
+    "#asiatravel",
+    "#ledorer",
+    "#deepdivekorea"
+  ]
+}

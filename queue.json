@@ -78,5 +78,11 @@
     "status": "published",
     "media_id": "18003042212997540",
     "published_at": "2026-08-29T16:07:47.977282+09:00"
+  },
+  {
+    "slug": "2026-08-30-le-dorer-en",
+    "pillar": "restaurant",
+    "publish_at": "2026-08-30T11:16:13+09:00",
+    "status": "pending"
   }
 ]
