@@ -1,0 +1,108 @@
+{
+  "slug": "2026-08-31-momos-coffee-en",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-31T21:58:26+09:00",
+  "photo": "momos-coffee-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE · BUSAN",
+      "headline": "The world barista champion\nwasn't working in Seoul.",
+      "subline": "Momos Coffee, Oncheonjang — a Busan roastery that began in a converted storage room in 2007 and placed 22nd on The World's 100 Best Coffee Shops 2026",
+      "bg_image": "assets/photos/momos-coffee-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "No. 22",
+      "label": "Momos Coffee's place on The World's 100 Best Coffee Shops 2026 — one of only two Korean cafes on the list, and the one that is not in Seoul",
+      "note": "Sources: The World's 100 Best Coffee Shops 2026, announced at Coffee Fest Madrid on 16 February 2026 · Haps Korea · Stripes Korea · The Korea Herald, April 2026"
+    },
+    {
+      "type": "list",
+      "title": "What this\nroastery has won",
+      "items": [
+        {
+          "t": "The 2019 World Barista Championship",
+          "d": "Jooyeon Jeon of Momos won in Boston — the first Korean to take the title, and, as the company notes, the first winner from outside the capital region"
+        },
+        {
+          "t": "The 2021 World Cup Tasters Championship",
+          "d": "That year's champion, Kyoungha 'Charlie' Chu, later joined Momos and now oversees quality control from green bean selection to roast, per the company's own account"
+        },
+        {
+          "t": "No. 22 in the world, February 2026",
+          "d": "The 100 Best list combines expert judging with public voting; Seoul's Lurii Coffee was the only other Korean entry, at 51"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The title came out of\na neighbourhood, not a capital.",
+      "body": "Korean coffee prestige is assumed to live in Seoul. Momos is the counter-example, and its start was small: the company says it opened in 2007 by converting a restaurant storage room of about 140 square feet into a take-out coffee bar. Haps Korea places that first shop in Oncheonjang, the district where the flagship still stands.\n\nWhat grew out of it was a roasting company rather than a cafe chain — an academy, wholesale, and direct sourcing from what Momos reports as more than 150 partner farms. In 2019 its co-CEO Jooyeon Jeon won the World Barista Championship in Boston: the first Korean champion, and the first from outside the capital region.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "20 Osige-ro, Geumjeong-gu, Busan",
+          "d": "The Korea Tourism Organization lists the main branch here, near Oncheonjang Station on Line 1, exit 2, and notes there is no parking. The Korea Herald describes a wood-toned room opening onto a courtyard with bamboo and a magnolia"
+        },
+        {
+          "t": "08:00-18:00, last order 17:30",
+          "d": "Per the tourism listing; Visit Busan adds closures on public holidays and Labour Day. Phone numbers differ between listings (051-512-0700 and 051-512-7034), so confirm before travelling"
+        },
+        {
+          "t": "Hand drip is the house format, and it is slow",
+          "d": "Visit Busan lists today's drip coffee at 6,500 won and an americano chocolat at 6,000 won; the Korea Herald reported waits of over half an hour for hand drip"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked on 31 August 2026.",
+      "by": "Prices, hours and menus change, and taste is always personal.\nCheck the shop's own channels before you travel.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Korea Tourism Organization (english.visitkorea.or.kr) — Momos Coffee Main Branch listing: address, hours, phone, access",
+        "Visit Busan, Busan Metropolitan City's official tourism site — Momos Coffee listing: hours, signature menu and prices",
+        "Haps Korea — 'Busan's Momos Coffee Named Among World's Top 100 Cafes', February 2026",
+        "The Korea Herald, April 2026 — feature on the Momos flagship, its courtyard and its hand-drip service",
+        "Momos Coffee official site (momoscoffee.net) — founding, the 2019 World Barista Championship, the 2021 World Cup Tasters Championship, farm sourcing",
+        "* Cover photo is a licensed free-use stock image of a coffee roaster, not a photo of Momos itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Korea trip"
+    }
+  ],
+  "caption": "The 2019 World Barista Champion wasn't working in Seoul.\n\nMomos Coffee has been roasting in Busan's Oncheonjang since 2007, and in February it placed 22nd on The World's 100 Best Coffee Shops 2026 — one of only two Korean cafes on the list.\n\nHours and prices shift, and taste is personal.\n\nSources in the last slide. Save this for your trip.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#coffee",
+    "#foodie",
+    "#cafe",
+    "#koreatravel",
+    "#specialtycoffee",
+    "#cafehopping",
+    "#coffeeshop",
+    "#hiddengem",
+    "#roastery",
+    "#busan",
+    "#busancafe",
+    "#oncheonjang",
+    "#geumjeonggu",
+    "#momoscoffee",
+    "#worldbaristachampion",
+    "#handdrip",
+    "#koreancafe",
+    "#deepdivekorea"
+  ]
+}
