@@ -98,6 +98,7 @@
     "slug": "2026-08-31-balwoo-gongyang-en",
     "pillar": "restaurant",
     "publish_at": "2026-08-31T11:24:00+09:00",
-    "status": "pending"
+    "status": "pending",
+    "error": "POST https://graph.instagram.com/v24.0/17841435733524806/media_publish → HTTP 403"
   }
 ]
