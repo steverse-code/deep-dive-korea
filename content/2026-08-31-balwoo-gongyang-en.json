@@ -1,0 +1,111 @@
+{
+  "slug": "2026-08-31-balwoo-gongyang-en",
+  "pillar": "restaurant",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-08-31T11:24:00+09:00",
+  "photo": "balwoo-gongyang-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "RESTAURANT · SEOUL",
+      "headline": "Korean cooking,\nminus the garlic.",
+      "subline": "Balwoo Gongyang, Jongno — Buddhist temple cuisine, run by the order itself since 2009",
+      "bg_image": "assets/photos/balwoo-gongyang-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "5",
+      "label": "aromatics a temple kitchen will not use — garlic, green onion, chives, wild chives and asafoetida",
+      "note": "Together they are called the ohsinchae. Buddhist practice holds that their pungency stirs the mind and gets in the way of meditation, so temple cooking leaves all five out. Source: Cultural Corps of Korean Buddhism (koreatemplefood.com)"
+    },
+    {
+      "type": "list",
+      "title": "What this\nkitchen removes",
+      "items": [
+        {
+          "t": "Meat, fish, and any stock made from them",
+          "d": "Temple food uses no animal products; the order's own guidance names dairy as the single exception"
+        },
+        {
+          "t": "The five pungent aromatics",
+          "d": "Garlic and green onion sit under most Korean home cooking. Here they are simply absent"
+        },
+        {
+          "t": "Artificial seasoning",
+          "d": "Depth is built from mushroom powder, kelp powder, soy sauce and doenjang instead"
+        },
+        {
+          "t": "Alcohol",
+          "d": "The official Seoul city listing notes none is sold on the premises"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Cooking by\nsubtraction.",
+      "body": "Take away meat, take away stock, take away garlic and onion, and most cuisines have nothing left to stand on. Temple cooking has spent roughly 1,700 years working out what does.\n\nWhat carries the flavour is time rather than pungency: soy sauce and soybean paste aged in temple jars, dried mushrooms, kelp, seasonal mountain greens picked and preserved when they are ready. The constraint is the technique.\n\nAnd this is not a chef's personal project. Balwoo Gongyang is operated directly by the Cultural Corps of Korean Buddhism, the Jogye Order's cultural body, which opened it in 2009 to keep that tradition legible to people who will never live in a temple.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "5F, Templestay Information Center, 56 Ujeongguk-ro, Jongno-gu, Seoul",
+          "d": "Beside Jogyesa Temple, a short walk from Anguk or Jonggak station"
+        },
+        {
+          "t": "Reservations required — +82 2-733-2081",
+          "d": "Listings report Mon-Sat with a 15:00-18:00 break, closed Sundays. Confirm before you travel"
+        },
+        {
+          "t": "Courses from 36,000 to 120,000 won",
+          "d": "Seon (weekday lunch only) 36,000 · Won 50,000 · Maeum 70,000 · Hee 120,000, by advance booking"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in August 2026.",
+      "by": "The MICHELIN Guide Seoul has awarded this restaurant a star in past editions; we could not confirm its standing in the current edition from the guide's own site, so we have left it out of the claims above.\nCourse menus, prices and hours change without notice. Taste is always personal.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Visit Seoul (official Seoul city tourism) — Balwoo Gongyang: address, phone, hours, course prices, operator",
+        "Cultural Corps of Korean Buddhism, koreatemplefood.com — characteristics of Korean temple food and the ohsinchae",
+        "DiningCode listing — currently operating, hours, break time, closed days, full course pricing",
+        "Korean Buddhist press (Hyunbulnews, Bulgyo Sinmun) — the restaurant opened in 2009 under the Jogye Order to promote temple food",
+        "* Cover photo is a licensed free-license stock image of Korean side dishes, not a photo of Balwoo Gongyang itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "Most Korean cooking starts with garlic. This kitchen removes it.\n\nBalwoo Gongyang in Jongno serves Buddhist temple cuisine — no meat, no garlic, no onion — and is run directly by the Jogye Order's cultural body. Courses from 36,000 won, reservation only.\n\nPrices and hours change, so confirm before you go.\n\nSources in the last slide. Save it for your next Seoul trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#foodie",
+    "#vegan",
+    "#koreanfood",
+    "#seouleats",
+    "#koreatravel",
+    "#templefood",
+    "#buddhistcuisine",
+    "#veganfood",
+    "#vegetarian",
+    "#jongno",
+    "#insadong",
+    "#seoulfood",
+    "#hansik",
+    "#foodtravel",
+    "#asiatravel",
+    "#plantbased",
+    "#deepdivekorea"
+  ]
+}
