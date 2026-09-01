@@ -114,5 +114,11 @@
     "publish_at": "2026-09-01T11:31:53+09:00",
     "status": "pending",
     "error": "POST https://graph.instagram.com/v24.0/17841435733524806/media_publish → HTTP 403"
+  },
+  {
+    "slug": "2026-09-01-gugil-ttarogukbap-en",
+    "pillar": "local",
+    "publish_at": "2026-09-01T20:19:07+09:00",
+    "status": "pending"
   }
 ]
