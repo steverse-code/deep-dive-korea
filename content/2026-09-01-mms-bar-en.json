@@ -1,0 +1,114 @@
+{
+  "slug": "2026-09-01-mms-bar-en",
+  "pillar": "bar",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-01T11:31:53+09:00",
+  "photo": "mms-bar-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "BAR · SEOUL",
+      "headline": "A cafe in the afternoon.\nA brewery by night.",
+      "subline": "M+MS bar, Gangnam — the newest Seoul entry on Asia's 50 Best Bars 2026",
+      "bg_image": "assets/photos/mms-bar-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "42",
+      "label": "Its first-ever place on Asia's 50 Best Bars\n— a new entry in 2026",
+      "note": "List announced 28 July 2026 in Macau; reported by The Korea Herald on 29 July. The other three Seoul bars on it: Zest (No. 2), Alice (No. 13), Bar Cham (No. 33)"
+    },
+    {
+      "type": "list",
+      "title": "What comes\nout of it",
+      "items": [
+        {
+          "t": "Yama",
+          "d": "Built on sour kimchi broth, with tuna fish sauce, fermented kiwi and anchovy soup"
+        },
+        {
+          "t": "Mogwa Atteseo?",
+          "d": "A martini with quince, house-fermented pear, wild kiwi wine and koji"
+        },
+        {
+          "t": "032C",
+          "d": "Berlin currywurst read as dessert — sausage-washed Jägermeister, turmeric, orange custard"
+        },
+        {
+          "t": "Berry Milk Stout, Basil Wheat Beer",
+          "d": "The two house brews, made on site — the malt half of the name"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The base gets made\nhere, not bought.",
+      "body": "M+MS stands for Malt plus Mixology. Most bars buy their spirits and build outward from the bottle; this one runs a brewery and a fermentation programme in-house, so the starting material — beer, koji, fermented fruit, brine — is made in the same building.\n\nThe World's 50 Best describes the room, run by JJ Lim and Louis Eom, less as a bar than a cultural space: a fermentation collective that opens as a cafe in the afternoon and turns to the cocktail list in the evening. There is a kitchen too, listing gochujang ragu pasta, lobster rolls and miso beef tartare.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "32-1 Dosan-daero 49-gil, Gangnam-gu, Seoul",
+          "d": "Ground floor, in the lanes off Dosan-daero on the Sinsa-dong side"
+        },
+        {
+          "t": "Marie Claire Korea lists 14:00-02:00, to 03:00 on Fri and Sat",
+          "d": "Other listings describe it as evening-only — worth confirming before you set out"
+        },
+        {
+          "t": "+82 10-6597-7886",
+          "d": "Instagram is @mms_maltmixologyspace; the phone number is the one published by The World's 50 Best"
+        },
+        {
+          "t": "Come for the fermentation, not the classics",
+          "d": "The published menu leans experimental — kimchi broth, koji, house beer as a cocktail base"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in September 2026.",
+      "by": "Menus built on fermentation change with the season, and hours differ between listings — worth confirming before you travel.\nTaste is always personal."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "The World's 50 Best Bars — Asia's 50 Best Bars 2026, M+MS Bar (No. 42): address, phone, owners, Yama, 032C, Mogwa Atteseo?, house brews",
+        "The Korea Herald, 29 July 2026 — 'Four Seoul bars make Asia's 50 Best Bars 2026, with Zest again Korea's best'",
+        "The Korea Times, 29 July 2026 — 'Seoul claims 4 spots on Asia's 50 Best Bars 2026'",
+        "Marie Claire Korea, May 2026 — MMS listing: address, opening hours, menu direction",
+        "* Cover photo is a licensed stock image of a bar, not a photo of this bar."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Seoul trip"
+    }
+  ],
+  "caption": "A bar that makes its own base ingredients, then serves them from 2pm.\n\nM+MS — Malt plus Mixology — is a new entry at No. 42 on Asia's 50 Best Bars 2026, in Gangnam. It brews beer on site and ferments in-house: one drink starts from sour kimchi broth, another from koji and house-fermented pear.\n\nHours differ between listings, so confirm first.\n\nSources in the last slide. Save it for your next trip.",
+  "hashtags": [
+    "#korea",
+    "#seoul",
+    "#travel",
+    "#foodie",
+    "#cocktails",
+    "#koreatravel",
+    "#seoultravel",
+    "#seoulnightlife",
+    "#hiddengem",
+    "#localfood",
+    "#cocktailbar",
+    "#koreanfood",
+    "#fermentation",
+    "#craftbeer",
+    "#gangnam",
+    "#sinsadong",
+    "#dosanpark",
+    "#asias50bestbars",
+    "#koreanbar",
+    "#deepdivekorea"
+  ]
+}
