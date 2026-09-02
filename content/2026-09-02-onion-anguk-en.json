@@ -1,0 +1,106 @@
+{
+  "slug": "2026-09-02-onion-anguk-en",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-02T19:50:46+09:00",
+  "photo": "onion-anguk-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE · SEOUL",
+      "headline": "Before it poured coffee,\nthis hanok fed politicians.",
+      "subline": "Onion Anguk, 5 Gyedong-gil, Jongno-gu — a hanok the Korea Tourism Organization dates to the 1920s, now a cafe that opens at 07:00 on weekdays",
+      "bg_image": "assets/photos/onion-anguk-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "07:00",
+      "label": "When Onion Anguk opens on weekdays — 09:00 at weekends, closing at 22:00 daily, per the Korea Tourism Organization's listing, which marks it open all year round",
+      "note": "Sources: Korea Tourism Organization (english.visitkorea.or.kr), Onion Anguk Branch listing · KED Global / The Korea Economic Daily, September 2020 · Kinfolk, 'Ten Cafés in Seoul'"
+    },
+    {
+      "type": "list",
+      "title": "Three buildings that\nwere already used up",
+      "items": [
+        {
+          "t": "Seongsu — a 1970 building, a cafe since 2016",
+          "d": "Kinfolk reports it had been a supermarket, a restaurant, a mechanics and a metal factory before the design studio Fabrikr found the space derelict"
+        },
+        {
+          "t": "Anguk — a hanok on a Gyedong lane",
+          "d": "The tourism listing dates the house to the 1920s and says the renovation preserved the daecheongmaru, its wooden hall floor, and the madang, its courtyard"
+        },
+        {
+          "t": "Mia — half of a working post office",
+          "d": "Kinfolk describes Fabrikr carrying the same approach into Onion's other sites, including one sharing a building with a post office still in service"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "It isn't a hanok cafe.\nIt's a method.",
+      "body": "The easy reading is a pretty old house that sells good pastries. The harder one is that the house was not chosen for being pretty.\n\nKinfolk reports that at Onion's first site — a 1970 building in Seongsu that had been a supermarket, a restaurant, a mechanics and a metal factory — Fabrikr chose to preserve as much of the building's history as it could, leaving brickwork exposed and traces of paint and tilework intact. Anguk is that decision applied to a hanok instead of a factory. What people photograph there is wear somebody declined to sand off.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "5 Gyedong-gil, Jongno-gu, Seoul",
+          "d": "The Korea Tourism Organization lists the branch here, near Anguk Station exit 3, open year round, phone +82-70-7543-2123. The palaces are a short walk away"
+        },
+        {
+          "t": "07:00-22:00 weekdays, 09:00-22:00 weekends",
+          "d": "Per the same listing. That weekday opening is early for the neighbourhood, but hours do change — confirm on the shop's own channels before travelling"
+        },
+        {
+          "t": "Vanilla bean latte, pandoro, salty butter bread",
+          "d": "The tourism listing names these as the signature items. It publishes no prices, so treat figures quoted elsewhere online as unconfirmed"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked on 2 September 2026.",
+      "by": "Sources disagree on the building's age — the tourism listing says a 1920s hanok, the Korea Economic Daily calls it over a century old.\nHours and prices change, and taste is always personal.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Korea Tourism Organization (english.visitkorea.or.kr) — Onion Anguk Branch listing: address, hours, phone, signature menu, 1920s hanok, open all year",
+        "KED Global / The Korea Economic Daily, September 2020 — the hanok's earlier life as a closed-door lounge for politicians and a high-end restaurant",
+        "Kinfolk, 'Ten Cafés in Seoul' — Seongsu's 1970 building and prior uses, Fabrikr's preservation approach, the 2016 opening, the Anguk and Mia branches",
+        "* Cover photo is a licensed free-use stock image of a hanok lane in Gyedong, Jongno-gu — not a photo of Onion itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Korea trip"
+    }
+  ],
+  "caption": "Before it poured coffee, this hanok fed politicians.\n\nOnion Anguk sits at 5 Gyedong-gil in Jongno. The Korea Economic Daily reports the house served as a closed-door lounge and a high-end restaurant before the cafe. It opens at 07:00 on weekdays.\n\nHours change, and taste is personal.\n\nSources in the last slide. Save this for your trip.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#seoul",
+    "#coffee",
+    "#cafe",
+    "#foodie",
+    "#koreatravel",
+    "#seoulcafe",
+    "#cafehopping",
+    "#hanok",
+    "#bukchon",
+    "#specialtycoffee",
+    "#hiddengem",
+    "#jongno",
+    "#gyedong",
+    "#anguk",
+    "#cafeonion",
+    "#onionanguk",
+    "#hanokcafe",
+    "#deepdivekorea"
+  ]
+}

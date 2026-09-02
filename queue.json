@@ -127,5 +127,11 @@
     "pillar": "restaurant",
     "publish_at": "2026-09-02T10:54:07+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-02-onion-anguk-en",
+    "pillar": "cafe",
+    "publish_at": "2026-09-02T19:50:46+09:00",
+    "status": "pending"
   }
 ]
