@@ -1,0 +1,112 @@
+{
+  "slug": "2026-09-02-gogung-jeonju-en",
+  "pillar": "restaurant",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-02T10:54:07+09:00",
+  "photo": "gogung-jeonju-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "RESTAURANT · JEONJU",
+      "headline": "In Jeonju, the rice\nis cooked in beef broth.",
+      "subline": "Gogung, Deokjin-gu — a Jeonju bibimbap house open since 1996, with an exhibition room upstairs",
+      "bg_image": "assets/photos/gogung-jeonju-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "2012",
+      "label": "the year Jeonju joined the UNESCO Creative Cities Network as a City of Gastronomy",
+      "note": "It was the first Korean city given that designation. UNESCO's own city profile credits rice from the Honam Plain, fish from the Yellow Sea and mountain greens — and names bibimbap specifically. Source: unesco.org/en/creative-cities/jeonju"
+    },
+    {
+      "type": "list",
+      "title": "What makes it\nJeonju bibimbap",
+      "items": [
+        {
+          "t": "The rice is cooked in beef bone broth",
+          "d": "Jeonju city's official tourism page names this as the defining step — the base is seasoned before a single topping lands on it"
+        },
+        {
+          "t": "Over 30 ingredients in one bowl",
+          "d": "Arranged for the harmony of five colours, which is as much about the arrangement as the eating"
+        },
+        {
+          "t": "Hwangpomuk — yellow mung bean jelly",
+          "d": "A regional ingredient that rarely turns up in bibimbap outside Jeollabuk-do. Gogung also sells it as a side dish"
+        },
+        {
+          "t": "Jeonju bean sprouts",
+          "d": "Grown locally and prized for the snap. The city lists them among the reasons the dish stayed here"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The difference\nis under the toppings.",
+      "body": "Most bibimbap served abroad is a bowl of plain rice with things placed on top. The Jeonju version starts a step earlier: the rice itself is cooked in beef bone broth, so the base carries flavour before anything is added. Everything above it is arrangement.\n\nThat is a difficult thing to notice from a photograph, which may be why Gogung put a bibimbap exhibition room on its second floor — the Korea Tourism Organization's listing describes it as a space explaining the dish's origins and varieties to visitors. A restaurant that thinks the dish needs explaining is a slightly unusual one.\n\nGogung opened in Jeonju in January 1996 and has since grown to roughly 40 branches nationwide. If you want the room the whole thing started in, it is the Jeonju one.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "33 Songcheonjungang-ro, Deokjin-gu, Jeonju",
+          "d": "The Jeonju main branch, marked by a hanok-style gate. It is in Deokjin-gu, not inside the Hanok Village — plan the trip across town"
+        },
+        {
+          "t": "Daily 11:00-21:00, last order 20:30 — +82 63-251-3211",
+          "d": "Listings show no regular closing day, with separate notices at Seollal and Chuseok. Confirm before travelling"
+        },
+        {
+          "t": "Traditional bibimbap 14,000 won",
+          "d": "Stone pot 16,000 · yukhoe (raw beef) 18,000 · set menus 38,000-55,000. You can ask for a brass bowl instead of a stone pot"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in September 2026.",
+      "by": "Gogung is a multi-branch operation of around 40 locations, so if you specifically want a single-room family house, this is not that. We have described what it is rather than ranking it.\nPrices and hours change without notice. Taste is always personal.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "UNESCO Creative Cities Network — Jeonju city profile: 2012 City of Gastronomy designation",
+        "Jeonju City official tourism site (tour.jeonju.go.kr) — Jeonju bibimbap: beef bone broth rice, 30+ ingredients, hwangpomuk, bean sprouts",
+        "Korea Tourism Organization (VisitKorea) listing — Gogung: hanok-style gate, second-floor bibimbap exhibition room, phone number",
+        "DiningCode listing — currently operating, address, daily hours and last order, current menu prices",
+        "Jeolla Ilbo interview — Gogung founded in 1996, roughly 40 branches nationwide",
+        "* Cover photo is a free-license stock image of dolsot bibimbap, not a photo of Gogung itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next trip to Jeonju"
+    }
+  ],
+  "caption": "Bibimbap abroad is rice with toppings. In Jeonju the rice itself is cooked in beef bone broth first.\n\nGogung has served Jeonju bibimbap in Deokjin-gu since 1996, and runs a small exhibition room on the dish upstairs. Traditional bowl 14,000 won, open daily 11:00-21:00.\n\nPrices and hours change, so confirm before you go.\n\nSources in the last slide. Save it for your next trip to Jeonju.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#foodie",
+    "#koreanfood",
+    "#bibimbap",
+    "#koreatravel",
+    "#localfood",
+    "#hiddengem",
+    "#jeonju",
+    "#jeonjubibimbap",
+    "#jeonjuhanokvillage",
+    "#jeollabukdo",
+    "#hansik",
+    "#foodtravel",
+    "#asiatravel",
+    "#unescocityofgastronomy",
+    "#dolsotbibimbap",
+    "#koreanrestaurant",
+    "#visitkorea",
+    "#deepdivekorea"
+  ]
+}

@@ -121,5 +121,11 @@
     "publish_at": "2026-09-01T20:19:07+09:00",
     "status": "pending",
     "error": "POST https://graph.instagram.com/v24.0/17841435733524806/media_publish → HTTP 403"
+  },
+  {
+    "slug": "2026-09-02-gogung-jeonju-en",
+    "pillar": "restaurant",
+    "publish_at": "2026-09-02T10:54:07+09:00",
+    "status": "pending"
   }
 ]
