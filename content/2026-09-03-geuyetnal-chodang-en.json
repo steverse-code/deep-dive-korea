@@ -1,0 +1,106 @@
+{
+  "slug": "2026-09-03-geuyetnal-chodang-en",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-03T19:51:14+09:00",
+  "photo": "geuyetnal-chodang-sundubu-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "LOCAL · GANGNEUNG",
+      "headline": "They curdle it\nwith the sea.",
+      "subline": "Geu Yetnal Chodang Sundubu — one of around twenty tofu houses in Gangneung's Chodang village, where East Sea water stands in for the coagulant",
+      "bg_image": "assets/photos/geuyetnal-chodang-sundubu-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "6AM",
+      "label": "When the doors open, daily —\nthe tofu is made by hand\nbefore that",
+      "note": "Hours per Korean listing platforms (DiningCode, Siksin) as of September 2026 · owner Lee Young-soon and the hand-made daily method are documented by National Geographic, June 2026"
+    },
+    {
+      "type": "list",
+      "title": "Tofu, and\nChodang tofu",
+      "items": [
+        {
+          "t": "Ordinary tofu — a chemical coagulant",
+          "d": "Soy milk is set with a magnesium or calcium salt. Fast, consistent, and what most tofu in most countries is made with."
+        },
+        {
+          "t": "Chodang tofu — seawater from the East Sea",
+          "d": "The sea is a few minutes' walk from the village. Its minerals do the coagulating instead, which is the whole basis of Chodang's reputation."
+        },
+        {
+          "t": "Sundubu is not modubu",
+          "d": "Sundubu is the loose curd, eaten before it is pressed. Modubu is the same curd pressed into a block. Most Chodang houses serve both."
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The village is\nnamed after\na pen name",
+      "body": "Chodang was the pen name of Heo Yeop, a Joseon-era official of the 1500s — the father of Heo Gyun, who wrote The Tale of Hong Gildong, and of the poet Heo Nanseolheon. The story handed down is that he made tofu with the spring water by his office and used seawater in place of brine.\n\nWhether or not one man started it, the method stayed. Roughly twenty tofu restaurants now sit in the few blocks behind Gyeongpo Beach, all working the same way.\n\nWhat National Geographic recorded at this particular house in June 2026 was owner Lee Young-soon's rule: fresh seawater and good soybeans, and the sundubu is never strained, so it keeps its soft texture.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "57 Chodangsundubu-gil, Gangneung, Gangwon-do",
+          "d": "Chodang-dong, a few hundred metres behind Gyeongpo Beach and the lagoon — a short taxi ride from Gangneung Station"
+        },
+        {
+          "t": "Open 06:00–19:00, listed daily",
+          "d": "Per Korean listing platforms as of September 2026. A call to 0507-1351-1547 is worth it before an early start"
+        },
+        {
+          "t": "Sundubu baekban listed at 9,000–10,000 won",
+          "d": "Sundubu jeongol 13,000, cheonggukjang 12,000, modubu 11,000, pan-fried modubu 12,000. Parking on site"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Everything here comes\nfrom published sources, current\nas of September 2026.",
+      "by": "Hours, prices and menus in a village this busy do change — confirm before you travel.\nAnd taste is personal, always."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "National Geographic (June 2026) — 'Explore Gangneung, the South Korean city famous for a unique tofu dish': names this restaurant at 57 Chodangsundubu-gil, owner Lee Young-soon, the seawater method and the unstrained sundubu",
+        "Korea.net (Korean Culture and Information Service) and Korea Tourism Organization (VisitKorea) — Chodang village behind Gyeongpo Beach, around twenty tofu restaurants, seawater used instead of magnesium or calcium coagulants",
+        "The Chodang name and the Heo Yeop attribution — Korea.net, VisitKorea and Wikipedia's sundubu-jjigae entry, which record it as the handed-down origin story rather than documented fact",
+        "Korean listing platforms (DiningCode, Siksin) — current operation, address, hours, phone and menu prices",
+        "* Every place on this account is checked for real, current operation. This is research, not a personal review."
+      ],
+      "cta": "We only feature places that actually exist.\nSave this for your next east-coast trip"
+    }
+  ],
+  "caption": "In Gangneung the coagulant is the sea itself — East Sea water, not a magnesium or calcium salt.\n\nGeu Yetnal Chodang Sundubu · 57 Chodangsundubu-gil, in Chodang village behind Gyeongpo Beach · open from 6am, per listings.\n\nInfo as of September 2026; taste is personal.\n\nSources in the last slide. Save it for your trip.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#foodie",
+    "#gangneung",
+    "#koreanfood",
+    "#localfood",
+    "#hiddengem",
+    "#koreantravel",
+    "#gangwondo",
+    "#eastcoast",
+    "#sundubu",
+    "#tofu",
+    "#chodangsundubu",
+    "#softtofu",
+    "#gyeongpobeach",
+    "#chodangdong",
+    "#oldschool",
+    "#realkorea",
+    "#offthebeatenpath",
+    "#deepdivekorea"
+  ]
+}

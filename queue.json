@@ -139,5 +139,11 @@
     "pillar": "bar",
     "publish_at": "2026-09-03T10:59:02+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-03-geuyetnal-chodang-en",
+    "pillar": "local",
+    "publish_at": "2026-09-03T19:51:14+09:00",
+    "status": "pending"
   }
 ]
