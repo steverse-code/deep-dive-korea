@@ -1,0 +1,112 @@
+{
+  "slug": "2026-09-04-giwakang-en",
+  "pillar": "restaurant",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-04T10:53:13+09:00",
+  "photo": "giwakang-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "RESTAURANT · SEOUL",
+      "headline": "He cooked for Robuchon.\nNow he ferments his own soy sauce.",
+      "subline": "GiwaKang, Gangnam — awarded One MICHELIN Star in the Seoul & Busan 2026 guide",
+      "bg_image": "assets/photos/giwakang-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "2024",
+      "label": "the December GiwaKang opened — it held a MICHELIN star by the 2026 guide",
+      "note": "The MICHELIN Guide Seoul & Busan 2026, the guide's 10th-anniversary Korean edition, named a record number of new and promoted starred restaurants. GiwaKang was one of the newly awarded One Stars. Source: guide.michelin.com"
+    },
+    {
+      "type": "list",
+      "title": "The kitchens\nbehind the kitchen",
+      "items": [
+        {
+          "t": "Pierre Gagnaire, Joël Robuchon, Alain Ducasse",
+          "d": "Korean press accounts of chef Kang Min-chul's career place him in all three of those kitchens before he opened his own"
+        },
+        {
+          "t": "Kang Minchul Restaurant — French, one star",
+          "d": "His own French restaurant took a MICHELIN star within a year of opening. GiwaKang, the Korean one, then did the same thing"
+        },
+        {
+          "t": "Damyang, to learn jang",
+          "d": "After three years of cooking French he apprenticed with a jang master in Damyang to learn fermentation properly"
+        },
+        {
+          "t": "Dongchimi with caviar. Gejang rice with truffle.",
+          "d": "The MICHELIN inspectors' note describes classic Korean flavours resolved with French technique — including squid mandu"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The unusual part\nis who makes the sauce.",
+      "body": "Plenty of chefs cook modern Korean food. Far fewer make the fermented soy sauce it rests on. Kang told the Korea Economic Daily that after three years running a French restaurant he realised he had skipped past his own tradition, and went to Damyang to apprentice with a jang master rather than simply buy better sauce.\n\nHis reasoning was about attention rather than technique: the point, he said, is opening the jar regularly, turning it, watching it — that the process itself is what matters. It is a slow, unglamorous position for someone who trained in three of the most decorated kitchens in France.\n\nWhat lands on the table is the result of that decision. Soy-marinated crab with black truffle reads as a stunt until you know the soy sauce was fermented by the person serving it.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "4F, 9 Nonhyeon-ro 152-gil, Gangnam-gu, Seoul",
+          "d": "Fourth floor, in the Sinsa-dong stretch of Gangnam. Phone +82 2-517-2511"
+        },
+        {
+          "t": "Lunch 220,000 won · dinner 360,000 won",
+          "d": "Tasting menus, per the restaurant's own site. Wine pairings run 200,000 won for five glasses, 290,000 for eight"
+        },
+        {
+          "t": "Book on the 1st of the month, at noon",
+          "d": "The official site states reservations for the following month open then, via Catchtable. Private rooms go through phone or email"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in September 2026.",
+      "by": "We have not eaten here, and this is a tasting-menu restaurant at a price that deserves an honest caveat — whether it is worth it is entirely your call, not ours.\nPrices, hours and menus change without notice. Confirm before booking.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "MICHELIN Guide — GiwaKang, Seoul: One Star in the Seoul & Busan 2026 selection, address, inspectors' description",
+        "MICHELIN Guide Seoul & Busan 2026 ceremony release — record number of new and promoted starred restaurants",
+        "giwakang.com (official site) — address, phone, tasting menu and wine pairing prices, monthly reservation policy",
+        "Korea Economic Daily (hankyung.com, Dec 2025) — chef Kang Min-chul's Damyang jang apprenticeship and his remarks on the process",
+        "GQ Korea (Mar 2026) — Kang's background under Gagnaire, Robuchon and Ducasse; the earlier star at Kang Minchul Restaurant",
+        "* Cover photo is a free-license stock image of a Korean table, not a photo of GiwaKang itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next trip to Seoul"
+    }
+  ],
+  "caption": "A chef trained under Gagnaire, Robuchon and Ducasse now ferments his own soy sauce.\n\nGiwaKang opened in Gangnam in December 2024 and took One MICHELIN Star in the Seoul & Busan 2026 guide. Lunch 220,000 won.\n\nWe haven't eaten here, and prices change.\n\nSources in the last slide.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#foodie",
+    "#finedining",
+    "#koreanfood",
+    "#michelinstar",
+    "#seoul",
+    "#seouleats",
+    "#koreatravel",
+    "#tastingmenu",
+    "#hansik",
+    "#michelinguide",
+    "#gangnam",
+    "#sinsadong",
+    "#modernkorean",
+    "#ganjanggejang",
+    "#seoulrestaurant",
+    "#foodtravel",
+    "#visitkorea",
+    "#deepdivekorea"
+  ]
+}
