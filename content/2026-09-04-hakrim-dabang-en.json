@@ -1,0 +1,107 @@
+{
+  "slug": "2026-09-04-hakrim-dabang-en",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-04T19:50:44+09:00",
+  "photo": "hakrim-dabang-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE · SEOUL",
+      "headline": "A coffee shop's name\nended up in a court file.",
+      "subline": "Hakrim Dabang, 119 Daehak-ro, Jongno-gu — open since 1956, and the oldest surviving cafe in Seoul according to the city's official tourism listing",
+      "bg_image": "assets/photos/hakrim-dabang-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "1956",
+      "label": "The year Hakrim Dabang opened on Daehak-ro, where it still trades on the second floor. Seoul's official tourism site calls it the city's oldest cafe, and it was designated a Seoul Future Heritage in 2013",
+      "note": "Sources: Visit Seoul (korean.visitseoul.net), Hakrim Dabang listing · The Kyunghyang Shinmun, 5 December 2017, Seoul 'Oraegage' series · Korean and English Wikipedia, Hakrim Dabang / Hakrim incident"
+    },
+    {
+      "type": "list",
+      "title": "Three things the\nroom has kept",
+      "items": [
+        {
+          "t": "A name borrowed from a university festival",
+          "d": "The Kyunghyang Shinmun reports that Shin Seon-hui opened the shop in 1956 and took the name from Hakrim-je, then the festival of Seoul National University's College of Liberal Arts and Sciences, whose campus stood nearby"
+        },
+        {
+          "t": "The same fittings, and the same roast",
+          "d": "Visit Seoul describes a narrow wooden staircase, LP records and paintings, and coffee roasted in house — its listed signatures are a Vienna coffee and a homemade cream cheese cake"
+        },
+        {
+          "t": "Four owners in seventy years",
+          "d": "The Kyunghyang Shinmun's 2017 piece introduces Lee Chung-ryeol as the fourth proprietor, running the shop since 1987 — by then already thirty-one years into its life"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The building outlived\nthe case named after it.",
+      "body": "In 1981, under Chun Doo-hwan's new military government, a student group called Jeonmin Hakryeon held its first meeting on this second floor. Korean Wikipedia records that 24 people, among them Lee Tae-bok — later a Minister of Health and Welfare — were seized, illegally detained and tortured on charges of forming an anti-state organisation.\n\nInvestigators filed it under the name of the room where the meeting happened: the Hakrim incident. Seoul High Court acquitted the defendants in a retrial in December 2010, and the Supreme Court finalised that ruling in June 2012 — thirty-one years on. The coffee shop that supplied the case its name never closed.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "119 Daehak-ro, Jongno-gu — second floor",
+          "d": "Visit Seoul lists it about 100m from Hyehwa Station exit 3 on Line 4, phone 02-742-2877. The entrance is a staircase, not a shopfront"
+        },
+        {
+          "t": "Listed at 10:00-23:00, last order 22:00",
+          "d": "Per the Visit Seoul listing, which records no regular closing day. Other listings online give shorter hours, so this is worth confirming before you travel"
+        },
+        {
+          "t": "Vienna coffee, cream cheese cake",
+          "d": "Both named as signatures by Visit Seoul. The Kyunghyang Shinmun quoted 6,000 won for each in 2017 — nine years old now, so treat those figures as historical, not current"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked on 4 September 2026.",
+      "by": "Listings disagree on the opening hours, and the prices quoted are from 2017.\nHistory is a reason to visit a room, not a promise about the coffee — taste stays personal.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Visit Seoul, Seoul Metropolitan Government official tourism site (korean.visitseoul.net) — address, second floor, phone, 10:00-23:00 with last order 22:00, signature menu, in-house roasting, Seoul Future Heritage, oldest cafe in Seoul",
+        "The Kyunghyang Shinmun, 5 December 2017, Seoul 'Oraegage' series — 1956 opening by Shin Seon-hui, the Hakrim-je festival name, fourth owner Lee Chung-ryeol since 1987, 2017 menu prices",
+        "Korean Wikipedia, 'Hakrim incident' — the 1981 arrests of 24 people including Lee Tae-bok, the torture, the December 2010 Seoul High Court retrial acquittal and the June 2012 Supreme Court ruling",
+        "English Wikipedia, 'Hakrim Dabang' — 2013 Seoul Future Heritage designation (no. 2013-267) and the Oraegage classification",
+        "* Cover photo is a licensed free-use stock image of a vintage cafe interior — not a photo of Hakrim Dabang itself."
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Korea trip"
+    }
+  ],
+  "caption": "A coffee shop's name ended up in a court file.\n\nHakrim Dabang has been at 119 Daehak-ro since 1956. In 1981 a student group met upstairs; the case built against them was filed as the Hakrim incident. The retrial acquittal came in 2012. The cafe never closed.\n\nHours vary by listing, and taste is personal.\n\nSources in the last slide. Save this for your trip.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#seoul",
+    "#coffee",
+    "#cafe",
+    "#foodie",
+    "#history",
+    "#koreatravel",
+    "#seoulcafe",
+    "#cafehopping",
+    "#hiddengem",
+    "#retrocafe",
+    "#vintagecafe",
+    "#jongno",
+    "#daehangno",
+    "#hyehwa",
+    "#dabang",
+    "#hakrimdabang",
+    "#seoulfutureheritage",
+    "#deepdivekorea"
+  ]
+}
