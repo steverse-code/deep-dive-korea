@@ -163,5 +163,11 @@
     "pillar": "bar",
     "publish_at": "2026-09-05T10:53:35+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-05-samdae-gwangyang-en",
+    "pillar": "local",
+    "publish_at": "2026-09-05T19:07:08+09:00",
+    "status": "pending"
   }
 ]

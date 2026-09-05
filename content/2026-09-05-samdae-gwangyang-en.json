@@ -1,0 +1,106 @@
+{
+  "slug": "2026-09-05-samdae-gwangyang-en",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-05T19:07:08+09:00",
+  "photo": "samdae-gwangyang-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "LOCAL · GWANGYANG",
+      "headline": "A city's dish,\ntraced to one kitchen.",
+      "subline": "Samdae Gwangyang Bulgogijip — open in Gwangyang since 1930, and the house where the bulgogi an entire region is now named for took its current form",
+      "bg_image": "assets/photos/samdae-gwangyang-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "1930",
+      "label": "The year this house opened —\nas Ilheung Sikdang.\nThe dish came a generation later",
+      "note": "Founding year and original name per the English Wikipedia entry, which cites Gwangyang News (2012, 2013) and Top Class / The Chosun Ilbo (2020) · current operation confirmed against Korean listing platforms and the Korea Tourism Organization, September 2026"
+    },
+    {
+      "type": "list",
+      "title": "Three bulgogis,\nthree methods",
+      "items": [
+        {
+          "t": "Seoul style — bulgogi with broth",
+          "d": "Marinated beef cooked in a domed pan with vegetables and its own liquid. This is the bulgogi most people outside Korea have met."
+        },
+        {
+          "t": "Eonyang style — pressed rounds",
+          "d": "Beef finely chopped, shaped into patties and grilled. A different answer to the same problem of thin, tender beef over fire."
+        },
+        {
+          "t": "Gwangyang style — slices on a mesh grill",
+          "d": "Paper-thin beef laid on a mesh grill over live charcoal, no broth and no pan. The Korea Herald reported in 2022 that Gwangyang houses season the meat the same day rather than marinating it ahead, and that a slice is turned within about 30 seconds."
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "A regional dish\nwith a return\naddress",
+      "body": "Most regional Korean specialties dissolve into folklore when you look for a starting point. This one has an address you can still walk to.\n\nThe house opened in 1930 as Ilheung Sikdang. The record, as summarised on Wikipedia from Gwangyang News, has the second generation developing the grilled dish the place became known for and renaming it Gwangyang Bulgogi Sikdang; the third generation gave it the name it carries today. Neighbouring restaurants took up the method until it was the food the whole city is identified with.\n\nGwangyang does have an older story — maro-hwajeok, a handed-down phrase naming the grilled beef of Maro, the Baekje-era name for the area, as the finest thing under heaven. That is legend, not record. What is documented is the fuel: oak charcoal from Baegunsan, the mountain behind the city.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "52 Seocheon 1-gil, Gwangyang-eup, Gwangyang, Jeollanam-do",
+          "d": "In the old town centre along the Seocheon stream, on the stretch the city signs as its bulgogi specialty street"
+        },
+        {
+          "t": "Listed 11:00–21:00 daily, last order 20:00",
+          "d": "Per Korean listing platforms as of September 2026. Listings on this street disagree on the closing time, so 061-763-9250 is worth a call"
+        },
+        {
+          "t": "Hanwoo bulgogi listed at 26,000 won",
+          "d": "Australian beef bulgogi 20,000, galbi 27,000, rice 1,000, naengmyeon 5,000. The tourism office's listing notes black sesame porridge on seating, and private rooms"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Everything here comes from\npublished sources, current as of\nSeptember 2026.",
+      "by": "Prices and hours on a street this busy do move — confirm before you travel.\nAnd taste is personal, always."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "English Wikipedia, 'Samdae Gwangyang Bulgogijip' — founded 1930 as Ilheung Sikdang, the generational name changes, and the charcoal-and-copper-grill method; cites Gwangyang News (2012, 2013) and Top Class / The Chosun Ilbo (2020)",
+        "Korea Tourism Organization (VisitKorea) official listing — currently run by the third and fourth generations, city-designated model restaurant, oak charcoal from Gwangyang's Baegunsan, black sesame porridge on seating",
+        "Korean listing platforms (DiningCode, Siksin) — current operation, address at 52 Seocheon 1-gil, phone, hours and menu prices",
+        "The Korea Herald (September 2022) — how Gwangyang bulgogi differs from the Seoul and Eonyang styles; Asia Today (August 2026) — Gwangyang's bulgogi street placed second in a national traditional-taste ranking",
+        "* Every place on this account is checked for real, current operation. This is research, not a personal review."
+      ],
+      "cta": "We only feature places that actually exist.\nSave this for the south coast"
+    }
+  ],
+  "caption": "Gwangyang bulgogi is named after a city — but the version the city is known for was worked out in one kitchen.\n\nSamdae Gwangyang Bulgogijip · 52 Seocheon 1-gil, Gwangyang · open since 1930, now in its fourth generation.\n\nInfo as of September 2026; taste is personal.\n\nSources in the last slide. Save it.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#foodie",
+    "#southkorea",
+    "#koreanfood",
+    "#koreanbbq",
+    "#localfood",
+    "#hiddengem",
+    "#koreantravel",
+    "#jeollanamdo",
+    "#gwangyang",
+    "#bulgogi",
+    "#gwangyangbulgogi",
+    "#charcoalgrill",
+    "#hanwoo",
+    "#kbbq",
+    "#nopo",
+    "#oldschool",
+    "#realkorea",
+    "#deepdivekorea"
+  ]
+}
