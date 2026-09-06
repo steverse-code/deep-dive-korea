@@ -175,5 +175,11 @@
     "pillar": "restaurant",
     "publish_at": "2026-09-06T10:48:54+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-06-anthracite-hapjeong-en",
+    "pillar": "cafe",
+    "publish_at": "2026-09-06T19:27:55+09:00",
+    "status": "pending"
   }
 ]
