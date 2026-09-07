@@ -1,0 +1,111 @@
+{
+  "slug": "2026-09-07-suyeonsanbang-en",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-07T20:50:09+09:00",
+  "photo": "2026-09-07-suyeonsanbang-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE · SEOUL",
+      "headline": "His books were unpublishable for four decades.\nThe house outlived the ban.",
+      "subline": "Suyeonsanbang, 8 Seongbuk-ro 26-gil, Seongbuk-gu — the 1933 hanok the novelist Yi Tae-jun wrote in, listed as currently operating by Korea's national tourism office and run as a tea house by his family",
+      "bg_image": "assets/photos/2026-09-07-suyeonsanbang-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "1933",
+      "label": "The year the house was built, and the year the novelist Yi Tae-jun moved in. Seongbuk-gu's official tourism page says he stayed until 1946 and wrote works including Moonlit Night and Stone Bridge here. It has been open as a traditional tea house since 1998",
+      "note": "Sources: Korea Tourism Organization, official English site (english.visitkorea.or.kr) — address, phone, hours, closed days, still operating · Seongbuk-gu District Office tourism page (sb.go.kr) — 1933 construction, 1933-1946 residence, roof structure, current operator · Korean Wikipedia — designation, 1946 departure north, 1956 purge"
+    },
+    {
+      "type": "list",
+      "title": "What the building\nactually is",
+      "items": [
+        {
+          "t": "A 1933 gaeryang hanok, not a palace piece",
+          "d": "Seongbuk-gu's tourism page describes a modernised hanok on an L-shaped plan, with no detached annexe — the men's and women's quarters combined into one main block. The front carries a hipped-and-gabled roof, the rear a plain gabled one"
+        },
+        {
+          "t": "A protected property you enter by ordering tea",
+          "d": "Korean sources record the house as Seoul Folk Cultural Heritage No. 11, designated in 1977. It was never converted into a museum — it has stayed a working building, which is unusual for a listed one"
+        },
+        {
+          "t": "Named by the writer, kept by his relatives",
+          "d": "Suyeonsanbang was the studio name attached to the house; Korean accounts gloss it as writing until the inkstone wears away. Korea's tourism site says a granddaughter runs it; Seongbuk-gu says a maternal grand-niece. Either way, family"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The house stayed.\nThe author was deleted.",
+      "body": "Yi Tae-jun was one of the most admired prose stylists of 1930s Korea. In 1946 he went north. Korean Wikipedia records that he was purged in 1956, reassigned to a newspaper proofreading desk and then to scrap-metal collection at a concrete plant, briefly reinstated in 1964, and finally banished to a mining district in Kangwon, where he died — the year is not known.\n\nIn the South he was simply not publishable. On 19 July 1988 the government lifted the ban on the pre-liberation work of some 120 writers who had gone north, excluding five. Yi was among those released.\n\nSo the sequence is the strange part. The building was designated as heritage in 1977, while the man who built it was still officially unmentionable. The address was protected more than a decade before the sentences written at it were.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "8 Seongbuk-ro 26-gil, Seongbuk-gu, Seoul",
+          "d": "Phone +82-2-764-1736, per the Korea Tourism Organization listing. Nearest metro is Hansung University on Line 4; travel guides suggest the Seongbuk 03 neighbourhood bus from exit 6, or roughly five minutes by taxi"
+        },
+        {
+          "t": "Check the hours before you set out",
+          "d": "The tourism office lists Wed-Fri 11:30-17:50, Sat 11:30-21:50 with a 18:00-19:00 break, Sun 11:30-19:40, closed Monday and Tuesday. Seongbuk-gu's own page gives different hours, and Korean listings put the closed day on Tuesday only. They do not agree"
+        },
+        {
+          "t": "Teas and shaved ice, listed in the mid-teens of thousands of won",
+          "d": "A Seoul dining listing puts pumpkin bingsu at 16,000 won, ssanghwa herbal tonic tea at 13,500 and jujube ssanghwa at 15,500, with sweet red-bean porridge at 15,500. The tourism site names jujube tea, ssanghwa tea and injeolmi rice cake among the specialities"
+        },
+        {
+          "t": "One order per person, and a queue at weekends",
+          "d": "The same listing describes a minimum of one drink or dessert per person and an on-site kiosk waitlist, with groups of four or more advised to call ahead. Weekdays reportedly walk in more easily than weekends"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked on 7 September 2026.",
+      "by": "Official pages disagree on the opening hours, on the closed days, and on whether the current owner is a granddaughter or a grand-niece — prices in particular are worth re-checking on arrival.\nA house with a history is a reason to sit down, not a verdict on the tea. Taste stays personal.",
+      "_note": "caveat slide"
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Korea Tourism Organization, official English site — address, phone +82-2-764-1736, hours, closed Mon-Tue, operated by the writer's descendant, danhobak bingsu and daechucha among the specialities",
+        "Seongbuk-gu District Office tourism page — built 1933, gaeryang hanok, ㄱ-shaped plan, hipped-and-gabled front roof, Yi Tae-jun in residence 1933-1946, Moonlit Night and Stone Bridge written here",
+        "Korean Wikipedia and Korean heritage records — Seoul Folk Cultural Heritage No. 11, designated 1977; departure north in 1946; purge in 1956; ban lifted 19 July 1988 for some 120 writers, five excluded",
+        "Seoul dining listing — pumpkin bingsu 16,000 won, ssanghwa tea 13,500 won, one order per person, kiosk waitlist. Tea house trading since 1998 (Korean Wikipedia says 1999)",
+        "* Cover photo: licensed free-use stock of a hanok, not Suyeonsanbang itself"
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Korea trip"
+    }
+  ],
+  "caption": "His books were unpublishable for four decades. The house outlived the ban.\n\nSuyeonsanbang, Seongbuk-gu — the 1933 hanok Yi Tae-jun wrote in, run by his family as a tea house and listed as open by Korea's tourism office.\n\nHours differ by source; taste is personal.\n\nSources in the last slide. Save it.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#tea",
+    "#cafe",
+    "#foodie",
+    "#seoul",
+    "#koreatravel",
+    "#seoulcafe",
+    "#hanok",
+    "#teahouse",
+    "#hiddengem",
+    "#cafehopping",
+    "#koreanculture",
+    "#koreanliterature",
+    "#bingsu",
+    "#seongbukdong",
+    "#seongbuk",
+    "#traditionaltea",
+    "#suyeonsanbang",
+    "#deepdivekorea"
+  ]
+}
