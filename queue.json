@@ -181,5 +181,11 @@
     "pillar": "cafe",
     "publish_at": "2026-09-06T19:27:55+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-07-gosari-express-en",
+    "pillar": "restaurant",
+    "publish_at": "2026-09-07T10:45:48+09:00",
+    "status": "pending"
   }
 ]
