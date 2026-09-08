@@ -1,0 +1,106 @@
+{
+  "slug": "2026-09-08-imun-seolnongtang-en",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-08T19:48:34+09:00",
+  "photo": "2026-09-08-imun-seolnongtang-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "LOCAL · SEOUL",
+      "headline": "Seoul checked the records\nto see which kitchen was oldest.",
+      "subline": "Imun Seolnongtang — boiling ox bones in Jongno since around 1904, and the answer the city's own 2011 investigation arrived at",
+      "bg_image": "assets/photos/2026-09-08-imun-seolnongtang-en.jpg"
+    },
+    {
+      "type": "stat",
+      "value": "1904",
+      "label": "The founding year Seoul settled on —\nmaking this the oldest\nstill-operating restaurant in Korea",
+      "eyebrow": "KEY FACT",
+      "note": "Accounts of the opening range from 1902 to 1907; the Seoul Metropolitan Government affirmed c. 1904 after an investigation in 2011, per the English Wikipedia entry citing Korean press · current operation confirmed against the MICHELIN Guide listing and Korean listing platforms (DiningCode, Tabling), September 2026"
+    },
+    {
+      "type": "list",
+      "title": "Three bowls\nthat look alike",
+      "items": [
+        {
+          "t": "Seolleongtang — bones, boiled to white",
+          "d": "Ox leg bones worked for hours until the broth turns opaque and milky. It arrives unseasoned, which is the point of the next slide."
+        },
+        {
+          "t": "Gomtang — meat-forward, clearer",
+          "d": "The usual distinction drawn in Korean food writing: more brisket and less bone, so the liquid stays browner and thinner."
+        },
+        {
+          "t": "Doganitang — the knee cartilage version",
+          "d": "Same house, different cut. On this menu at 18,000 won against 15,000 for the standard bowl, per Korean listing platforms in September 2026."
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "A century\nis a hard thing\nto document",
+      "body": "Plenty of Korean restaurants claim to be the oldest. This is the one a city government went and checked.\n\nThe records, as summarised on Wikipedia from Korean press, put the opening around 1904, under the Korean Empire, from a founder known only as a man surnamed Hong. Yu Won-seok bought the place in 1960; her son Jeon Seong-geun has run it since 1981. The regulars included Sohn Kee-chung, who won the 1936 Olympic marathon, and enough athletes that they jokingly named themselves the Imun Society.\n\nWhat it has not kept is the building. The house stayed in its colonial-era premises until redevelopment pushed it out in 2011, and a grease fire in the kitchen vents closed it again in October 2023. It is open now, in Gyeonji-dong, listed in the MICHELIN Guide as a Bib Gourmand.\n\nThe soup still comes to the table unseasoned. Salt, pepper and scallion sit beside it, and the seasoning is left to you.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "38-13 Ujeongguk-ro, Jongno-gu, Seoul",
+          "d": "Gyeonji-dong, a few minutes' walk from Insadong and Jogyesa. Phone 02-733-6526"
+        },
+        {
+          "t": "08:00–21:00, Sundays to 20:00, break 15:00–16:30",
+          "d": "Last orders listed at 14:30 and 20:30, no regular closing day, per Korean listing platforms as of September 2026"
+        },
+        {
+          "t": "Seolnongtang listed at 15,000 won",
+          "d": "Special 18,000, hanwoo 20,000, doganitang 18,000, head-meat tang 17,000. One platform still shows 14,000, so listings disagree — treat these as approximate"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Everything here comes from\npublished sources, current as of\nSeptember 2026.",
+      "by": "Prices and hours at a 120-year-old house do move — confirm before you travel.\nAnd taste is personal, always."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "English Wikipedia, 'Imun Seolnongtang' — c. 1904 founding affirmed by the Seoul Metropolitan Government in 2011, ownership history, the 2011 relocation, Seoul Future Heritage designation (2013-214), the October 2023 fire, and a 16–17 hour broth; cites Munhwa Ilbo, Seoul Shinmun, JoongAng Ilbo and The Korea Economic Daily",
+        "MICHELIN Guide, Seoul — Bib Gourmand listing with the current address at 38-13 Ujeongguk-ro, phone, hours and the ox-bone method",
+        "Seoul Metropolitan Government, English site — seolnongtang as a native dish of Seoul, the Seonnongdan altar theory behind the name, and this house's use of ox spleen",
+        "Korean listing platforms (DiningCode, Tabling, Siksin) — confirmed current operation, hours, break time and menu prices, September 2026",
+        "* Every place on this account is checked for real, current operation. This is research, not a personal review."
+      ],
+      "cta": "We only feature places that actually exist.\nSave this for Jongno"
+    }
+  ],
+  "caption": "Lots of Korean restaurants claim to be the oldest. This is the one the city government actually went and checked.\n\nImun Seolnongtang · 38-13 Ujeongguk-ro, Jongno, Seoul · ox-bone soup since around 1904, still open.\n\nInfo as of September 2026; taste is personal.\n\nSources in the last slide. Save it.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#foodie",
+    "#southkorea",
+    "#seoul",
+    "#koreanfood",
+    "#localfood",
+    "#hiddengem",
+    "#koreantravel",
+    "#seouleats",
+    "#jongno",
+    "#insadong",
+    "#seolleongtang",
+    "#oxbonesoup",
+    "#koreansoup",
+    "#nopo",
+    "#oldschool",
+    "#bibgourmand",
+    "#realkorea",
+    "#deepdivekorea"
+  ]
+}

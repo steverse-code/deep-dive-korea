@@ -199,5 +199,11 @@
     "pillar": "bar",
     "publish_at": "2026-09-08T10:59:02+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-08-imun-seolnongtang-en",
+    "pillar": "local",
+    "publish_at": "2026-09-08T19:48:34+09:00",
+    "status": "pending"
   }
 ]
