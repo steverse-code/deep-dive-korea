@@ -193,5 +193,11 @@
     "pillar": "cafe",
     "publish_at": "2026-09-07T20:50:09+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-08-soko-hannam-en",
+    "pillar": "bar",
+    "publish_at": "2026-09-08T10:59:02+09:00",
+    "status": "pending"
   }
 ]
