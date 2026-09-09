@@ -205,5 +205,11 @@
     "pillar": "local",
     "publish_at": "2026-09-08T19:48:34+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-09-sosuheon-en",
+    "pillar": "restaurant",
+    "publish_at": "2026-09-09T11:03:11+09:00",
+    "status": "pending"
   }
 ]
