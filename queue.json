@@ -211,5 +211,11 @@
     "pillar": "restaurant",
     "publish_at": "2026-09-09T11:03:11+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-09-sungsimdang-en",
+    "pillar": "cafe",
+    "publish_at": "2026-09-09T19:56:14+09:00",
+    "status": "pending"
   }
 ]
