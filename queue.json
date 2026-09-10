@@ -223,5 +223,11 @@
     "pillar": "bar",
     "publish_at": "2026-09-10T11:00:38+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-10-hankook-jib-en",
+    "pillar": "local",
+    "publish_at": "2026-09-10T19:52:52+09:00",
+    "status": "pending"
   }
 ]

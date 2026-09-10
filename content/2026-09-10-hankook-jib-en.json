@@ -1,0 +1,106 @@
+{
+  "slug": "2026-09-10-hankook-jib-en",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-10T19:52:52+09:00",
+  "photo": "hankook-jib-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "LOCAL · JEONJU",
+      "headline": "Bibimbap was home food.\nOne house made it a menu item.",
+      "subline": "Hankook Jib — open in Jeonju since 1952, now run by the third generation of the same family, and counted among the earliest restaurants to sell Jeonju bibimbap commercially",
+      "bg_image": "assets/photos/hankook-jib-en.jpg"
+    },
+    {
+      "type": "stat",
+      "value": "1952",
+      "label": "The year it opened, in\nJeonju's Gyeongwon-dong —\nabout 75 years of one dish",
+      "eyebrow": "KEY FACT",
+      "note": "Founding year per the English Wikipedia entry and a February 2026 feature in the Korean outlet News Journalism, which describes the house as one of the country's oldest bibimbap specialists and counts 75 years in 2026 · current operation confirmed against Korean listing platforms (Triple, Siksin, DiningCode) in September 2026"
+    },
+    {
+      "type": "list",
+      "title": "What's on\nthe menu",
+      "items": [
+        {
+          "t": "Yetnal gamasot bibimbap — the standard bowl",
+          "d": "'Old-style cauldron' bibimbap is the name the Korean listings carry, at around 15,000 won as of September 2026."
+        },
+        {
+          "t": "The yukhoe version, with raw beef",
+          "d": "Listed alongside the standard bowl on the same platforms at roughly 17,000 won."
+        },
+        {
+          "t": "The jeongsik, if there are two of you",
+          "d": "A set built around the bibimbap with yukhoe, hwangpomuk jelly, bulgogi and banchan, listed at 35,000 won per person with a two-person minimum."
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Someone had to\nsell it first",
+      "body": "Bibimbap is old. Bibimbap as a thing you order in a restaurant is not, and Korean food writing keeps pointing at the same few doors in Jeonju.\n\nThis is one of them. Korean press describes it as opening in Gyeongwon-dong in 1952, mid-war, taking a dish people assembled at home from leftovers and putting it on a printed menu. It is still a family business, on its third generation, and per Wikipedia it makes its own gochujang, soy sauce and sesame oil rather than buying them in.\n\nOn the recognition: it appeared in the Michelin Green Guide Korea in 2011 — the travel guide, not the starred restaurant guide. Worth separating, because the two get quoted interchangeably. Korean coverage also notes a run of presidents eating here on visits to Jeonju, and the family's Seoul branches still list a 'President bibimbap'.\n\nThose branches are the other thing to know. The Seoul operation sits in department stores and towers and charges roughly 22,000 won for the same bowl. The Jeonju room is the original, and cheaper.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "119 Eojin-gil, Wansan-gu, Jeonju",
+          "d": "Inside the Jeonju Hanok Village area, a few minutes' walk from Jeondong Catholic Church. Phone 063-284-2224"
+        },
+        {
+          "t": "09:50–16:00 and 17:00–21:00",
+          "d": "Hours as listed on Korean platforms in September 2026, with a break between the two blocks. Aggregator sites disagree slightly — call ahead if you are travelling for it"
+        },
+        {
+          "t": "Around 15,000–17,000 won a bowl",
+          "d": "Plain bibimbap against the yukhoe version, per Korean listings in September 2026. The Seoul branches list 22,000 and 26,000 for the equivalents — different prices, same family"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Everything here comes from\npublished sources, current as of\nSeptember 2026.",
+      "by": "Prices and hours at a 70-year-old house do move — confirm before you travel.\nAnd taste is personal, always."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "English Wikipedia, 'Hankook Jib' — established 1952, third-generation family business, address at 119 Eojin-gil in Wansan-gu, house-made gochujang, soy sauce and sesame oil, and the 2011 Michelin listing; cites Yonhap News Agency, Veritas Alpha, Aju Business Daily and Bulgyo Sinmun",
+        "News Journalism (뉴스저널리즘), February 2026 — 'Jeonju bibimbap' in its Nopo Sillok series: opened in Gyeongwon-dong in 1952, 75 years in 2026, one of the earliest bibimbap specialists, Michelin Green Guide Korea 2011, presidential visits",
+        "Korean listing platforms (Triple, Siksin, DiningCode) — confirmed current operation, address, phone, hours and menu prices, September 2026",
+        "1952hankook.com, the family's official site — the Seoul branch network and its own price list, used only for the branch comparison",
+        "* Every place on this account is checked for real, current operation. This is research, not a personal review."
+      ],
+      "cta": "We only feature places that actually exist.\nSave this for Jeonju"
+    }
+  ],
+  "caption": "Bibimbap is ancient. Bibimbap as something you order in a restaurant is not — and Korean food writing keeps pointing at the same few doors in Jeonju.\n\nHankook Jib · 119 Eojin-gil, Wansan-gu, Jeonju · open since 1952, third generation, still family-run.\n\nInfo as of September 2026; taste is personal.\n\nSources in the last slide. Save it.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#foodie",
+    "#southkorea",
+    "#koreanfood",
+    "#localfood",
+    "#hiddengem",
+    "#koreantravel",
+    "#asiatravel",
+    "#jeonju",
+    "#jeonjuhanokvillage",
+    "#jeollabukdo",
+    "#bibimbap",
+    "#jeonjubibimbap",
+    "#yukhoe",
+    "#nopo",
+    "#oldschool",
+    "#koreanheritage",
+    "#realkorea",
+    "#deepdivekorea"
+  ]
+}
