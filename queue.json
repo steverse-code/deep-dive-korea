@@ -229,5 +229,11 @@
     "pillar": "local",
     "publish_at": "2026-09-10T19:52:52+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-11-onjium-en",
+    "pillar": "restaurant",
+    "publish_at": "2026-09-11T10:58:16+09:00",
+    "status": "pending"
   }
 ]
