@@ -1,0 +1,110 @@
+{
+  "slug": "2026-09-11-mido-dabang-en",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-11T19:49:21+09:00",
+  "photo": "2026-09-11-mido-dabang-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE · DAEGU",
+      "headline": "Every listing dates this teahouse to 1928.\nThe city's own encyclopedia disagrees.",
+      "subline": "Mido Dabang, 14 Jingolmok-gil, Jung-gu, Daegu — ssanghwacha at 5,000 won with crackers on the side, reported still trading by Korean press in November 2025",
+      "bg_image": "assets/photos/2026-09-11-mido-dabang-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "1982",
+      "label": "The year the Mido you can actually sit in began. Daegu's official historical encyclopedia records a Mido Dabang opening in 1928 under Japanese rule — then says its line was broken and little trace of it survives. The current operator took over a different teahouse in 1982 and put the old name back up",
+      "note": "Sources: Digital Daegu Cultural Encyclopedia (grandculture.net), Mido Dabang entry — 1928 opening, broken lineage, 1982 takeover, address, hours, menu · Korean daily press, 24 Nov 2025 — same history, ssanghwacha 5,000 won, still operating · Korean restaurant database — listed as trading, 09:30-22:00 · Checked 11 September 2026"
+    },
+    {
+      "type": "list",
+      "title": "Two Midos,\none name",
+      "items": [
+        {
+          "t": "1928 — a name, and almost nothing else",
+          "d": "The encyclopedia's wording is blunt: a Mido Dabang opened in 1928 during the colonial period, but the line was broken, so traces from that era are hard to find. That is the date most listings still print as if it were unbroken"
+        },
+        {
+          "t": "1982 — a teahouse called Dogani, renamed",
+          "d": "A Ministry of Culture humanities portal records that the current owner, Jeong In-suk, took over a cafe near Daegu's central police box that students had used as a club room, and changed the sign the following year to Mido, written with characters meaning 'beautiful city'"
+        },
+        {
+          "t": "1991 and 2013 — two moves into the alley",
+          "d": "The same portal puts the move into Jingolmok alley at 1991. The encyclopedia adds that in 2013 it shifted again, deeper in, into a former bathhouse that was renovated for it. Sources differ on the details; both agree it moved"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The painter gives\nit away.",
+      "body": "A story travels with this place: the painter Yi In-seong sketched here on cigarette foil, and the novelist Kim Won-il planned new work at these tables. The encyclopedia repeats it, carefully, as something that is said.\n\nBut Yi In-seong died in Seoul in the early winter of 1950. Whatever room he drew in, it was not one that opened in 1982. The anecdote belongs to the older Mido, and it has quietly attached itself to the newer one.\n\nSo the honest version is narrower, and better. The room is not a century old. The ritual is. Ssanghwacha thick as syrup, a dish of old-fashioned crackers nobody charges for, regulars who have outlived the neighbourhood's other teahouses. A culture ministry profile describes 300 to 400 visitors a day and a staff that has shrunk from eleven to three.\n\nBy the entrance hangs a poem by Jeon Sang-ryeol, a regular who wrote it near the end of his life. In it, old men with medals on their chests unpack their bundles at Mido and pay for their tea in memories. That is the part that is genuinely old — and it is still running."
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "14 Jingolmok-gil, Jung-gu, Daegu",
+          "d": "Lot address 85-1 Jongno 2-ga, phone 053-252-9999, per the encyclopedia and Korean listings. Jingolmok takes its name from the Gyeongsang dialect word for 'long' — it is an alley, and the teahouse sits inside it rather than on the street"
+        },
+        {
+          "t": "Hours: sources disagree, so check the day you go",
+          "d": "The encyclopedia gives 09:00-22:00. A Korean restaurant database lists 09:30-22:00 and showed it trading. Neither is an official site — a phone call is the safer plan before travelling"
+        },
+        {
+          "t": "Ssanghwacha, 5,000 won, crackers included",
+          "d": "November 2025 press put ssanghwacha and turmeric-honey tea at 5,000 won each, served with senbei. Listings add herbal yakcha and yuja tea around 4,000 won. Ssanghwacha is a dark medicinal-herb brew, traditionally with a raw egg yolk floated on top"
+        },
+        {
+          "t": "It sits on Daegu's Modern Alley walking route",
+          "d": "Daegu's tourism office runs free guided tours of the modern alleys — roughly 1.64km, about two hours — with multilingual sessions including English on Saturdays. Book through the city tourism site rather than turning up"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal visit.\nEvery fact here is from a published source, checked on 11 September 2026.",
+      "by": "Founding year, opening hours and the dates of both moves differ between the encyclopedia, the culture portal and restaurant listings — we have flagged where, rather than picking one.\nWhether a 5,000-won ssanghwacha tastes like anything to you is a separate question, and a personal one."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Digital Daegu Cultural Encyclopedia — 1928 opening and broken lineage, 1982 takeover, 2013 move into a former bathhouse, 14 Jingolmok-gil, 09:00-22:00, menu",
+        "Ministry of Culture humanities portal — owner Jeong In-suk, the former Dogani teahouse, the renaming, 1991 move into Jingolmok, regulars, 300-400 visitors a day",
+        "Korean daily press, 24 Nov 2025 — still operating; ssanghwacha and turmeric-honey tea 5,000 won each, served with senbei",
+        "Korean restaurant database — listed as currently trading, 09:30-22:00, phone 053-252-9999, yakcha and yuja tea around 4,000 won",
+        "Encyclopedia entry on Yi In-seong (1912-1950) — the painter's death date, which dates the anecdote",
+        "* Cover photo: licensed free-use stock, not Mido Dabang itself"
+      ],
+      "cta": "We only feature places we've verified are real and open.\nSave this for your next Korea trip"
+    }
+  ],
+  "caption": "Every listing dates this Daegu teahouse to 1928. The city's encyclopedia says that Mido's line was broken — today's began in 1982.\n\nMido Dabang, Jingolmok alley, Jung-gu. Ssanghwacha 5,000 won.\n\nHours differ by source; taste is personal.\n\nSources in the last slide. Save it.",
+  "hashtags": [
+    "#korea",
+    "#travel",
+    "#foodie",
+    "#cafe",
+    "#tea",
+    "#koreatravel",
+    "#koreanfood",
+    "#daegu",
+    "#hiddengem",
+    "#localfood",
+    "#cafehopping",
+    "#koreancafe",
+    "#teahouse",
+    "#retrocafe",
+    "#daegutravel",
+    "#midodabang",
+    "#ssanghwacha",
+    "#jingolmok",
+    "#koreanhistory",
+    "#deepdivekorea"
+  ]
+}
