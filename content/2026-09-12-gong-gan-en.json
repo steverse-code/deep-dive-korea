@@ -1,0 +1,116 @@
+{
+  "slug": "2026-09-12-gong-gan-en",
+  "pillar": "bar",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-12T11:05:07+09:00",
+  "photo": "gong-gan-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "BAR · SEOUL",
+      "headline": "The house is the photograph.\nThe drinks are the memory.",
+      "subline": "Gong-Gan, Anguk-dong — a bar inside a restored hanok, No. 74 on Asia's 50 Best Bars 2026",
+      "bg_image": "assets/photos/gong-gan-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "No. 74",
+      "label": "Gong-Gan's place on Asia's 50 Best Bars 2026 —\nit sat at No. 89 on the 2024 edition",
+      "note": "Asia's 50 Best Bars published its extended 51-100 list for 2026 on 14 July 2026, with four Seoul bars on it: Gong-Gan at 74, Charles H. at 87, Le Chamber at 88 and Soko at 89. Gong-Gan was not a new entry — it had already appeared at No. 89 in 2024."
+    },
+    {
+      "type": "list",
+      "title": "What the room\nis built around",
+      "items": [
+        {
+          "t": "A courtyard, not a bar counter",
+          "d": "The hanok's central courtyard is the centrepiece of the interior, and Seoul's own tourism office notes the space reads differently by day and by night"
+        },
+        {
+          "t": "Milk-white walls, natural wood",
+          "d": "50 Best Discovery describes cream tones, wooden furniture and natural accents — restraint rather than the dark-wood speakeasy look"
+        },
+        {
+          "t": "Cocktails built from memories",
+          "d": "The drinks are drawn from the team's own recollections. Si-Jang is an ode to the local food market; Azalea recalls drawing honey from flowers in a garden"
+        },
+        {
+          "t": "Leftovers go into the snacks",
+          "d": "The bar works to an 'upcycling cocktails' approach, putting leftover cocktail ingredients to use in the bar food"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "A hanok bar that isn't\nselling the hanok.",
+      "body": "Seoul has a small cluster of bars inside traditional Korean houses now, and most of them lean on the building: the beams, the tiled roof, the courtyard at night. Gong-Gan has all of that, a few minutes' walk from Anguk Station in Bukchon, and it is genuinely the first thing anyone photographs.\n\nThe menu is pulling in a different direction. Its cocktails are named and built after specific memories belonging to the people making them — a childhood trip to the neighbourhood market, honey taken from flowers in a garden. That is a harder thing to sell to a visitor than a tiled roof and a courtyard, because it can't be explained by the room.\n\nThe housekeeping matches. Leftover ingredients are folded back into the bar snacks rather than binned, and the bar has run donation and accessibility events with other local venues. It reads as a place more interested in what happens inside the hanok than in the hanok itself — which may be why it has stayed on Asia's list across editions.",
+      "_note": "the real message of this post"
+    },
+    {
+      "type": "list",
+      "title": "If you\ngo",
+      "items": [
+        {
+          "t": "1F, 66-4 Yulgok-ro 3-gil, Jongno-gu, Seoul 03061",
+          "d": "A quiet alley in Anguk-dong, roughly 470m from Anguk Station Exit 1 on Subway Line 3"
+        },
+        {
+          "t": "Tuesday to Sunday, 16:00 - 02:00. Closed Mondays",
+          "d": "Last order 01:30, per Seoul's official English travel guide. Worth confirming, as late-night hours change often"
+        },
+        {
+          "t": "Around US$20 a cocktail",
+          "d": "The average drink price on its 50 Best Discovery listing. Ask about Si-Jang and Azalea, the two the listing singles out"
+        },
+        {
+          "t": "Reservations and groups accepted — and dogs",
+          "d": "Listed as pet-friendly, and it hosts visiting guest bartenders. Instagram is @gong_gan_anguk; the Discovery listing gives +82 2 723 3664"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal review.\nEvery fact here comes from published sources, checked in September 2026.",
+      "by": "Hours, prices and menus change, and a hanok room is small — worth confirming before you travel.\nTaste is always personal."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Asia's 50 Best Bars 2026 — extended 51-100 list (Gong-Gan No. 74), published 14 July 2026",
+        "Asia's 50 Best Bars 2024 — Gong-Gan ranked No. 89",
+        "50 Best Discovery — Gong-Gan listing: address, phone, average price, Si-Jang and Azalea, upcycling approach",
+        "Visit Seoul (Seoul Metropolitan Government official English travel guide) — address, hours, closed day, distance from Anguk Station",
+        "The Korea Herald / The Korea Times, July 2026 — coverage of the Seoul bars on Asia's 50 Best Bars 2026",
+        "Photo: Unsplash License (Ralph Darabos) — a representative bar counter, not Gong-Gan itself"
+      ],
+      "cta": "Save this for your\nnext trip to Seoul."
+    }
+  ],
+  "caption": "A hanok in Bukchon, and a cocktail menu made of other people's childhoods.\n\nGong-Gan sits at No. 74 on Asia's 50 Best Bars 2026. Its drinks are built from the team's own memories — a market trip, honey from a garden — and leftover ingredients go back into the bar snacks.\n\nResearch, not a visit. Hours and prices as of September 2026, and taste is personal.\n\nSources in the last slide. Save it for Seoul.",
+  "hashtags": [
+    "#travel",
+    "#korea",
+    "#foodie",
+    "#seoul",
+    "#cocktails",
+    "#bar",
+    "#drinks",
+    "#nightlife",
+    "#seouleats",
+    "#hiddengem",
+    "#koreatravel",
+    "#cocktailbar",
+    "#visitkorea",
+    "#seoulnightlife",
+    "#hanok",
+    "#bukchon",
+    "#anguk",
+    "#jongno",
+    "#asias50bestbars",
+    "#gonggan",
+    "#mixology"
+  ]
+}

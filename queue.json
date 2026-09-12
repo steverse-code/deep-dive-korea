@@ -241,5 +241,11 @@
     "pillar": "cafe",
     "publish_at": "2026-09-11T19:49:21+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-12-gong-gan-en",
+    "pillar": "bar",
+    "publish_at": "2026-09-12T11:05:07+09:00",
+    "status": "pending"
   }
 ]
