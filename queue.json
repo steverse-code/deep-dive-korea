@@ -247,5 +247,11 @@
     "pillar": "bar",
     "publish_at": "2026-09-12T11:05:07+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-12-dongnae-halmae-pajeon-en",
+    "pillar": "local",
+    "publish_at": "2026-09-12T19:17:55+09:00",
+    "status": "pending"
   }
 ]
