@@ -253,5 +253,11 @@
     "pillar": "local",
     "publish_at": "2026-09-12T19:17:55+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-13-le-dorer-en",
+    "pillar": "restaurant",
+    "publish_at": "2026-09-13T10:59:22+09:00",
+    "status": "pending"
   }
 ]
