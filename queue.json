@@ -259,5 +259,11 @@
     "pillar": "restaurant",
     "publish_at": "2026-09-13T10:59:22+09:00",
     "status": "pending"
+  },
+  {
+    "slug": "2026-09-13-terarosa-gangneung-en",
+    "pillar": "cafe",
+    "publish_at": "2026-09-13T20:18:45+09:00",
+    "status": "pending"
   }
 ]
