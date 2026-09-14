@@ -1,204 +1,114 @@
-# Daily automated pipeline (cloud-only)
+# Daily automated pipeline
 
-This document is the **exact procedure the agent triggered by
-`.github/workflows/daily-content.yml` follows.** Adapted from ig-studio's pipeline
-for this account: DeepDive Korea (@deep_dive_korea), an **English-language** account
-covering real, verified restaurants/cafes/bars/local spots in Korea.
-The agent starts with zero context, so this document alone must be enough to finish
-the job end to end.
+This is the source of truth for the unattended `daily-content.yml` agent.
+The account is @deep_dive_korea and all audience-facing copy is English.
 
-The big picture:
+## 0. Safety gates
 
-```
-daily-content.yml  09:00 / 15:00 KST  →  research, write, render, commit (this doc)
-publish.yml        every 30 min       →  publishes whichever queued post is due
-refresh-token.yml                     →  refreshes the Instagram token
-```
+- Create at most one item for a KST calendar day.
+- Never publish directly and never run `publish.yml` from this workflow.
+- If a same-day `pending` or `published` queue item exists, stop.
+- Do not revive `held` items or catch up missed days.
+- If rights, venue existence, or current operation cannot be verified, stop without
+  adding a queue item.
 
-Assumptions:
-- Working directory = this repo's checkout (don't assume a path — confirm with
-  `git rev-parse --show-toplevel`)
-- The workflow sets `TZ=Asia/Seoul`, so the runner's `date` reads KST. Still,
-  **always get today's date/weekday via an explicit `TZ=Asia/Seoul date` call**
-  (the runner's raw default is UTC, and using it naively shifts the date by one
-  between midnight and 9am KST)
-- This agent does **not** publish to Instagram directly. GitHub Actions'
-  `publish.yml` drains the queue every 30 minutes (see §7)
+## 1. Choose the weekly slot
 
----
+Use `TZ=Asia/Seoul date +%u`.
 
-## 0. Time budget — 20 minutes
+| Day | Format | Topic | Collab |
+|---|---|---|---|
+| 1 Mon | reel | restaurant | optional |
+| 2 Tue | reel | local | candidate |
+| 3 Wed | carousel | cafe | optional |
+| 4 Thu | reel | bar | optional |
+| 5 Fri | reel | restaurant | candidate |
+| 6 Sat | carousel | local | optional |
+| 7 Sun | reel | cafe | optional |
 
-Note `date +%s` at the start. Check elapsed time after each research step.
+During restriction recovery, respect the manual ramp flag in the queue or repository
+notes: three posts in week 1, four in week 2, then daily. Skipped days stay skipped.
 
-- If 15 minutes pass with no verified material: wrap up with what you have, or write
-  a skip note and stop
-- Past 20 minutes: stop immediately and write a skip note
-- Exception: **if content is already committed, finish the push regardless.** The
-  budget is for research, not for cleanup
+## 2. Research and verification
 
-When skipping, write `SKIPPED.md` at the repo root and commit+push it (local `/tmp`
-disappears when the cloud session ends — nobody else will ever see it). Note what was
-missing, and record any already-verified material so the next run can pick it up.
+Read `CONTENT.md`, `scripts/cardnews.py`, and recent same-topic posts. Confirm:
 
-## 1. Decide today's subcategory
+- official venue name and address;
+- current operation from an official listing, booking service, or recent source;
+- any menu, price, and hours used in copy;
+- a useful English search phrase for travelers.
 
-```
-TZ=Asia/Seoul date +%u    # 1=Mon ... 7=Sun
-```
+Record source URLs and an as-of date. Never write as if the account visited.
 
-| Day | AM | PM |
-|---|---|---|
-| Mon | restaurant | cafe |
-| Tue | bar | local |
-| Wed | restaurant | cafe |
-| Thu | bar | local |
-| Fri | restaurant | cafe |
-| Sat | bar | local |
-| Sun | restaurant | cafe |
+## 3. Acquire media legally
 
-This table must match `CONTENT.md` §1. If they disagree, **trust CONTENT.md**.
+Preferred order:
 
-## 2. Read the standards before writing anything
+1. original footage/photo supplied by the account owner;
+2. venue/creator media with written permission;
+3. licensed stock only for a non-venue-specific editorial Carousel.
 
-- `CONTENT.md` in full — especially §2 tone rules, §3 photography requirement
-  (mandatory — see §4 below for the exact workflow), §4 card structure and cover
-  schema, §5 caption structure (~250 chars), §6 hashtags
-- `scripts/cardnews.py` — exact JSON field names per slide type
-- The 2-3 most recent posts in today's subcategory
-  (`ls content/`, find same-pillar files with `grep '"pillar": "<subcategory>"' content/*.json`)
-  — **including whatever the other slot posted today** — so you don't repeat the
-  same place or neighborhood
+Do not scrape venue social photos. Do not use a mood photo as if it depicts the
+named place. Store `asset_source`, `rights_confirmed: true`, and a `rights_note`.
+If those facts cannot be confirmed, stop.
 
-### ⚠️ Slot-duplication check — do this before writing
+For a Collab candidate, set `collab_required: true`, `partner_handle`, and keep
+`collab_status: requested`. Do not queue it as pending until the partner accepts;
+the publisher enforces this.
 
-This is separate from topic overlap. It checks whether *today's slot* is already
-filled — guards against a retry, manual run, or overlapping cron creating a second
-post in the same slot.
+## 4. Write and render
 
-```
-TZ=Asia/Seoul date +%F        # today's date
-grep -l "\"pillar\": \"<today's subcategory>\"" content/<today>-*.json 2>/dev/null
-```
+Create `content/<YYYY-MM-DD>-<slug>.json` with:
 
-If today's date + subcategory combination already exists in `content/` and that
-slug is `published` or `pending` in `queue.json`, **this slot is already handled.**
-Don't write a new post — report "slot already filled — skipping" and exit
-immediately.
+- `policy_version: 2`;
+- `format: reel|carousel`;
+- `pillar`, `handle: "@deep_dive_korea"`, `publish_at`;
+- `asset_source`, `rights_confirmed`, `rights_note`;
+- `location`, `venue_handle`, `search_keyword`;
+- `partner_handle`, `collab_required`, `collab_status`;
+- English caption and 5–8 specific hashtags.
 
-## 3. Verification rule — no compromises, especially existence
+Render Carousel slides:
 
-This whole account's credibility rests on "it's real and it's open." For every
-post, **verify the place's name, address, and that it's currently operating**
-(booking/review platform, official Instagram/website, credible press within the
-last 1-2 years — at least one of these). If you're not confident, **do not invent
-it** — follow the skip procedure in §0. Recommending a place that doesn't exist is
-this account's one fatal failure mode.
-
-Menu items, prices, and hours must also come from real sources only. Don't write as
-if you personally visited (this account is research-based — the tone should own
-that honestly, per CONTENT.md §2).
-
-If you searched in good faith and found nothing verifiable for today's
-subcategory, **do not fabricate** — follow the §0 skip procedure.
-
-## 4. Photography — required (see CONTENT.md §3 for the full rule)
-
-Source a real, properly-licensed photo (Unsplash free-license or equivalent —
-`images.unsplash.com`, never `plus.unsplash.com`) matching the cuisine/venue mood.
-It does not need to be the literal venue's own interior unless you have verified
-rights to a real photo of it.
-
-```
-mkdir -p assets/photos
-curl -sL "<direct images.unsplash.com URL>" -o assets/photos/<slug>.jpg
-```
-
-Then reference it in the content JSON:
-- Cover slide: `"bg_image": "assets/photos/<slug>.jpg"`
-- Top level: `"photo": "<slug>.jpg"` (duotone-washes the same photo across the other
-  6 slides — see `photo_bases()` in `scripts/cardnews.py`)
-
-Only fall back to the `anchor`-typography-only cover (no photo at all) if a real
-search genuinely turns up nothing usable — this should be rare.
-
-## 5. Write and render
-
-Write `content/<YYYY-MM-DD>-<short-slug>.json`:
-
-- `pillar` = today's subcategory key, `handle` = `"@deep_dive_korea"`
-- `publish_at` = now (`TZ=Asia/Seoul date +%Y-%m-%dT%H:%M:%S+09:00`)
-- **All post text — headline, subline, stat labels, body copy, caption, hashtags —
-  is in ENGLISH.** This is an English-language account.
-- 7 slides: cover / stat / list / point / list / quote / source (exact field names
-  from `scripts/cardnews.py`; cover = eyebrow + 2-line headline ("line 1 hook /
-  line 2 payoff") + subline + `bg_image` per §4)
-- Caption ~250 chars (CONTENT.md §5's 4-part structure)
-- ~20 hashtags in English, 3 tiers (CONTENT.md §6)
-
-Then render it yourself and confirm all 7 slides come out with no errors:
-
-```
-pip install --quiet pillow      # only if missing
+```bash
 python3 scripts/cardnews.py content/<slug>.json out
 ```
 
-**You must commit the rendered images (`out/<slug>/`) yourself.** `render.yml`
-reacts to `content/**.json` pushes, but a push made with `GITHUB_TOKEN` from inside
-GitHub Actions doesn't trigger other workflows (recursion guard) — so `render.yml`
-won't backstop this run. No images committed means no URL for Instagram to fetch at
-publish time.
+For a Reel, render slides and then a 1080×1920 MP4:
 
-(When a human pushes locally, `render.yml` runs normally.)
+```bash
+python3 scripts/cardnews.py content/<slug>.json out
+python3 scripts/reel.py content/<slug>.json out
+```
 
-## 6. Register in the queue and push
+Confirm all referenced assets exist and the MP4 is 9:16 when applicable.
 
-Append to the `queue.json` array (keep it valid JSON):
+## 5. Queue and push
+
+Append exactly one entry:
 
 ```json
-{"slug": "<slug>", "pillar": "<subcategory>", "publish_at": "<now, +09:00 ISO>", "status": "pending"}
+{
+  "slug": "<slug>",
+  "pillar": "<topic>",
+  "format": "reel",
+  "publish_at": "<KST ISO timestamp>",
+  "status": "pending"
+}
 ```
 
-```
-git add content/<slug>.json out/<slug>/ assets/photos/<slug>.jpg queue.json
-git commit -m "content: <slug> (daily pipeline, am|pm)"
-git pull --rebase && git push
-```
+Commit the content JSON, rendered output, authorized source asset, and queue change.
+Push once. The separate publisher runs daily at 19:00 KST and selects only the
+newest due item.
 
-If the push fails, stop and **report why**. If the commit never reaches the
-remote, the publish workflow can't see it.
+## 6. Failure behavior
 
-## 7. Publishing is the cron's job — the agent never fires it directly
+The publisher changes any failed item to `held` immediately. Instagram action
+blocks (including code 4/subcode 2207051) are never retried automatically. The
+watchdog may restore a missed content-generation run, but it never starts an
+Instagram publish run.
 
-`publish.yml` runs **every 30 minutes**, finds the oldest `status: "pending"` entry
-in `queue.json` whose `publish_at` has passed, publishes it, and commits the queue
-back as `published`.
+## 7. Report
 
-So once §6's push lands, you're done — it auto-publishes within 30 minutes, as
-long as §5's images were committed too.
-
-If you have time, it's worth checking the result (skip if `gh` isn't authenticated):
-
-```
-gh run list -R steverse-code/deep-dive-korea --workflow=publish.yml --limit 3 \
-  --json status,conclusion,createdAt,url
-```
-
-**Don't run `gh workflow run publish.yml` directly.** It can overlap with the cron
-and double-publish. Only use it as an exception if you're sure the cron hasn't run
-in over 30 minutes.
-
-## 8. On failure
-
-Meta-side limits — `Application request limit reached` (code 4, subcode 2207051) or
-`API access blocked` (OAuthException code 200) — are rate limits this pillar's
-sibling account (ig-studio) has hit before, usually from posting too fast on a new
-account. **Don't retry.** The content is already committed and queued, so the next
-cron run will publish it once the limit clears. Same for any other error — report
-it plainly, don't loop retrying.
-
-## 9. Report
-
-Under 200 chars: which subcategory and place you picked, what you used to verify
-existence, whether you found a usable photo, render result, commit/push status, and
-that publishing is left to the cron.
+Report the format, topic, verification sources, rights basis, render result, and
+commit SHA. Keep the report concise.

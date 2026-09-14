@@ -1,7 +1,7 @@
 name: Daily content pipeline
 
-# 하루 2회, 클라우드에서 콘텐츠를 리서치·집필·렌더링해서 커밋한다.
-# 발행 자체는 publish.yml 이 30분마다 큐를 훑어서 처리한다 (PIPELINE.md §6).
+# 하루 1회, 클라우드에서 콘텐츠를 리서치·집필·렌더링해서 커밋한다.
+# 발행 자체는 publish.yml 이 19:00 KST에 최신 due 1건만 처리한다.
 #
 # 이 워크플로 덕분에 로컬 Mac 이 꺼져 있어도 파이프라인 전체가 돈다.
 #   daily-content.yml (작성·렌더·커밋)  →  publish.yml (발행)
@@ -9,21 +9,15 @@ name: Daily content pipeline
 # 적용되고 크론 시각에는 영향을 주지 않는다 — 두 개를 헷갈리지 말 것.
 on:
   schedule:
-    - cron: "0 0 * * *"   # 00:00 UTC = 09:00 KST — 오전 슬롯
-    - cron: "0 6 * * *"   # 06:00 UTC = 15:00 KST — 오후 슬롯
+    - cron: "0 0 * * *"   # 00:00 UTC = 09:00 KST
   workflow_dispatch:
     inputs:
-      slot:
-        description: "수동 실행할 슬롯"
-        type: choice
-        options: [am, pm]
-        default: am
       dry_run:
         description: "커밋·푸시 없이 환경과 절차만 점검 (첫 설정 검증용)"
         type: boolean
         default: false
 
-# 오전/오후 슬롯이 겹쳐 돌면 같은 날 같은 주제를 두 번 쓸 수 있다.
+# 예약/수동 실행이 겹쳐 같은 날 콘텐츠를 두 번 만들지 않게 한다.
 concurrency:
   group: daily-content
   cancel-in-progress: false
@@ -61,17 +55,15 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: 슬롯 결정
-        id: slot
+      - name: 오늘 포맷 결정
+        id: format
         run: |
-          case "${{ github.event.schedule }}" in
-            "0 0 * * *") SLOT=am ;;
-            "0 6 * * *") SLOT=pm ;;
-            *)           SLOT="${{ inputs.slot }}" ;;
+          case "$(date +%u)" in
+            3|6) FORMAT=carousel ;;
+            *)   FORMAT=reel ;;
           esac
-          [ -z "$SLOT" ] && SLOT=am
-          echo "slot=$SLOT" >> "$GITHUB_OUTPUT"
-          echo "오늘 슬롯: $SLOT"
+          echo "format=$FORMAT" >> "$GITHUB_OUTPUT"
+          echo "오늘 포맷: $FORMAT"
 
       - name: 콘텐츠 작성
         uses: anthropics/claude-code-action@v1
@@ -102,7 +94,7 @@ jobs:
             — a typography-only cover doesn't work here). Full detail on both is
             in PIPELINE.md §3-4 — read it, don't skip it.
 
-            Today's slot: ${{ steps.slot.outputs.slot }}   (am / pm)
+            Today's format: ${{ steps.format.outputs.format }}
 
             First, read PIPELINE.md at the repo root in full, and follow its
             procedure §0 through §9 in order exactly as written. PIPELINE.md is
@@ -119,7 +111,7 @@ jobs:
               푸시가 실패하면 `git pull --rebase` 후 재시도하고, 그래도 안 되면
               왜 실패했는지 명확히 보고하고 멈춰라.
             - 인스타그램에 직접 발행하지 마라. `gh workflow run` 을 실행하지 마라.
-              publish.yml 이 30분마다 큐를 훑어 발행한다. 큐에 넣고 푸시하면 끝이다.
+              publish.yml 이 매일 19:00 KST에 최신 due 1건만 발행한다.
             - 시계는 UTC 다. 날짜와 요일은 반드시 `TZ=Asia/Seoul date` 로 구해라.
 
             DRY RUN 여부: ${{ inputs.dry_run }}
@@ -128,5 +120,5 @@ jobs:
             무엇을 쓰려 했는지와 렌더링이 성공했는지, WebSearch/WebFetch 가 동작했는지를
             보고한 뒤 멈춰라. 이건 클라우드 환경이 제대로 동작하는지 확인하는 점검 실행이다.
 
-            마지막에 선택한 필러와 주제, 사용한 출처와 핵심 사실, 렌더링 결과,
+            마지막에 선택한 포맷·필러·주제, 사용한 출처와 핵심 사실, 렌더링 결과,
             커밋·푸시 여부를 간단히 보고해라.

@@ -29,7 +29,7 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MUSIC_DIR = os.path.join(ROOT_DIR, "assets", "music")
 TRACKS_JSON = os.path.join(MUSIC_DIR, "tracks.json")
 
-W, H, FPS = 1080, 1350, 30
+W, H, FPS = 1080, 1920, 30
 
 # 라이선스 음원 목표 라우드니스 — 인스타그램 사회적 표준에 맞춘 통합 -14 LUFS
 TARGET_LUFS = -14.0
@@ -52,7 +52,12 @@ def build_segment(img_path: str, duration: float, out_path: str):
     frames = max(1, int(duration * FPS))
     zoom_per_frame = 0.10 / frames  # 전체 구간에 걸쳐 10% 확대
     vf = (
-        f"scale={W * 2}:{H * 2},"
+        f"split[bg][fg];"
+        f"[bg]scale={W * 2}:{H * 2}:force_original_aspect_ratio=increase,"
+        f"crop={W * 2}:{H * 2},gblur=sigma=40[blur];"
+        f"[fg]scale={int(W * 1.8)}:-2[card];"
+        f"[blur][card]overlay=(W-w)/2:(H-h)/2[base];"
+        f"[base]"
         f"zoompan=z='min(zoom+{zoom_per_frame:.6f},1.10)':d={frames}:"
         f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps={FPS},"
         f"format=yuv420p"

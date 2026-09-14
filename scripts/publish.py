@@ -12,8 +12,7 @@ Instagram API with Instagram Login (Facebook 페이지 불필요)
                     예) https://raw.githubusercontent.com/<user>/<repo>/main
 
 사용
-  python3 scripts/publish.py              # 큐에서 발행할 차례인 글을 전부 발행
-  python3 scripts/publish.py --max 1      # 이번 실행에서 1건만 발행
+  python3 scripts/publish.py              # 오늘 발행할 최신 글 1건만 발행
   python3 scripts/publish.py --dry-run    # 실제 발행 없이 점검만
   python3 scripts/publish.py --slug 2026-08-17-vo2max   # 특정 글 강제 발행
   python3 scripts/publish.py --slug 2026-08-17-vo2max --reel   # 같은 글을 릴스(mp4)로 발행
@@ -35,17 +34,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 QUEUE = os.path.join(ROOT, "queue.json")
 
 MAX_CAPTION = 2200
-MAX_HASHTAGS = 30
+MAX_HASHTAGS = 8
 MAX_SLIDES = 10          # 인스타 캐러셀 상한
 MIN_SLIDES = 2
 
-# 한 번의 실행에서 발행할 최대 건수.
-# 정상 운영은 하루 2건이므로, 이 수를 넘게 밀렸다는 건 파이프라인이 어딘가
-# 고장났다는 뜻이다. 그런 상태에서 큐를 통째로 쏟아내면 계정이 스팸으로 보인다.
-# 남은 건은 다음 크론(30분 뒤)이 이어서 발행하므로 결국 다 빠진다.
-DEFAULT_MAX_PER_RUN = 5
-# 연속 발행 사이 간격(초). 캐러셀 1건 자체가 수 분 걸리므로 크게 잡을 필요는 없다.
-DEFAULT_DELAY = 30
+DEFAULT_MAX_PER_RUN = 1
 
 
 # ─────────────────────────────────────────────────────────────
@@ -71,14 +64,30 @@ def post(path: str, **data) -> dict:
 # ─────────────────────────────────────────────────────────────
 def build_caption(spec: dict) -> str:
     tags = spec.get("hashtags", [])
-    if len(tags) > MAX_HASHTAGS:
-        raise ValueError(f"해시태그 {len(tags)}개 — 인스타그램 상한은 {MAX_HASHTAGS}개입니다.")
+    limit = MAX_HASHTAGS if int(spec.get("policy_version", 1)) >= 2 else 30
+    if len(tags) > limit:
+        raise ValueError(f"해시태그 {len(tags)}개 — 운영 상한은 {limit}개입니다.")
     caption = spec["caption"].rstrip()
     if tags:
         caption += "\n\n" + " ".join(tags)
     if len(caption) > MAX_CAPTION:
         raise ValueError(f"캡션 {len(caption)}자 — 상한 {MAX_CAPTION}자를 넘습니다.")
     return caption
+
+
+def validate_rights(spec: dict) -> None:
+    """새 정책(v2+) 콘텐츠는 출처와 사용권 확인 없이는 발행하지 않는다."""
+    if int(spec.get("policy_version", 1)) < 2:
+        print("  ! 레거시 콘텐츠: 신규 미디어 권리 메타데이터 검사를 생략합니다")
+        return
+    source = spec.get("asset_source")
+    allowed = {"original", "partner_licensed", "licensed_stock"}
+    if source not in allowed or spec.get("rights_confirmed") is not True:
+        raise ValueError(
+            "미디어 권리 확인 실패 — asset_source와 rights_confirmed=true가 필요합니다."
+        )
+    if spec.get("collab_required") and spec.get("collab_status") != "accepted":
+        raise ValueError("Collab 게시물은 파트너 수락 확인 후에만 발행할 수 있습니다.")
 
 
 def slide_urls(spec: dict, base: str) -> list[str]:
@@ -229,7 +238,7 @@ def save_queue(q: list[dict]) -> None:
 
 
 def due_candidates(q: list[dict], now: datetime) -> list[tuple[str, dict, str]]:
-    """예정 시각이 지난 pending 을 전부, 오래된 순으로 돌려준다.
+    """예정 시각이 지난 pending 을 최신 순으로 돌려준다.
 
     같은 글의 캐러셀/릴스는 각각 독립된 항목으로 취급한다.
     """
@@ -237,13 +246,31 @@ def due_candidates(q: list[dict], now: datetime) -> list[tuple[str, dict, str]]:
     for e in q:
         if (e.get("status") == "pending"
                 and datetime.fromisoformat(e["publish_at"]) <= now):
-            due.append(("carousel", e, e["publish_at"]))
+            due.append((e.get("format", "carousel"), e, e["publish_at"]))
         if (e.get("reel_status") == "pending"
                 and e.get("reel_publish_at")
                 and datetime.fromisoformat(e["reel_publish_at"]) <= now):
             due.append(("reel", e, e["reel_publish_at"]))
-    due.sort(key=lambda c: c[2])
+    due.sort(key=lambda c: c[2], reverse=True)
     return due
+
+
+def published_today(q: list[dict], now: datetime) -> bool:
+    today = now.astimezone(KST).date()
+    for e in q:
+        for key in ("published_at", "reel_published_at"):
+            if e.get(key) and datetime.fromisoformat(e[key]).astimezone(KST).date() == today:
+                return True
+    return False
+
+
+def hold_entry(kind: str, entry: dict, reason: str, error: str | None = None) -> None:
+    key = "reel_status" if kind == "reel" and entry.get("format") != "reel" else "status"
+    entry[key] = "held"
+    entry["held_at"] = datetime.now(KST).isoformat()
+    entry["hold_reason"] = reason
+    if error:
+        entry["error"] = error[:1000]
 
 
 def publish_entry(kind: str, entry: dict, q: list[dict], ig_id: str, token: str,
@@ -256,11 +283,15 @@ def publish_entry(kind: str, entry: dict, q: list[dict], ig_id: str, token: str,
     """
     spec_path = os.path.join(ROOT, "content", f"{entry['slug']}.json")
     spec = json.load(open(spec_path, encoding="utf-8"))
+    validate_rights(spec)
 
     if kind == "reel":
         media_id = publish_reel(spec, ig_id, token, base, dry=dry)
         if media_id and entry in q:
-            entry["reel_status"] = "published"
+            if entry.get("format") == "reel":
+                entry["status"] = "published"
+            else:
+                entry["reel_status"] = "published"
             entry["reel_media_id"] = media_id
             entry["reel_published_at"] = datetime.now(KST).isoformat()
             entry.pop("error", None)
@@ -282,9 +313,7 @@ def main():
     ap.add_argument("--slug", help="큐를 무시하고 특정 글 발행")
     ap.add_argument("--reel", action="store_true", help="캐러셀 대신 릴스(mp4)로 발행 (--slug 필수)")
     ap.add_argument("--max", type=int, default=DEFAULT_MAX_PER_RUN,
-                    help=f"한 실행에서 발행할 최대 건수 (기본 {DEFAULT_MAX_PER_RUN}, 0이면 무제한)")
-    ap.add_argument("--delay", type=int, default=DEFAULT_DELAY,
-                    help=f"연속 발행 사이 대기 초 (기본 {DEFAULT_DELAY})")
+                    help="호환용 옵션. 안전 정책상 자동 실행은 항상 최대 1건입니다.")
     args = ap.parse_args()
 
     if args.reel and not args.slug:
@@ -304,6 +333,10 @@ def main():
     q = load_queue()
     now = datetime.now(KST)
 
+    if not args.dry_run and published_today(q, now):
+        print("오늘(KST) 이미 1건을 발행했습니다. 일일 안전 상한으로 종료합니다.")
+        return
+
     # --slug 는 사람이 특정 글을 콕 집어 올리는 경로다. 큐를 무시하고 1건만.
     if args.slug:
         entry = next((e for e in q if e["slug"] == args.slug),
@@ -312,42 +345,34 @@ def main():
                       ig_id, token, base, args.dry_run)
         return
 
-    # 자동 모드: 발행할 차례가 된 건을 오래된 순으로 전부 처리한다.
-    # 크론이 드롭돼 큐가 밀려도 다음 실행 한 번으로 따라잡히도록.
+    # 자동 모드: 가장 최근 due 항목 1건만 선택하고, 밀린 과거 항목은 보류한다.
     candidates = due_candidates(q, now)
     if not candidates:
         print("발행할 차례인 글이 없습니다. 종료.")
         return
 
-    batch = candidates if args.max <= 0 else candidates[:args.max]
-    print(f"발행 대기 {len(candidates)}건 — 이번 실행에서 {len(batch)}건 처리")
-    if len(batch) < len(candidates):
-        skipped = [e["slug"] for _, e, _ in candidates[len(batch):]]
-        print(f"⚠️ --max {args.max} 상한으로 {len(skipped)}건은 이번에 건너뜁니다 "
-              f"(다음 실행에서 이어서 발행): {', '.join(skipped)}")
+    kind, entry, _ = candidates[0]
+    if len(candidates) > 1 and not args.dry_run:
+        for old_kind, old_entry, _ in candidates[1:]:
+            hold_entry(old_kind, old_entry, "backlog_not_auto_published")
+        save_queue(q)
+        print(f"과거 대기 {len(candidates) - 1}건을 자동 발행하지 않고 보류했습니다.")
 
-    failed: list[str] = []
-    for i, (kind, entry, _) in enumerate(batch, 1):
-        print(f"\n[{i}/{len(batch)}] {entry['slug']} ({kind})")
-        try:
-            publish_entry(kind, entry, q, ig_id, token, base, args.dry_run)
-        except Exception as e:
-            # 1건이 깨져도 나머지는 계속 발행한다. 실패한 건은 pending 으로 남겨
-            # 다음 실행이 재시도하되, error 를 남겨 눈에 띄게 한다.
-            msg = str(e).splitlines()[0]
-            print(f"❌ {entry['slug']} 발행 실패: {msg}", file=sys.stderr)
-            failed.append(entry["slug"])
-            if entry in q and not args.dry_run:
-                entry["error"] = msg
-                save_queue(q)
-            continue
-
-        if i < len(batch) and args.delay > 0 and not args.dry_run:
-            print(f"  다음 발행까지 {args.delay}초 대기")
-            time.sleep(args.delay)
-
-    if failed:
-        sys.exit(f"발행 실패 {len(failed)}건: {', '.join(failed)}")
+    print(f"발행 대상: {entry['slug']} ({kind})")
+    try:
+        publish_entry(kind, entry, q, ig_id, token, base, args.dry_run)
+    except Exception as e:
+        detail = str(e)
+        msg = detail.splitlines()[0]
+        print(f"❌ {entry['slug']} 발행 실패: {msg}", file=sys.stderr)
+        if entry in q and not args.dry_run:
+            reason = ("instagram_action_blocked"
+                      if "2207051" in detail or "Application request limit reached" in detail
+                      else "publish_failed_manual_review")
+            hold_entry(kind, entry, reason, detail)
+            save_queue(q)
+            print("재시도를 막기 위해 이 항목을 held로 전환했습니다.", file=sys.stderr)
+        sys.exit(f"발행 실패: {entry['slug']}")
 
 
 if __name__ == "__main__":
