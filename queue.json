@@ -259,6 +259,9 @@
     "slug": "2026-09-13-terarosa-gangneung-en",
     "pillar": "cafe",
     "publish_at": "2026-09-13T20:18:45+09:00",
-    "status": "pending"
+    "status": "held",
+    "held_at": "2026-09-14T12:01:44+09:00",
+    "hold_reason": "instagram_action_blocked",
+    "error": "HTTP 403: OAuthException code 4, subcode 2207051 — action is blocked"
   }
 ]
