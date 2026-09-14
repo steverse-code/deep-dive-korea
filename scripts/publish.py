@@ -341,8 +341,19 @@ def main():
     if args.slug:
         entry = next((e for e in q if e["slug"] == args.slug),
                      {"slug": args.slug, "status": "pending"})
-        publish_entry("reel" if args.reel else "carousel", entry, q,
-                      ig_id, token, base, args.dry_run)
+        kind = "reel" if args.reel else "carousel"
+        try:
+            publish_entry(kind, entry, q, ig_id, token, base, args.dry_run)
+        except Exception as e:
+            detail = str(e)
+            if entry in q and not args.dry_run:
+                reason = ("instagram_action_blocked"
+                          if "2207051" in detail or "Application request limit reached" in detail
+                          else "publish_failed_manual_review")
+                hold_entry(kind, entry, reason, detail)
+                save_queue(q)
+                print("재시도를 막기 위해 이 항목을 held로 전환했습니다.", file=sys.stderr)
+            raise
         return
 
     # 자동 모드: 가장 최근 due 항목 1건만 선택하고, 밀린 과거 항목은 보류한다.
