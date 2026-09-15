@@ -1,37 +1,43 @@
-# Skipped — 2026-09-14 (Mon), reel / restaurant
+# Skipped days — ongoing media-rights blocker
 
-No queue item was created. No content JSON, no rendered output, no change to
-`queue.json`. Stopped under PIPELINE.md §0 ("If rights ... cannot be verified,
+No queue item is being created while this is open. Each entry below records one
+skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be verified,
 stop without adding a queue item").
 
-Two independent blockers, both introduced by the policy rewrite in 8128750
-(2026-09-14 10:12 KST), which this run is the first to execute.
+---
 
-## 1. No compliant media exists for a venue-specific Reel
+## 2026-09-15 (Tue), reel / local — SKIPPED
 
-PIPELINE.md §3 now allows, in order: (1) original media from the account owner,
+Second consecutive skip. No content JSON, no rendered output, no change to
+`queue.json`.
+
+The media blocker from 2026-09-14 is unchanged and remains decisive. The ffmpeg
+blocker is **resolved** — see below.
+
+### Still blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
 (2) venue/creator media with written permission, (3) licensed stock **only for a
 non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
 and Collabs must use original or written partner-authorized media."
 
-Monday is reel + restaurant, i.e. venue-specific. In this environment:
+Tuesday is reel + local food + Collab candidate. In this environment:
 
-- there is no owner-supplied original media. Every file in `assets/photos/` was
+- no owner-supplied original media exists. Every file in `assets/photos/` was
   fetched by a previous pipeline run; the only human-added one
-  (`cheongildip-en.jpg`, 392aefd) predates the new policy;
+  (`cheongildip-en.jpg`, 392aefd) predates the new policy. Nothing has been added
+  since the policy change;
 - written venue permission cannot be obtained by an unattended run;
 - licensed stock is available and legal, but §3 forbids it for this format.
 
-This is a policy change, not a research failure. The previous PIPELINE.md §4
-explicitly permitted mood-matched Unsplash stock and said the photo "does not need
-to be the literal venue's own interior." 8128750 removed that allowance. Every
-existing post relies on it — `rights_note` values in `content/` read "licensed
-free-use stock, not <venue> itself." Under the new rules none of those would be
-publishable as Reels.
+Note the constraint binds on **format**, not only on venue-specificity. Even a
+dish-focused editorial angle (e.g. chungmu gimbap as a dish rather than one
+restaurant) cannot use stock, because §3 option 3 permits stock only for a
+Carousel. Tuesday is a Reel, so that escape hatch is closed.
 
-**This blocks every future run too, not just today.** Mon/Tue/Thu/Fri/Sun are all
-venue-specific Reels. Only Wed/Sat (Carousel) can proceed, and only on a
-non-venue-specific editorial topic.
+**This blocks every future run except Wed/Sat.** Mon/Tue/Thu/Fri/Sun are all
+Reels. Only Wed/Sat (Carousel) can proceed, and only on a non-venue-specific
+editorial topic.
 
 To unblock, one of:
 
@@ -40,43 +46,76 @@ To unblock, one of:
   as the actual venue" disclaimer the old posts used);
 - move the venue-specific days to Carousel and keep Reels for editorial topics.
 
-## 2. `ffmpeg` is not installed on the runner
+This is an editorial/policy decision, so an unattended run will not make it.
 
-PIPELINE.md §4 now requires, for a Reel:
+### Two corrections to the 2026-09-14 entry
 
-```bash
-python3 scripts/reel.py content/<slug>.json out   # -> 1080x1920 MP4
-```
+1. **ffmpeg is installable and the Reel path works.** `sudo apt-get install -y
+   ffmpeg` succeeds on the runner. With it installed, `scripts/reel.py` produced a
+   valid 1080×1920, 22.2s MP4 from existing content with no errors. So this is a
+   missing dependency, not a broken script.
 
-`daily-content.yml` installs only pillow. `scripts/reel.py` shells out to `ffmpeg`
-and fails:
+   **A human must apply the fix** — this run could not. Pushing a change to
+   `.github/workflows/` is rejected: `refusing to allow a GitHub App to create or
+   update workflow .github/workflows/daily-content.yml without 'workflows'
+   permission`. `daily-content.yml` grants only `contents: write` and
+   `id-token: write`. Either add `workflows: write` to that block, or commit this
+   step by hand after `pillow 설치`:
 
-```
-FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
-```
+   ```yaml
+   - name: ffmpeg 설치
+     run: sudo apt-get update && sudo apt-get install -y ffmpeg
+   ```
 
-Previously the cloud pipeline rendered card-news only and Reels were built locally
-— `assets/music/README.md` still documents that ("릴스는 현재 로컬에서 수동으로
-만듭니다"). §4 moved MP4 rendering into the cloud without adding the dependency.
+   As documented, cloud-built Reels use ffmpeg-synthesized audio, because
+   `assets/music/*.mp3` is gitignored (`! local: tracks.json 에 등록됐지만 파일이
+   없습니다`).
 
-Fix: add an ffmpeg install step to `daily-content.yml`, e.g.
+2. **No content file has `rights_note`.** The previous entry said `rights_note`
+   values in `content/` read "licensed free-use stock, not <venue> itself". Those
+   strings are real but they live in the **sources slide** text, not in a rights
+   field. In fact **zero** of the 40 files in `content/` carry `policy_version`,
+   `asset_source`, `rights_confirmed` or `rights_note` — policy v2 metadata is
+   entirely unimplemented in existing content, and `cardnews.py` does not read it.
 
-```yaml
-- name: ffmpeg 설치
-  run: sudo apt-get update && sudo apt-get install -y ffmpeg
-```
+### Related gap: publish.py is more permissive than PIPELINE.md
 
-Note `assets/music/*.mp3` is gitignored, so cloud-built Reels will use synthesized
-audio rather than the licensed Incompetech tracks.
+`validate_rights()` (scripts/publish.py:78) skips all rights checks when
+`policy_version < 2`, which is every existing file. For v2 content it accepts
+`asset_source` in `{original, partner_licensed, licensed_stock}` **regardless of
+format** — it does not encode §3's "stock only for a non-venue-specific editorial
+Carousel" rule. A stock-photo Reel would therefore pass the publisher while
+violating PIPELINE.md. Worth closing if §3 is meant to be enforced in code.
 
-## What was verified working
+### Also worth a human decision: the account is still action-blocked
 
-- `TZ=Asia/Seoul date` → 2026-09-14 Monday → reel / restaurant (§1).
-- No same-day `pending`/`published` queue item (§0). Yesterday's
-  `2026-09-13-terarosa-gangneung-en` is still `pending`.
-- WebSearch and WebFetch both work. (guide.michelin.com returns empty to WebFetch;
-  koreaherald.com works.)
-- `scripts/cardnews.py` renders 7 slides at 1080x1350 with no errors.
-- No ramp flag is set anywhere in `queue.json` or repo notes, though PIPELINE.md §1
-  says to respect one during restriction recovery. Worth setting explicitly —
-  everything from 2026-08-30 onward is `held`.
+`2026-09-13-terarosa-gangneung-en` was held on 2026-09-14 with
+`instagram_action_blocked` (OAuthException code 4, subcode 2207051). Everything
+from 2026-08-30 onward is `held`; the last successful publish was 2026-08-30.
+
+CONTENT.md says the workflow "stays disabled until a human confirms that Account
+Status is clear" and that recovery ramps 3 posts in week 1, 4 in week 2. No ramp
+flag is set anywhere in `queue.json` or repo notes, though PIPELINE.md §1 says to
+respect one. Queuing new items now would feed the 19:00 KST publisher into an
+actively blocked account.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-09-15 Tuesday → reel / local (§1).
+- No same-day `pending`/`published` queue item (§0).
+- WebSearch works. WebFetch works on koreaherald.com; namu.wiki returns HTTP 403.
+- `scripts/cardnews.py` renders 7 slides at 1080×1350 with no errors.
+- `scripts/reel.py` renders 1080×1920 MP4 once ffmpeg is present.
+
+---
+
+## 2026-09-14 (Mon), reel / restaurant — SKIPPED
+
+First run to execute the policy rewrite in 8128750 (2026-09-14 10:12 KST).
+Stopped for two reasons: no compliant media for a venue-specific Reel (unchanged,
+see above), and `ffmpeg` missing from the runner (since fixed).
+
+The previous PIPELINE.md §4 explicitly permitted mood-matched Unsplash stock and
+said the photo "does not need to be the literal venue's own interior". 8128750
+removed that allowance. Every existing post relies on it — under the new rules
+none of them would be publishable as Reels.
