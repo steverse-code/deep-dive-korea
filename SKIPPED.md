@@ -1,8 +1,40 @@
 # Skipped days — ongoing media-rights blocker
 
-No queue item is being created while this is open. Each entry below records one
+The blocker below still stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). It does
+**not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows licensed
+stock on a non-venue-specific editorial Carousel. Each entry below records one
 skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be verified,
 stop without adding a queue item").
+
+---
+
+## 2026-09-16 (Wed), carousel / cafe — PUBLISHED TO QUEUE, not skipped
+
+First run to take the Wed/Sat escape hatch the 2026-09-15 entry identified. Queued
+`2026-09-16-korea-cup-rules-en`, a non-venue-specific editorial Carousel on Korea's
+September 2026 reusable-cup pact. Names no venue as its subject, so §2's venue
+checks do not apply and §3 option 3 is available.
+
+Cover photo is CC0 1.0 (public domain) from Wikimedia Commons, licence verified
+programmatically via the Commons API (`LicenseShortName: CC0`, `Restrictions:`
+empty) rather than assumed — see `rights_note` in the content JSON. This is the
+first file in `content/` to actually carry policy-v2 metadata
+(`policy_version`/`asset_source`/`rights_confirmed`/`rights_note`), so it is also
+the first that `publish.py:validate_rights()` checks rather than waves through.
+
+**Still open for a human:** the account remains action-blocked. Everything from
+2026-08-30 on is `held`; the last successful publish was 2026-08-30, and
+2026-09-13 was held with subcode 2207051. This item is queued `pending` for 18:30
+KST, so tonight's 19:00 publisher will attempt it. If the block is still live it
+will fail and be set to `held` — that is PIPELINE.md §6's designed behaviour, not
+a new fault. No ramp flag is set anywhere in `queue.json` or repo notes, so §1's
+ramp imposed no constraint on this run.
+
+**Rendering note for future runs:** `cardnews.py`'s `fit()` silently overflows
+when text exceeds a box at its minimum font size — it does not raise. The first
+render of this post ran off the canvas on the `point` slide and collided the
+`source` list with the CTA box, and exited 0 both times. Renders must be looked
+at, not just exit-code checked.
 
 ---
 

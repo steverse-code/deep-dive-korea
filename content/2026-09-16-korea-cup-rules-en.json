@@ -1,0 +1,114 @@
+{
+  "slug": "2026-09-16-korea-cup-rules-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-16T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Cover photo: 'Close-up of Woman Holding Coffee Cup at Cafe' by Chevanon Photography, Creative Commons CC0 1.0 Universal public domain dedication, via Wikimedia Commons (File:Close-up of Woman Holding Coffee Cup at Cafe (28217840617).jpg), originally published on Pexels. Licence verified against the Wikimedia Commons API on 2026-09-16 KST — LicenseShortName 'CC0', LicenseUrl creativecommons.org/publicdomain/zero/1.0, Restrictions: none. CC0 permits commercial use and modification with no attribution required; the photographer is credited anyway. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel. The image is generic, depicts no identifiable venue, and this post names no venue as its subject.",
+  "location": "South Korea (nationwide)",
+  "venue_handle": null,
+  "search_keyword": "Korea personal cup discount cafe",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-09-16-korea-cup-rules-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE · SOUTH KOREA",
+      "headline": "22,000 Korean cafes\nwould rather you brought a cup.",
+      "subline": "A voluntary pact with the Ministry of Climate, Energy and Environment starts this month — up to 800 won off a drink if you carry a tumbler",
+      "bg_image": "assets/photos/2026-09-16-korea-cup-rules-en-cover.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY FACT",
+      "value": "800 won",
+      "label": "The most you can save per drink for bringing your own cup — roughly 300 to 400 won knocked off at the till by the shop, topped up with points from the government's Carbon Neutrality Action Points scheme. About 0.60 US dollars",
+      "note": "Sources: World Coffee Portal, 16 July 2026 — agreement terms, the 300-400 won store discount, the September 2026 start date · The Korea Times, 14 July 2026 — up to 800 won combining store discounts with carbon neutrality points, 23 chains, 22,000 stores · Checked 16 September 2026"
+    },
+    {
+      "type": "list",
+      "title": "What actually\nchanges",
+      "items": [
+        {
+          "t": "Drink in, and it should come in a real cup",
+          "d": "Businesses that signed up have agreed to move to reusable cups for anything consumed on the premises. If you sit down, expect ceramic or glass rather than paper"
+        },
+        {
+          "t": "Bring a tumbler, get money off",
+          "d": "Up to 800 won per drink — a 300 to 400 won discount at the shop's own discretion, plus government carbon-neutrality points. The shop sets its own figure, so it varies"
+        },
+        {
+          "t": "Straws only if you ask for one",
+          "d": "Single-use straws stop being handed out by default. You request one at the kiosk or from staff. Reporting describes this as applying regardless of what the straw is made of"
+        },
+        {
+          "t": "Double-cupping is being dropped",
+          "d": "The routine of nesting a plastic cup inside a paper one for insulation is part of what signatories pledged to stop, alongside a phase-out of PET cans"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Korea has\ntried this before.",
+      "body": "The pact is voluntary. It is an agreement between a ministry and a list of companies, not a law, and nobody is fined for ignoring it.\n\nThat matters, because the mandatory version kept collapsing. Rules covering paper cups and plastic straws took effect in November 2022 with a year's grace. In November 2023, before it expired, the government scrapped the paper-cup ban outright and postponed straw enforcement indefinitely, citing costs to small business owners. By mid-2024 a ministry official was quoted saying it is realistically impossible to regulate disposables.\n\nThen in December 2025 a draft strategy proposed charging for takeaway cups. A plan, not a rule."
+    },
+    {
+      "type": "list",
+      "title": "If you're\nhere now",
+      "items": [
+        {
+          "t": "Assume the cafe in front of you is not covered",
+          "d": "About 22,000 outlets signed — 23 chains including Starbucks, Ediya, Paris Baguette and McDonald's, plus roughly 150 independents. Set against the 100,729 shops Statistics Korea counted in 2022, that is a small slice. Ask, or look for a notice at the till"
+        },
+        {
+          "t": "Seoul runs a second, separate discount",
+          "d": "500 won on a personal cup — 100 won off at the till from the cafe, 400 won in points from the city. It needs the Seoul Pay app and a participating shop, listed on Smart Seoul Map. Announced to run to the end of 2026, but the city says it may stop earlier if the budget is spent"
+        },
+        {
+          "t": "The for-here-or-to-go question decides your cup",
+          "d": "Staff will ask. Answering 'to go' when you are sitting down is how travellers end up with a paper cup at a table. A useful English search phrase is 'personal cup discount', or 'tumbler discount'"
+        },
+        {
+          "t": "None of this makes a cafe cheap or good",
+          "d": "A discount of a few hundred won is not a recommendation. It is worth carrying a tumbler if you were going to carry one anyway"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal visit.\nEvery fact here comes from a published source, checked on 16 September 2026.",
+      "by": "Where sources differ we have said so rather than picking one. The Korea Times describes 23 chains with over 22,000 stores plus around 150 independent cafes; World Coffee Portal puts the total at about 22,000 outlets.\nThe December 2025 charge for takeaway plastic cups was a draft strategy heading to a public hearing — we have found no confirmation that it is in force, so do not budget for it."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "World Coffee Portal, 16 Jul 2026 — the agreement, reusable dine-in cups, 300-400 won store discount, September 2026 start",
+        "The Korea Times, 14 Jul 2026 — up to 800 won a drink; voluntary, not law; 23 chains, 22,000-plus stores, ~150 independents",
+        "Korea Herald / Korea Times, 30 Jun 2024, citing Statistics Korea — 100,729 coffee shops at end-2022; ~55,000 convenience stores",
+        "Korea Herald, 7 Nov 2023 and 5 Jun 2024 — paper-cup ban withdrawn, straw rules postponed, shift to voluntary participation",
+        "Korea Herald, 17 Dec 2025 — draft anti-plastic strategy: a 100-200 won charge for takeaway plastic cups, sent to a hearing",
+        "Korea Herald, 18 May 2026 — Seoul's 500 won personal-cup discount via Seoul Pay, to end-2026 subject to budget",
+        "* Cover photo: Chevanon Photography, CC0 1.0 public domain, via Wikimedia Commons. Generic stock — not any named cafe"
+      ],
+      "cta": "We check every claim before we post it.\nSave this for your next Korea trip"
+    }
+  ],
+  "caption": "From this month, about 22,000 cafes and fast-food outlets across Korea are meant to serve dine-in drinks in reusable cups — and to pay you up to 800 won for bringing your own tumbler.\n\nThe catch: it is a voluntary pact with the Ministry of Climate, Energy and Environment, not a law. Statistics Korea counted 100,729 coffee shops in the country at the end of 2022, so most of them are not covered. Look for a notice at the till, or ask.\n\nIn Seoul there is a separate 500 won personal-cup discount through the Seoul Pay app, running to the end of 2026 while the budget lasts.\n\nMandatory versions of this rule were introduced in 2022 and scrapped in 2023, and a December 2025 plan to charge for takeaway cups is still only a draft. We have flagged what is confirmed and what is not.\n\nSources in the last slide. Save it for your trip.",
+  "hashtags": [
+    "#korea",
+    "#koreatravel",
+    "#seoul",
+    "#koreancafe",
+    "#cafehopping",
+    "#sustainabletravel",
+    "#koreatrip",
+    "#deepdivekorea"
+  ]
+}
