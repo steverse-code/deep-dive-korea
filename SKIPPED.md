@@ -1,10 +1,90 @@
 # Skipped days — ongoing media-rights blocker
 
-The blocker below still stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). It does
-**not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows licensed
-stock on a non-venue-specific editorial Carousel. Each entry below records one
-skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be verified,
-stop without adding a queue item").
+The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). It
+does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
+licensed stock on a non-venue-specific editorial Carousel. Each entry below
+records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
+verified, stop without adding a queue item").
+
+**As of 2026-09-17 a second, separate blocker applies to all seven days:** the
+Instagram account is still action-blocked, so Wed/Sat items now queue but fail at
+publish time. See the 2026-09-17 entry. Both need a human.
+
+---
+
+## 2026-09-17 (Thu), reel / bar — SKIPPED
+
+Third consecutive Reel-day skip, same decisive blocker. No content JSON, no
+rendered output, no change to `queue.json`.
+
+### Blocking: no compliant media for a venue-specific Reel (unchanged)
+
+Re-verified from scratch this run rather than inherited from the entries below:
+
+- **§3 option 1 (owner original) — none.** `git log --diff-filter=A --name-only
+  -- assets/photos/` shows every one of the 40 files was added by a `content: …
+  (daily pipeline…)` commit. Nothing has been human-added since policy v2 landed
+  in 8128750. Working tree is clean, so no un-committed drop either.
+- **§3 option 2 (written venue permission) — unobtainable unattended.** No
+  permission record exists anywhere in the repo.
+- **§3 option 3 (licensed stock) — closed by format.** Permitted only for a
+  non-venue-specific editorial *Carousel*. Thursday is a Reel, so no editorial
+  angle rescues it.
+
+Stopped under §0. Deliberately did **not** write `asset_source:
+"licensed_stock"` + `rights_confirmed: true` for a Reel: that combination passes
+`validate_rights()` (scripts/publish.py:78 has no format check — see the open gap
+noted on 2026-09-15) while violating §3. The policy is only enforced here.
+
+### New this run: the Wed/Sat escape hatch also failed to reach Instagram
+
+The header of this file says the blocker "does not stop Wed/Sat." That is still
+true of the *media* rule, but it no longer means a Wed/Sat post publishes.
+`2026-09-16-korea-cup-rules-en` — the first post to take that hatch — was held at
+2026-09-16 23:46 KST with the same `instagram_action_blocked` (code 4, subcode
+2207051, "Application request limit reached").
+
+So **every** item since 2026-08-30 is now `held`, including the one designed to be
+publishable. The last successful publish remains 2026-08-30. Queuing anything
+today would only have added a 41st held item.
+
+### Escalation for a human — the pipeline is now blocked end to end
+
+Two independent faults, neither fixable by an unattended run:
+
+1. **Media rights (blocks 5 of 7 days).** Mon/Tue/Thu/Fri/Sun are Reels and have
+   had no legal media source since 8128750. Unblock by one of: dropping original
+   photos into `assets/photos/`; restoring a stock allowance for Reels in §3;
+   or moving venue-specific days to Carousel. This is an editorial decision.
+2. **Instagram account status (blocks all 7 days).** The account is still
+   action-blocked. CONTENT.md says the workflow "stays disabled until a human
+   confirms that Account Status is clear," and §1 expects a manual ramp flag on
+   recovery — no ramp flag is set in `queue.json` or any repo note.
+
+Until at least one of these is cleared, further runs will keep skipping (Reel
+days) or queueing items that fail at 19:00 KST (Carousel days).
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-09-17 Thursday → reel / bar (§1). No same-day
+  `pending`/`published` queue item (§0). No ramp flag set.
+- WebSearch works. WebFetch works (koreaherald.com; theworlds50best.com 301s to
+  the50.com and succeeds on retry at the redirect URL).
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0.
+- **ffmpeg is still missing from the runner** and still absent from every file in
+  `.github/workflows/`. `sudo apt-get install -y ffmpeg` succeeds ad hoc (6.1.1),
+  but the fix from the 2026-09-15 entry was never applied, and this run still
+  cannot apply it: `daily-content.yml` grants only `contents: write` /
+  `id-token: write`, so pushing a workflow change is rejected. Any future Reel
+  day needs a human to add the install step.
+
+### Topic research (not the blocker)
+
+A verified topic was available, so media alone stopped this run. Asia's 50 Best
+Bars 2026 (announced 2026-07-28, Macau) lists eight Seoul bars — Zest No. 2,
+Alice No. 13, Bar Cham No. 33, M+MS No. 42, Gong Gan No. 74, Charles H No. 87,
+Le Chamber No. 88, Soko No. 89. All eight already have posts in `content/`, so a
+fresh bar would need sourcing beyond that list next time.
 
 ---
 
