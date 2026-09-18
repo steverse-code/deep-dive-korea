@@ -12,6 +12,83 @@ publish time. See the 2026-09-17 entry. Both need a human.
 
 ---
 
+## 2026-09-18 (Fri), reel / restaurant — SKIPPED
+
+Fourth consecutive Reel-day skip. Same two blockers, both re-verified from source
+this run rather than inherited. No content JSON, no rendered output, no change to
+`queue.json`.
+
+### Blocking 1: no compliant media for a venue-specific Reel
+
+- **§3 option 1 (owner original) — none.** `assets/photos/` now holds 42 files.
+  `git log --diff-filter=A` attributes exactly one to a human — `cheongildip-en.jpg`
+  (392aefd, Steve, 2026-08-25) — and that commit *predates* the policy-v2 rewrite
+  in 8128750. Every other file was fetched by a `content: … (daily pipeline)` commit.
+  (The count rose 40 → 42 only because 2026-09-16 added its own two.) Working tree
+  is clean, so there is no un-committed drop either.
+- **§3 option 2 (written venue permission) — unobtainable unattended.** Grepped the
+  whole repo for permission records: the only `rights_note` in `content/` is the one
+  on 2026-09-16, and it documents a stock licence, not a venue grant.
+- **§3 option 3 (licensed stock) — closed by format.** Stock is permitted only for a
+  non-venue-specific editorial *Carousel*. Friday is a Reel.
+
+**Checked this run and rejected: an openly-licensed photo that really does depict the
+venue.** A Wikimedia Commons CC0/CC-BY shot of the actual restaurant would satisfy
+§3's accuracy rule ("do not use a mood photo as if it depicts the named place") — but
+accuracy is not the binding constraint. The repo already has a precedent for how such
+a photo classifies: 2026-09-16 used a Commons CC0 image and recorded
+`asset_source: "licensed_stock"`. `licensed_stock` on a Reel violates §3, and
+CONTENT.md is independently explicit — "Venue-specific Reels and Collabs must use
+original or written partner-authorized media." So this path is closed too.
+
+Note the constraint binds on **format**, not only venue-specificity: §3 option 3 names
+Carousel, so even a dish-level or editorial Reel angle cannot use stock.
+
+Stopped under §0. Deliberately did **not** write `asset_source: "licensed_stock"` +
+`rights_confirmed: true` for a Reel — that still passes `validate_rights()`
+(scripts/publish.py has no format check; the gap logged on 2026-09-15 is still open)
+while violating §3. The policy remains enforced only here.
+
+### Blocking 2: Instagram account still action-blocked
+
+Unchanged. Every item from 2026-08-30 onward is `held` — 2026-09-16, the post
+designed to be publishable via the Wed/Sat hatch, was held at 2026-09-16 23:46 KST
+with code 4 / subcode 2207051. Last successful publish is still 2026-08-30. No ramp
+flag is set in `queue.json` or any repo note, and CONTENT.md says the workflow "stays
+disabled until a human confirms that Account Status is clear."
+
+### ffmpeg: still missing, still not fixable from here
+
+`which ffmpeg` → not found on this runner, and `grep -rn ffmpeg .github/workflows/`
+returns nothing, so the install step recommended on 2026-09-15 has still not been
+applied. This run cannot apply it either: `daily-content.yml` grants only
+`contents: write` / `id-token: write`, so pushing a workflow change is rejected.
+Secondary to the media blocker — without media there is nothing to encode — but any
+future Reel day needs a human to add it.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-09-18 Friday → reel / restaurant, Collab candidate (§1).
+- No same-day `pending`/`published` queue item (§0). No ramp flag set.
+- WebSearch works. WebFetch works (koreatimes.co.kr returned full article text).
+  `guide.michelin.com` fetches 200 but renders empty — client-side content; use a
+  news mirror for that source.
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0 (re-rendered
+  2026-09-16-korea-cup-rules-en to a scratch dir).
+- `scripts/reel.py` not exercised — no ffmpeg and no compliant media.
+
+### Topic research (not the blocker)
+
+A verified restaurant topic was available, so media alone stopped this run. The
+MICHELIN Guide Seoul & Busan **2027** pre-release (announced ~Aug 2026, full reveal
+spring 2027) added six restaurants, featuring regional Italian cooking in Seoul and
+local flavours in Busan; entries are flagged "New" in the Guide's Korea app and site.
+Worth noting for reuse: the 2026 edition's six pre-release additions — Doori, Bium,
+GiwaKang, Gosari Express, Onyva, Sobakeeri Suzu — are a year old now, and GiwaKang
+and Gosari Express already have posts in `content/`.
+
+---
+
 ## 2026-09-17 (Thu), reel / bar — SKIPPED
 
 Third consecutive Reel-day skip, same decisive blocker. No content JSON, no
