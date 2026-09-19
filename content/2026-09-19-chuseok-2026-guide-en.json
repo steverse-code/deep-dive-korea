@@ -1,0 +1,114 @@
+{
+  "slug": "2026-09-19-chuseok-2026-guide-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-19T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: 'Songpyeon' by wizdata (via freeqration), Creative Commons CC0 1.0 Universal public domain dedication, via Wikimedia Commons (File:Songpyeon.jpg). Licence verified against the Wikimedia Commons API on 2026-09-19 KST — LicenseShortName 'CC0', License 'cc0', LicenseUrl creativecommons.org/publicdomain/zero/1.0, AttributionRequired 'false', Restrictions: none, Categories include CC-Zero. CC0 permits commercial use and modification with no attribution required; the photographer is credited anyway. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel. The image depicts the dish (songpyeon on a tray with pine needles), which is the actual subject of this post; it depicts no identifiable venue, and this post names no venue as its subject.",
+  "location": "South Korea (nationwide)",
+  "venue_handle": null,
+  "search_keyword": "Chuseok 2026 what is open Korea",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-09-19-chuseok-2026-guide-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "LOCAL FOOD · SOUTH KOREA",
+      "headline": "Korea's biggest food\nholiday starts Thursday.",
+      "subline": "Chuseok runs 24–26 September. The palaces open free and the expressways go toll-free — and a lot of the restaurants you bookmarked pull the shutters down",
+      "bg_image": "assets/photos/2026-09-19-chuseok-2026-guide-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KEY DATES",
+      "value": "3 days",
+      "label": "Chuseok 2026 runs Thursday 24 to Saturday 26 September, with Chuseok Day itself on Friday the 25th. Monday the 28th is a normal working day",
+      "note": "Sources: Seoul Economic Daily, 13 Sep 2026 — the three-day holiday, and that the government is not officially reviewing a temporary holiday for 28 Sep · Korea Tourism Organization (VisitKorea) official 2026 Chuseok travel guide · Checked 19 September 2026"
+    },
+    {
+      "type": "list",
+      "title": "What opens,\nwhat's free",
+      "items": [
+        {
+          "t": "Four palaces and Jongmyo, no ticket",
+          "d": "Gyeongbokgung, Changdeokgung, Changgyeonggung and Deoksugung, plus Jongmyo Shrine and the Joseon royal tombs. Changdeokgung's rear garden stays excluded"
+        },
+        {
+          "t": "Jongmyo drops its booking rule",
+          "d": "It normally requires an advance reservation. Over the holiday the Korea Times reports visitors can enter without one"
+        },
+        {
+          "t": "Expressways go toll-free",
+          "d": "Nationwide, from midnight on the 24th to midnight on the 27th. Some regions are waiving tolls on privately financed roads and bridges too"
+        },
+        {
+          "t": "Guards change at Gyeongbokgung",
+          "d": "Guard-changing at 10am and 2pm, guard patrols at 11am and 1pm, and a royal guard patrol at 3pm"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "But the food\ngoes quiet.",
+      "body": "Chuseok is a harvest holiday, and the cooking that defines it happens in homes rather than restaurants. Songpyeon — half-moon rice cakes steamed over a bed of pine needles — is made at the kitchen table, alongside jeon, japchae and yakgwa.\n\nKorea's own tourism office is direct about the consequence: department stores and many restaurants close on Chuseok Day, while convenience stores and shops near tourist attractions usually stay open. Subways and city buses run normally. It says holiday hours vary enough that you should check each venue's website before going.\n\nSo treat Friday the 25th as the day to plan around, and keep the independent places you bookmarked for either side of it."
+    },
+    {
+      "type": "list",
+      "title": "If you're\nmoving around",
+      "items": [
+        {
+          "t": "The 25th is the worst day to drive",
+          "d": "TMAP and SK Telecom forecast Seoul to Busan at 7 hours 3 minutes leaving at noon on the 25th, and 8 hours coming back the same day — roughly 2.5 hours over normal"
+        },
+        {
+          "t": "KTX and SRT are one system now",
+          "d": "They merged on 1 September 2026. The old SRT app no longer books — use KORAIL+. Fares on existing KTX routes were cut about 10 percent to match SRT pricing"
+        },
+        {
+          "t": "Don't count on last-minute seats",
+          "d": "The tourism office warns train and express bus tickets sell out quickly as demand surges over major holidays. If you haven't booked, plan around staying put"
+        },
+        {
+          "t": "Save 1330",
+          "d": "The Korea Travel Hotline, run by the Korea Tourism Organization, is the number to call when you need to find something that's actually open"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal visit.\nEvery fact here comes from a published source, checked on 19 September 2026.",
+      "by": "Two things are not fully settled. The Korea Times describes the palace free-entry window as Thursday through Sunday, while the tourism office frames the holiday itself as Thursday to Saturday — so treat Sunday the 27th as likely but worth checking.\nAnd Monday the 28th was still a normal working day as of 13 September, with no temporary holiday under official review. If that changes, closures shift with it."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "The Korea Times, 18 Sep 2026 — free entry to four palaces, Jongmyo and the Joseon royal tombs; rear garden excluded; guard ceremony times",
+        "Seoul Economic Daily, 18 Sep 2026 — expressway tolls waived nationwide, midnight 24 Sep to midnight 27 Sep, plus regional private roads",
+        "Seoul Economic Daily, 17 Sep 2026 — TMAP / SK Telecom forecast: Seoul-Busan 7h03m on 25 Sep, about 8h on the return leg",
+        "Seoul Economic Daily, 13 Sep 2026 — holiday runs 24-26 Sep; 28 Sep not officially under review as a temporary holiday",
+        "The Korea Times, 2 Aug 2026 — KORAIL-SR merger effective 1 Sep, KORAIL+ app, KTX fares cut 10% to the SRT level",
+        "Korea Tourism Organization (VisitKorea), official 2026 Chuseok travel guide — closures, transport, songpyeon and holiday dishes",
+        "Photo: 'Songpyeon' by wizdata, CC0 1.0 public domain, via Wikimedia Commons. Depicts the dish, not any venue"
+      ],
+      "cta": "We check every claim before we post it.\nSave this before the 24th"
+    }
+  ],
+  "caption": "Chuseok 2026 falls on Friday 25 September, with the holiday running Thursday 24 to Saturday 26. If you're in Korea that week, it changes what you can eat and where you can go.\n\nWhat opens up: Gyeongbokgung, Changdeokgung, Changgyeonggung and Deoksugung are free, along with Jongmyo Shrine and the Joseon royal tombs — and Jongmyo waives its usual advance-booking rule. Expressway tolls are waived nationwide from midnight on the 24th to midnight on the 27th.\n\nWhat closes: department stores and many restaurants shut on Chuseok Day itself, and independent owner-run places often stay closed longer than the three official days. Convenience stores and shops near tourist attractions generally stay open, and subways and city buses run normally.\n\nTwo things worth knowing before you move: TMAP forecasts Seoul to Busan at seven hours leaving at noon on the 25th, and KTX and SRT merged on 1 September — the old SRT app no longer books tickets, so use KORAIL+.\n\nThe food of the holiday is songpyeon, half-moon rice cakes steamed over pine needles, made at home rather than sold in restaurants.\n\nSources in the last slide. Save it before the 24th.",
+  "hashtags": [
+    "#chuseok",
+    "#korea",
+    "#koreatravel",
+    "#seoul",
+    "#koreanfood",
+    "#songpyeon",
+    "#koreatrip",
+    "#deepdivekorea"
+  ]
+}

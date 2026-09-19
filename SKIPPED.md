@@ -12,6 +12,58 @@ publish time. See the 2026-09-17 entry. Both need a human.
 
 ---
 
+## 2026-09-19 (Sat), carousel / local — QUEUED, not skipped
+
+Second run to take the Wed/Sat escape hatch. Queued
+`2026-09-19-chuseok-2026-guide-en`, a non-venue-specific editorial Carousel on the
+Chuseok 2026 holiday (Thu 24 – Sat 26 Sep) — what opens, what closes, and how the
+travel week actually works. Names no venue as its subject, so §2's venue checks do
+not apply and §3 option 3 is available.
+
+Photo is `File:Songpyeon.jpg` from Wikimedia Commons, CC0 1.0, verified through the
+Commons API this run (`LicenseShortName: CC0`, `AttributionRequired: false`,
+`Restrictions:` empty, `Categories` includes CC-Zero) rather than assumed — same
+method as 2026-09-16. It depicts the dish the post is actually about, so §3's "do
+not use a mood photo as if it depicts the named place" rule is satisfied on the
+merits, not just by the absence of a named venue.
+
+### Two source conflicts, both disclosed on the quote slide rather than resolved
+
+- **Palace free-entry window.** The Korea Times (18 Sep 2026) says Thursday through
+  *Sunday*; VisitKorea frames the holiday itself as Thursday to *Saturday*. Slide 6
+  says to treat Sunday the 27th as likely but worth checking.
+- **28 Sep.** Not a temporary holiday, and not under official review, as of
+  Seoul Economic Daily 13 Sep 2026. Stated with its as-of date so it ages honestly.
+
+**Rejected during research:** Korea Herald article 10575897 turned up in search as a
+Chuseok toll-waiver source. It is about Chuseok **2025** (tolls 4–7 Oct, published
+15 Sep 2025). Likewise `korea.net` articleId 258260, which search surfaced for 2026
+palace free entry, is a 2024 article. Neither was used. Aggregator blogs asserting
+2026 KTX booking windows (3–11 Sep) were also dropped — no primary source found, so
+slide 5 gives the tourism office's generic sell-out warning instead of dates.
+
+**Still open for a human — unchanged and still blocking publication:** the account
+remains action-blocked. Everything from 2026-08-30 on is `held`; last successful
+publish 2026-08-30; 2026-09-16 was held at 23:46 KST with code 4 / subcode 2207051.
+This item is `pending` for 18:30 KST, so tonight's 19:00 publisher will attempt it
+and, if the block is still live, will hold it — §6's designed behaviour, not a new
+fault. No ramp flag is set in `queue.json` or any repo note, so §1's ramp imposed no
+constraint. The Reel-day media blocker (Mon/Tue/Thu/Fri/Sun) is also unchanged.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-09-19 Saturday → carousel / local (§1). No same-day
+  `pending`/`published` queue item (§0).
+- WebSearch works. WebFetch works (koreatimes.co.kr, en.sedaily.com,
+  english.visitkorea.or.kr all returned usable text). WebFetch correctly flagged
+  both the 2025 and 2024 articles above as off-year — worth trusting on dates.
+- Wikimedia Commons API reachable for programmatic licence verification.
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0. **All seven were
+  opened and inspected**, per the 2026-09-16 note that `fit()` overflows silently —
+  no overflow or CTA collision this time.
+
+---
+
 ## 2026-09-18 (Fri), reel / restaurant — SKIPPED
 
 Fourth consecutive Reel-day skip. Same two blockers, both re-verified from source
