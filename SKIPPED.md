@@ -8,7 +8,98 @@ verified, stop without adding a queue item").
 
 **As of 2026-09-17 a second, separate blocker applies to all seven days:** the
 Instagram account is still action-blocked, so Wed/Sat items now queue but fail at
-publish time. See the 2026-09-17 entry. Both need a human.
+publish time. See the 2026-09-17 entry. Both need a human. Still live as of
+2026-09-20 — the 2026-09-19 Carousel was held overnight with the same code 4 /
+subcode 2207051. A third blocker, missing ffmpeg, independently stops Reel days;
+see the 2026-09-20 entry.
+
+---
+
+## 2026-09-20 (Sun), reel / cafe — SKIPPED
+
+Fifth consecutive Reel-day skip. Both standing blockers re-verified from source
+this run rather than inherited, plus a third that is specific to Reel days. No
+content JSON, no rendered output, no change to `queue.json`.
+
+`TZ=Asia/Seoul date` → Sunday 2026-09-20 → §1 row 7 → reel / cafe. No same-day
+`pending` or `published` queue item (§0): `grep 2026-09-20 queue.json` returns
+nothing, and the queue now holds 42 items, 31 `held` and 11 `published`, with
+**zero** `pending`. Working tree clean.
+
+### The §2 research actually passed — this is a pure §3 stop
+
+Worth recording, because it isolates the blocker. The candidate was **Fritz
+Coffee Company, Wonseo branch**, a hanok-set cafe next to the Arario Museum in
+Space. Verified against the company's own English site
+(`en.fritz.co.kr/contact.html`, fetched this run): the branch is listed as
+currently operating at **83 Yulgok-ro, Jongno-gu, Seoul**, hours **9:00–19:30**,
+one of seven branches. Not previously covered by this account. So venue
+existence, address and current operation under §2 were all satisfiable from an
+official source. The run stopped one step later, at §3, for want of a photo.
+
+### Blocking 1: no compliant media for a venue-specific Reel (unchanged)
+
+- **§3 option 1 (owner original) — none.** `assets/photos/` now holds 43 tracked
+  files. `git log --diff-filter=A` attributes exactly one to a human —
+  `cheongildip-en.jpg` (392aefd, Steve, 2026-08-25) — and that commit predates the
+  policy-v2 rewrite in 8128750 (2026-09-14 10:12 KST). The other 42 were fetched
+  by `content: … (daily pipeline)` commits. Count rose 42 → 43 only because
+  2026-09-19 added its own. Working tree is clean, so no un-committed drop either.
+  The one human-supplied file also depicts a different, already-posted venue, so
+  reusing it for Fritz would itself violate §3's "do not use a mood photo as if it
+  depicts the named place".
+- **§3 option 2 (partner media with written permission) — none.** No permission
+  record anywhere in the repo, and no channel exists to obtain one unattended.
+- **§3 option 3 (licensed stock) — not available on a Reel.** This is the letter of
+  both documents, not an inference: §3 scopes option 3 to "a non-venue-specific
+  editorial **Carousel**", and CONTENT.md § Media and rights is explicit that
+  "Venue-specific Reels and Collabs must use original or written partner-authorized
+  media."
+
+**A question for the human, surfaced by this run's search.** I checked whether a
+genuinely free-licensed photo *of the actual venue* exists, which would be a
+different case from the mood-photo problem §3 is written against. It does not, for
+Fritz — the nearest Commons hit, `File:Cafe CNow interior.jpg`, is CC BY 4.0 and
+depicts a cafe at Budi Luhur University in **Indonesia**, verified through the
+Commons API this run. But the general question stands: if a CC0/CC-BY photo that
+truthfully depicts the named cafe were found, current policy would still bar it
+from a Reel, because option 3 is scoped by *format* rather than by whether the
+image honestly depicts the subject. That may be intended. If it is not, the fix is
+a §3 wording change, and it would unblock five days a week.
+
+### Blocking 2: the account is still action-blocked (unchanged)
+
+`2026-09-19-chuseok-2026-guide-en` was queued `pending` for 18:30 KST by the
+previous run. Last night's publisher attempted it and **held** it at 22:50 KST with
+`instagram_action_blocked`, OAuthException code 4 / subcode 2207051 — the same
+signature as 2026-09-16 and 2026-09-13. So the Wed/Sat escape hatch still produces
+a publishable artifact and still does not produce a published post. Everything from
+2026-08-30 onward is `held`; the last successful publish remains **2026-08-30**.
+This is §6's designed behaviour, not a new fault, and it needs a human. No ramp
+flag is set in `queue.json` or any repo note, so §1's ramp imposed no constraint.
+
+### Blocking 3 (Reel days only): ffmpeg is still missing from the runner
+
+Re-confirmed, not assumed: `which ffmpeg` → not found, and
+`python3 scripts/reel.py content/2026-09-19-chuseok-2026-guide-en.json /tmp/...`
+exits 1 with `FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'`.
+§4 requires a Reel to render a 1080×1920 MP4, so even with compliant media today's
+run could not have produced one. `.github/workflows/daily-content.yml` still has no
+ffmpeg install step and still grants only `permissions: contents: write`, so this
+agent cannot add the step itself — it needs `workflows: write` added, or the step
+committed by hand after the pillow install, as the 2026-09-15 entry sets out.
+
+### Verified working this run
+
+- WebSearch works. WebFetch works — `en.fritz.co.kr` returned all seven branches
+  with addresses and hours, and the Wikimedia Commons API returned full
+  `extmetadata` (`LicenseShortName: CC BY 4.0`, `AttributionRequired: true`) for
+  programmatic licence checking.
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0, verified this run
+  against the 2026-09-19 content file into a scratch directory. Nothing was written
+  to `out/`.
+- `scripts/reel.py` is the only broken link in the toolchain, and only for want of
+  ffmpeg — see Blocking 3.
 
 ---
 
