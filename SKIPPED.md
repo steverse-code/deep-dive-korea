@@ -8,10 +8,101 @@ verified, stop without adding a queue item").
 
 **As of 2026-09-17 a second, separate blocker applies to all seven days:** the
 Instagram account is still action-blocked, so Wed/Sat items now queue but fail at
-publish time. See the 2026-09-17 entry. Both need a human. Still live as of
-2026-09-20 — the 2026-09-19 Carousel was held overnight with the same code 4 /
-subcode 2207051. A third blocker, missing ffmpeg, independently stops Reel days;
-see the 2026-09-20 entry.
+publish time. See the 2026-09-17 entry. Both need a human. Last direct evidence is
+the 2026-09-19 Carousel, held overnight with the same code 4 / subcode 2207051; no
+publish has been attempted since, so 2026-09-21 could not re-test it. A third
+blocker, missing ffmpeg, independently stops Reel days; see the 2026-09-20 entry.
+
+---
+
+## 2026-09-21 (Mon), reel / restaurant — SKIPPED
+
+Sixth consecutive Reel-day skip. All three blockers re-checked against the runner
+and the repo this run rather than inherited from the entry below. No content JSON,
+no rendered output, no change to `queue.json`.
+
+`TZ=Asia/Seoul date` → Monday 2026-09-21 11:10 KST → §1 row 1 → reel / restaurant,
+Collab optional. No same-day `pending` or `published` queue item (§0): `grep
+2026-09-21 queue.json` returns nothing, the queue is unchanged at 42 items — 31
+`held`, 11 `published`, **zero** `pending` — and the working tree was clean at
+start.
+
+### §2 research passed again; the stop is once more at §3
+
+The candidate was **Hwangsaengga Kalguksu** (황생가칼국수) in Samcheong-dong, a
+kalguksu house serving hand-cut noodles and nine-vegetable dumplings in beef
+broth. Verified this run against the Seoul Metropolitan Government's official
+English tourism site (`english.visitseoul.net/restaurants/Hwangsaengga-Kalguksu/
+ENP003496`, fetched this run): currently listed and operating at **78 Bukchon-ro
+5-gil, Jongno-gu, Seoul 03053**, phone **+82-2-739-6339**, hours **11:00–21:30**
+(last order 20:30), **open 365 days a year**, price range around **₩10,000**. Not
+previously covered by this account. So §2's venue existence, address, current
+operation and price checks were all satisfiable from an official listing.
+
+One claim was deliberately **not** carried forward: the restaurant's Bib Gourmand
+status appeared only in search-result summaries. `guide.michelin.com` returned an
+empty body to WebFetch on both the `/us/en/` and `/en/` paths this run, so the
+distinction and its guide year were never confirmed at source and would have been
+left out of the copy under §2.
+
+### Blocking 1: no compliant media for a venue-specific Reel (unchanged)
+
+- **§3 option 1 (owner original) — none.** `assets/photos/` still holds 43 tracked
+  files, unchanged since 2026-09-19. `git log --format=%an -- assets/photos` over
+  *all* commits, not just additions, returns 41 by `claude[bot]` and exactly 1 by a
+  human: `cheongildip-en.jpg` (392aefd, Steve, 2026-08-25 13:02 KST), which predates
+  the policy-v2 rewrite 8128750 (2026-09-14 10:12 KST) and depicts a different,
+  already-posted venue. Reusing it for a kalguksu house would itself breach §3's
+  "do not use a mood photo as if it depicts the named place". Working tree clean, so
+  no un-committed drop either.
+- **§3 option 2 (partner media with written permission) — none.** `grep -ril` over
+  `assets/` and `content/` finds no permission record; the only two files carrying
+  rights fields at all are the 2026-09-16 and 2026-09-19 Carousels, both
+  `licensed_stock`. No channel exists to obtain permission unattended.
+- **§3 option 3 (licensed stock) — not available on a Reel.** §3 scopes option 3 to
+  "a non-venue-specific editorial **Carousel**", and CONTENT.md § Media and rights
+  states that "Venue-specific Reels and Collabs must use original or written
+  partner-authorized media."
+
+The free-licensed-photo-of-the-actual-venue question raised on 2026-09-20 was
+re-tested and is moot for this candidate in any case: Wikimedia Commons MediaSearch
+for `Hwangsaengga Kalguksu` / `황생가칼국수` returns **zero** results this run. The
+policy question itself still stands unchanged for a future candidate.
+
+### Blocking 2: the account is still action-blocked (not re-testable this run)
+
+Stated more narrowly than the entry below, because this run could not verify it
+directly. No Instagram credential is present in this environment — only GitHub
+tokens are set — so `scripts/status.py` could not be run against the Graph API. The
+last direct evidence remains `2026-09-19-chuseok-2026-guide-en`, held at 22:50 KST
+on 2026-09-19 with OAuthException code 4 / subcode 2207051, matching 2026-09-16 and
+2026-09-13. No publish has been attempted since, so there is no newer signal either
+way. Everything from 2026-08-30 onward is `held`; the last successful publish
+remains **2026-08-30**. Per §6 these are never retried automatically. No ramp flag
+is set in `queue.json` or any repo note, so §1's ramp imposed no constraint.
+
+### Blocking 3 (Reel days only): ffmpeg is still missing
+
+Re-confirmed, not assumed. `which ffmpeg` → not found.
+`python3 scripts/reel.py content/2026-09-19-chuseok-2026-guide-en.json /tmp/...`
+exits 1 with `FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'`.
+`grep -rn ffmpeg .github/workflows/` returns nothing, and `daily-content.yml` still
+grants only `permissions: contents: write` / `id-token: write`, so this agent still
+cannot add the install step itself. The fix is unchanged from the 2026-09-15 entry:
+add `workflows: write`, or commit the `sudo apt-get install -y ffmpeg` step by hand
+after the pillow install. §4 requires a 1080×1920 MP4 for a Reel, so even with
+compliant media this run could not have produced one.
+
+### Verified working this run
+
+- WebSearch works. WebFetch works on `english.visitseoul.net` and
+  `commons.wikimedia.org`; `guide.michelin.com` returns an empty body on both
+  locale paths and is unusable as a source from this runner.
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0, verified this run
+  against the 2026-09-19 content file into a scratch directory outside the repo.
+  Nothing was written to `out/`.
+- `scripts/reel.py` remains the only broken link in the toolchain, and only for
+  want of ffmpeg — see Blocking 3.
 
 ---
 
