@@ -10,8 +10,130 @@ verified, stop without adding a queue item").
 Instagram account is still action-blocked, so Wed/Sat items now queue but fail at
 publish time. See the 2026-09-17 entry. Both need a human. Last direct evidence is
 the 2026-09-19 Carousel, held overnight with the same code 4 / subcode 2207051; no
-publish has been attempted since, so 2026-09-21 could not re-test it. A third
-blocker, missing ffmpeg, independently stops Reel days; see the 2026-09-20 entry.
+publish has been attempted since, so 2026-09-22 could not re-test it.
+
+**The ffmpeg blocker is withdrawn as of 2026-09-22.** The 2026-09-20 entry called
+missing ffmpeg a third independent blocker on Reel days. That overstates it: ffmpeg
+is absent from the runner image but installable at runtime, and on 2026-09-22
+`sudo apt-get install -y ffmpeg` succeeded and `scripts/reel.py` then produced a
+valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itself,
+so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
+would still save the install on every run — see the 2026-09-15 entry for why an
+agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-09-22 (Tue), reel / local — SKIPPED
+
+Seventh consecutive Reel-day skip. Every gate re-checked against the runner and
+the repo this run rather than inherited from the entry below. No content JSON, no
+rendered output, no change to `queue.json`. One blocker survives the re-check —
+media — and it alone is decisive.
+
+`TZ=Asia/Seoul date` → Tuesday 2026-09-22 11:15 KST, `+%u` → 2 → §1 row 2 → reel /
+local, Collab **candidate**. No same-day `pending` or `published` queue item (§0):
+no `2026-09-22` string in `queue.json`, which is unchanged at 42 items — 31 `held`,
+11 `published`, **zero** `pending`. Working tree clean at start. No ramp flag is
+set in `queue.json` or repo notes (§1); the only "ramp" mentions are the prose in
+CONTENT.md, PIPELINE.md and this file.
+
+### §2 research passed; the stop is once more at §3
+
+The candidate was **Jeonju Waengi Kongmulgukbap Specialty Restaurant**
+(전주 왱이콩나물국밥전문점), a Jeonju house that serves one dish only — kongnamul
+gukbap, bean-sprout rice soup. Verified this run against the Korea Tourism
+Organization's official English site (`english.visitkorea.or.kr/svc/contents/
+contentsView.do?vcontsId=228776`, fetched this run): currently listed at **88
+Dongmun-gil, Wansan-gu, Jeonju-si, Jeonbuk-do**, phone **+82-63-287-6980**, hours
+**07:00–21:00** (last order 20:30), **open all year round**, next to Dongmun Art
+Street, broth described as anchovy and seafood. Not previously covered by this
+account — the only Jeonju item so far is `2026-09-02-gogung-jeonju-en`
+(bibimbap, `held`).
+
+Two gaps that would have shaped the copy under §2, had it got that far: the
+official page lists **no prices**, so no price claim could have been made from it
+without a second source; and "open all year round" needs a listing-platform
+cross-check before being printed as fact about a small family house. Neither was
+pursued, because §3 stops the run regardless.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+All three §3 options re-tested this run:
+
+- **§3 option 1 (owner original) — none.** `assets/photos/` still holds 43 tracked
+  files, unchanged since 2026-09-19. `git log --format=%an -- assets/photos` over
+  *all* commits returns 41 by `claude[bot]` and exactly 1 by a human; per-file
+  attribution confirms the single human file is `cheongildip-en.jpg` (Steve), which
+  depicts a different, already-published venue — reusing it for a Jeonju gukbap
+  house would itself breach §3's "do not use a mood photo as if it depicts the
+  named place". There are **no video or footage assets in the repo at all**
+  (`git ls-files` matches zero `.mp4/.mov/.m4v/.webm`), so even option 1 could only
+  ever have supplied a still. `git status --porcelain --ignored` shows no untracked
+  drop either.
+- **§3 option 2 (partner media with written permission) — none.** No permission
+  record exists anywhere in `assets/` or `content/`. The strings that match a
+  `licen|permission|authoriz` grep are sources-slide prose, not rights metadata —
+  e.g. "Used under PIPELINE.md section 3 option 3 — licensed stock on a
+  non-venue-specific editorial Carousel." Only two of the 30 files in `content/`
+  carry rights fields at all (`2026-09-16`, `2026-09-19`), both Carousels, both
+  `licensed_stock`. No channel exists to obtain permission unattended.
+- **§3 option 3 (licensed stock) — not available on a Reel.** §3 scopes option 3 to
+  "a non-venue-specific editorial **Carousel**", and CONTENT.md § Media and rights
+  states "Venue-specific Reels and Collabs must use original or written
+  partner-authorized media." The constraint binds on **format**, so even a
+  dish-level editorial angle (kongnamul gukbap as a dish) cannot use stock today.
+
+The free-licensed-photo-of-the-actual-venue question, open since 2026-09-20, was
+re-tested and is again moot for this candidate: Wikimedia Commons MediaSearch for
+`왱이콩나물국밥` / `Waengi Kongnamul Gukbap Jeonju` returns **zero** results. The
+underlying policy question still stands for a future candidate: a CC BY photo of
+the named venue by an unrelated photographer is a written license from the
+photographer but is neither owner-original nor venue/partner-authorized, so §3 as
+written does not clearly admit it. An unattended run will not stretch §3 to cover
+it.
+
+Today was additionally a **Collab candidate** day (§1 row 2). That path is no
+escape hatch: §3 requires `collab_status: requested` and forbids queueing as
+pending until the partner accepts, and CONTENT.md notes the current Instagram
+Login integration cannot invite collaborators at all without a human operator.
+
+### Not re-testable this run: the account block
+
+No Instagram credential is present in this environment — only GitHub tokens
+(`GH_TOKEN`, `GITHUB_TOKEN`) are set — so `scripts/status.py` could not be run
+against the Graph API. The last direct evidence remains
+`2026-09-19-chuseok-2026-guide-en`, held at 22:50 KST on 2026-09-19 with
+OAuthException code 4 / subcode 2207051, matching 2026-09-16 and 2026-09-13.
+Everything from 2026-08-30 onward is `held`; the last successful publish was
+`2026-08-30-le-dorer-en` at 12:54 KST on 2026-08-30 — now 23 days ago.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → Tuesday 2026-09-22; `+%u` → 2 → reel / local (§1).
+- §0 gates: no same-day queue item, clean working tree, zero `pending`.
+- **WebSearch works.** **WebFetch works** on `english.visitkorea.or.kr` and
+  `commons.wikimedia.org`.
+- `scripts/cardnews.py` renders **7 slides, exit 0** (1080×1350).
+- `sudo apt-get install -y ffmpeg` **succeeds** (6.1.1); `scripts/reel.py` then
+  renders a **1080×1920, 22.2s** MP4, exit 0. Licensed music falls back to
+  synthesized audio as documented (`! local: tracks.json 에 등록됐지만 파일이
+  없습니다`) because `assets/music/*.mp3` is gitignored.
+
+So the whole toolchain is healthy end to end. The pipeline is blocked on an
+editorial input — rights-cleared media for the named venue — not on code.
+
+### To unblock Reel days, a human needs to pick one
+
+1. drop owner-original photos (or footage) into `assets/photos/` for the venues to
+   be covered, and record `asset_source: original` / `rights_confirmed: true`;
+2. restore a stock allowance for Reels in PIPELINE.md §3, with the "never
+   presented as the actual venue" disclaimer the pre-8128750 posts used;
+3. move venue-specific days to Carousel and keep Reels for editorial topics;
+4. or decide explicitly whether a CC BY photo of the named venue satisfies §3, and
+   write that into §3 either way.
+
+Note that unblocking media alone does not restore publishing — the account block
+is separate and still unresolved. See the 2026-09-17 entry.
 
 ---
 
