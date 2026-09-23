@@ -1,0 +1,113 @@
+{
+  "slug": "2026-09-23-korea-cafe-seat-time-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-23T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: 'Warm cup of coffee on a table at a cafe' by Shixart1985 (own work, shot 2026-02-21), Creative Commons Attribution 2.0 Generic, via Wikimedia Commons (File:Warm cup of coffee on a table at a cafe.jpg). Licence verified against the Wikimedia Commons API on 2026-09-23 KST — License 'cc-by-2.0', LicenseShortName 'CC BY 2.0', LicenseUrl creativecommons.org/licenses/by/2.0, UsageTerms 'Creative Commons Attribution 2.0', AttributionRequired 'true', no Restrictions field, Categories Coffee / Cafes / Espresso / Self-published work. CC BY 2.0 permits commercial use and modification provided the creator is credited and changes are indicated; the photographer is credited by name on the sources slide, and the image is cropped and duotoned by scripts/cardnews.py. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel. The frame shows only a hand setting a coffee cup on a cafe table: no identifiable face, no legible business name, no identifiable venue. This post names no venue as its subject, and the sources slide states that the photo is a generic cafe rather than a Korean one. A first choice (File:Busy people at a coffee shop (Unsplash).jpg, CC0) was rejected after render review because the cover crop left the sign 'COFFEEBAR GASTOWN' legible, which would have put a real non-Korean business on a post about Korean cafes.",
+  "location": "South Korea (nationwide)",
+  "venue_handle": null,
+  "search_keyword": "how long can you sit in a Korean cafe",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-09-23-korea-cafe-seat-time-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE CULTURE · SOUTH KOREA",
+      "headline": "One americano covers\n91 minutes of that seat.",
+      "subline": "That's the break-even math behind Korea's cafe-study debate — and behind the signs going up by the door",
+      "bg_image": "assets/photos/2026-09-23-korea-cafe-seat-time-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "THE ARITHMETIC",
+      "value": "1h 31m",
+      "label": "How long an eight-table cafe can hold a seat on one 4,100-won americano before the table stops paying for itself. The same calculation used to allow 1 hour 42 minutes; labour costs and inflation shrank it",
+      "note": "Source: Korea Food Industry Research Institute figures, reported by the Korea JoongAng Daily, 23 May 2026 · The Korea Herald, 8 Aug 2025, cites the same 1h31m estimate for 2024 · Checked 23 September 2026"
+    },
+    {
+      "type": "list",
+      "title": "What the signs\nactually say",
+      "items": [
+        {
+          "t": "Laptops are fine. Desktops are not",
+          "d": "Starbucks Korea banned desktop computers, printers, multiport power strips and large partitions across every branch in August 2025"
+        },
+        {
+          "t": "Don't leave a table holding your seat",
+          "d": "The same notice asks customers to take their belongings when they step away for a long time, and to make room at shared tables"
+        },
+        {
+          "t": "Focus Zones near the campuses",
+          "d": "Starbucks added single-person booths at branches around universities — the sanctioned way to settle in for a while"
+        },
+        {
+          "t": "Independent cafes write their own",
+          "d": "Study floors, laptop-free areas and posted time limits are all common. Whatever is on the door is the policy"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Why 'cagongjok'\nis a real word.",
+      "body": "Cagongjok — the cafe study tribe — is the Korean word for people who work or study in cafes, and it describes the default rather than a fringe. A cafe worker in Incheon told the Korea JoongAng Daily that 70 to 80 percent of her daily customers arrive with something to study or work on, usually on a single 4,700-won americano over two to three hours.\n\nOwners are split on what to do about it. Some push back, with laptop-free areas, study-floor signs and the Starbucks equipment ban. Others sell the stay: Twosome Place's all-day set lifted sales more than 25 percent year-on-year in 2025, and its panini sales rose about 43 percent in the first quarter of 2026."
+    },
+    {
+      "type": "list",
+      "title": "If you want\nto settle in",
+      "items": [
+        {
+          "t": "Order again past the two-hour mark",
+          "d": "No cafe posts this as a rule. It is simply the cheapest way to keep a seat that costs the owner more than your drink"
+        },
+        {
+          "t": "For a real work session, go to a study cafe",
+          "d": "Purpose-built desks, no food or conversation in the study area, many open 24/7 with kiosk-only entry and no staff"
+        },
+        {
+          "t": "Study cafes charge time, not drinks",
+          "d": "Stars and Stripes found 3,000 won for two hours, 7,000 for six, 10,000 for a day pass and 100,000 for a month"
+        },
+        {
+          "t": "Read the door before you unpack",
+          "d": "A laptop-free floor or a time limit is a house rule about the room's economics, not a judgement about you"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal visit.\nEvery figure here comes from a published source, checked on 23 September 2026.",
+      "by": "The break-even numbers are an industry estimate for an eight-table cafe, not a rule anyone enforces — no cafe owes you a time limit in writing, and none of this is law. It is etiquette with arithmetic behind it. The Seoul Economic Daily reported on 8 September 2026 that Japan is now opening the same argument; in Korea it has recurred for years."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Korea JoongAng Daily, 23 May 2026 — cagongjok, the 1h42m and 1h31m break-even figures, Twosome Place sales, Focus Zones",
+        "The Korea Herald, 8 Aug 2025 — Starbucks Korea equipment ban; 51,500 cafes in 2015 to over 100,000 in 2024",
+        "The Korea Herald, 30 Jun 2024 — Statistics Korea: 100,729 cafes, 15.5tn won in sales, 84% run by under four staff",
+        "Stars and Stripes, 15 Jan 2026 — study cafe pricing, 24/7 kiosk entry, no food or talking in the study area",
+        "Seoul Economic Daily, 8 Sep 2026 — Japan debating the same question; in Korea the argument recurs",
+        "Photo: 'Warm cup of coffee on a table at a cafe' by Shixart1985, CC BY 2.0, via Wikimedia Commons, cropped. A generic cafe, not a Korean venue"
+      ],
+      "cta": "We check every claim before we post it.\nSave this for your next long session"
+    }
+  ],
+  "caption": "How long can you sit in a Korean cafe on one coffee? There is no law and no posted limit, but there is arithmetic — and it explains a lot of the signs you'll see in Seoul this year.\n\nThe Korea Food Industry Research Institute's number, reported by the Korea JoongAng Daily in May: an eight-table cafe selling a 4,100-won americano needs that seat back in about 1 hour 31 minutes to break even. It used to be 1 hour 42 minutes.\n\nThat's the pressure behind the rules. Starbucks Korea banned desktop computers, printers, multiport power strips and large partitions nationwide in August 2025, and asks customers not to leave belongings holding an empty table. Independent cafes go further with laptop-free floors and posted time limits. Others go the other way and sell the long stay — Twosome Place's all-day set pushed sales up more than 25 percent year-on-year in 2025.\n\nWhat to do with that: order again if you pass two hours, and if you actually need four, use a study cafe. They're built for it — desks, silence, no food, many open 24/7 through a kiosk, and priced by time: around 3,000 won for two hours, 10,000 for a day.\n\nNone of this is aimed at visitors. It's the same etiquette locals are arguing about. Sources in the last slide — save it for your next long session.",
+  "hashtags": [
+    "#cagongjok",
+    "#studycafe",
+    "#koreancafe",
+    "#seoulcafe",
+    "#cafeculture",
+    "#remotework",
+    "#koreatravel",
+    "#deepdivekorea"
+  ]
+}
