@@ -9,8 +9,8 @@ verified, stop without adding a queue item").
 **As of 2026-09-17 a second, separate blocker applies to all seven days:** the
 Instagram account is still action-blocked, so Wed/Sat items now queue but fail at
 publish time. See the 2026-09-17 entry. Both need a human. Last direct evidence is
-the 2026-09-19 Carousel, held overnight with the same code 4 / subcode 2207051; no
-publish has been attempted since, so 2026-09-22 could not re-test it.
+the **2026-09-23** Carousel, held at 2026-09-23 23:51 KST with the same code 4 /
+subcode 2207051 — the block is still live as of the most recent publish attempt.
 
 **The ffmpeg blocker is withdrawn as of 2026-09-22.** The 2026-09-20 entry called
 missing ffmpeg a third independent blocker on Reel days. That overstates it: ffmpeg
@@ -20,6 +20,120 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-09-24 (Thu), reel / bar — SKIPPED
+
+Eighth consecutive Reel-day skip. Every gate re-checked against the runner and the
+repo this run rather than inherited. No content JSON, no rendered output, no change
+to `queue.json`. One blocker survives the re-check — media — and it alone is
+decisive.
+
+`TZ=Asia/Seoul date` → Thursday 2026-09-24 11:02 KST, `+%u` → 4 → §1 row 4 → reel /
+bar, Collab optional. No same-day `pending` or `published` queue item (§0): no
+`2026-09-24` string in `queue.json`, which is unchanged at 43 items and still has
+**zero** `pending`. Working tree clean at start. No ramp flag in `queue.json` or any
+repo note (§1) — `grep -rn -i ramp queue.json .github/` returns nothing.
+
+### §2 research passed; the stop is once more at §3
+
+A verified bar topic was available, so media alone stopped this run. See "Topic
+research" below — the research is written up in full so a human can ship it quickly
+once media is unblocked.
+
+### Blocking: no compliant media for a Reel (re-verified from scratch)
+
+- **§3 option 1 (owner original) — none.** `git log --diff-filter=A --name-only --
+  assets/photos/` shows all 45 files were added by `content: … (daily pipeline…)`
+  commits; the most recent, `2026-09-23-korea-cafe-seat-time-en.jpg`, came from
+  yesterday's Carousel run. The only human-added file, `cheongildip-en.jpg`
+  (392aefd), predates policy v2. Nothing human-added since. Tree clean, so no
+  un-committed drop either.
+- **§3 option 2 (venue/creator media with written permission) — none.** No
+  permission record exists anywhere in the repo, and none is obtainable unattended.
+- **§3 option 3 (licensed stock) — closed by format.** Permitted only for a
+  non-venue-specific editorial *Carousel*. Thursday is a Reel. The constraint binds
+  on **format**, not only venue-specificity, so an editorial bar angle (the pub-
+  closure story below would make a strong one) cannot rescue the day either.
+
+Stopped under §0. Deliberately did **not** write `asset_source: "licensed_stock"` +
+`rights_confirmed: true` for a Reel — that still passes `validate_rights()`
+(scripts/publish.py has no format check; gap first logged 2026-09-15, still open)
+while violating §3.
+
+### New this run: the CC-licensed-venue-photo reading, considered and rejected
+
+Worth recording because it is the one avenue earlier entries did not test, and a
+future run will probably think of it again.
+
+§3 option 2 reads "venue/creator media with written permission." A public licence
+(CC BY, CC BY-SA, KOGL Type 1) *is* a written grant from the creator permitting
+commercial reuse, and a photo that genuinely depicts the named venue commits
+neither harm §3 names — it is not a scraped social photo, and it is not a mood
+photo passed off as the place. On that reading a CC-licensed photo of a real Seoul
+bar would qualify for a Reel.
+
+**Not acted on, for two reasons.**
+
+1. *The text does not clearly support it.* CONTENT.md glosses the same rule as
+   "original or written **partner**-authorized media", and the `asset_source` enum
+   offers only `original` / `partner_licensed` / `licensed_stock`. A Commons
+   photographer is not a partner and has authorized nobody in particular. The
+   reading is arguable, not plain — and loosening a rights rule on a live account
+   is outward-facing and hard to reverse. Seven prior runs read §3 strictly and
+   escalated it as an editorial decision; an unattended run should not quietly
+   settle it the other way.
+2. *It is moot today anyway.* Commons has essentially no usable Korean bar imagery.
+   `incategory:"Bars in South Korea"`, `"Bars in Seoul"`, `"Pubs in South Korea"`
+   and `"Cocktails in South Korea"` all return **0** files. `"Drinking
+   establishments in South Korea"` returns 2: `File:Suwon Gamaekjip - Outside.jpg`
+   (CC BY-SA 3.0, shot 2011 — 15 years stale, cannot evidence current operation)
+   and `File:Jeju cute bar sign woljeongri jeju korea.jpg` (CC BY-SA 4.0, a sign,
+   not a venue). Neither is publishable even under the permissive reading.
+
+So the question is live for a human to settle, but settling it would not have
+unblocked today.
+
+### Verified working this run
+
+- WebSearch works. WebFetch works (koreaherald.com returned full article text).
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0 (re-rendered
+  `2026-09-23-korea-cafe-seat-time-en` to a scratch dir).
+- **The full Reel path works.** `sudo apt-get install -y ffmpeg` succeeded (6.1.1),
+  and `scripts/reel.py` then produced a valid 1080×1920 / 22.2s MP4 with
+  synthesized audio, exit 0 — confirming the 2026-09-22 withdrawal of the ffmpeg
+  blocker. Still absent from the runner image and from every file in
+  `.github/workflows/`; `daily-content.yml` still grants only `contents: write` /
+  `id-token: write`, so an agent still cannot push the install step.
+
+### Topic research (not the blocker) — two ready angles
+
+**Angle A — venue-specific, needs option-1/2 media.** Asia's 50 Best Bars 2026 was
+announced 2026-07-29 at Wynn Palace, Macao. Four Seoul bars on the main list: Zest
+No. 2 (Gangnam-gu; Best Bar in Korea for a fourth straight year; zero-waste, makes
+sodas and spirits in-house; Jeju Garibaldi uses freshly squeezed hallabong juice
+with the peels repurposed to infuse the house gin), Alice No. 13 (Cheongdam-dong),
+Bar Cham No. 33 (Seochon, Jongno-gu; hanok; Korean spirits, soju-forward), M+MS
+No. 42 (Gangnam-gu; **first-time entry**; cafe by day, cocktails by night, in-house
+brewery and fermentation; the Yama is made with sour kimchi and tuna). Extended
+51–100: Gong Gan No. 74, Charles H No. 87, Le Chamber No. 88, Soko No. 89.
+Source: The Korea Herald, 29 Jul 2026 (koreaherald.com/article/10824797), fetched
+and read in full this run. **Caveat: all eight already have posts in `content/`** —
+M+MS's first-time entry is the freshest hook, but `2026-09-01-mms-bar-en.json`
+exists, so a genuinely new bar needs sourcing beyond this list.
+
+**Angle B — editorial, non-venue-specific; would fit a Carousel day.** Korea's
+neighbourhood drinking scene is contracting hard, which is a better story than
+another ranking. Casual pubs and beer houses fell to 28,178 in March 2026 from
+52,302 in 2018, a ~46% contraction; the year to March 2026 alone lost 2,998 pubs
+(−9.6%, ~8 closures a day), split into ganee jujeom −10.2% (8,894 → 7,985) and hof
+pubs −9.4% (22,282 → 20,193). Alcohol consumption fell at its fastest pace in seven
+years in early 2026. Reported by Seoul Economic Daily (24 May, 13 Apr and 14 Aug
+2026) and The Drinks Business (Jun 2026). **These figures are from search-result
+summaries only and were not individually fetched and verified this run** — a run
+that uses them must re-verify each against the primary article before publishing.
+Saved as a lead, not as checked copy.
 
 ---
 
