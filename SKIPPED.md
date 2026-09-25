@@ -23,6 +23,132 @@ agent cannot push that change. **Only the media blocker stops Reel days.**
 
 ---
 
+## 2026-09-25 (Fri), reel / restaurant — SKIPPED
+
+Ninth consecutive Reel-day skip. Every gate re-checked against the runner and the
+repo this run rather than inherited. No content JSON, no rendered output, no change
+to `queue.json`. One blocker survives the re-check — media — and it alone is
+decisive.
+
+`TZ=Asia/Seoul date` → Friday 2026-09-25 11:20 KST, `+%u` → 5 → §1 row 5 → reel /
+restaurant, Collab **candidate**. No same-day `pending` or `published` queue item
+(§0): `grep -c 2026-09-25 queue.json` → 0, and the file is unchanged at 43 items
+(32 `held`, 11 `published`, **zero** `pending`). Working tree clean at start. No
+ramp flag in `queue.json` or any repo note (§1) — the only "ramp" hits repo-wide are
+prose in CONTENT.md, PIPELINE.md and this file.
+
+### §2 research passed; the stop is once more at §3
+
+A verified, previously-uncovered restaurant was available, so media alone stopped
+this run. Research written up below so a human can ship it quickly once media is
+unblocked.
+
+### Blocking: no compliant media for a Reel (re-verified from scratch)
+
+- **§3 option 1 (owner original) — none.** `git log --diff-filter=A` over
+  `assets/photos/` lists 45 files; 44 were added by `content: … (daily pipeline…)`
+  commits, and the single human-added file is still `cheongildip-en.jpg` (392aefd,
+  Steve, 2026-08-25 13:02 KST), which predates policy v2. Nothing human-added since.
+  Tree clean, so no un-committed drop either.
+- **§3 option 2 (venue/creator media with written permission) — none.** No
+  permission record exists anywhere in the repo, and none is obtainable unattended.
+- **§3 option 3 (licensed stock) — closed by format.** Permitted only for a
+  non-venue-specific editorial *Carousel*. Friday is a Reel. The constraint binds on
+  **format**, so an editorial samgyetang angle could not rescue the day either.
+
+Stopped under §0. Deliberately did **not** write `asset_source: "licensed_stock"` +
+`rights_confirmed: true` for a Reel — that still passes `validate_rights()`
+(scripts/publish.py has no format check; gap first logged 2026-09-15, still open)
+while violating §3.
+
+Also checked, and worth recording: `cheongildip-en.jpg` is the one owner-committed
+photo, so it is the closest thing in the repo to §3 option 1. It cannot serve. The
+post that ships it, `content/2026-08-25-cheongildip-en.json`, carries **no**
+`asset_source`, `rights_confirmed` or `rights_note` — like all 43 files in
+`content/`, it has zero policy-v2 metadata — so nothing in the repo actually
+evidences that it is owner-original rather than stock fetched under the pre-v2
+policy. It is also already published, and depicts a different venue and pillar.
+
+### The CC-licensed-venue-photo reading: still rejected, and moot again today
+
+The 2026-09-24 entry raised and rejected reading §3 option 2 ("venue/creator media
+with written permission") to cover a public licence such as CC BY / CC BY-SA /
+KOGL Type 1. That rejection stands for the same reason: CONTENT.md glosses the rule
+as "original or written **partner**-authorized media", the `asset_source` enum has
+no slot for a Commons photographer, and loosening a rights rule on a live account is
+outward-facing and hard to reverse — not a call for an unattended run.
+
+Re-tested for today's pillar, and it is moot a second time. Commons has plenty of
+*samgyetang* imagery (`incategory:"Samgyetang"` → 81 files, e.g.
+`File:Korean soup-Samgyetang-08.jpg`, `File:Samgye-tang 2.jpg`), but every one is a
+photo of the dish somewhere else, not of the venue below. Using one on a
+venue-specific Reel is precisely what §3 forbids — "Do not use a mood photo as if it
+depicts the named place" — so even the permissive reading yields nothing shippable.
+Venue-level supply is as thin as it was for bars: `incategory:"Restaurants in
+Seoul"` → 78 files, mostly unrelated interiors and dishes, none of them this
+restaurant.
+
+### Topic research (not the blocker) — one ready angle
+
+**3rd Generation Samgyetang** (3대삼계탕 / listed by MICHELIN as "3rd Samgyetang"),
+Seocho-dong, Seoul. New to the account: `content/` has no samgyetang post, and
+`grep -ril samgyetang content/` returns nothing, so this is not a repeat.
+
+- **Hook:** a 1973 family samgyetang shop, now third generation, named a **new Bib
+  Gourmand in the MICHELIN Guide Seoul & Busan 2026** — announced 2026-02-27, one of
+  eight new Bib Gourmands (five Seoul, three Busan).
+- **Dish:** samgyetang whose broth is built from 40+ ingredients, finished with
+  finely ground mung bean, pine nuts and mugwort paste; three samgyetang variants
+  are the signature.
+- **Price frame:** Bib Gourmand means a full meal under ₩45,000 per person. Treat as
+  the Bib threshold, **not** as this shop's menu price — the actual price was not
+  verified this run.
+- **Address (from the MICHELIN listing, via search snippet):** 서초구 반포대로28길
+  56-3, Seoul 06646.
+- **Current operation:** supported by the active MICHELIN Guide listing (an official
+  listing per §2). **Hours were not verified** — no source this run gave them, and
+  `guide.michelin.com` could not be fetched directly (see below). A run that
+  publishes this must verify hours and price before writing them into copy.
+- **English search phrase for travelers:** "samgyetang Seocho Michelin Bib
+  Gourmand" / "3rd Generation Samgyetang Seoul".
+- **Sources fetched and read this run:** The Korea Herald, "Meet Bib Gourmand
+  rookies in Michelin Guide Seoul & Busan 2026" (koreaherald.com/article/10684029)
+  — fetched in full, confirms the eight rookies, the 2026-02-27 date, and the 1973 /
+  third-generation / 40-ingredient facts. Search-level corroboration only for the
+  Bib totals (71 Bib Gourmand: 51 Seoul, 20 Busan) and the address.
+
+**Background context, search-level only, not individually verified:** the MICHELIN
+Guide Seoul & Busan 2026 was announced 2026-03-05 at Signiel Busan, its 10th Korean
+edition — 233 restaurants (178 Seoul, 55 Busan), 46 starred (1 three-star, 10
+two-star, 35 one-star), Mingles holding Korea's only three stars for a second year,
+Sosuheon promoted to two. Mingles, Sosuheon and Onjium all already have posts in
+`content/`, and `2026-09-07-gosari-express-en.json` already covers another of the
+eight Bib rookies — so 3rd Generation Samgyetang is the freshest unused hook from
+this cycle.
+
+### Verified working this run
+
+- WebSearch works. WebFetch works on koreaherald.com (full article text returned).
+  WebFetch returns an **empty body for every `guide.michelin.com` URL** tried (the
+  2026 highlights, Bib Gourmand and restaurant-listing pages) and koreadaily.com
+  returned HTTP 410 — so MICHELIN's own pages are reachable only via search
+  snippets from this runner.
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0 (re-rendered
+  `2026-08-25-cheongildip-en` to a scratch dir). Slide 4 was **opened and looked
+  at**, not just exit-code checked: text sits inside the canvas, no box collision.
+- **The full Reel path works.** `sudo apt-get install -y ffmpeg` succeeded (6.1.1)
+  and `scripts/reel.py` then produced a 1080×1920 / 22.2s MP4, exit 0, dimensions
+  confirmed with `ffprobe`. Audio is ffmpeg-synthesized because `assets/music/*.mp3`
+  is gitignored (`! local: tracks.json 에 등록됐지만 파일이 없습니다`). ffmpeg is
+  still absent from the runner image and from every file in `.github/workflows/`;
+  `daily-content.yml` still grants only `contents: write` / `id-token: write`, so an
+  agent still cannot push the install step.
+- The Instagram action block was **not** re-tested — an unattended run must never
+  publish (§0). Latest evidence in the repo is unchanged: `2026-09-23-korea-cafe-
+  seat-time-en` held 2026-09-23 23:51 KST, code 4 / subcode 2207051.
+
+---
+
 ## 2026-09-24 (Thu), reel / bar — SKIPPED
 
 Eighth consecutive Reel-day skip. Every gate re-checked against the runner and the
