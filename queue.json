@@ -293,5 +293,12 @@
     "held_at": "2026-09-23T23:51:24.950646+09:00",
     "hold_reason": "instagram_action_blocked",
     "error": "POST https://graph.instagram.com/v24.0/17841435733524806/media_publish → HTTP 403\n{\"error\":{\"message\":\"Application request limit reached\",\"type\":\"OAuthException\",\"is_transient\":false,\"code\":4,\"error_subcode\":2207051,\"error_user_title\":\"action is blocked\",\"error_user_msg\":\"We restrict certain activity to protect our community. Tell us if you think we made a mistake.\",\"fbtrace_id\":\"AWdwB8KVV0LY1f16leptL9t\"}}"
+  },
+  {
+    "slug": "2026-09-26-korea-market-price-rules-en",
+    "pillar": "local",
+    "format": "carousel",
+    "publish_at": "2026-09-26T18:30:00+09:00",
+    "status": "pending"
   }
 ]

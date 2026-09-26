@@ -1,0 +1,113 @@
+{
+  "slug": "2026-09-26-korea-market-price-rules-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-09-26T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: 'Banchan in a traditional market' by Ulrich Walder (shot 2014-10-26, originally published on Pixabay, photo-751404), Creative Commons CC0 1.0 Universal public domain dedication, via Wikimedia Commons (File:Banchan in a traditional market.jpg). Licence verified against the Wikimedia Commons API on 2026-09-26 KST — License 'cc0', LicenseShortName 'CC0', LicenseUrl creativecommons.org/publicdomain/zero/1.0, UsageTerms 'Creative Commons Zero, Public Domain Dedication', AttributionRequired 'false', Restrictions field present but EMPTY (no non-copyright restrictions), Categories CC-Zero / Banchan / Images from Pixabay / Traditional markets in South Korea, Credit carries a Wayback Machine archive of the original Pixabay page. CC0 waives all copyright and permits commercial use and modification with no attribution obligation; the photographer is nonetheless credited by name on the sources slide, and the image is downscaled to 3200px, cropped and duotoned by scripts/cardnews.py. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel. The 1080x1350 cover crop was rendered and visually inspected before use: it is a top-down frame of banchan cups on a stall counter with no identifiable face, no legible business name and no signage (the only text in frame is a handwritten product label on one cup). This post names Gwangjang Market as the subject of reported news, so the risk to avoid is the photo reading as Gwangjang; the sources slide therefore states explicitly that the photo is a Korean traditional-market stall but not Gwangjang or any venue named in the post. A second candidate from the same photographer (File:Banchan in a traditional market 2.jpg, also CC0) was inspected and is equally compliant but weaker as a cover. CC BY-SA candidates (File:KOCIS Korea Junggok Market 05, File:Korean.snacks-Tteokbokki-01.jpg) were rejected to avoid taking on a share-alike obligation over a derivative card.",
+  "location": "South Korea (nationwide)",
+  "venue_handle": null,
+  "search_keyword": "Korean market street food prices overcharging tourists",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-09-26-korea-market-price-rules-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": "A 2,000-won bottle\ncost a stall three days.",
+      "subline": "Korea spent 2026 rewriting what a market stall may charge you. Here is what actually changed",
+      "bg_image": "assets/photos/2026-09-26-korea-market-price-rules-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "THE COMPLAINT COUNT",
+      "value": "1,753",
+      "label": "Tourism complaints filed in Korea in the first seven months of 2026 — already more than the 1,744 logged in all of 2025, and the highest figure on record. Shopping disputes over price and service were the second-largest category, at 376",
+      "note": "Source: Korea Tourism Organization / Korea Tourism Data Lab, reported by The Korea Herald, 6 September 2026. Counted from the Tourist Complaint Center website and the 1330 hotline · Checked 26 September 2026"
+    },
+    {
+      "type": "list",
+      "title": "What actually\nchanged this year",
+      "items": [
+        {
+          "t": "A first offence now costs a lodging five days",
+          "d": "From 4 August 2026, accommodation that fails to post a price list or charges more than it posted is suspended for five days on the first violation, ten on the second, twenty on the third. The first used to be a warning"
+        },
+        {
+          "t": "Overcharging taxi drivers lose 30 days, immediately",
+          "d": "Same decree, no warning stage. Sixty days for a second offence; the licence is revoked on a third"
+        },
+        {
+          "t": "Gwangjang's street stalls have registered names",
+          "d": "Jongno-gu started a street-vendor real-name system in June 2026. Stalls run on demerit points, and a permit can be revoked past 120"
+        },
+        {
+          "t": "Mystery shoppers, Korean and foreign",
+          "d": "Seoul inspected 159 restaurants and 109 food stalls at Gwangjang in May–June 2026 and left a standing monitoring system behind it"
+        }
+      ]
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Why it came down\nto a water bottle.",
+      "body": "In April 2026 a Myanmar-born YouTuber living in Korea filmed paying 2,000 won for a 500ml bottle of water at a Gwangjang Market stall. Most stalls there charge 1,000; three charged 2,000. The vendors' association suspended that stall for three days, ruled that water served in a cup is free, and told anyone selling bottled water to put the price on the menu.\n\nIt was not the first. In November 2025 a video with more than 16 million views showed a vendor charging 10,000 won for a dish listed at 8,000, and that stall was suspended for ten days. The complaints before it were about portions rather than sticker prices — a roughly 15-dollar assorted-pancake platter of about ten small pieces in late 2024 — which is why Gwangjang's fix was a fixed-quantity labelling system."
+    },
+    {
+      "type": "list",
+      "title": "If you're eating\nat a market",
+      "items": [
+        {
+          "t": "The posted price is the whole price",
+          "d": "A 2013 revision of the Food Sanitation Act requires restaurant menu prices to be final — tax and service included, nothing added at the end. There is no tipping to budget for"
+        },
+        {
+          "t": "Ask what a set costs and what is in it",
+          "d": "The disputes that actually escalated were about portion size and add-ons, not the number on the board. Settle both before you sit down"
+        },
+        {
+          "t": "Water in a cup should not be charged for",
+          "d": "That is the Gwangjang vendors' association's own April 2026 ruling. A bottle can be sold, but the price has to be on the menu"
+        },
+        {
+          "t": "1330 takes the complaint in your language",
+          "d": "The Korea Travel Hotline is free and multilingual, and it is one of the two channels the record complaint numbers are counted from"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "This is research, not a personal visit.\nEvery figure here comes from a published source, checked on 26 September 2026.",
+      "by": "Two things this post is not saying. Korean markets are not a scam: the record complaint count covers the whole tourism industry, and lodging — not food — is its largest single category at 500. And the tightened penalties in the 4 August decree apply to accommodation and taxis. The stall rules at Gwangjang are a Jongno-gu and merchants'-association system, not a national law, so what binds one stall may not bind the next market you walk into."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "The Korea Herald, 6 Sep 2026 — Korea Tourism Organization data: 1,753 complaints in seven months, against 1,744 in all of 2025",
+        "The Korea Herald, 28 Jul 2026 — Tourism Promotion Act decree, 4 Aug 2026: 5/10/20-day lodging and 30/60-day taxi suspensions",
+        "Seoul Economic Daily, 24 Apr 2026 — the 2,000-won bottle, the three-day suspension, Jongno-gu's June real-name system",
+        "Seoul Economic Daily, 20 May 2026 — Seoul's Gwangjang inspection: 159 restaurants, 109 stalls, mystery shoppers",
+        "The Korea Times, 25 Nov 2025 — the 10,000-won-for-8,000 video, the ten-day suspension, fixed-quantity labelling",
+        "The Korea Times, 7 Aug 2025 — the 2013 Food Sanitation Act rule that a menu price is the final price",
+        "Photo: 'Banchan in a traditional market' by Ulrich Walder, CC0, via Wikimedia Commons, cropped. Not Gwangjang, nor any venue named here"
+      ],
+      "cta": "We check every claim before we post it.\nSave this before your next market run"
+    }
+  ],
+  "caption": "A 2,000-won bottle of water got a Gwangjang Market stall suspended for three days this April. That sounds like a small story. It is actually the clearest signal of what changed in Korea in 2026.\n\nTourism complaints hit a record: 1,753 in the first seven months of the year, already more than the 1,744 filed in all of 2025, according to Korea Tourism Organization figures. The government's answer arrived on 4 August. Accommodation that doesn't post a price list, or charges more than it posted, is now suspended for five days on a first offence instead of warned. A taxi driver caught overcharging loses the licence for 30 days on the first offence, 60 on the second, permanently on the third.\n\nAt Gwangjang specifically: Jongno-gu started a street-vendor real-name system in June, Seoul inspected 159 restaurants and 109 stalls in May and June, and mystery shoppers — Korean and foreign — are still working the aisles.\n\nWhat this means when you're standing at a stall in Seoul: the posted price is the whole price. A 2013 revision of the Food Sanitation Act requires menu prices to include tax and service, and there is no tipping on top. Ask what a set costs and what's in it before you sit down, because the fights that escalated were about portions, not the number on the board. Water in a cup is free. And if something goes wrong, 1330 takes the complaint in English.\n\nKorean markets are not a scam — lodging, not food, is the biggest complaint category. But the rules got sharper this year, and they work better if you know them. Sources in the last slide.",
+  "hashtags": [
+    "#gwangjangmarket",
+    "#koreanstreetfood",
+    "#traditionalmarket",
+    "#seoulmarkets",
+    "#seoultravel",
+    "#koreatraveltips",
+    "#markettips",
+    "#deepdivekorea"
+  ]
+}
