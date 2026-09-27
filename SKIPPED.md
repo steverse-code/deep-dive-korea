@@ -6,11 +6,22 @@ licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
 verified, stop without adding a queue item").
 
-**As of 2026-09-17 a second, separate blocker applies to all seven days:** the
-Instagram account is still action-blocked, so Wed/Sat items now queue but fail at
-publish time. See the 2026-09-17 entry. Both need a human. Last direct evidence is
-the **2026-09-23** Carousel, held at 2026-09-23 23:51 KST with the same code 4 /
-subcode 2207051 — the block is still live as of the most recent publish attempt.
+**The Instagram action-block blocker is withdrawn as of 2026-09-27.** From
+2026-09-17 this file carried a second, separate blocker on all seven days: the
+account was action-blocked, so Wed/Sat items queued but failed at publish time.
+That is no longer true. `2026-09-26-korea-market-price-rules-en` **published
+successfully** at 2026-09-26 23:18:57 KST (media_id 18144186298582897, commit
+d3b80bf) — the first success since 2026-08-30 and the first after four
+consecutive code 4 / subcode 2207051 holds (09-13, 09-16, 09-19, 09-23). The
+publish path works end to end again. **Only the media blocker remains, and it
+stops Reel days only.** Two consequences for a human, in §1/§0 order:
+
+- PIPELINE.md §1's **ramp flag now actually matters**. While every publish failed
+  it constrained nothing. With publishing live, CONTENT.md's recovery ramp (three
+  posts in week 1, four in week 2, then daily) is the binding limit — and no ramp
+  flag is set in `queue.json` or any repo note. 2026-09-26 is post 1 of week 1.
+- The 32 `held` items are **not** revived by this: §0 forbids reviving `held`
+  items and forbids catching up missed days. Clearing them is a human decision.
 
 **The ffmpeg blocker is withdrawn as of 2026-09-22.** The 2026-09-20 entry called
 missing ffmpeg a third independent blocker on Reel days. That overstates it: ffmpeg
@@ -20,6 +31,115 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-09-27 (Sun), reel / cafe — SKIPPED
+
+Tenth consecutive Reel-day skip, and the first since the account unblocked. Every
+gate re-checked against the runner and the repo this run rather than inherited. No
+content JSON, no rendered output, no change to `queue.json`. One blocker survives
+the re-check — media — and it alone is decisive. The other standing blocker is
+**withdrawn**: see the header, and the section below.
+
+`TZ=Asia/Seoul date` → Sunday 2026-09-27 11:20 KST, `+%u` → 7 → §1 row 7 → reel /
+cafe, Collab **optional**. No same-day `pending` or `published` queue item (§0):
+`grep -c 2026-09-27 queue.json` → 0. Working tree clean at start. `queue.json` is
+at 44 items — 32 `held`, 12 `published`, **zero** `pending`. No ramp flag in
+`queue.json`, `.github/` or any repo note (§1); the only "ramp" hits repo-wide are
+prose in CONTENT.md, PIPELINE.md and this file.
+
+### New this run: the account is publishing again
+
+`2026-09-26-korea-market-price-rules-en` went out at 2026-09-26 23:18:57 KST with
+`media_id` 18144186298582897 (`publish: mark posted`, d3b80bf). That is the first
+successful publish since 2026-08-30 and it breaks a run of four straight
+`instagram_action_blocked` holds (09-13, 09-16, 09-19, 09-23), so the action block
+logged from 2026-09-17 is resolved rather than merely untested. The header is
+updated accordingly, and the ramp-flag consequence is recorded there — that is now
+the live question for a human, not the block.
+
+This does **not** change today's outcome. The two blockers were always independent:
+the account being healthy makes a Reel publishable, not sourceable.
+
+### Blocking: no compliant media for a Reel (re-verified from scratch)
+
+- **§3 option 1 (owner original) — none.** `git log --diff-filter=A` over
+  `assets/photos/` lists 45 files. 44 were added by `content: … (daily pipeline…)`
+  commits authored by `claude[bot]`; the single human-added file is still
+  `cheongildip-en.jpg` (392aefd, Steve, 2026-08-25 13:02 KST), which predates
+  policy v2. Nothing human-added since — the newest additions are the bot's
+  Carousel covers (0d38369 on 2026-09-26, ffe577d, b1863f5, 853fff6). Tree clean,
+  so no un-committed drop either.
+- **§3 option 2 (venue/creator media with written permission) — none.** No
+  permission record exists anywhere in the repo, and none is obtainable unattended.
+- **§3 option 3 (licensed stock) — closed by format.** Permitted only for a
+  non-venue-specific editorial *Carousel*. Sunday is a Reel. The constraint binds on
+  **format**, so an editorial cafe angle could not rescue the day either — and the
+  §2 research below found a venue-specific subject in any case.
+
+Stopped under §0. Deliberately did **not** write `asset_source: "licensed_stock"` +
+`rights_confirmed: true` for a Reel — that still passes `validate_rights()`
+(`scripts/publish.py`, still no format check; gap first logged 2026-09-15, still
+open after re-reading the function this run) while violating §3.
+
+Did not switch Sunday to Carousel to reach option 3. §1 fixes Sunday as a Reel, the
+run prompt set the format to reel, and "move the venue-specific days to Carousel" is
+listed in the 2026-09-15 entry as one of the editorial fixes reserved for a human.
+Picking it unilaterally would be an unattended agent rewriting the content calendar.
+
+The CC-licensed-venue-photo reading raised on 2026-09-24 and rejected again on
+2026-09-25 stays rejected, for the recorded reason: CONTENT.md glosses §3 option 2
+as "original or written **partner**-authorized media", the `asset_source` enum has
+no slot for a Commons photographer, and loosening a rights rule on a live account
+is outward-facing and hard to reverse. It is also moot today — see §3 option 3
+above, which binds on format regardless of licence.
+
+### §2 research passed — a verified, uncovered cafe is ready to ship
+
+Media alone stopped this run, so the research is written up for a human to use as
+soon as media is unblocked. Sunday's pillar is cafe/dessert.
+
+**Ruli Coffee (루리커피)** — No. 51 on The World's 100 Best Coffee Shops 2026, and
+the only Seoul entry on that list. The other Korean entry, Momos Coffee (No. 22,
+Busan), is already covered (`2026-08-31-momos-coffee-en`), and every previously
+covered cafe was checked against `content/` — Ruli is new to the account.
+
+- Official name 루리커피 / RULI COFFEE. Address 서울 중구 퇴계로20길 31 1층
+  (lot address 중구 남산동2가 18-9), a few minutes from Myeongdong. Phone
+  0507-1420-9976.
+- Hours 11:30–18:30, last order 18:15, closed every Wednesday. Basement parking.
+- Currently operating — DiningCode listing shows active status, and it is in the
+  2026 Blue Ribbon Seoul guide.
+- The hook: 100+ Panamanian coffees including 20+ ultrapremium auction lots
+  (Best of Panama, Geisha), filter coffee from ₩10,000 to ₩80,000+ a cup, served
+  in Riedel wine glasses. Split layout — takeout bar on the right, tasting room on
+  the left. Founded by the operator of the Korean community site Ruliweb, so the
+  interior carries gachapon machines and anime merchandise against the tasting-room
+  format.
+- Suggested `search_keyword`: "Seoul geisha coffee tasting room Myeongdong".
+- Sources, as-of 2026-09-27 KST: The Korea Herald, 9 Apr 2026, "From craft to
+  rarity, two Korean cafes redefining the cup of joe"
+  (koreaherald.com/article/10713588) — ranking, prices, format, Ruliweb link;
+  DiningCode profile AAqmRY8O5kbK — name, both addresses, phone, hours, last
+  order, closed day, operating status, price band, Blue Ribbon listing.
+- Caveat to carry into copy: the ₩80,000 figure is the top of the auction-lot
+  range, not a typical cup, and nothing here may be written as a visit.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-09-27 Sunday → reel / cafe (§1); §0 same-day gate
+  clear; no ramp flag.
+- WebSearch works. WebFetch works on koreaherald.com and diningcode.com;
+  tripadvisor.com returns HTTP 403 (use DiningCode or Naver for listing data).
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0, verified by
+  re-rendering `2026-09-26-korea-market-price-rules-en` to a scratch dir and
+  checking every slide's pixel size. pillow 12.3.0.
+- **ffmpeg is still absent from the runner** and still absent from every file in
+  `.github/workflows/`. Per the header this is a per-run install, not a blocker,
+  but a Reel day must still run `sudo apt-get install -y ffmpeg` first. The
+  one-line fix to `daily-content.yml` from the 2026-09-15 entry is still unapplied
+  and still unappliable by an agent (`contents: write` / `id-token: write` only).
 
 ---
 
