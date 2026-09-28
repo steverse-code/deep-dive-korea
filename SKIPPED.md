@@ -34,6 +34,146 @@ agent cannot push that change. **Only the media blocker stops Reel days.**
 
 ---
 
+## 2026-09-28 (Mon), reel / restaurant — SKIPPED
+
+Eleventh consecutive Reel-day skip. Every gate re-checked against the runner and
+the repo this run rather than inherited from the entry below. No content JSON, no
+rendered output, no change to `queue.json`. One blocker survives the re-check —
+media — and it alone is decisive. Everything else in the pipeline was exercised
+this run and works, including the full Reel render path.
+
+`TZ=Asia/Seoul date` → Monday 2026-09-28 11:24 KST, `+%u` → 1 → §1 row 1 → reel /
+restaurant, Collab **optional**; the run prompt set the same format. No same-day
+`pending` or `published` queue item (§0): `grep -c 2026-09-28 queue.json` → 0, and
+no item's `publish_at` starts with `2026-09-28`. Working tree clean at start.
+`queue.json` unchanged at 44 items — 32 `held`, 12 `published`, **zero** `pending`.
+No ramp flag in `queue.json`, `.github/` or any repo note (§1); a repo-wide search
+of `*.json`/`*.yml` for "ramp" returns nothing, so the only hits remain prose in
+CONTENT.md, PIPELINE.md and this file.
+
+### Blocking: no compliant media for a Reel (re-verified from scratch)
+
+- **§3 option 1 (owner original) — none.** `git log --diff-filter=A` over
+  `assets/photos/` attributes 44 of the 45 files to `claude[bot]` pipeline commits.
+  The single human-added file is still `cheongildip-en.jpg` (392aefd, Steve,
+  2026-08-25, "content: English + photo-required pivot"), which predates policy v2.
+  Nothing human-added since; tree clean, so no un-committed drop either.
+- **§3 option 2 (venue/creator media with written permission) — none.** No
+  permission record exists anywhere in the repo, and none is obtainable unattended.
+- **§3 option 3 (licensed stock) — closed by format.** Permitted only for a
+  non-venue-specific editorial *Carousel*. Monday is a Reel. The constraint binds on
+  **format**, so an editorial angle (tacos/mole in Korea, say) could not rescue the
+  day either — and §2 below found a venue-specific subject in any case.
+
+Stopped under §0. Deliberately did **not** write `asset_source: "licensed_stock"` +
+`rights_confirmed: true` for a Reel — re-read `validate_rights()` in
+`scripts/publish.py` this run and it still has no format check, so such an item
+would pass the publisher while violating §3. That gap was first logged 2026-09-15
+and is still open. Policy-v2 metadata still exists in exactly four content files,
+all Carousels: 09-16, 09-19, 09-23, 09-26, each `licensed_stock` /
+`rights_confirmed: true`.
+
+Also did not render a typography-only cover as a substitute. The run prompt rules
+it out explicitly for this account, and §3 rules out presenting a non-venue image
+as the venue.
+
+The CC-licensed-venue-photo reading raised 2026-09-24 and rejected on 09-25 and
+09-27 stays rejected, unchanged reasoning: CONTENT.md glosses §3 option 2 as
+"original or written **partner**-authorized media", the `asset_source` enum has no
+slot for a Commons photographer, and loosening a rights rule on a live account is
+outward-facing and hard to reverse. Moot again today — option 3's format bar
+applies whatever the licence.
+
+Did not switch Monday to Carousel to reach option 3. §1 fixes Monday as a Reel and
+the run prompt set reel; "move the venue-specific days to Carousel" is listed in
+the 2026-09-15 entry as an editorial fix reserved for a human.
+
+### §2 research passed — a verified, uncovered restaurant is ready to ship
+
+Media alone stopped this run, so the research is written up for a human. Monday's
+pillar is restaurant.
+
+**Escondido (에스콘디도)** — Hannam-dong, Seoul. New to the account: no post in
+`content/` names it, and none of the MICHELIN Seoul & Busan 2026 starred names
+checked (Bicena, Collage, Eatanic Garden, Escondido, Exquisine, GAGGEN) appear
+anywhere in `content/`.
+
+- **The hook, stated precisely:** Escondido is **Asia's first Mexican restaurant to
+  earn a MICHELIN star**, and it holds 1 star in the MICHELIN Guide South Korea
+  2026. **Correction to carry into copy:** the star was awarded in the **Seoul &
+  Busan 2025** edition and retained for 2026 — it is *not* a new-for-2026 star. An
+  early WebSearch summary this run listed it among 2026's new one-stars; the
+  MoneyToday interview contradicts that directly, so copy must say "first
+  MICHELIN-starred Mexican restaurant in Asia" and not "new star".
+- Chef **Jin Woo-beom (진우범)**, 32 at the time of the interview. Studied
+  architecture at UC Berkeley, went to Mexico in 2017 to train, including under
+  Enrique Olvera. Escondido had been open under a year when the star landed. He
+  also runs El Molino (Seongsu-dong), Pescadería, and La Caye (Sindang-dong, near
+  Jungang Market) under the "Molino Project" F&B brand.
+- Official name 에스콘디도 / Escondido. Address 서울 용산구 한남대로20길 61-7
+  지하 1층 (lot address 용산구 한남동 32-48); the MICHELIN listing renders the same
+  address in English as B1, 61-7 Hannam-daero 20-gil, Yongsan-gu, Seoul 04419.
+  Phone 02-2038-8994.
+- **Hours: 17:15 onward, Tuesday–Saturday, closed Sunday and Monday.** Reservation
+  only, by phone. One private room; valet parking; wine/mezcal/tequila pairings;
+  corkage permitted.
+  **Unresolved discrepancy — do not write a closing time.** DiningCode's profile
+  gives 17:15–22:30; a search snippet for the same venue gave 17:15–23:00. Opening
+  time and closed days agree across both. A future run should settle this from one
+  source before putting a closing time on screen.
+- **Price:** dinner course **₩210,000** per person, described as seasonally
+  variable. Counter-style service where the chef explains each dish.
+- **Current operation:** DiningCode profile shows an active, reservation-only
+  listing, and the MICHELIN Guide restaurant page is live — an official listing per
+  §2.
+- Suggested `search_keyword`: "Seoul Michelin Mexican restaurant Hannam".
+- **Caveats for copy:** the ₩210,000 course price is season-dependent; the
+  restaurant is closed Mondays and Sundays, which is worth saying plainly to
+  travelers; the DiningCode listing also claims a 흑백요리사 (Culinary Class Wars)
+  appearance, which was **not** corroborated by a second source this run and should
+  be left out; and nothing may be written as a visit.
+- **Sources, as-of 2026-09-28 KST:** MoneyToday interview with Jin Woo-beom,
+  2026-03-26, mt.co.kr/living/2026/03/26/2026032509135633487 — star edition, "Asia's
+  first", chef background, sister restaurants; DiningCode profile `e1nbttyqArIH` —
+  both addresses, phone, hours, closed days, course price, reservation-only status,
+  1-star listing; MICHELIN Guide restaurant page
+  guide.michelin.com/kr/en/seoul-capital-area/kr-seoul/restaurant/escondido — 2026
+  1-star status and the English address (via search result; the domain itself is not
+  fetchable, see below).
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-09-28 Monday → reel / restaurant (§1); §0 same-day
+  gate clear; tree clean; no ramp flag.
+- **WebSearch works** (English and Korean queries both returned usable results).
+  **WebFetch works** on mt.co.kr and diningcode.com. **`guide.michelin.com` returns
+  empty content to WebFetch** — both an article URL and the ceremony highlights URL
+  came back with no body, so Michelin facts had to be triangulated from search
+  snippets plus Korean press. Consistent with the 09-25 entry's note that
+  `guide.michelin.com` could not be fetched directly. Use DiningCode/Naver/Korean
+  press for listing data.
+- `scripts/cardnews.py` renders **7 slides, all 1080×1350, exit 0**, verified by
+  re-rendering `2026-09-26-korea-market-price-rules-en` to a scratch dir and
+  checking every slide's pixel size with pillow (12.3.0). Per the 2026-09-16 note,
+  exit 0 alone is not proof — slide sizes were checked, not just the return code.
+- **The full Reel path is confirmed working this run.** ffmpeg is still absent from
+  the runner image and still absent from every file in `.github/workflows/`, but
+  `sudo apt-get install -y ffmpeg` succeeded (6.1.1-3ubuntu5), and
+  `scripts/cardnews.py` + `scripts/reel.py` on `2026-09-13-le-dorer-en` then
+  produced a **1080×1920, 22.2s MP4, exit 0** (ffprobe-verified). Only warning is
+  the expected `! restaurant: tracks.json 에 등록됐지만 파일이 없습니다` —
+  `assets/music/*.mp3` is gitignored, so cloud Reels use ffmpeg-synthesized audio.
+  So a Reel day is fully renderable today; **media rights, not tooling, is what
+  stops it.** The one-line `daily-content.yml` fix from the 2026-09-15 entry is
+  still unapplied and still unappliable by an agent (`contents: write` /
+  `id-token: write` only).
+- The Instagram action block stays **withdrawn** (see header). Nothing was due since
+  2026-09-26, so the publish path has not been re-exercised, but no new block
+  evidence appeared and no item moved to `held`. Ramp status unchanged: 2026-09-26
+  is still post 1 of week 1, since this run adds nothing.
+
+---
+
 ## 2026-09-27 (Sun), reel / cafe — SKIPPED
 
 Tenth consecutive Reel-day skip, and the first since the account unblocked. Every
