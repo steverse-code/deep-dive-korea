@@ -4,7 +4,10 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item").
+verified, stop without adding a queue item"). As of 2026-09-29 that is **twelve
+consecutive Reel-day skips**, and with the action block withdrawn and the render
+path proven it is the only thing holding the account to two posts a week. The three
+possible fixes are editorial and reserved for a human — see the 2026-09-15 entry.
 
 **The Instagram action-block blocker is withdrawn as of 2026-09-27.** From
 2026-09-17 this file carried a second, separate blocker on all seven days: the
@@ -31,6 +34,154 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-09-29 (Tue), reel / local — SKIPPED
+
+Twelfth consecutive Reel-day skip. Every gate re-checked against the runner and the
+repo this run rather than inherited from the entry below. No content JSON, no
+rendered output, no change to `queue.json`. One blocker survives the re-check —
+media — and it alone is decisive. The full Reel render path was exercised
+end to end again this run and works.
+
+`TZ=Asia/Seoul date` → Tuesday 2026-09-29 12:09 KST, `+%u` → 2 → §1 row 2 → reel /
+local, Collab **candidate**; the run prompt set the same format. No same-day
+`pending` or `published` queue item (§0): `grep -c 2026-09-29 queue.json` → 0, and
+no item's `publish_at` starts with `2026-09-29`. Working tree clean at start.
+`queue.json` unchanged at 44 items — 32 `held`, 12 `published`, **zero** `pending`.
+No ramp flag (§1): a repo-wide search of `*.json`/`*.yml` for "ramp" returns
+nothing, so the only hits remain prose in CONTENT.md, PIPELINE.md and this file.
+
+### The standing escalation, restated because it is now the whole story
+
+With the action block withdrawn and the render path proven, **media rights are the
+only thing keeping this account to two posts a week.** Five of seven slots
+(Mon/Tue/Thu/Fri/Sun) are Reels and every one of them has been unreachable since
+2026-09-14. The fixes remain the three listed in the 2026-09-15 entry, all
+editorial decisions reserved for a human:
+
+- drop owner-original photos into `assets/photos/` for venues to be covered;
+- restore a stock allowance for Reels in §3, with a not-the-venue disclaimer;
+- move venue-specific days to Carousel and keep Reels for editorial topics.
+
+### Blocking: no compliant media for a Reel (re-verified from scratch)
+
+- **§3 option 1 (owner original) — none.** `git log --diff-filter=A` over
+  `assets/photos/` lists 45 files: 44 authored by `claude[bot]` pipeline commits,
+  one by a human — `cheongildip-en.jpg` (392aefd, Steve, 2026-08-25 13:02 KST).
+  That file predates policy v2 (8128750, 2026-09-14 10:12 KST) and is already
+  spent on `content/2026-08-25-cheongildip-en.json`. Tree clean, so no
+  un-committed drop either.
+- **§3 option 2 (venue/creator media with written permission) — none.** A repo-wide
+  file search for `permission|rights|licen|consent` returns no record of any grant,
+  and none is obtainable by an unattended run.
+- **§3 option 3 (licensed stock) — closed by format.** Permitted only for a
+  non-venue-specific editorial *Carousel*. Tuesday is a Reel. The constraint binds
+  on **format**, so an editorial local-food angle could not rescue the day either —
+  and §2 below found a venue-specific subject in any case.
+
+Stopped under §0. Deliberately did **not** write `asset_source: "licensed_stock"` +
+`rights_confirmed: true` for a Reel. Re-read `validate_rights()`
+(`scripts/publish.py:78`) this run: it returns early for `policy_version < 2`, then
+checks only that `asset_source` is in `{original, partner_licensed, licensed_stock}`
+and that a Collab is `accepted`. **There is still no format check**, so a stock Reel
+would sail through the publisher while violating §3. Gap first logged 2026-09-15,
+still open.
+
+Did not render a typography-only cover as a substitute — the run prompt rules it out
+explicitly for this account, and §3 rules out presenting a non-venue image as the
+venue. Did not switch Tuesday to Carousel to reach option 3: §1 fixes Tuesday as a
+Reel and the run prompt set reel. The CC-licensed-venue-photo reading raised
+2026-09-24 and rejected on 09-25, 09-27 and 09-28 stays rejected on the same
+grounds — CONTENT.md glosses option 2 as "original or written **partner**-authorized
+media", the `asset_source` enum has no slot for a Commons photographer, and
+loosening a rights rule on a live account is outward-facing and hard to reverse.
+Moot again today, since option 3's format bar applies whatever the licence.
+
+Collab handling (§3) is moot for the same reason: Tuesday is a Collab *candidate*,
+but no item was created, so nothing was queued with `collab_status: requested`.
+
+### §2 research passed — a verified, uncovered local-food subject is ready to ship
+
+Media alone stopped this run, so the research is written up for a human. Tuesday's
+pillar is local food.
+
+**Ttungbo Halmae Gimbap (뚱보할매김밥)** — Jungang Market, Tongyeong,
+Gyeongsangnam-do. New to the account: no file in `content/` names it, and it is
+distinct from the ten local-pillar posts already published.
+
+- **The hook:** chungmu gimbap is the one Korean gimbap deliberately built
+  *unrolled* — rice-only finger rolls with the filling served beside them, because
+  filled rolls spoiled on a fishing boat. This house is Tongyeong's best-known
+  chungmu gimbap shop.
+- **Naming precision — do not write "the originator" flatly.** KTO's VisitKorea
+  page gives the origin as fishermen packing rice and sides separately to keep them
+  fresh at sea, and English Wikipedia's `Chungmu-gimbap` gives the same account
+  ("a wife prepared a gimbap for her husband, a fisherman who went out to sea from
+  Chungmu Port … to prevent the food from spoiling, she packed the rolls and side
+  dishes separately"). **Neither source names this shop, and Wikipedia does not
+  mention it at all.** The 원조 claim comes from Korean travel/listing write-ups,
+  not from an official source. Safe copy: "Tongyeong's best-known chungmu gimbap
+  house, in Jungang Market" — attribute any 원조 or generation claim, or drop it.
+- Official name 뚱보할매김밥 / Ttungbo Halmae Gimbap. Address 경상남도 통영시
+  통영해안로 325 (325 Tongyeonghaean-ro, Tongyeong-si, Gyeongsangnam-do); lot
+  address 통영시 중앙동 129-3. Phone 055-645-2619 / +82-55-645-2619. By Jungang
+  Market and Gangguan harbour.
+- **Hours: 06:00–22:00.** VisitKorea and DiningCode agree exactly, and VisitKorea
+  gives closed days as "N/A (Open all year round)" — unusually, no discrepancy to
+  resolve, unlike the 09-28 subject. A 06:00 open is itself a usable detail for a
+  market post.
+- **Price: chungmu gimbap ₩7,000 per portion** (DiningCode menu, checked
+  2026-09-29 KST). A portion is commonly described as eight rolls served with
+  seokbakji radish kimchi and a squid-and-fishcake muchim.
+- **Current operation:** DiningCode shows the listing as 영업 중 with recent
+  reviews and visitor photos; the KTO VisitKorea English page is live with the same
+  address, phone and hours. Two independent current sources, one official.
+- Suggested `search_keyword`: "Tongyeong chungmu gimbap Jungang Market".
+- **Caveats for copy:** the ₩7,000 price and the eight-roll portion come from
+  listing platforms, not the shop, so date them; the "1인 1주문", prepay-first and
+  two-portion takeout minimum rules appear in Korean travel write-ups but were
+  **not** corroborated by an official source this run and should be left out or
+  attributed; nothing may be written as a visit.
+- **Sources, as-of 2026-09-29 KST:** Korea Tourism Organization, VisitKorea English
+  (`english.visitkorea.or.kr/svc/contents/contentsView.do?vcontsId=85867`) — name,
+  address, phone, 06:00–22:00, open year round, origin account; DiningCode profile
+  `0otucYRjw9Q2` — road and lot address, phone, hours, ₩7,000 menu price, 영업 중
+  status; English Wikipedia, `Chungmu-gimbap` — dish composition, rice-only rolls,
+  kolddugi-muchim and radish kimchi sides, Chungmu/Tongyeong origin account.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-09-29 Tuesday → reel / local (§1); §0 same-day gate
+  clear; tree clean; no ramp flag; zero `pending` items.
+- **WebSearch works** (English and Korean queries both returned usable results).
+  **WebFetch works** on `english.visitkorea.or.kr`, `diningcode.com` and
+  `en.wikipedia.org`. Two failures worth recording for future runs: Tongyeong
+  city's own tourism site `utour.go.kr` **refuses the connection**
+  (`ECONNREFUSED 27.101.75.57:443`), and `telltrip.com` returns **HTTP 403**. Add
+  these to the 09-28 note that `guide.michelin.com` returns an empty body. KTO
+  VisitKorea is the most reliable official listing source found so far.
+- `scripts/cardnews.py` renders **7 slides, all 1080×1350, exit 0**, verified by
+  re-rendering `2026-09-12-dongnae-halmae-pajeon-en` to a scratch dir and checking
+  every slide's pixel size with pillow 12.3.0. Per the 2026-09-16 note, exit 0 is
+  not proof on its own — the cover was also **opened and looked at**, and composes
+  correctly (eyebrow, three-line headline, subline, handle, 7-dot pager, no
+  overflow, no collision).
+- **The full Reel path is confirmed working this run.** ffmpeg is still absent from
+  the runner image and still absent from `.github/workflows/`, but
+  `sudo apt-get install -y ffmpeg` succeeded (6.1.1-3ubuntu5) and `scripts/reel.py`
+  then produced a **1080×1920, 30fps, 22.20s MP4 with an audio stream, exit 0**
+  (ffprobe-verified, 8.4 MB). Only warning is the expected
+  `! local: tracks.json 에 등록됐지만 파일이 없습니다` — `assets/music/*.mp3` is
+  gitignored, so cloud Reels use ffmpeg-synthesized audio. **Media rights, not
+  tooling, is what stops a Reel day.** The one-line `daily-content.yml` ffmpeg fix
+  from the 2026-09-15 entry is still unapplied and still unappliable by an agent
+  (`contents: write` / `id-token: write` only).
+- The Instagram action block stays **withdrawn** (see header). Nothing has been due
+  since 2026-09-26, so the publish path was not re-exercised, but no new block
+  evidence appeared and no item moved to `held`. Ramp status unchanged: 2026-09-26
+  is still post 1 of week 1, since this run adds nothing.
 
 ---
 
