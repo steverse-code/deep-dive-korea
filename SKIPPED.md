@@ -4,10 +4,18 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-09-29 that is **twelve
+verified, stop without adding a queue item"). As of 2026-10-01 that is **thirteen
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account to two posts a week. The three
 possible fixes are editorial and reserved for a human — see the 2026-09-15 entry.
+
+**2026-09-30 (Wed, carousel) produced nothing and is not logged below.** It is the
+first unexplained gap in this file: a Carousel day, the one format the media
+blocker does not stop, with no content commit, no queue entry and no skip entry.
+Either the run did not fire or it ended without writing anything. Worth a human
+look at the `daily-content.yml` run history — if Carousel days start silently
+failing too, the account goes to zero posts a week. Not caught up here: §0 forbids
+catching up missed days.
 
 **The Instagram action-block blocker is withdrawn as of 2026-09-27.** From
 2026-09-17 this file carried a second, separate blocker on all seven days: the
@@ -34,6 +42,97 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-01 (Thu), reel / bar — SKIPPED
+
+Thirteenth consecutive Reel-day skip. Every gate re-checked against the runner and
+the repo this run rather than inherited from the entries below. No content JSON, no
+rendered output committed, no change to `queue.json`. One blocker survives the
+re-check — media — and it alone is decisive. The full Carousel **and** Reel render
+paths were exercised end to end this run and both work.
+
+`TZ=Asia/Seoul date` → Thursday 2026-10-01 11:56 KST, `+%u` → 4 → §1 row 4 → reel /
+bar, Collab optional; the run prompt set the same format. No same-day `pending` or
+`published` queue item (§0): zero occurrences of `2026-10-01` in `queue.json` and no
+item whose `publish_at` starts with that date. Working tree clean at start.
+`queue.json` unchanged at 44 items — 32 `held`, 12 `published`, **zero** `pending`.
+No ramp flag (§1): a repo-wide search of `*.json`/`*.yml` for "ramp" still returns
+nothing, so the only hits remain prose in CONTENT.md, PIPELINE.md and this file.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
+and Collabs must use original or written partner-authorized media." Re-checked this
+run:
+
+- **no owner-supplied original media exists.** `git status --untracked-files=all`
+  reports nothing untracked anywhere in the repo, and `assets/` still holds only
+  `fonts/`, `music/` and `photos/` — there is no inbox directory. Every file in
+  `assets/photos/` was introduced by a `content: … (daily pipeline…)` commit; the
+  sole human-added one, `cheongildip-en.jpg` (392aefd, 2026-08-25), predates the
+  policy rewrite and is itself stock. Nothing has been added since 8128750;
+- **written venue permission cannot be obtained by an unattended run;**
+- **licensed stock is available and legal, but §3 forbids it for this format.**
+  The constraint binds on format, not only on venue-specificity, so an editorial
+  bar angle (e.g. nogari-and-beer alleys as a drinking custom rather than one bar)
+  does not escape it either. Thursday is a Reel, so option 3 is closed.
+
+Reusing an existing file from `assets/photos/` — including the bar photos from the
+pre-policy era — would violate the same rule twice: stock on a Reel, and stock
+standing in for a named venue.
+
+### Correction to the 2026-09-15 entry: policy-v2 metadata is no longer unimplemented
+
+That entry states "**zero** of the 40 files in `content/` carry `policy_version`,
+`asset_source`, `rights_confirmed` or `rights_note`." That is now out of date. Of
+44 files, **4** carry all four fields — the Carousels of 09-16, 09-19, 09-23 and
+09-26. All four are `format: carousel`, `asset_source: licensed_stock`,
+`rights_confirmed: true`, with a `rights_note` that names the file, the licence
+(CC0 or CC BY 2.0), the Wikimedia Commons API verification date, and an explicit
+"used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific
+editorial Carousel" clause. The 40 pre-policy files still carry none of it.
+
+So the v2 path is implemented and proven in production — but only along the one
+branch a Carousel can take. No file in the repo demonstrates a compliant Reel,
+because none can be produced here.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-10-01 Thursday → reel / bar (§1); §0 gates all pass.
+- **WebSearch works.** Queried Asia's 50 Best Bars 2026 for the Seoul entries.
+- **WebFetch works.** Fetched the VisitKorea English listing for Euljiro Nogari
+  Alley (`english.visitkorea.or.kr`, vcontsId 176867) and got back official name,
+  address and transit detail.
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0, from
+  `content/2026-09-12-gong-gan-en.json`. Slide 04 was opened and **visually
+  inspected** per the 2026-09-16 note about `fit()` overflowing silently — text
+  sits inside its box, no collision with the CTA, handle present.
+- `scripts/reel.py` renders a 1080×1920 (9:16) MP4, 22.2s, video + audio streams,
+  exit 0, after `sudo apt-get install -y ffmpeg` (exit 0, ffmpeg 6.1.1). It warns
+  `! bar: tracks.json 에 등록됐지만 파일이 없습니다` and synthesizes audio, because
+  `assets/music/*.mp3` is gitignored. Unchanged from 2026-09-22.
+
+### Research that a human can pick up
+
+Done to prove §2 works; **not** written up, because the media gate stops the post
+before copy matters. Thursday's bar slot has an exhaustion problem worth knowing
+about: all eight Seoul bars on Asia's 50 Best Bars 2026 are already covered by this
+account — Zest (No. 2), Alice (13), Bar Cham (33), M+MS (42) in the top 50, and
+Gong Gan (74), Charles H (87), Le Chamber (88), Soko (89) on the 51–100 extended
+list. The obvious ranked-list well is dry; future bar days need either a different
+source or an editorial angle.
+
+One verified, uncovered candidate: **Euljiro Nogari Alley (을지로 노가리골목)**,
+Eulji-ro 129, Jung-gu, Seoul; Euljiro 3-ga Station (Line 3) Exit 3; a nogari
+(dried young pollack) and golbaengi beer alley, hours "varies by store", listed as
+operating by VisitKorea as of 2026-10-01 KST. It suits a Thursday bar slot and, as
+a public street rather than one business, it is unusually friendly to a compliant
+photo. A caution for whoever writes it: an alley is not a venue, so if it is ever
+run as a Carousel the stock photo must still not be passed off as that alley.
 
 ---
 
