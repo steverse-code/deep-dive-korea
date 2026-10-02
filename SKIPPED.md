@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-01 that is **thirteen
+verified, stop without adding a queue item"). As of 2026-10-02 that is **fourteen
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account to two posts a week. The three
 possible fixes are editorial and reserved for a human — see the 2026-09-15 entry.
@@ -42,6 +42,124 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-02 (Fri), reel / restaurant — SKIPPED
+
+Fourteenth consecutive Reel-day skip. Every gate re-checked against the runner and
+the repo this run rather than inherited from the entries below. No content JSON, no
+rendered output committed, no change to `queue.json`. One blocker survives the
+re-check — media — and it alone is decisive. Both the Carousel and the Reel render
+paths were exercised end to end this run and both work.
+
+`TZ=Asia/Seoul date` → Friday 2026-10-02 11:59 KST, `+%u` → 5 → §1 row 5 → reel /
+restaurant, Collab **candidate**; the run prompt set the same format. No same-day
+`pending` or `published` queue item (§0): zero occurrences of `2026-10-02` in
+`queue.json` and no item whose `publish_at` starts with that date. Working tree
+clean at start. `queue.json` unchanged at 44 items — 32 `held`, 12 `published`,
+**zero** `pending`. No ramp flag (§1): a repo-wide search of `*.json`/`*.yml`/
+`*.yaml` for "ramp" still returns nothing, so the only hits remain prose in
+CONTENT.md, PIPELINE.md and this file.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
+and Collabs must use original or written partner-authorized media." Re-checked this
+run:
+
+- **no owner-supplied original media exists.** `git status --porcelain
+  --untracked-files=all` returns nothing at all, so no file has been dropped into
+  the checkout; `assets/` still holds only `fonts/`, `music/` and `photos/`, and a
+  `find` for `*inbox*`/`*incoming*`/`*upload*` directories and for any `.mp4`/
+  `.mov`/`.heic` outside `.git` returns nothing. Provenance was re-derived this run
+  with `git log --diff-filter=A` over all 46 files in `assets/photos/`: 45 were
+  introduced by `claude[bot]` pipeline commits, and the sole human-added one
+  (`cheongildip-en.jpg`, 392aefd, Steve, 2026-08-25) predates the policy rewrite
+  and is itself stock. Since 8128750 (2026-09-14 10:12 KST) the only additions to
+  `assets/` are the four Carousel stock photos of 09-16, 09-19, 09-23 and 09-26;
+- **written venue permission cannot be obtained by an unattended run;**
+- **licensed stock is available and legal, but §3 forbids it for this format.**
+  The constraint binds on format, not only on venue-specificity, so an editorial
+  restaurant angle (e.g. what a Korean tasting-menu `hanjeongsik` course actually
+  consists of, rather than one dining room) does not escape it either. Friday is a
+  Reel, so option 3 is closed.
+
+Reusing an existing file from `assets/photos/` — including the eleven restaurant
+photos from the pre-policy era — would violate the same rule twice: stock on a
+Reel, and stock standing in for a named venue.
+
+One reading was considered and rejected this run, for the record: a CC BY / CC0
+photo carries a *written* licence from its creator, which could be argued to
+satisfy §3 option 2 ("venue/creator media with written permission"). It does not.
+`asset_source` is constrained to `original | partner_licensed | licensed_stock`,
+and a Wikimedia photographer is not a partner who authorised this account —
+CONTENT.md says "written **partner-authorized** media". The four published
+Carousels all classify exactly this kind of media as `licensed_stock`. Loosening a
+rights rule is an editorial decision and is not one an unattended run should make.
+
+### Research a human can pick up
+
+Done to prove §2 works; **not** written up, because the media gate stops the post
+before copy matters. Unlike Thursday's bar slot (see 2026-10-01, where the ranked
+-list well is dry), Friday's restaurant slot has fresh, uncovered supply: the
+MICHELIN Guide Seoul & Busan **2026** edition — the 10th-anniversary edition, 233
+restaurants, 46 starred, 10 newly awarded Stars — added several Seoul one-stars.
+Named by search as new one-stars: **Bicena, Exquisine, Gigas, GiwaKang, JUEUN**,
+plus Goryori Ken and SAN. Of those, **GiwaKang is already covered**
+(`2026-09-04-giwakang-en.json`), and the eleven restaurant posts to date cover
+Onjium (×2), Mingles, Le Doré (×2), Balwoo Gongyang, Gogung Jeonju, Yong Fu Jeju,
+Gosari Express and Sosuheon. The rest are uncovered.
+
+Best-verified candidate: **JUEUN (주은 / Restaurant Jueun)**, one star in the 2026
+guide, Korean/classic cuisine, chef Park Ju-eun, **8F Gyeonghuidang, 36
+Gyeonghuigung-gil, Jongno-gu, Seoul 03175**, behind Gyeonghuigung Palace. Listed as
+starred in the current guide as of 2026-10-02 KST. Note it is Jongno-gu, not
+Gangnam — an early search framing had that wrong.
+
+**A sourcing caution for whoever writes this up.** `guide.michelin.com` is
+client-side rendered: WebFetch against both the "All the Stars" and the
+"highlights" articles, and against the individual JUEUN listing, returned an
+*empty* document every time — not an error, just nothing. Michelin facts here came
+from WebSearch snippets, which is weaker than §2's "official listing". Worse, the
+obvious-looking aggregator `seoultourism.org/seoul-michelin-restaurants/` **fetches
+fine but is not trustworthy**: it lists "Le Chamber" as a two-star *Modern
+French-Korean restaurant*, when Le Chamber is a Cheongdam cocktail bar this account
+has already covered as a bar (Asia's 50 Best Bars No. 88). Anything from that page
+needs independent confirmation before it reaches copy. A human with a browser
+should confirm star level, address and current operation directly on Michelin or
+the restaurant's own booking channel.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-10-02 Friday → reel / restaurant (§1); §0 gates all
+  pass.
+- **WebSearch works.** Queried the MICHELIN Guide Seoul & Busan 2026 star list and
+  JUEUN's listing.
+- **WebFetch works, but not everywhere.** `seoultourism.org` returned full content;
+  all three `guide.michelin.com` URLs returned empty (JS-rendered). Not a tool
+  failure — a site-shape problem worth knowing before relying on Michelin pages.
+- `scripts/cardnews.py` renders **7 slides at 1080×1350, exit 0**, from
+  `content/2026-09-13-le-dorer-en.json`. Slide 04 was opened and **visually
+  inspected** per the 2026-09-16 note about `fit()` overflowing silently: body copy
+  sits inside its box, no collision with the handle or the pagination dots, no
+  run-off at the canvas edge.
+- `scripts/reel.py` renders a **1080×1920 (9:16) MP4, 22.200s, video + audio
+  streams, exit 0**, after `sudo apt-get install -y ffmpeg` (exit 0, ffmpeg
+  6.1.1-3ubuntu5). It warns `! restaurant: tracks.json 에 등록됐지만 파일이 없습니다`
+  and synthesizes audio, because `assets/music/*.mp3` is gitignored. Unchanged from
+  2026-09-22.
+
+### Still open for a human
+
+Unchanged from 2026-10-01 and repeated only because nothing has moved: the media
+blocker's three possible fixes are editorial (drop original photos into
+`assets/photos/`; restore a stock allowance for Reels in §3; or move venue-specific
+days to Carousel). The **2026-09-30 (Wed, carousel) silent gap** noted in the
+header is still unexplained and still the more urgent of the two — Carousel is the
+one format that can ship, and no run has fired on a Carousel day since.
 
 ---
 
