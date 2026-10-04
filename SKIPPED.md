@@ -4,18 +4,23 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-02 that is **fourteen
+verified, stop without adding a queue item"). As of 2026-10-04 that is **fifteen
 consecutive Reel-day skips**, and with the action block withdrawn and the render
-path proven it is the only thing holding the account to two posts a week. The three
-possible fixes are editorial and reserved for a human — see the 2026-09-15 entry.
+path proven it is the only thing holding the account below a daily schedule. The
+three possible fixes are editorial and reserved for a human — see the 2026-09-15
+entry.
 
-**2026-09-30 (Wed, carousel) produced nothing and is not logged below.** It is the
-first unexplained gap in this file: a Carousel day, the one format the media
-blocker does not stop, with no content commit, no queue entry and no skip entry.
-Either the run did not fire or it ended without writing anything. Worth a human
-look at the `daily-content.yml` run history — if Carousel days start silently
-failing too, the account goes to zero posts a week. Not caught up here: §0 forbids
-catching up missed days.
+**Both Carousel days since 2026-09-26 produced nothing, and the account is now at
+zero posts a week.** 2026-09-30 (Wed) and 2026-10-03 (Sat) are the two unexplained
+gaps in this file: Carousel days, the one format the media blocker does **not**
+stop, each with no content commit, no queue entry and no skip entry. `git log`
+shows commits on 09-29, 10-01 and 10-02 but nothing on 09-30 or 10-03, so the gaps
+are not an artefact of a missing log entry. Either those runs did not fire or they
+ended without writing anything. **This is now the more urgent of the two problems**
+— the media blocker costs five days a week, but a silent Carousel failure costs the
+remaining two, and the last successful publish was 2026-09-26. Worth a human look at
+the `daily-content.yml` run history. Not caught up here: §0 forbids catching up
+missed days.
 
 **The Instagram action-block blocker is withdrawn as of 2026-09-27.** From
 2026-09-17 this file carried a second, separate blocker on all seven days: the
@@ -42,6 +47,127 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-04 (Sun), reel / cafe — SKIPPED
+
+Fifteenth consecutive Reel-day skip. Every gate re-checked against the runner and
+the repo this run rather than inherited from the entries below. No content JSON, no
+rendered output committed, no change to `queue.json`. One blocker survives the
+re-check — media — and it alone is decisive. Both render paths were exercised end to
+end this run and both work, and §2 research was verified against an official listing.
+
+`TZ=Asia/Seoul date` → Sunday 2026-10-04 12:15 KST, `+%u` → 7 → §1 row 7 → reel /
+cafe, Collab **optional**; the run prompt set the same format. No same-day `pending`
+or `published` queue item (§0): zero occurrences of `2026-10-04` in `queue.json` and
+no item whose `publish_at` starts with that date. Working tree clean at start
+(`git status --porcelain --untracked-files=all` empty). `queue.json` unchanged at 44
+items — 32 `held`, 12 `published`, **zero** `pending`. No ramp flag (§1): a repo-wide
+search of `*.json`/`*.yml`/`*.yaml` for "ramp" still returns nothing, so the only
+hits remain prose in CONTENT.md, PIPELINE.md and this file.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
+and Collabs must use original or written partner-authorized media." Re-checked this
+run:
+
+- **no owner-supplied original media exists.** Nothing is untracked anywhere in the
+  checkout, so no file has been dropped in; `assets/` still holds only `fonts/`,
+  `music/` and `photos/`; a `find` for `*inbox*`/`*incoming*`/`*upload*`/`*original*`
+  directories and for any `.mp4`/`.mov`/`.heic`/`.dng` outside `.git` returns
+  nothing. Provenance was re-derived this run with `git log --diff-filter=A` over all
+  46 files in `assets/photos/`: 45 were introduced by `claude[bot]` pipeline commits,
+  and the sole human-added one (`cheongildip-en.jpg`, 392aefd, Steve, 2026-08-25)
+  predates the policy rewrite and is itself stock. `git log --since=2026-09-14 --
+  assets/` returns exactly four commits, all of them the Carousel stock photos of
+  09-16, 09-19, 09-23 and 09-26. **Nothing has been added for 8 days;**
+- **written venue permission cannot be obtained by an unattended run;**
+- **licensed stock is available and legal, but §3 forbids it for this format.** The
+  constraint binds on format, not only on venue-specificity, so an editorial cafe
+  angle does not escape it either. Sunday is a Reel, so option 3 is closed.
+
+Reusing an existing file from `assets/photos/` — including the eleven cafe photos
+already in the repo — would violate the same rule twice: stock on a Reel, and stock
+standing in for a named venue.
+
+### Research a human can pick up
+
+Done to prove §2 works; **not** written up, because the media gate stops the post
+before copy matters. Sunday is cafe/dessert, and 13 cafe items are already queued or
+published: Anthracite (Seoul and Hapjeong), Hanyakbang, Terarosa (Seoul and
+Gangneung), Momos, Onion Anguk, Hakrim Dabang, Suyeonsanbang, Sungsimdang, Mido
+Dabang, plus the two editorial Carousels (cup rules, cafe seat time). Two uncovered
+leads, in descending order of how well they verify:
+
+**1. Fritz Coffee Company, Dohwa — best verified, and the strongest handoff here.**
+Unlike the Michelin problem logged on 2026-10-02, this one verifies against a
+genuinely official source. The company's **own store directory** (`fritz.co.kr/store.html?cate_no=125`)
+fetches cleanly and lists seven operating branches as of 2026-10-04 KST: 1st Dohwa
+(17 Saechang-ro 2-gil, Mapo-gu, Seoul), 2nd Wonseo (83 Yulgok-ro, Jongno-gu), 3rd
+Yangjae (24-11 Gangnam-daero 37-gil, Seocho-gu), 4th HYBE Fritz (42 Hangang-daero,
+Yongsan-gu), 5th Seongsan (222 Ilchul-ro, Seongsan-eup, Seogwipo-si, Jeju), 6th
+Dongnimmun (1F, 24-1 Tongil-ro 12-gil, Jongno-gu), 7th Jangchung (11 Dongho-ro
+24-gil, Jung-gu). The site shows no closure notice and lists a staffed line,
+02-3275-2047 (Mon–Fri 09:00–17:00). **Caveat for whoever writes it up:** the official
+directory gives addresses but **no opening hours**. The widely-repeated Dohwa hours
+(Mon–Fri 08:00–22:00, Sat–Sun 10:00–22:00) come only from aggregators — Tripadvisor,
+trip.com, brewatlas — which is below §2's bar. Confirm hours on Naver Place or by
+phone before any hour reaches copy. The Dohwa branch occupying a hanok is likewise
+an aggregator claim, not an official one.
+
+**2. Wi Seung Chan and nuruk — a good story, but stale.** korea.net (articleId
+255035, fetches cleanly) reports that Wi Seung Chan won the **World Coffee in Good
+Spirits Championship** in Copenhagen, 27–29 June 2024, using **nuruk**, the
+traditional Korean fermentation starter for makgeolli and cheongju — distinct from
+Japanese koji in that the grain germinates and ferments at once. He has worked at
+Ediya Coffee Lab in Seoul since 2017. It is a genuinely good Sunday hook, but it is
+a 2024 result, so it needs a current peg before it runs. Two candidates: Korea's
+2026 showing at World of Coffee Brussels (Ethan Junseong Park, 5th in the World
+Brewers Cup — Korea took no podium) and **Café Show Seoul, 11–14 November 2026**,
+which hosts the 2026 Korean Barista Championship and the Korean Brewers Cup. Both of
+those are editorial rather than venue-specific, so they suit a **Carousel** — which
+is the format that can actually ship.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-10-04 Sunday, `+%u` → 7 → reel / cafe (§1); §0 gates
+  all pass.
+- **WebSearch works.** Queried Korea's 2026 specialty-coffee scene, the 2026 World
+  Coffee Championships results and Fritz's Dohwa branch.
+- **WebFetch works, including on an official source.** `korea.net` and both
+  `fritz.co.kr` pages (landing and store directory) returned full content. Noted for
+  contrast with 2026-10-02, where all three `guide.michelin.com` URLs returned empty
+  because the site is client-side rendered — that remains a site-shape problem, not a
+  tool failure.
+- `scripts/cardnews.py` renders **7 slides at 1080×1350, exit 0**, from
+  `content/2026-09-11-mido-dabang-en.json`. Slide 04 was opened and **visually
+  inspected** per the 2026-09-16 note about `fit()` overflowing silently: all four
+  body paragraphs sit inside the box, no collision with the `@deep_dive_korea` handle
+  or the pagination dots, no run-off at the canvas edge.
+- `scripts/reel.py` renders a **1080×1920 (9:16) MP4, 22.200s, h264 video + aac
+  audio, exit 0**, after `sudo apt-get install -y ffmpeg` (exit 0, ffmpeg
+  6.1.1-3ubuntu5). It warns `! cafe: tracks.json 에 등록됐지만 파일이 없습니다` and
+  synthesizes audio, because `assets/music/*.mp3` is gitignored. Unchanged from
+  2026-09-22.
+
+### Still open for a human
+
+1. **The silent Carousel gaps are now the priority** — see the header. 2026-09-30
+   (Wed) and 2026-10-03 (Sat) both produced nothing, the last publish was
+   2026-09-26, and Carousel is the only format that can currently ship. The three
+   fixes in item 2 do not matter much if the two days that *can* run keep failing
+   silently.
+2. The media blocker's three fixes are editorial and unchanged: drop original photos
+   into `assets/photos/`; restore a stock allowance for Reels in §3; or move
+   venue-specific days to Carousel and keep Reels for editorial topics.
+3. Unchanged from 2026-09-15: `publish.py`'s `validate_rights()` accepts
+   `licensed_stock` regardless of format, so it does not enforce §3's
+   Carousel-only restriction; and no ramp flag exists anywhere despite §1 saying to
+   respect one.
 
 ---
 
