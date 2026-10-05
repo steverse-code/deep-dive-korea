@@ -4,23 +4,43 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-04 that is **fifteen
+verified, stop without adding a queue item"). As of 2026-10-05 that is **sixteen
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
 
-**Both Carousel days since 2026-09-26 produced nothing, and the account is now at
-zero posts a week.** 2026-09-30 (Wed) and 2026-10-03 (Sat) are the two unexplained
-gaps in this file: Carousel days, the one format the media blocker does **not**
-stop, each with no content commit, no queue entry and no skip entry. `git log`
-shows commits on 09-29, 10-01 and 10-02 but nothing on 09-30 or 10-03, so the gaps
-are not an artefact of a missing log entry. Either those runs did not fire or they
-ended without writing anything. **This is now the more urgent of the two problems**
-— the media blocker costs five days a week, but a silent Carousel failure costs the
-remaining two, and the last successful publish was 2026-09-26. Worth a human look at
-the `daily-content.yml` run history. Not caught up here: §0 forbids catching up
-missed days.
+**The silent Carousel gaps are diagnosed as of 2026-10-05: the runs fired, and they
+died on `--max-turns 60`.** Previous entries recorded 2026-09-30 (Wed) and
+2026-10-03 (Sat) as unexplained — Carousel days, the one format the media blocker
+does **not** stop, each with no content commit, no queue entry and no skip entry —
+and asked a human to check the run history. This run checked it. `gh run list
+--workflow=daily-content.yml` shows both days **ran and failed**, and
+`--log-failed` gives the same cause for each:
+
+| Run | Day | Duration | Error |
+|---|---|---|---|
+| 36211557490 | 2026-09-26 Wed | 12m25s | `Claude reported a successful result after 74 turns, exceeding the configured maximum of 60` |
+| 36661618514 | 2026-09-30 Wed | 13m07s | `Reached maximum number of turns (60)` |
+| 37090827232 | 2026-10-03 Sat | 18m33s | `Reached maximum number of turns (60)` |
+
+`.github/workflows/daily-content.yml:79-82` sets `claude_args: --max-turns 60`.
+Authoring a Carousel — read the four long policy/notes files, research and verify a
+venue, fetch a photo, write the JSON, render and inspect 7 slides, queue, commit,
+push — does not fit in 60 turns. A Reel day fits easily because it stops at the §3
+media gate after ~5-6 min, which is exactly why **every** successful run in the
+history is a skip and **every** failure is a Carousel day. 2026-09-26 is the tell:
+it finished the work at 74 turns, so the content committed and published, and the
+step still went red. 09-30 and 10-03 hit the wall earlier and wrote nothing.
+
+So the two problems have one shape: **the only format that can ship is the only
+format that cannot finish.** The fix is a one-line workflow change — raise
+`--max-turns` (120 is a safe starting point; `timeout-minutes: 30` is the real
+backstop and no run has come close to it). **A human must apply it**: pushing to
+`.github/workflows/` is rejected for an agent because `daily-content.yml` grants
+only `contents: write` / `id-token: write`, not `workflows: write` — the same
+blocker logged for the ffmpeg step on 2026-09-15. Not caught up here: §0 forbids
+catching up missed days.
 
 **The Instagram action-block blocker is withdrawn as of 2026-09-27.** From
 2026-09-17 this file carried a second, separate blocker on all seven days: the
@@ -47,6 +67,145 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-05 (Mon), reel / restaurant — SKIPPED
+
+Sixteenth consecutive Reel-day skip. Every gate re-checked against the runner and
+the repo this run rather than inherited from the entries below. No content JSON, no
+rendered output committed, no change to `queue.json`. One blocker survives the
+re-check — media — and it alone is decisive. Both render paths were exercised end to
+end this run and both work. **The one new thing this run: the silent Carousel
+failures are diagnosed — see the header. They are `--max-turns 60` exhaustion, not
+runs that failed to fire.**
+
+`TZ=Asia/Seoul date` → Monday 2026-10-05 11:51 KST, `+%u` → 1 → §1 row 1 → reel /
+restaurant, Collab **optional**; the run prompt set the same format. No same-day
+`pending` or `published` queue item (§0): `grep -c 2026-10-05 queue.json` → 0, and
+no item whose `publish_at` starts with that date. Working tree clean at start
+(`git status --porcelain --untracked-files=all` empty). `queue.json` unchanged at 44
+items — 32 `held`, 12 `published`, **zero** `pending`. No ramp flag (§1): a repo-wide
+search of `*.json`/`*.yml`/`*.yaml` for "ramp" still returns nothing, so the only
+hits remain prose in CONTENT.md, PIPELINE.md and this file.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
+and Collabs must use original or written partner-authorized media." Re-checked this
+run:
+
+- **no owner-supplied original media exists.** `git status --porcelain
+  --untracked-files=all` returns nothing, so no file has been dropped in; `assets/`
+  still holds only `fonts/`, `music/` and `photos/`; a `find` for
+  `*inbox*`/`*incoming*`/`*upload*`/`*original*`/`*owner*` directories and for any
+  `.mp4`/`.mov`/`.heic`/`.dng`/`.m4v` outside `.git` returns nothing. Provenance
+  re-derived this run with `git log --diff-filter=A` over all 46 files in
+  `assets/photos/`: 45 came from `claude[bot]` pipeline commits, and the sole
+  human-added one (`cheongildip-en.jpg`, 392aefd, Steve, 2026-08-25) predates the
+  policy rewrite and is itself stock. The three newest adds are 0d38369 (09-26),
+  ffe577d (09-23) and b1863f5 (09-19) — all bot-fetched Carousel stock. **Nothing
+  has been added for 9 days;**
+- **written venue permission cannot be obtained by an unattended run;**
+- **licensed stock is available and legal, but §3 forbids it for this format.** The
+  constraint binds on format, not only on venue-specificity, so an editorial
+  restaurant angle does not escape it either. Monday is a Reel, so option 3 is
+  closed.
+
+Reusing an existing file from `assets/photos/` would violate the same rule twice:
+stock on a Reel, and stock standing in for a named venue. Deliberately did **not**
+write `asset_source: "licensed_stock"` + `rights_confirmed: true` for a Reel — that
+still passes `validate_rights()` (scripts/publish.py has no format check; gap first
+logged 2026-09-15, still open) while violating §3. The CC/KOGL public-licence
+reading of §3 option 2, raised and rejected on 2026-09-24 and 2026-09-25, is not
+reopened: loosening a rights rule on a live account is outward-facing and not a call
+for an unattended run.
+
+### Research a human can pick up
+
+Done to prove §2 works; **not** written up as copy, because the media gate stops the
+post before copy matters. Monday is restaurant, and 11 restaurant-pillar items are
+already queued or published (Onjium ×2, Mingles, Le Dorer ×2, Balwoo Gongyang,
+Gogung Jeonju, Giwakang, Yong Fu Jeju, Gosari Express, Sosuheon).
+
+**Oilje (오일제), Samgakji, Yongsan-gu — uncovered, and the best remaining hook from
+the 2026 Bib Gourmand cycle.** `grep -ril oilje content/` returns nothing.
+
+- **Hook:** a one-dish shop that cooks perilla-seed *miyeok-guk* (seaweed soup) and
+  little else, named a **new Bib Gourmand in the MICHELIN Guide Seoul & Busan
+  2026**. One of eight rookies — five Seoul, three Busan — out of 71 Bib Gourmands
+  total (51 Seoul, 20 Busan).
+- **Dish detail (search-level):** first-harvest seaweed from Geogeum Island, Korean
+  beef broth, perilla seed powder from Gangjin; rice cooked in a cast-iron pot in an
+  open kitchen; reportedly ~50 bowls a day.
+- **Price frame:** Bib Gourmand in Korea means a full meal under ₩45,000 per person.
+  Treat as the Bib threshold, **not** as this shop's menu price — the actual price
+  was not verified this run.
+- **Address (aggregator-level):** 29 Hangang-daero 62da-gil, Yongsan-gu, Seoul
+  04382. A second aggregator gives 180-1 Hangangno 1-ga, Yongsan-gu — these are the
+  new-style and old-style forms of the same lot, but **confirm on Naver Place before
+  either reaches copy.**
+- **Hours — NOT verified, do not publish as-is.** The only figures found (Mon–Fri
+  10:00–13:30, closed Sat/Sun) come from aggregators, which is below §2's bar.
+- **English search phrase for travelers:** "Oilje Samgakji miyeokguk" / "perilla
+  seaweed soup Seoul Michelin Bib Gourmand".
+- **Sources read this run:** Korea JoongAng Daily, "Michelin releases 2026 Bib
+  Gourmand, adds 8 new Korean restaurants" (koreajoongangdaily.com/.../12491521) —
+  **fetched in full**, confirms all eight rookies, the districts, the signature
+  dishes and the 71/51/20 counts. The official MICHELIN listing for Oilje exists and
+  is indexed (`guide.michelin.com/us/en/seoul-capital-area/kr-seoul/restaurant/oilje`)
+  but **could not be fetched** — see below — so current operation rests on the
+  JoongAng article plus search snippets of that listing, not on the listing itself.
+- **One discrepancy worth resolving:** Korea JoongAng Daily dates the Bib Gourmand
+  announcement **2026-02-26**; The Korea Herald, read on the 2026-09-25 run, dates it
+  **2026-02-27**. Pin this before it reaches copy.
+
+Other uncovered rookies, if Oilje does not suit: **Andeok** (Jongno-gu, beef
+naengguksu and mandutguk), **Sobakeeri Suzu** (Korean-buckwheat soba), **3rd
+Samgyetang** (Seocho-gu, 1973 — researched in full on the 2026-09-25 entry).
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-10-05 Monday, `+%u` → 1 → reel / restaurant (§1); §0
+  gates all pass.
+- **WebSearch works.** Queried the 2026 Bib Gourmand announcement and Oilje.
+- **WebFetch works.** `koreajoongangdaily.com` returned the full article.
+  `guide.michelin.com` again returned an **empty body** on both URLs tried (the Bib
+  Gourmand article and the Oilje restaurant listing) — unchanged from 2026-09-25 and
+  2026-10-02, and still a site-shape problem (client-side rendering), not a tool
+  failure. MICHELIN's own pages remain reachable from this runner only via search
+  snippets.
+- `scripts/cardnews.py` renders **7 slides at 1080×1350, exit 0**, from
+  `content/2026-09-09-sosuheon-en.json`. Slide 01 was opened and **visually
+  inspected** per the 2026-09-16 note about `fit()` overflowing silently: headline
+  and all four body paragraphs sit inside the box, no collision with the
+  `@deep_dive_korea` handle or the pagination dot, no run-off at the canvas edge.
+- `scripts/reel.py` renders a **1080×1920 (9:16) MP4, 22.200s, h264, exit 0**,
+  confirmed with `ffprobe`, after `sudo apt-get install -y ffmpeg` (exit 0, ffmpeg
+  6.1.1-3ubuntu5). It warns `! restaurant: tracks.json 에 등록됐지만 파일이 없습니다`
+  and synthesizes audio, because `assets/music/*.mp3` is gitignored. Unchanged from
+  2026-09-22.
+- Nothing was published and `publish.yml` was not invoked (§0).
+
+### Still open for a human
+
+1. **Raise `--max-turns` in `daily-content.yml` — this is now the top item.** See
+   the header: it is the sole cause of the 09-30 and 10-03 silent gaps and of the
+   red check on the otherwise-successful 09-26 run. One line, and it unblocks the
+   only format that can currently ship. An agent cannot push it (no `workflows:
+   write`).
+2. The media blocker's three fixes are editorial and unchanged: drop original photos
+   into `assets/photos/`; restore a stock allowance for Reels in §3; or move
+   venue-specific days to Carousel and keep Reels for editorial topics.
+3. Unchanged from 2026-09-15: `publish.py`'s `validate_rights()` accepts
+   `licensed_stock` regardless of format, so it does not enforce §3's Carousel-only
+   restriction; and no ramp flag exists anywhere despite §1 saying to respect one.
+   With publishing live again, CONTENT.md's recovery ramp is the binding limit and
+   nothing encodes it.
+4. While here: `daily-content.yml` could also carry the `sudo apt-get install -y
+   ffmpeg` step, saving the per-run install. Same `workflows: write` blocker.
 
 ---
 
