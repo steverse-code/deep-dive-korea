@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-05 that is **sixteen
+verified, stop without adding a queue item"). As of 2026-10-06 that is **seventeen
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
@@ -67,6 +67,166 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-06 (Tue), reel / local — SKIPPED
+
+Seventeenth consecutive Reel-day skip. Every gate re-checked against the runner and
+the repo this run rather than inherited from the entries below. No content JSON, no
+rendered output committed, no change to `queue.json`. One blocker survives the
+re-check — media — and it alone is decisive. Both render paths were exercised end to
+end this run and both work, and §2 research was verified against a listing platform
+and a local daily. **New this run: the Feb-2026 Bib Gourmand announcement-date
+discrepancy flagged on 2026-10-05 is resolved — see "Research a human can pick up".**
+
+`TZ=Asia/Seoul date` → Tuesday 2026-10-06 12:42 KST, `+%u` → 2 → §1 row 2 → reel /
+local, Collab **candidate**; the run prompt set the same format. No same-day
+`pending` or `published` queue item (§0): `grep -c 2026-10-06 queue.json` → 0, and no
+item whose `publish_at` starts with that date. Working tree clean at start
+(`git status --porcelain --untracked-files=all` empty). `queue.json` unchanged at 44
+items — 32 `held`, 12 `published`, **zero** `pending`. No ramp flag (§1): a repo-wide
+search of `*.json`/`*.yml`/`*.yaml` for "ramp" still returns nothing, so the only
+hits remain prose in CONTENT.md, PIPELINE.md and this file.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
+and Collabs must use original or written partner-authorized media." Re-checked this
+run:
+
+- **no owner-supplied original media exists.** `git status --porcelain
+  --untracked-files=all` returns 0 lines, so no file has been dropped in; `assets/`
+  still holds only `fonts/`, `music/` and `photos/`; a `find` for
+  `*inbox*`/`*incoming*`/`*upload*`/`*original*`/`*owner*`/`*submitted*` directories
+  and for any `.mp4`/`.mov`/`.heic`/`.dng`/`.m4v`/`.avi` outside `.git` returns
+  nothing. Provenance re-derived this run with `git log --diff-filter=A` over all 45
+  files in `assets/photos/`: 44 came from `claude[bot]` pipeline commits, and the
+  sole human-added one (`cheongildip-en.jpg`, 392aefd, Steve, 2026-08-25) predates
+  the policy rewrite — its JSON has **no** `policy_version`, `asset_source`,
+  `rights_confirmed` or `rights_note` field at all, so it carries no documented
+  rights basis and cannot stand in as owner-original media. `git log --since=
+  2026-09-20 -- assets/` returns two commits, both bot-fetched Carousel stock (0d38369
+  09-26, ffe577d 09-23). **Nothing has been added for 10 days;**
+- **written venue permission cannot be obtained by an unattended run;**
+- **licensed stock is available and legal, but §3 forbids it for this format.** The
+  constraint binds on format, not only on venue-specificity, so an editorial local-food
+  angle does not escape it either. Tuesday is a Reel, so option 3 is closed.
+
+Reusing an existing file from `assets/photos/` would violate the same rule twice:
+stock on a Reel, and stock standing in for a named venue. Deliberately did **not**
+write `asset_source: "licensed_stock"` + `rights_confirmed: true` for a Reel — that
+still passes `validate_rights()` (scripts/publish.py has no format check; gap first
+logged 2026-09-15, still open) while violating §3. The CC/KOGL public-licence reading
+of §3 option 2, raised and rejected on 2026-09-24 and 2026-09-25, is not reopened:
+loosening a rights rule on a live account is outward-facing and not a call for an
+unattended run. Switching Tuesday to a Carousel to escape the gate is the same kind
+of call — it is listed below as fix 3 for a human, not taken here.
+
+### Research a human can pick up
+
+Done to prove §2 works; **not** written up as copy, because the media gate stops the
+post before copy matters. Tuesday is local food, and 9 local-pillar items are already
+queued or published (Cheongildip, Yonggeumok, Naeho Naengmyeon, Gugil Ttarogukbap,
+Geuyetnal Chodang, Samdae Gwangyang, Imun Seolnongtang, Hankook Jib, Dongnae Halmae
+Pajeon) plus two local-pillar editorial Carousels (Chuseok guide, market price rules).
+
+**Moemiljip (뫼밀집), Marine City, U-dong, Haeundae-gu, Busan — uncovered, and the
+strongest local-food hook left in the 2026 Bib Gourmand cycle.** `grep -ril
+moemil content/` returns nothing; nothing in `content/` mentions makguksu or memil,
+and the only buckwheat item is Naeho Naengmyeon (2026-08-29), a different dish and
+a different province.
+
+- **Hook:** a noodle house that mills **100% Korean buckwheat in-house** and serves
+  it three ways, named a **new Bib Gourmand in the MICHELIN Guide Seoul & Busan
+  2026** — one of three Busan rookies out of 20 Busan Bib Gourmands (71 total, 51
+  Seoul). The angle writes itself against the usual Busan noodle story: this is memil,
+  not milmyeon.
+- **Dish detail:** MICHELIN's cited line is that the simple preparations — deulgireum
+  (perilla-oil) memil and mul (cold-broth) memil — are what show the grain; the bibim
+  version leads with chilli instead. House-made mandu and pyeonyuk (sliced boiled
+  beef) are the side order.
+- **Prices (DiningCode, checked 2026-10-06):** perilla-oil buckwheat noodles ₩17,000;
+  water buckwheat ₩16,000; bibim buckwheat ₩16,000; red-bean buckwheat ₩16,000;
+  handmade mandu 4pc ₩11,000; pyeonyuk ₩17,000 (taster ₩9,000). Consistent with the
+  Bib Gourmand threshold of a full meal under ₩45,000 per person.
+- **Address:** 23 Marine City 3-ro, Haeundae-gu, Busan 48118 — Byeoksan E Orange Plaza,
+  **2nd floor**. Old-style form: U-dong 1435, Haeundae-gu. Phone 0507-1458-9948.
+  Two hours' free parking in the building. The 2F detail matters for a traveler and
+  should survive into copy.
+- **Hours — two sources agree, still confirm on Naver Place before publishing.**
+  Tue–Fri 11:30–20:30, Sat–Sun 11:00–20:30, break 15:30–17:00, last orders 15:00 and
+  20:00, **closed Mondays**. DiningCode and the Michelin-derived search listing agree
+  on the weekday figures; only DiningCode gives the weekend 11:00 open.
+- **English search phrase for travelers:** "Moemiljip Haeundae buckwheat noodles" /
+  "Busan memil guksu Michelin Bib Gourmand".
+- **Sources read this run:** The Korea Herald, "Meet Bib Gourmand rookies in Michelin
+  Guide Seoul & Busan 2026" (koreaherald.com/article/10684029) — **fetched in full**,
+  gives all eight rookies and the ₩45,000 threshold. Busan Ilbo, 2026-02-26
+  (mobile.busan.com, code 2026022609444186161) — **fetched in full**, gives the 20
+  Busan Bib Gourmands, the three rookies, and places Moemiljip in Haeundae-gu's U-dong.
+  DiningCode profile `xTJKwtUlMnwU` — **fetched in full**, gives address, phone, hours,
+  full menu prices and no closure notice, i.e. current operation.
+- **Discrepancy from the 2026-10-05 entry — RESOLVED.** That entry could not reconcile
+  Korea JoongAng Daily dating the Bib Gourmand announcement 2026-02-26 against The
+  Korea Herald's 2026-02-27. The Korean press settles it: Busan Ilbo and Kookje Shinmun
+  both carry the story under **2026-02-26** datelines (article codes `20260226...`),
+  so **2026-02-26 is the announcement date** and 2026-02-27 is the Herald's own
+  publication date. Safe for copy.
+- **Other uncovered Busan rookies, if Moemiljip does not suit:** **Songheonjip**
+  (charcoal tteokgalbi with doenjang-jjigae in a renovated house) and **Pyongyangjip**
+  (handmade mandu and nokdujeon in clear beef broth). Seoul rookies researched on
+  earlier runs: Oilje (2026-10-05), Andeok, Sobakeeri Suzu, 3rd Samgyetang (2026-09-25).
+  Note **Gosari Express is already published** — it is a 2026 rookie and the repo
+  covered it on 2026-09-07.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-10-06 Tuesday, `+%u` → 2 → reel / local (§1); §0 gates
+  all pass.
+- **WebSearch works.** Four queries run, in English and Korean; the Korean-language
+  queries are what resolved the address, hours and announcement date.
+- **WebFetch works.** `koreaherald.com`, `mobile.busan.com` and `diningcode.com` all
+  returned full articles/listings. `guide.michelin.com` again returned an **empty
+  body** (the Bib Gourmand ceremony article this time) — unchanged from 2026-09-25,
+  2026-10-02 and 2026-10-05, and still a site-shape problem (client-side rendering),
+  not a tool failure. MICHELIN's own pages remain reachable from this runner only via
+  search snippets.
+- `scripts/cardnews.py` renders **7 slides at 1080×1350, exit 0**, from
+  `content/2026-09-12-dongnae-halmae-pajeon-en.json` (local pillar, matching today's
+  slot). Slide 01 was opened and **visually inspected** per the 2026-09-16 note about
+  `fit()` overflowing silently: the three headline lines and the two-line subline sit
+  inside the box, no collision with the `@deep_dive_korea` handle or the seven
+  pagination dots, no run-off at the canvas edge.
+- `scripts/reel.py` renders a **1080×1920 (9:16) MP4, 22.200s, h264 + aac, exit 0**,
+  confirmed with `ffprobe`, after `sudo apt-get install -y ffmpeg` (exit 0, ffmpeg
+  6.1.1-3ubuntu5). It warns `! local: tracks.json 에 등록됐지만 파일이 없습니다` and
+  synthesizes audio, because `assets/music/*.mp3` is gitignored. Unchanged from
+  2026-09-22.
+- Nothing was published and `publish.yml` was not invoked (§0).
+
+### Still open for a human
+
+1. **Raise `--max-turns` in `daily-content.yml` — still the top item, still unapplied.**
+   Re-checked this run: `.github/workflows/daily-content.yml:79-80` still reads
+   `claude_args: |` / `--max-turns 60`, and `timeout-minutes: 30` at line 37 is still
+   the real backstop. See the header for the diagnosis: this is the sole cause of the
+   09-30 and 10-03 silent Carousel gaps and of the red check on the otherwise-successful
+   09-26 run. One line, and it unblocks the only format that can currently ship. An
+   agent cannot push it (no `workflows: write`). **The next Carousel day is Wednesday
+   2026-10-07 — tomorrow — and it will fail the same way unless this lands today.**
+2. The media blocker's three fixes are editorial and unchanged: drop original photos
+   into `assets/photos/`; restore a stock allowance for Reels in §3; or move
+   venue-specific days to Carousel and keep Reels for editorial topics.
+3. Unchanged from 2026-09-15: `publish.py`'s `validate_rights()` accepts
+   `licensed_stock` regardless of format, so it does not enforce §3's Carousel-only
+   restriction; and no ramp flag exists anywhere despite §1 saying to respect one.
+   With publishing live again, CONTENT.md's recovery ramp is the binding limit and
+   nothing encodes it.
+4. While here: `daily-content.yml` could also carry the `sudo apt-get install -y
+   ffmpeg` step, saving the per-run install. Same `workflows: write` blocker.
 
 ---
 
