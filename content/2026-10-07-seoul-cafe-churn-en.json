@@ -1,0 +1,112 @@
+{
+  "slug": "2026-10-07-seoul-cafe-churn-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-10-07T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: 'Coffee grinder with freshly roasted beans in an artisan cafe setting' by Shixart1985 (own work, shot 2023-06-18), Creative Commons Attribution 2.0 Generic, via Wikimedia Commons. Licence verified against the Wikimedia Commons API on 2026-10-07 KST — License 'cc-by-2.0', LicenseShortName 'CC BY 2.0', LicenseUrl creativecommons.org/licenses/by/2.0, UsageTerms 'Creative Commons Attribution 2.0', AttributionRequired 'true', Restrictions field empty, Categories Coffee grinders / Self-published work. CC BY 2.0 permits commercial use and modification provided the creator is credited and changes are indicated; the photographer is credited by name on the sources slide, and the image is cropped and duotoned by scripts/cardnews.py. A share-alike licence was deliberately avoided: several better-matching roastery photos on Commons were CC BY-SA 4.0, which would oblige licensing the duotoned derivative under the same terms. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel. The frame shows an unbranded glass hopper of roasted beans beside an espresso machine against a blurred interior: no identifiable face, no legible business name, no identifiable venue. This post names no venue as its subject, and the sources slide states that the photo is a generic cafe rather than a Korean one. A first choice (File:Coffee grinder positioned in a cafe with freshly roasted beans ready for brewing.jpg, also CC BY 2.0 by the same photographer) was rejected after visual inspection because 'barcaffe espresso' was legible on both the hopper and the grinder display, which would have put a European coffee brand on a post about Korean cafes.",
+  "location": "Seoul, South Korea",
+  "venue_handle": null,
+  "search_keyword": "why are Seoul cafes closing specialty coffee",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-10-07-seoul-cafe-churn-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE ECONOMICS · SEOUL",
+      "headline": "Seoul lost 492 cafes\nin twelve months.",
+      "subline": "The city's coffee scene is now a reason people fly here. That is not the same thing as a good business",
+      "bg_image": "assets/photos/2026-10-07-seoul-cafe-churn-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "THE NET NUMBER",
+      "value": "-492",
+      "label": "Seoul held 27,351 coffee and beverage outlets in the second quarter of 2026, down from 27,843 a year earlier. In that single quarter 1,040 opened and 992 closed — the net loss is small, the churn underneath it is not",
+      "note": "Source: Seoul Economic Daily, 6 October 2026, citing Seoul's commercial district analysis service · Checked 7 October 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "A boom that\nstopped growing.",
+      "body": "Korea went from 45,203 cafes in early 2018 to a peak of 96,080 in early 2024 — then fell to 95,337 by the first quarter of 2025, the first decline since the figures began in 2018. That is roughly one cafe for every 540 people.\n\nDemand was never the problem. Euromonitor figures reported by the Korea Herald put Korean consumption near 405 cups per person a year against a global average of 152. The problem is arithmetic: rent, labour and bean costs rose while the headline americano stayed near 1,500 won, and low barriers to entry keep pulling new operators into the same streets."
+    },
+    {
+      "type": "list",
+      "title": "What your won\nactually buys",
+      "items": [
+        {
+          "t": "About 1,500 won — the volume tier",
+          "d": "Mega MGC, Compose and Paik's standardised on a cheap americano in a large 600-730ml cup with two shots. Built for takeaway, not for sitting"
+        },
+        {
+          "t": "4,400-4,700 won — the squeezed middle",
+          "d": "Tom N Toms charged 4,400 won and reported operating losses four years running from 2020. Mid-tier chains struggle to say what they are for"
+        },
+        {
+          "t": "Around 5,000 won — the place you stay",
+          "d": "Starbucks held 65.6% brand preference among Koreans aged 20-59 and close to 3 trillion won in annual sales. People buy the room as much as the coffee"
+        },
+        {
+          "t": "6,500-8,000 won — the specialty cup",
+          "d": "Single-origin roasteries price against beans that run $20-30 per 100g, with rare microlots reaching $1,500 per kilo"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "What this means\nif you're visiting",
+      "items": [
+        {
+          "t": "The 1,500-won cup is not a tourist trap",
+          "d": "It is what most Koreans drink on a weekday. Yellow-signed chains on every block are the normal option, not the lesser one"
+        },
+        {
+          "t": "Price is the clearest signal of intent",
+          "d": "Under 2,000 won is built for takeaway. Past 6,000 won you are usually paying a roaster for a specific bean"
+        },
+        {
+          "t": "Micro-roasteries are now a draw in themselves",
+          "d": "Squeezed on price, independents competed on rare beans instead. Forbes wrote in September 2026 that tourists have found Seoul's coffee culture and there is nowhere else like it in Asia"
+        },
+        {
+          "t": "Go early in a cafe's life",
+          "d": "With 992 closures in one Seoul quarter, a shop you bookmark may not be open next trip. Check before you cross the city for it"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "A long line is not proof of a good business.\nIt is often just a long line.",
+      "by": "The Seoul Economic Daily reported on 6 October 2026 that the rapper Hanhae put his cafe losses at 150 to 200 million won over two years, and that Lee Hyori said of her husband's Jeju cafe that despite queues running hundreds of metres, they did not actually make much money. This post is research, not a personal visit. Every figure here comes from a published source, checked on 7 October 2026."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Seoul Economic Daily, 6 Oct 2026 — Seoul 27,351 outlets in Q2 2026 vs 27,843; 1,040 opened and 992 closed; Hanhae and Lee Hyori on cafe losses",
+        "Seoul Economic Daily, 8 Sep 2026 — 45,203 cafes in 2018 to 95,337 in Q1 2025; one per 540 people; specialty bean prices; micro-roasteries as a tourist draw",
+        "Asia Business Daily, 7 Sep 2026 — Mega MGC 412.87m won average store sales in 2024, +6.3%, about 755 cups a day; Twosome Place 571.73m won at 4,700 won",
+        "The Korea Herald, Jul 2024 — Euromonitor 405 cups per person vs 152 global; 1,500-won tier and 600-730ml cups; Tom N Toms losses; Starbucks 65.6% preference; specialty at 6,500-8,000 won",
+        "Forbes, 5 Sep 2026 — Seoul's coffee scene as a tourist draw, as quoted by the Seoul Economic Daily",
+        "Photo: 'Coffee grinder with freshly roasted beans in an artisan cafe setting' by Shixart1985, CC BY 2.0, via Wikimedia Commons, cropped. A generic cafe, not a Korean venue"
+      ],
+      "cta": "We check every claim before we post it.\nSave this before your next Seoul coffee run"
+    }
+  ],
+  "caption": "Seoul had 27,351 coffee and beverage outlets in the second quarter of 2026, against 27,843 a year earlier. A net loss of 492 — but inside that same quarter 1,040 shops opened and 992 closed. The churn is the story, not the net.\n\nThe national arc explains it. Korea went from 45,203 cafes in early 2018 to a peak of 96,080 in early 2024, then slipped to 95,337 by Q1 2025 — the first decline since the series began. That is about one cafe for every 540 people, in a country drinking roughly 405 cups per person a year against a global average of 152.\n\nSo the market split in two. At one end, Mega MGC, Compose and Paik's sell a large americano near 1,500 won; Mega MGC averaged 412.87m won per store in 2024, which the Asia Business Daily put at around 755 cups a day. At the other end, roasteries price against beans at $20-30 per 100g and sell a cup at 6,500-8,000 won. The middle is where it hurts — Tom N Toms, at 4,400 won, reported operating losses four years running from 2020.\n\nFor a visitor that split is useful. Under 2,000 won is a takeaway cup and what most locals actually drink. Past 6,000 won you are paying a roaster for a specific bean — and that end of the market is now a reason people fly in. Forbes wrote in September that tourists have found Seoul's coffee culture and there is nowhere else like it in Asia.\n\nOne caveat worth keeping: a queue is not proof of a healthy business. Sources in the last slide.",
+  "hashtags": [
+    "#seoulcafe",
+    "#koreancoffee",
+    "#specialtycoffee",
+    "#coffeeroastery",
+    "#cafehopping",
+    "#seoultravel",
+    "#deepdivekorea"
+  ]
+}
