@@ -4,11 +4,22 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-06 that is **seventeen
+verified, stop without adding a queue item"). As of 2026-10-08 that is **eighteen
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
+
+**`--max-turns` is still unraised, but the 2026-10-07 Carousel shipped anyway.**
+The 2026-10-06 entry warned that Wednesday 2026-10-07 would fail the same way as
+09-30 and 10-03 unless the one-line workflow fix landed. It did not land —
+`.github/workflows/daily-content.yml` still reads `--max-turns 60` — and the
+Carousel shipped regardless: `2026-10-07-seoul-cafe-churn-en` is `published`
+(media_id 17885158536504317, commit 59fa888, marked posted in c5adce1). So 60
+turns is a **marginal** budget for a Carousel, not a hard wall: a lean run clears
+it, a thorough one does not. That weakens the diagnosis from "will fail" to "will
+fail some of the time," and it does not change the recommendation — raising it is
+still the cheapest fix for the only format that can currently ship.
 
 **The silent Carousel gaps are diagnosed as of 2026-10-05: the runs fired, and they
 died on `--max-turns 60`.** Previous entries recorded 2026-09-30 (Wed) and
@@ -67,6 +78,186 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-08 (Thu), reel / bar — SKIPPED
+
+Eighteenth consecutive Reel-day skip. Every gate re-checked against the runner and
+the repo this run rather than inherited from the entries below. No content JSON, no
+rendered output committed, no change to `queue.json`. One blocker survives the
+re-check — media — and it alone is decisive. Both render paths were exercised end to
+end this run and both work. **Two new things this run: the bar pillar has exhausted
+its best-documented candidate pool (all eight Seoul entries on Asia's 50 Best Bars
+2026 are already covered), and the 2026-10-07 Carousel shipped despite `--max-turns
+60` never being raised — see the header.**
+
+`TZ=Asia/Seoul date` → Thursday 2026-10-08 12:25 KST, `+%u` → 4 → §1 row 4 → reel /
+bar, Collab **optional**; the run prompt set the same format. Working tree clean at
+start (`git status --porcelain --untracked-files=all` → 0 lines). `queue.json` now
+45 items — 32 `held`, 13 `published`, **zero** `pending`. No ramp flag (§1): a
+repo-wide search of `*.json`/`*.yml`/`*.yaml` for "ramp" still returns nothing, so
+the only hits remain prose in CONTENT.md, PIPELINE.md and this file.
+
+**§0 same-day check, with a wrinkle worth recording.** No queue item whose
+`publish_at` falls on 2026-10-08, so the gate passes. But `grep -c 2026-10-08
+queue.json` returns 1, because `2026-10-07-seoul-cafe-churn-en` carries
+`published_at: 2026-10-08T02:22:59+09:00` — the publisher posted it **after
+midnight KST**, seven hours past its 18:30 slot. Read literally, §0's "if a
+same-day `pending` or `published` queue item exists, stop" would consume today on
+an item scheduled for yesterday. This run reads §0 as keyed on the **scheduled**
+day (`slug`/`publish_at`), consistent with every entry below. It made no
+difference today — the media gate stops this run anyway — but on a Wednesday or
+Saturday it would decide whether a shippable Carousel gets written, so a human
+should either tighten §0's wording or find out why the 19:00 KST publisher is
+running past midnight.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
+and Collabs must use original or written partner-authorized media." Re-checked this
+run:
+
+- **no owner-supplied original media exists.** `git status --porcelain
+  --untracked-files=all` returns 0 lines, so no file has been dropped in; `assets/`
+  still holds only `fonts/`, `music/` and `photos/`; a `find` for
+  `*inbox*`/`*incoming*`/`*upload*`/`*owner*`/`*submitted*` directories and for any
+  `.mp4`/`.mov`/`.heic`/`.dng`/`.m4v`/`.avi` outside `.git` returns nothing.
+  Provenance re-derived this run with `git log --diff-filter=A` over all **46** files
+  in `assets/photos/`: every file has an add-commit (`comm` against the add-list
+  returns empty), spread over 45 commits — 44 by `claude[bot]`, and the sole
+  human-added one (`cheongildip-en.jpg`, 392aefd, Steve, 2026-08-25) predates the
+  policy rewrite and is itself stock, with **no** `policy_version`, `asset_source`,
+  `rights_confirmed` or `rights_note` field in its JSON, so it carries no documented
+  rights basis and cannot stand in as owner-original media. The newest two adds are
+  59fa888 (10-07) and 0d38369 (09-26), both bot-fetched Carousel stock. **No
+  owner-supplied file has ever been added, and nothing at all for 12 days;**
+- **written venue permission cannot be obtained by an unattended run;**
+- **licensed stock is available and legal, but §3 forbids it for this format.** The
+  constraint binds on format, not only on venue-specificity, so an editorial
+  drinking-culture angle does not escape it either. Thursday is a Reel, so option 3
+  is closed.
+
+Reusing an existing file from `assets/photos/` would violate the same rule twice:
+stock on a Reel, and stock standing in for a named venue. Deliberately did **not**
+write `asset_source: "licensed_stock"` + `rights_confirmed: true` for a Reel — that
+still passes `validate_rights()` (scripts/publish.py has no format check; gap first
+logged 2026-09-15, still open) while violating §3. The CC/KOGL public-licence reading
+of §3 option 2, raised and rejected on 2026-09-24 and 2026-09-25, is not reopened:
+loosening a rights rule on a live account is outward-facing and not a call for an
+unattended run. Switching Thursday to a Carousel to escape the gate is the same kind
+of call — it is fix 3 for a human, not taken here.
+
+### New: the bar pillar has run out of verifiable candidates
+
+Done to prove §2 works; **not** written up as copy, because the media gate stops the
+post before copy matters. This is a weaker research block than the entries below,
+and the reason is itself the finding.
+
+**Every Seoul bar on Asia's 50 Best Bars 2026 is already covered.** The list is
+where this account has sourced its bar pillar, and it is now exhausted. Four in the
+top 50 — **Zest** No. 2 (also Best Bar in Korea for the third straight year),
+**Alice** No. 13, **Bar Cham** No. 33, **M+MS** No. 42 (debut) — and four on the
+extended 51–100 list — **Gong-Gan** No. 74, **Charles H** No. 87, **Le Chambre**
+No. 88, **Soko** No. 89. All eight have a `content/` file and a queue entry. Note
+the account's Gong-Gan post already cites "No. 74 on Asia's 50 Best Bars 2026," and
+the one source conflict here is on that slot: Herald Biz names Gong-Gan at 74 while
+Korea Stripes names "Space." Unresolved from search snippets; the official 51–100
+list would settle it, and a human should check it before that post is ever reused.
+**No Busan bar appears anywhere on the 2026 list** — the bar pillar is Seoul-only by
+construction, unlike the restaurant and local pillars, which the Bib Gourmand cycle
+spreads across both cities.
+
+**Three uncovered candidates were tried and all three failed §2, not §3.** Worth
+recording because it means the bar pillar would stall on verification even if the
+media gate were lifted tomorrow:
+
+- **Dormer (도머), Haeundae-gu, Busan** — attic cocktail bar working with Korean
+  ingredients, picked up by Fodor's Busan nightlife guide; Instagram `@dormer_haeundae`.
+  **Rejected: address conflicts and no hours.** One result gives 11-2 Gunam-ro,
+  Haeundae-gu; another places it in U-dong; a third address on Gunam-ro (17-1)
+  belongs to a different bar, TBR. No Naver Place or DiningCode profile surfaced, so
+  current operation is unverified. §2 requires address and current operation.
+- **Don't Tell Mama (돈텔마마), Seoul** — the Le Chamber team's 2026 opening, signature
+  Snow Cabin (basil-infused vodka, yogurt wash, Pinot Noir), 9PM–5AM. Good hook, and
+  Le Chamber itself is already covered (2026-09-10), which makes the sequel angle
+  natural. **Rejected: no address anywhere.** `diningcode.com/list.dc?query=돈텔마마`
+  returns "2곳" in the page title and nothing else — the listing is client-side
+  rendered, same site shape as `guide.michelin.com`.
+- **Bar Namsan (바 남산), Seoul** — Kim Min-hong, World Class Korea 2023 winner;
+  Wed–Mon 7PM–2AM; signature Sunbeam Doodles. **Rejected: the name collides with
+  Namsan the mountain**, so search returns tourist pages and a Banyan Tree hotel bar
+  that may or may not be the same venue. No address, no confirmation of the
+  bartender's record.
+
+Two further leads a human with Naver Map access could close quickly, both from the
+same GQ Korea piece: **Tricycle (트라이싸이클)**, Yeonnam-dong, 6PM–2AM, by Kim Seo-yun
+and Byun Sang-hyun; and **Hand in Hand (핸드인핸드)**, a Nonhyeon-dong alley, 7PM–3AM
+(2AM Sundays), by Park Tae-woo, Campari Red Hands Korea 2024 winner. Also unverified
+here: Esquire Korea ran a May-2026 feature on five Seoul *yajang* serving makgeolli,
+yakju and soju-based cocktails from Euljiro to Oksu-dong — a traditional-liquor angle
+the bar pillar has only touched once (Ahn Makgeolli, 2026-08-27) — but the article's
+venue names did not surface in snippets.
+
+- **Sources read this run:** The Korea Times, "Seoul claims 4 spots on Asia's 50 Best
+  Bars 2026, Zest retains No. 2 ranking," 2026-07-29; Herald Biz article 10827855 (the
+  Seoul Metropolitan Government list graphic); GQ Korea, "챔피언 바텐더들이 오픈한, 나만
+  알고 싶은 서울 신상 바 4," 2026-06-05 (`gqkorea.co.kr/?p=381245`) — **fetched in
+  full**, source of all four new-bar details above; GQ Korea's Macau ceremony report,
+  2026-08-31; Fodor's "16 Best Bars in Busan"; DiningCode (`list.dc?query=돈텔마마`).
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-10-08 Thursday, `+%u` → 4 → reel / bar (§1); §0 gates
+  pass (see the wrinkle above).
+- **WebSearch works.** Five queries run, English and Korean, two in `extended` mode.
+  The English queries carried the ranking; the Korean ones surfaced the new-bar leads.
+- **WebFetch works.** `gqkorea.co.kr` returned the full article. `diningcode.com`
+  returned a **title-only** body for `list.dc` (a search-results page) — note this is
+  narrower than the 2026-10-06 result, where a DiningCode `profile.php` page fetched
+  in full. Profile pages are server-rendered and work; list/search pages are not.
+  Same client-side-rendering shape as `guide.michelin.com`, which has failed on
+  2026-09-25, 10-02, 10-05 and 10-06. Not a tool failure.
+- `scripts/cardnews.py` renders **7 slides at 1080×1350, exit 0**, from
+  `content/2026-09-12-gong-gan-en.json` (bar pillar, matching today's slot). Slide 01
+  was opened and **visually inspected** per the 2026-09-16 note about `fit()`
+  overflowing silently: the three headline lines and the two-line subline sit inside
+  the box, no collision with the `DEEP_DIVE_KOREA` wordmark or the seven pagination
+  dots, no run-off at the canvas edge.
+- `scripts/reel.py` renders a **1080×1920 (9:16) MP4, 22.200s, h264 + aac, exit 0**
+  in 48s, confirmed with `ffprobe`, after `sudo apt-get install -y ffmpeg` (exit 0,
+  ffmpeg 6.1.1-3ubuntu5). It warns `! bar: tracks.json 에 등록됐지만 파일이 없습니다`
+  and synthesizes audio, because `assets/music/*.mp3` is gitignored. Unchanged from
+  2026-09-22.
+- Nothing was published and `publish.yml` was not invoked (§0).
+
+### Still open for a human
+
+1. **Raise `--max-turns` in `daily-content.yml` — still unapplied, now demoted from
+   first to second place.** `.github/workflows/daily-content.yml:79-80` still reads
+   `claude_args: |` / `--max-turns 60`. The 2026-10-07 Carousel shipped under that
+   budget (see the header), so this is a flake, not a wall — but 09-30 and 10-03
+   wrote nothing because of it, and it still costs a Carousel every few weeks. One
+   line. An agent cannot push it (no `workflows: write`).
+2. **The media blocker is the top item and has not moved in 24 days.** Three fixes,
+   unchanged since 2026-09-15: drop original photos into `assets/photos/`; restore a
+   stock allowance for Reels in §3; or move venue-specific days to Carousel and keep
+   Reels for editorial topics. Five of seven days are Reels, so this is ~71% of the
+   schedule.
+3. **New: the bar pillar needs a candidate source.** Asia's 50 Best Bars 2026 is
+   exhausted for Seoul and lists no Busan bar. Even with media solved, Thursday and
+   the bar pillar will stall on §2 until someone with Naver Map access confirms a
+   next venue — Tricycle and Hand in Hand above are the two closest to ready.
+4. Unchanged from 2026-09-15: `publish.py`'s `validate_rights()` accepts
+   `licensed_stock` regardless of format, so it does not enforce §3's Carousel-only
+   restriction; and no ramp flag exists anywhere despite §1 saying to respect one.
+   With publishing live again, CONTENT.md's recovery ramp is the binding limit —
+   2026-09-26, 2026-10-07 are the only two posts in 38 days, so the ramp is not
+   currently binding in practice, but nothing encodes it.
+5. While here: `daily-content.yml` could also carry the `sudo apt-get install -y
+   ffmpeg` step, saving the per-run install. Same `workflows: write` blocker.
 
 ---
 
