@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-08 that is **eighteen
+verified, stop without adding a queue item"). As of 2026-10-09 that is **nineteen
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
@@ -78,6 +78,106 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-09 (Fri), reel / restaurant — SKIPPED
+
+Nineteenth consecutive Reel-day skip. No content JSON, no rendered output committed,
+no change to `queue.json`. Every gate re-checked against the runner and the repo
+this run rather than inherited. One blocker survives the re-check — media — and it
+alone is decisive. **New this run: the restaurant pillar's candidate pool is
+healthy, which is the opposite of what 2026-10-08 found for bars** — so the media
+gate, not topic exhaustion, is what is stopping Friday.
+
+`TZ=Asia/Seoul date` → Friday 2026-10-09 12:30 KST, `+%u` → 5 → §1 row 5 → reel /
+restaurant, Collab **candidate**; the run prompt set the same format. Working tree
+clean at start (`git status --porcelain --untracked-files=all` → 0 lines).
+`queue.json` holds 45 items — 32 `held`, 13 `published`, **zero** `pending`. No ramp
+flag (§1): a repo-wide search of `*.json`/`*.yml`/`*.yaml` for "ramp" still returns
+nothing, so the only hits remain prose in CONTENT.md, PIPELINE.md and this file.
+
+**§0 same-day check passes cleanly.** No queue item carries a `publish_at` on
+2026-10-09, and `grep -c 2026-10-09 queue.json` returns 0 — so unlike 2026-10-08,
+the scheduled-vs-actual ambiguity that entry flagged did not even arise this run.
+That ambiguity is still unresolved in §0's wording and still worth a human fix.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
+and Collabs must use original or written partner-authorized media." Re-checked:
+
+- **no owner-supplied original media exists.** `git status --porcelain
+  --untracked-files=all` returns 0 lines, so nothing has been dropped in; `assets/`
+  still holds only `fonts/`, `music/` and `photos/`; a `find` for
+  `*inbox*`/`*incoming*`/`*upload*`/`*owner*`/`*submitted*`/`*original*` directories
+  and for any `.mp4`/`.mov`/`.heic`/`.dng`/`.m4v`/`.avi`/`.webm` outside `.git`
+  returns nothing. `assets/photos/` still holds **46** files, unchanged since
+  2026-10-07; the three newest adds (59fa888 10-07, 0d38369 09-26, ffe577d 09-23)
+  are all `claude[bot]` Carousel stock. **Nothing owner-supplied has ever been
+  added, and nothing at all for 13 days;**
+- **written venue permission cannot be obtained by an unattended run;**
+- **licensed stock is available and legal, but §3 forbids it for this format.** The
+  constraint binds on format, not only on venue-specificity, so an editorial
+  Korean-fine-dining angle does not escape it either. Friday is a Reel, so option 3
+  is closed.
+
+Friday is additionally a **Collab candidate** day, which tightens the same gate
+rather than loosening it: §3 requires a Collab to use original or partner-authorized
+media and to stay `collab_status: requested` until a partner accepts, and an
+unattended run can neither obtain the media nor solicit the acceptance.
+
+Reusing an existing `assets/photos/` file would violate the rule twice — stock on a
+Reel, and stock standing in for a named venue. Deliberately did **not** write
+`asset_source: "licensed_stock"` + `rights_confirmed: true` for a Reel: that still
+passes `validate_rights()` (scripts/publish.py has no format check; gap first logged
+2026-09-15, **still open**) while violating §3. A typography-only cover with no
+photo was also rejected — the run prompt independently ruled it out for this
+food/venue account, matching §3/§4. The CC/KOGL public-licence reading of §3 option
+2, raised and rejected on 2026-09-24 and 2026-09-25, is not reopened: loosening a
+rights rule on a live account is outward-facing and not a call for an unattended
+run. Switching Friday to a Carousel to dodge the gate is the same kind of editorial
+decision and was likewise not taken.
+
+### New: the restaurant pillar still has a well-documented candidate pool
+
+The 2026-10-08 entry recorded that the **bar** pillar had exhausted its best-
+documented candidates (all eight Seoul entries on Asia's 50 Best Bars 2026 already
+covered). Checked the equivalent for restaurants this run, and the picture is the
+reverse. Asia's 50 Best Restaurants 2026 (announced Hong Kong, 2026-03-25) put six
+Seoul restaurants in the top 50: Mingles (4), Onjium (14), Eatanic Garden (26), Mosu
+(41), Bium (43), 7th Door (49); San, a Gangnam restaurant opened 2024, took "One to
+Watch", and Onjium's Cho Eun-hee took Asia's Best Female Chef 2026. Of those, only
+**Mingles and Onjium** are already covered in `content/`. **Eatanic Garden, Mosu,
+Bium, 7th Door and San are all unused** — five verified, currently-operating,
+English-searchable restaurant subjects sitting ready.
+
+So Friday is not short of subjects; it is short of one photo per subject. If a human
+drops original or partner-licensed media into `assets/photos/` for any one of those
+five, a Friday Reel can be authored immediately with no other change to the repo.
+
+### Verified working this run
+
+- `scripts/cardnews.py` rendered **7/7** slides at 1080×1350 from existing content,
+  exit 0, and slide 1 was **opened and visually inspected** — English copy, no
+  overflow, no collision, correct branding. (Per the 2026-09-16 lesson: `cardnews.py`
+  clips silently and exits 0, so renders must be looked at, not exit-code checked.)
+- `scripts/reel.py` produced a valid **1080×1920, 22.2s** MP4 (ffprobe-confirmed),
+  exit 0, using synthesized audio — `assets/music/restaurant.mp3` is registered in
+  `tracks.json` but gitignored and absent, as documented.
+- **ffmpeg is still absent from the runner image** and was installed at runtime again
+  (`sudo apt-get install -y ffmpeg` → 6.1.1-3ubuntu5, exit 0). Per-run setup step,
+  not a blocker; adding it to `daily-content.yml` would still save the install.
+- **WebSearch works. WebFetch works** (korea.stripes.com returned usable content).
+  Two routing notes for future runs: `theasian50best.com` does **not** resolve
+  (ENOTFOUND), and `theworlds50best.com/asia/...` now 301-redirects to `the50.com`,
+  which then returns **404** — use a news source or the rebuilt site's own
+  navigation rather than the old deep links.
+- `.github/workflows/daily-content.yml:80` still reads `--max-turns 60`, and line
+  25-27 still grants only `contents: write` / `id-token: write` — **no `workflows:
+  write`**, so an agent still cannot raise it or add the ffmpeg step. Unchanged.
 
 ---
 
