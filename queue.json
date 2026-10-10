@@ -311,5 +311,12 @@
     "status": "published",
     "media_id": "17885158536504317",
     "published_at": "2026-10-08T02:22:59.586798+09:00"
+  },
+  {
+    "slug": "2026-10-10-seoul-alley-spending-en",
+    "pillar": "local",
+    "format": "carousel",
+    "publish_at": "2026-10-10T18:30:00+09:00",
+    "status": "pending"
   }
 ]

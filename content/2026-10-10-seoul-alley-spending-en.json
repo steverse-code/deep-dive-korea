@@ -1,0 +1,112 @@
+{
+  "slug": "2026-10-10-seoul-alley-spending-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-10-10T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: 'Gwangjang Market, Seoul 01' by Bgag (own work, shot 2022-09-26), Creative Commons Zero / Public Domain Dedication, via Wikimedia Commons. Licence verified against the Wikimedia Commons API on 2026-10-10 KST — License 'cc0', LicenseShortName 'CC0', LicenseUrl creativecommons.org/publicdomain/zero/1.0, UsageTerms 'Creative Commons Zero, Public Domain Dedication', AttributionRequired 'false', Restrictions field empty, Categories CC-Zero / Gwangjang Market / Self-published work / September 2022 in Seoul. CC0 waives all rights worldwide: commercial use and modification are permitted with no attribution obligation and no share-alike obligation. The photographer is credited by name on the sources slide anyway as a matter of practice. A share-alike licence was deliberately avoided: every Seongsu-dong street photo on Commons (Seongsu-dong storefronts, Evening street in Seongsu-dong, Small intersection in Seongsu-dong, Traffic in Seongsu-dong, all by CartoonChess) is CC BY-SA 4.0, which would oblige licensing the duotoned derivative produced by scripts/cardnews.py under the same terms. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel: this post recommends no venue and names no business as its subject, it analyses city-published spending data by district. The frame is a daytime exterior of the Gwangjang Market building from across the street. The only prominently legible text is the market's own name ('광장시장 / KWANG JANG MARKET'), which is accurate rather than misleading — Gwangjang Market is one of the districts this post cites by name, at +127.4% foreign card spending. No identifiable face: the handful of pedestrians near the entrance are small and unresolvable. The alternative CC0 frame by the same photographer (File:Gwangjang Market, Seoul 02.jpg, the covered food aisle) was rejected after visual inspection on two grounds — dozens of clearly identifiable faces in the foreground, and a row of legible individual stall names and phone numbers that this post has not verified and does not endorse. A third-party retailer sign (Milwaukee power tools) sits at the far right of the source frame and falls outside the centre crop that cardnews.py applies.",
+  "location": "Seoul, South Korea",
+  "venue_handle": null,
+  "search_keyword": "where foreign tourists spend money in Seoul neighborhoods",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-10-10-seoul-alley-spending-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": "Visitors rose 22%.\nSpending rose 60%.",
+      "subline": "Seoul just published where the money went. The fastest growth was not in the places on the shopping map",
+      "bg_image": "assets/photos/2026-10-10-seoul-alley-spending-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "FASTEST-GROWING DISTRICT TYPE",
+      "value": "+80.9%",
+      "label": "Foreign card spending in Seoul's back-alley commercial districts, January to August 2026 against the same months of 2025 — the highest growth rate of any commercial district type in the city",
+      "note": "Source: Seoul Metropolitan Government, announced 6 October 2026, as reported by Kyunghyang Shinmun and the Seoul Economic Daily · Checked 10 October 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "More people, but\nmuch more money.",
+      "body": "Seoul counted 11.56 million foreign visitors from January to August 2026, a record, up 21.6% from 9.51 million. Their card spending rose far faster: 7.78 trillion won against 4.87 trillion a year earlier, up 59.9%.\n\nThat is roughly 2.8 times the growth rate of visitor numbers, and in eight months it already reached about 98% of the 7.94 trillion won spent across all of 2025. August alone brought 1.72 million visitors and 1.03 trillion won — the fifth straight month above a trillion. Seoul now takes 71.1% of all foreign offline card spending in Korea."
+    },
+    {
+      "type": "list",
+      "title": "Where the money\nactually moved",
+      "items": [
+        {
+          "t": "Near Dosan Park — up 240.1%",
+          "d": "The steepest rise in the city. A quiet Gangnam park surrounded by small restaurants and flagship stores, not a traditional tourist stop"
+        },
+        {
+          "t": "Seongsu-dong, Gyeongsu School area — up 206.6%",
+          "d": "A residential pocket of the old factory district. The wider Seongsu area rose 103.7% and its cafe street 109.3%"
+        },
+        {
+          "t": "Gwangjang Market — up 127.4%",
+          "d": "The 120-year-old market in Jongno. Still a market, now also one of the fastest-growing places foreigners spend in Seoul"
+        },
+        {
+          "t": "Myeong-dong — up 74.7%",
+          "d": "The slowest of the four, and still by far the biggest. Growth and size are not the same measurement"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "What this means\nif you're visiting",
+      "items": [
+        {
+          "t": "The crowded alley is now the normal one",
+          "d": "Back-alley districts grew faster than any other district type. The quiet side street you were saving for later is already found"
+        },
+        {
+          "t": "Most of this spending is not food",
+          "d": "Shopping took 46.6% of the total and medical and wellness 23.8%. Food and drink was 13.2%, though dining spend still rose 59.5%"
+        },
+        {
+          "t": "Go on a weekday if the number is high",
+          "d": "A 200% rise in a small residential pocket is felt as queues. Seongsu and Dosan Park are calmest before noon midweek"
+        },
+        {
+          "t": "Myeong-dong has not been replaced",
+          "d": "Jung-gu alone took 24.1% of all foreign card spending on shopping in Korea in Q2 2026, up from 20% a year earlier"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "A 240% rise and a 3% share\ncan describe the same street.",
+      "by": "Percentage growth off a small base is the easiest number to misread. Lotte Members' analysis of Korea Tourism Organization card data for May 2026 put Myeong-dong at 27.8% of all foreign spending nationwide, against 5.7% for Seongsu-dong and 3.2% for Yeouido-dong. Seongsu is growing roughly twice as fast and remains about a fifth of Myeong-dong's size. This post is research, not a personal visit — every figure comes from a published source, checked on 10 October 2026."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Seoul Metropolitan Government, 6 Oct 2026 — 11.56m visitors Jan-Aug (+21.6%); 7.78tn won spending (+59.9%); alley districts +80.9%; Seongsu +103.7%; Dosan Park +240.1%; Gyeongsu School area +206.6%",
+        "Seoul Economic Daily (Eng), 8 Oct 2026 — Gwangjang Market +127.4%; Myeong-dong +74.7%; dining +59.5%; 2025 total 7.94tn won",
+        "Kyunghyang Shinmun, 6 Oct 2026 — alley districts the fastest-growing district type; Seoul 71.1% of national foreign card spend",
+        "The Korea Herald, 13 Sep 2026 — Jung-gu 24.1% of Q2 2026 national foreign shopping spend; Lotte Members on Myeong-dong 27.8%, Seongsu 5.7%, Yeouido 3.2%",
+        "SMG H1 2026 release — data from Korea Tourism Data Lab (KTO), Shinhan Card records",
+        "Photo: 'Gwangjang Market, Seoul 01' by Bgag, CC0, via Wikimedia Commons, cropped"
+      ],
+      "cta": "We check every claim before we post it.\nSave this before your next Seoul trip"
+    }
+  ],
+  "caption": "Seoul published its foreign-spending numbers this week, and the gap between the two headline figures is the whole story. Visitors from January to August 2026: 11.56 million, a record, up 21.6%. Their card spending: 7.78 trillion won, up 59.9% — about 2.8 times the growth rate of the visitor count, and already around 98% of everything spent in all of 2025.\n\nThe more useful number is where it went. Foreign card spending in Seoul's back-alley commercial districts rose 80.9%, the highest growth of any district type in the city. Near Dosan Park it rose 240.1%. In the Gyeongsu School pocket of Seongsu-dong, 206.6%. At Gwangjang Market, 127.4%. Seongsu overall came in at 103.7% and its cafe street at 109.3%. Myeong-dong, at 74.7%, was the slowest of the group.\n\nTwo things worth holding onto before you redraw your map. First, most of this is not food: shopping took 46.6% of the total and medical and wellness 23.8%, leaving food and drink at 13.2% — though dining spend did rise 59.5%. Second, a growth rate is not a size. Lotte Members put Myeong-dong at 27.8% of nationwide foreign spending in May against Seongsu's 5.7%. Seongsu is growing about twice as fast and is still roughly a fifth as big.\n\nSo the practical read is not 'skip Myeong-dong'. It is that the quiet residential block you were planning to discover has already been discovered, and a weekday morning is now the difference between a street and a queue. Sources in the last slide.",
+  "hashtags": [
+    "#seoultravel",
+    "#seongsudong",
+    "#gwangjangmarket",
+    "#myeongdong",
+    "#seoulneighborhoods",
+    "#koreatraveltips",
+    "#seoulfood",
+    "#deepdivekorea"
+  ]
+}
