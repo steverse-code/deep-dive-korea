@@ -317,6 +317,9 @@
     "pillar": "local",
     "format": "carousel",
     "publish_at": "2026-10-10T18:30:00+09:00",
-    "status": "pending"
+    "status": "held",
+    "held_at": "2026-10-11T00:49:06.577038+09:00",
+    "hold_reason": "publish_failed_manual_review",
+    "error": "POST https://graph.instagram.com/v24.0/17841435733524806/media → HTTP 400\n{\"error\":{\"message\":\"Error validating access token: The session has been invalidated because the user changed their password or Facebook has changed the session for security reasons.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":0,\"fbtrace_id\":\"AJGO_p5gsz7-gzkFH6NaHnR\"}}"
   }
 ]
