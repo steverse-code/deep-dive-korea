@@ -4,11 +4,35 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-09 that is **nineteen
+verified, stop without adding a queue item"). As of 2026-10-11 that is **twenty
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
+
+**NEW AND URGENT as of 2026-10-11: the Instagram access token is invalid, and the
+monthly refresh cron cannot fix it.** `2026-10-10-seoul-alley-spending-en` — a
+Carousel, the one format that can ship — was queued and rendered correctly and then
+**held** at 2026-10-11T00:49:06 KST with `hold_reason:
+publish_failed_manual_review`:
+
+```
+POST .../v24.0/17841435733524806/media → HTTP 400
+OAuthException code 190: "Error validating access token: The session has been
+invalidated because the user changed their password or Facebook has changed the
+session for security reasons."
+```
+
+This is **not** the 60-day expiry that `refresh-token.yml` handles. That workflow
+calls `graph.instagram.com/refresh_access_token` (`scripts/refresh_token.py:28`),
+which extends a token that is still valid; it cannot resurrect a session the
+platform has invalidated, so the 1st-of-month cron will simply fail too. **A human
+must re-authorize through Instagram Login and reset the `IG_ACCESS_TOKEN` secret**
+(see CONNECT-GUIDE.md); an agent cannot, as it has no access to repository secrets.
+Until that happens the 19:00 KST publisher will hold every item it picks up,
+including anything queued on the next Carousel day (Wed 2026-10-14). Note this is a
+*publish*-side blocker: it does not affect today's decision, which is made on §3
+media grounds and would be a skip regardless.
 
 **`--max-turns` is still unraised, but the 2026-10-07 Carousel shipped anyway.**
 The 2026-10-06 entry warned that Wednesday 2026-10-07 would fail the same way as
@@ -78,6 +102,114 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-11 (Sun), reel / cafe — SKIPPED
+
+Twentieth consecutive Reel-day skip. No content JSON, no rendered output committed,
+no change to `queue.json`. Every gate re-checked against the runner and the repo
+this run rather than inherited from the entries below. One blocker survives the
+re-check and it is decisive: media. **New this run: the publish-side token is dead
+(see the header) and the cafe pillar's candidate pool is healthy** — so, as on
+2026-10-09 for restaurants, the media gate rather than topic exhaustion is what
+stops Sunday.
+
+`TZ=Asia/Seoul date` → Sunday 2026-10-11 11:42 KST, `+%u` → 7 → §1 row 7 → reel /
+cafe, Collab optional; the run prompt set the same format. Working tree clean at
+start (`git status --porcelain --untracked-files=all` → 0 lines). `queue.json` holds
+46 items — 33 `held`, 13 `published`, **zero** `pending`. No ramp flag (§1): a
+repo-wide search of `*.json`/`*.yml`/`*.yaml` for "ramp" still returns nothing, so
+the only hits remain prose in CONTENT.md, PIPELINE.md and this file.
+
+**§0 same-day check passes.** No queue item carries a `publish_at` on 2026-10-11.
+`grep -c 2026-10-11 queue.json` returns 1, but that single hit is the **`held_at`**
+of the 2026-10-10 item (held just after midnight), not a same-day post — exactly
+the scheduled-vs-actual ambiguity the 2026-10-08 entry asked a human to fix in §0's
+wording. Checking `publish_at` specifically rather than grepping the file resolves
+it; the gate is clean either way, but the wording is still worth tightening.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
+and Collabs must use original or written partner-authorized media." Re-checked
+from scratch:
+
+- **No owner-supplied original media exists.** `git status --porcelain
+  --untracked-files=all` returns 0 lines, so nothing has been dropped in. `assets/`
+  still holds only `fonts/`, `music/`, `photos/`. A `find` across the repo for
+  `*.mp4`/`*.mov`/`*.heic`/`*.dng`/`*.m4v`/`*.avi`/`*.webm`/`*.mp3`/`*.wav` outside
+  `.git` returns **nothing** — there is no video footage in this repo at all, which
+  for a Reel account is the whole problem. A `find` for
+  `*inbox*`/`*incoming*`/`*upload*`/`*owner*`/`*submit*`/`*original*`/`*partner*`
+  directories also returns nothing.
+- **`assets/photos/` holds 47 files, all agent-added stock.** `git log` on that
+  path shows the five most recent adds (adda1cb 10-10, 59fa888 10-07, 0d38369
+  09-26, ffe577d 09-23, b1863f5 09-19) are every one of them `claude[bot]` Carousel
+  stock. Nothing owner-supplied has ever been added, on any day.
+- **Option 2 is unavailable.** No partner permission record exists anywhere in the
+  repo, and an unattended run cannot obtain written permission from a venue.
+- **Option 3 does not reach this format.** §3 limits licensed stock to a
+  non-venue-specific editorial *Carousel*. The restriction is on the **format**,
+  not merely on venue-specificity, so "a stock-photo editorial Reel" is not a
+  loophole — CONTENT.md closes it from the other side too ("limited to an
+  occasional editorial Carousel"). Converting Sunday to a Carousel instead is fix
+  option 3 in the 2026-09-15 entry: an editorial decision, explicitly reserved for
+  a human, and §1 fixes Sunday as a Reel.
+
+The per-run restatement of the §3/publish.py mismatch still holds: `validate_rights`
+(`scripts/publish.py:78`) would accept `asset_source: licensed_stock` on a Reel,
+because it checks the value against `{original, partner_licensed, licensed_stock}`
+without consulting `format`. The publisher is more permissive than the policy, so
+the policy is enforced only here, by the authoring run declining to write the file.
+
+### Not blocking: the cafe pillar has verifiable material
+
+Checked so the media finding is not confounded with "nothing to write about." There
+is a current, well-sourced cafe/dessert angle: the 2026 tteok dessert boom.
+Verified by WebFetch against The Korea Herald (`mbiz.heraldcorp.com/article/10846414`,
+dated 2026-08-20) — national tteok sales 929.1bn won in 2024, up 65% from 564.1bn
+in 2018; E-mart frozen tteok +171.2% YoY for Aug 1-18; Shinsegae Sweet Park +31.1%
+YoY Jul 1-Aug 17; Lotte main branch dessert +60% Aug 1-18; named brands Changuk
+Tteok (pop-up at The Hyundai Seoul, Yeouido, from Aug 14; flagship in Gwangju),
+Hanjeong-seon, Gyeonggi Tteokjip, Gyeonghoeru, Golden Piece, 1994 Seoul. Jaha
+(Jongno, Gyeonghuigung 2-gil 7) surfaced as a tteok-cafe candidate, though its
+address came from a review aggregator and **its hours could not be confirmed from
+an official listing**, so it would not clear §2 as written without further work.
+
+That caveat is secondary: §2 is fixable by more research within a run, §3 is not
+fixable by an agent at all. Had media been available, this run would have had a
+publishable Sunday cafe topic.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-10-11 Sunday → §1 row 7 → reel / cafe.
+- §0 same-day gate: no `pending`, no same-day `publish_at`.
+- **WebSearch works** (3 queries returned results). **WebFetch works** on
+  `mbiz.heraldcorp.com` — returned the full article with dateline and statistics.
+- **`scripts/cardnews.py` renders 7 slides at 1080×1350 with no errors**, run
+  against `content/2026-10-10-seoul-alley-spending-en.json` into a scratch dir.
+- **`scripts/reel.py` renders a valid 1080×1920 (9:16) 22.2s MP4**; `ffmpeg` was
+  already present on this runner image at `/usr/bin/ffmpeg` (6.1.1), so no install
+  was needed this run. As documented, audio is ffmpeg-synthesized because
+  `assets/music/*.mp3` is gitignored (`! local: tracks.json 에 등록됐지만 파일이
+  없습니다`).
+- Render verification output was written to `/tmp`, **not** committed, since there
+  is no publishable item today.
+
+So the environment is fully healthy and the render path is proven end to end on
+both legs. The blocker is editorial input, not tooling.
+
+### Note on the dry-run flag
+
+The prompt's `DRY RUN 여부:` line was **blank**, not `true`/`false`. That is the
+`schedule` trigger: `daily-content.yml` interpolates `${{ inputs.dry_run }}`, which
+is the empty string on a cron run, whereas `workflow_dispatch` would render the
+literal `false` from its default. Read as a real (non-dry) run, which is why this
+entry is committed. Worth making explicit in the workflow (`${{ inputs.dry_run ||
+'false' }}`) so a future run does not have to infer it.
 
 ---
 
