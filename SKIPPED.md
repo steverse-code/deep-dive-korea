@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-11 that is **twenty
+verified, stop without adding a queue item"). As of 2026-10-12 that is **twenty-one
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
@@ -32,7 +32,10 @@ must re-authorize through Instagram Login and reset the `IG_ACCESS_TOKEN` secret
 Until that happens the 19:00 KST publisher will hold every item it picks up,
 including anything queued on the next Carousel day (Wed 2026-10-14). Note this is a
 *publish*-side blocker: it does not affect today's decision, which is made on §3
-media grounds and would be a skip regardless.
+media grounds and would be a skip regardless. **Still unresolved as of 2026-10-12**
+and not checkable by an agent (the token lives in a repository secret), so assume it
+stands: the next Carousel day is **Wed 2026-10-14**, and anything queued then will be
+held the same way until a human re-authorizes.
 
 **`--max-turns` is still unraised, but the 2026-10-07 Carousel shipped anyway.**
 The 2026-10-06 entry warned that Wednesday 2026-10-07 would fail the same way as
@@ -102,6 +105,141 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-12 (Mon), reel / restaurant — SKIPPED
+
+Twenty-first consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. Every gate re-checked against the runner and
+the repo this run rather than inherited from the entries below. One blocker survives
+the re-check and it is decisive: media. **New this run: the single human-added photo
+in the repo was examined directly and ruled out on three independent grounds (see
+below) — the first time that file has been assessed rather than waved past as
+"predates the policy."**
+
+`TZ=Asia/Seoul date` → Monday 2026-10-12 12:06 KST, `+%u` → 1 → §1 row 1 → reel /
+restaurant, Collab optional; the run prompt set the same format. Working tree clean
+at start (`git status --porcelain --untracked-files=all` → 0 lines). `queue.json`
+holds 46 items — 33 `held`, 13 `published`, **zero** `pending`. No ramp flag (§1):
+a repo-wide search for "ramp" still returns only prose in CONTENT.md, PIPELINE.md
+and this file.
+
+**§0 same-day check passes.** Checking `publish_at` specifically rather than
+grepping the file (per the 2026-10-11 entry's recommendation): zero queue items
+carry a `publish_at` on 2026-10-12, and there is no `2026-10-12` string anywhere in
+`queue.json`. No same-day `pending` or `published` item exists.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. CONTENT.md agrees: "Venue-specific Reels
+and Collabs must use original or written partner-authorized media." Re-checked from
+scratch:
+
+- **No owner-supplied original media exists.** Working tree clean, so nothing was
+  dropped in. `assets/` still holds only `fonts/`, `music/`, `photos/`. A `find`
+  across the repo for `*.mp4`/`*.mov`/`*.heic`/`*.dng`/`*.m4v`/`*.webm`/`*.mp3`/
+  `*.wav` outside `.git` returns **nothing** — there is still no video footage in
+  this repo at all, which for a Reel account is the whole problem. A `find` for
+  `*inbox*`/`*incoming*`/`*upload*`/`*owner*`/`*original*`/`*partner*`/`*submit*`
+  directories also returns nothing.
+- **`assets/photos/` holds 47 files; 46 are agent-added stock.** Audited per file
+  this run with `git log --diff-filter=A` rather than by sampling the recent adds:
+  every one of the 46 was added by `claude[bot]` in a `content:` pipeline commit
+  between 2026-08-25 and 2026-10-10, all under the pre-2026-09-14 policy that
+  permitted mood-matched stock.
+- **The one human-added file does not qualify.** `cheongildip-en.jpg` was committed
+  by Steve (392aefd, 2026-08-25, "content: English + photo-required pivot"). It
+  fails on three counts, any one of which is sufficient: (a) **no rights record** —
+  its content JSON (`content/2026-08-25-cheongildip-en.json`) carries no
+  `asset_source`, `rights_confirmed` or `rights_note`, so there is nothing
+  establishing it as owner-shot rather than stock Steve selected under the old
+  policy, and §3 requires those facts to be confirmed; (b) **wrong venue** — it
+  depicts Cheongildip, already published on 2026-08-25, and §3 forbids using it "as
+  if it depicts the named place" for any other venue; (c) **wrong pillar** — it is a
+  local/street-food subject, not today's restaurant slot. So the provenance gap is
+  real, not merely a paperwork technicality.
+- **Option 2 is unavailable.** No partner permission record exists anywhere in the
+  repo, and an unattended run cannot obtain written permission from a venue.
+- **Option 3 does not reach this format.** §3 limits licensed stock to a
+  non-venue-specific editorial *Carousel*. The restriction is on the **format**, not
+  merely on venue-specificity, so "a stock-photo editorial Reel" is not a loophole —
+  CONTENT.md closes it from the other side too ("limited to an occasional editorial
+  Carousel"). Converting Monday to a Carousel instead is fix option 3 in the
+  2026-09-15 entry: an editorial decision, explicitly reserved for a human, and §1
+  fixes Monday as a Reel.
+
+The per-run restatement of the §3/publish.py mismatch still holds: `validate_rights`
+(`scripts/publish.py:78`) would accept `asset_source: licensed_stock` on a Reel,
+because it checks the value against `{original, partner_licensed, licensed_stock}`
+without consulting `format`. The publisher is more permissive than the policy, so
+the policy is enforced only here, by the authoring run declining to write the file.
+
+### Not blocking: the restaurant pillar has verifiable material
+
+Checked so the media finding is not confounded with "nothing to write about." The
+2026 Michelin Bib Gourmand selection gives a well-sourced restaurant pool, verified
+by WebFetch against Korea JoongAng Daily (`koreajoongangdaily.com/lifestyle/
+michelin-releases-2026-bib-gourmand-adds-8-new-korean-restaurants/12491521`,
+published 2026-02-26): 71 restaurants total, 51 in Seoul and 20 in Busan, threshold
+"a full meal under 45,000 won per person", with eight new entries. Three Seoul
+additions are uncovered by this account and would suit a Monday restaurant slot:
+
+- **3rd Samgyetang** — Seocho District; samgyetang with a multi-ingredient broth
+  topped with mung bean and pine nut purées and mugwort paste; founded 1973.
+- **Andeok** — Jongno District; beef naengguksu and mandutguk.
+- **Oilje** — Yongsan District; perilla seed miyeok-guk, rice cooked in a cast-iron
+  pot in an open kitchen.
+
+(The fourth new Seoul entry, **Gosari Express**, is already covered —
+`2026-09-07-gosari-express-en`.) A separate long-running candidate, **Mijin**
+(Jongno), surfaced as a cold-buckwheat-noodle specialist whose Michelin listing gives
+Jongno-gu Jongno 19, Le Meilleur Jongno Town, and describes it as serving the
+Gwanghwamun area since 1952 with its own noodle and broth factory in the basement —
+but its **hours could not be confirmed from an official listing** and the unit number
+differs between sources, so it would not clear §2 as written without further work.
+The three Bib Gourmand entries above have no such gap at the pillar level.
+
+That caveat is secondary: §2 is fixable by more research within a run, §3 is not
+fixable by an agent at all. Had media been available, this run would have had a
+publishable Monday restaurant topic.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-10-12 Monday → §1 row 1 → reel / restaurant.
+- §0 same-day gate: no `pending`, no same-day `publish_at`.
+- **WebSearch works** (3 queries returned results). **WebFetch works** — fetched the
+  Korea JoongAng Daily article above in full with its dateline and figures, and
+  `en.wikipedia.org` returned content. Two URLs failed for their own reasons, not
+  the tool's: `guide.michelin.com` returns an **empty body** (client-rendered, so
+  Michelin listings are unusable via WebFetch — worth knowing, since it is the
+  natural §2 source for award facts), and `asianews.network` returns **HTTP 403**.
+- **`scripts/cardnews.py` renders 7 slides at 1080×1350 with no errors** (exit 0),
+  run against `content/2026-10-10-seoul-alley-spending-en.json` into a scratch dir.
+- **`scripts/reel.py` renders a valid 9:16 MP4** — `ffprobe` confirms 1080×1920,
+  22.2s. `ffmpeg` was **absent** from this runner image; `sudo apt-get install -y
+  ffmpeg` succeeded (6.1.1) and the Reel leg then worked, re-confirming the
+  2026-09-22 finding that this is a per-run setup step and not a blocker. Audio is
+  ffmpeg-synthesized because `assets/music/*.mp3` is gitignored (`! local:
+  tracks.json 에 등록됐지만 파일이 없습니다`).
+- `pillow` 12.3.0, `python3` present. Render verification output was written to
+  `/tmp`, **not** committed, since there is no publishable item today.
+
+So the environment is fully healthy and the render path is proven end to end on both
+legs. The blocker is editorial input, not tooling.
+
+### Unchanged, still needing a human
+
+- **The Instagram token is still dead** (see the header). Not checkable from here;
+  the next Carousel day, Wed 2026-10-14, will be held unless it is reset first.
+- **`--max-turns` is still 60.** `.github/workflows/daily-content.yml:80` re-checked
+  this run and unchanged; `timeout-minutes: 30` at line 37. An agent cannot push it
+  (no `workflows: write`).
+- The prompt's `DRY RUN 여부:` line was **blank** again, consistent with the
+  `schedule` trigger as diagnosed in the 2026-10-11 entry, so this was read as a
+  real (non-dry) run and this entry is committed.
 
 ---
 
