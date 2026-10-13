@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-12 that is **twenty-one
+verified, stop without adding a queue item"). As of 2026-10-13 that is **twenty-two
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
@@ -32,10 +32,13 @@ must re-authorize through Instagram Login and reset the `IG_ACCESS_TOKEN` secret
 Until that happens the 19:00 KST publisher will hold every item it picks up,
 including anything queued on the next Carousel day (Wed 2026-10-14). Note this is a
 *publish*-side blocker: it does not affect today's decision, which is made on §3
-media grounds and would be a skip regardless. **Still unresolved as of 2026-10-12**
+media grounds and would be a skip regardless. **Still unresolved as of 2026-10-13**
 and not checkable by an agent (the token lives in a repository secret), so assume it
-stands: the next Carousel day is **Wed 2026-10-14**, and anything queued then will be
-held the same way until a human re-authorizes.
+stands. This is now imminent: the next Carousel day is **tomorrow, Wed 2026-10-14**,
+and that item — the one format the media blocker does not stop — will be queued,
+rendered, picked up by the 19:00 KST publisher and **held** exactly like
+`2026-10-10-seoul-alley-spending-en` unless a human re-authorizes Instagram Login and
+resets `IG_ACCESS_TOKEN` before then.
 
 **`--max-turns` is still unraised, but the 2026-10-07 Carousel shipped anyway.**
 The 2026-10-06 entry warned that Wednesday 2026-10-07 would fail the same way as
@@ -105,6 +108,146 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-13 (Tue), reel / local — SKIPPED
+
+Twenty-second consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. **New this run: today's pillar is `local`,
+which is the first time the slot pillar has matched the one human-added photo in the
+repo.** Yesterday's entry rejected that file on three grounds, one of which was
+"wrong pillar" — that ground lapses today, so grounds (a) and (b) were re-examined
+directly rather than inherited. They hold, and new technical evidence strengthens
+(a). Detail below.
+
+`TZ=Asia/Seoul date` → Tuesday 2026-10-13 13:22 KST, `+%u` → 2 → §1 row 2 → reel /
+local, **Collab candidate**; the run prompt set the same format. Working tree clean
+at start (`git status --porcelain --untracked-files=all` → 0 lines). `queue.json`
+holds 46 items — 33 `held`, 13 `published`, **zero** `pending`. No ramp flag (§1):
+still only prose in CONTENT.md, PIPELINE.md and this file.
+
+**§0 same-day check passes.** Zero queue items carry a `publish_at` on 2026-10-13,
+and there is no `2026-10-13` string anywhere in `queue.json`. No same-day `pending`
+or `published` item exists. Nothing has landed in the repo since the 2026-10-12 skip
+commit (3d69f75), whose only change was to this file.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. Re-checked from scratch:
+
+- **No owner-supplied original media exists.** Working tree clean. A `find` across
+  the repo for `*.mp4`/`*.mov`/`*.heic`/`*.dng`/`*.m4v`/`*.webm`/`*.mp3`/`*.wav`
+  outside `.git` returns **nothing** — still no video footage of any kind in a repo
+  for a Reel-led account. A `find` for `*inbox*`/`*incoming*`/`*upload*`/`*owner*`/
+  `*original*`/`*partner*`/`*submit*` directories also returns nothing.
+- **`assets/photos/` holds 47 files; 46 are agent-added stock.** Re-audited per file
+  this run with `git log --diff-filter=A`: 46 of 47 were added by `claude[bot]` in
+  `content:` pipeline commits between 2026-08-25 and 2026-10-10, all under the
+  pre-2026-09-14 policy that permitted mood-matched stock.
+- **The one human-added file still does not qualify — and the provenance gap is now
+  evidenced, not just unrecorded.** `cheongildip-en.jpg` (Steve, 392aefd,
+  2026-08-25). Today it clears the pillar test — it is a `local` subject and this is
+  the `local` slot — so the other two grounds carry the decision alone, and each is
+  independently sufficient:
+  - **(a) No rights record, and the file itself argues against "owner-shot."**
+    `content/2026-08-25-cheongildip-en.json` carries no `asset_source`,
+    `rights_confirmed` or `rights_note` (confirmed by reading it in full this run).
+    New this run, the image was inspected rather than just its metadata record:
+    **1600×939, progressive JPEG, zero EXIF** — no camera make/model, no capture
+    timestamp, no lens or exposure data. That is the signature of a web-delivered
+    stock image, not a camera original, whose EXIF would normally survive into a
+    committed file. So the honest reading is not "owner media missing its
+    paperwork"; it is "probably the same category of stock as the other 46, selected
+    by a human under the old policy." §3 requires those facts to be *confirmed*, and
+    the evidence points the wrong way.
+  - **(b) Wrong venue.** It depicts Cheongildip, published 2026-08-25
+    (media_id 17966641104247745). §3 forbids using a photo "as if it depicts the
+    named place" for any other venue, so it cannot carry a Reel about a different
+    local spot. Re-running Cheongildip itself is not a fix either: it would be a
+    duplicate of a published post, and (a) would still block it.
+- **Option 2 is unavailable.** No partner permission record exists anywhere in the
+  repo, and an unattended run cannot obtain written permission from a venue.
+- **Option 3 does not reach this format.** §3 limits licensed stock to a
+  non-venue-specific editorial *Carousel*; the restriction is on the **format**, and
+  CONTENT.md closes it from the other side ("limited to an occasional editorial
+  Carousel"). §1 fixes Tuesday as a Reel.
+
+### The Collab path does not unblock Tuesday either
+
+Tuesday is the week's first **Collab candidate** slot (§1 row 2), which the Monday
+entries above never had to address. It does not create a route to shipping, for two
+independent reasons:
+
+1. **It still needs compliant media first.** §3's Collab paragraph is additive to the
+   media rules, not an alternative to them — CONTENT.md is explicit that "Venue-
+   specific Reels **and Collabs** must use original or written partner-authorized
+   media." A Collab item with `rights_confirmed: true` cannot be written today for
+   exactly the reasons above, and writing one with `rights_confirmed: false` is not
+   a schema the policy permits.
+2. **Even a well-formed Collab item could not be queued today.** §3 says to keep
+   `collab_status: requested` and "do not queue it as pending until the partner
+   accepts," and CONTENT.md notes the current Instagram Login integration "cannot
+   invite collaborators automatically; this step needs a human operator." So the
+   best case for a Collab Tuesday is a non-pending item awaiting a human — not a
+   post. §0's instruction to stop without adding a queue item reaches the same place.
+
+### Not blocking: the local pillar has verifiable material
+
+Checked so the media finding is not confounded with "nothing to write about." The
+**KTO "K-Local Food 33"** program is a well-sourced, genuinely English-audience local
+topic that this account has not covered. Verified by WebFetch against two Korea Times
+articles:
+
+- `koreatimes.co.kr/.../20250924/kto-launches-campaign-showcasing-koreas-hidden-culinary-gems`
+  (published 2025-09-24, updated 2025-09-25): the Korea Tourism Organization runs
+  "K-Local Food Trip: 33 Must-Try Destinations," co-curated with the Ministry of
+  Culture, Sports and Tourism, covering 33 local food destinations; launched at
+  Pyongyangok, a century-old eatery in Seoul's Seodaemun District; names Andong
+  (North Gyeongsang) with jjimdak and Andong soju.
+- `koreatimes.co.kr/.../20260826/food-hunters-sparks-enthusiasm-for-k-food-with-10-mil-views-on-social-media`
+  (published 2026-08-26): the 2026 "K-Local Food Hunters 33" run drew 33 creators
+  from 13 countries (~29M combined followers) on a five-day, four-night trip through
+  Gangwon, Jeolla and Gyeongsang, producing ~900 posts and 10M+ cumulative views;
+  top item was hanwoo mungtigi at ~447k views. KTO plans an official 33-dish list on
+  VISITKOREA in four languages.
+
+**Caveat for whoever writes this up:** the full official 33-item list was **not**
+found on an official source this run — the per-city pairings in circulation come
+from commercial travel sites (e.g. seoulstart.com, last updated 2026-06-05, which
+lists Chuncheon/dakgalbi, Suwon/wanggalbi, Jeonju/bibimbap, Andong/jjimdak,
+Busan/dwaeji gukbap and others) and sources disagree on details. §2 requires an
+official listing, so the city-dish pairings would need confirmation against
+VISITKOREA before going in copy; the program-level facts above are solidly sourced.
+Note also that this is a **non-venue-specific editorial** topic — i.e. exactly the
+shape §3 option 3 permits on a **Carousel**. It is a strong candidate for Wed
+2026-10-14 or Sat 2026-10-17, not for today.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-10-13 Tuesday → §1 row 2 → reel / local.
+- §0 same-day gate: no `pending`, no same-day `publish_at`.
+- **WebSearch works** (2 queries returned results). **WebFetch works** — fetched both
+  Korea Times articles above and seoulstart.com in full, with datelines.
+- **`scripts/cardnews.py` renders 7 slides at 1080×1350 with no errors** (exit 0),
+  run against `content/2026-10-10-seoul-alley-spending-en.json` into a scratch dir.
+- **`scripts/reel.py` renders a valid 9:16 MP4** — `ffprobe` confirms 1080×1920,
+  h264 + aac, 22.2s. `ffmpeg` was again **absent** from the runner image;
+  `sudo apt-get install -y ffmpeg` succeeded (6.1.1) and the Reel leg then worked,
+  re-confirming the 2026-09-22 finding that this is a per-run setup step, not a
+  blocker. Audio is ffmpeg-synthesized because `assets/music/*.mp3` is gitignored
+  (`! local: tracks.json 에 등록됐지만 파일이 없습니다`).
+- One trap worth recording for future runs: the MP4 is **not** valid until `reel.py`
+  exits. Probing it mid-write gives `moov atom not found`, which looks like a
+  renderer failure but is just an unfinalized file — the render takes ~53s. Wait for
+  exit before `ffprobe`.
+- `pillow` 12.3.0, `python3` present. Render verification output was written to
+  `/tmp`, **not** committed, since there is no publishable item today.
+
+So the environment is fully healthy and the render path is proven end to end on both
+formats. Nothing technical stopped this run; the §3 media rule did.
 
 ---
 
