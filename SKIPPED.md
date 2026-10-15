@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-13 that is **twenty-two
+verified, stop without adding a queue item"). As of 2026-10-15 that is **twenty-three
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
@@ -32,13 +32,19 @@ must re-authorize through Instagram Login and reset the `IG_ACCESS_TOKEN` secret
 Until that happens the 19:00 KST publisher will hold every item it picks up,
 including anything queued on the next Carousel day (Wed 2026-10-14). Note this is a
 *publish*-side blocker: it does not affect today's decision, which is made on §3
-media grounds and would be a skip regardless. **Still unresolved as of 2026-10-13**
+media grounds and would be a skip regardless. **Still unresolved as of 2026-10-15**
 and not checkable by an agent (the token lives in a repository secret), so assume it
-stands. This is now imminent: the next Carousel day is **tomorrow, Wed 2026-10-14**,
-and that item — the one format the media blocker does not stop — will be queued,
-rendered, picked up by the 19:00 KST publisher and **held** exactly like
-`2026-10-10-seoul-alley-spending-en` unless a human re-authorizes Instagram Login and
-resets `IG_ACCESS_TOKEN` before then.
+stands.
+
+**Update 2026-10-15 — the Wed 2026-10-14 test of this never happened.** The entry
+above predicted that the 2026-10-14 Carousel would be queued, rendered, picked up by
+the 19:00 KST publisher and held on the dead token. It was not, because the run never
+produced an item: run `38501553280` **failed after 11m52s with `Reached maximum
+number of turns (60)`**. So the token blocker is still *untested* since 10-10 — no new
+evidence either way, and it should still be assumed to stand. The practical point is
+that **two independent faults are now stacked on the only format that can ship**: the
+turn cap stops the item being created, and the dead token would stop it being
+published if it were. Fixing either one alone still ships nothing.
 
 **`--max-turns` is still unraised, but the 2026-10-07 Carousel shipped anyway.**
 The 2026-10-06 entry warned that Wednesday 2026-10-07 would fail the same way as
@@ -50,6 +56,18 @@ turns is a **marginal** budget for a Carousel, not a hard wall: a lean run clear
 it, a thorough one does not. That weakens the diagnosis from "will fail" to "will
 fail some of the time," and it does not change the recommendation — raising it is
 still the cheapest fix for the only format that can currently ship.
+
+**2026-10-14 (Wed) is the fourth Carousel day lost this way, confirmed 2026-10-15.**
+`.github/workflows/daily-content.yml:80` still reads `--max-turns 60`. Run
+`38501553280` failed at 11m52s with `Reached maximum number of turns (60)`
+(`"subtype": "error_max_turns"` in the action log). No content JSON, no queue entry
+and — until this entry — no skip note, exactly like 09-30 and 10-03. The tally is now
+09-26 (finished at 74 turns, shipped, step still went red), 09-30, 10-03 and 10-14:
+of the last six Carousel days, **three produced nothing at all** because of a
+one-line workflow setting. That settles the "marginal, not a wall" reading above in
+the pessimistic direction — a thorough run is the common case, not the rare one.
+Raising it remains a human-only fix (`workflows: write` is not granted to this
+agent).
 
 **The silent Carousel gaps are diagnosed as of 2026-10-05: the runs fired, and they
 died on `--max-turns 60`.** Previous entries recorded 2026-09-30 (Wed) and
@@ -108,6 +126,98 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-15 (Thu), reel / bar — SKIPPED
+
+Twenty-third consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-verified from scratch rather than inherited. **New this run: the 2026-10-14
+Carousel gap is diagnosed (see the header) — it died on `--max-turns 60`, so the
+one format that can ship lost a fourth day.**
+
+`TZ=Asia/Seoul date` → Thursday 2026-10-15 11:13 KST, `+%u` → 4 → §1 row 4 → reel /
+bar, Collab **optional**; the run prompt set the same format. Working tree clean at
+start (`git status --porcelain --untracked-files=all` → 0 lines). `queue.json` holds
+46 items — 33 `held`, 13 `published`, **zero** `pending`. No ramp flag (§1): still
+only prose in CONTENT.md, PIPELINE.md and this file.
+
+**§0 same-day check passes.** No `2026-10-15` string appears anywhere in
+`queue.json`, so there is no same-day `pending` or `published` item. Nothing has
+landed in the repo since the 2026-10-13 skip commit (b9037bd), whose only change was
+to this file — note that this means **2026-10-14 left no trace in the repo at all**,
+which is how the turn-cap failure stayed silent again.
+
+### Blocking: no compliant media for a venue-specific Reel
+
+PIPELINE.md §3 allows, in order: (1) original media from the account owner,
+(2) venue/creator media with written permission, (3) licensed stock **only for a
+non-venue-specific editorial Carousel**. Re-checked this run:
+
+- **No owner-supplied original media exists.** A `find` across the repo for
+  `*.mp4`/`*.mov`/`*.heic`/`*.dng`/`*.m4v`/`*.webm`/`*.mp3`/`*.wav`/`*.png` outside
+  `.git` returns **nothing** — still not one frame of video in a repo for a Reel-led
+  account. A `find` for `*inbox*`/`*incoming*`/`*upload*`/`*owner*`/`*original*`/
+  `*partner*` directories also returns nothing.
+- **`assets/photos/` holds 47 files; 46 are agent-added stock.** Re-audited per file
+  with `git log --diff-filter=A`: 46 of 47 were added by `claude[bot]` in `content:`
+  pipeline commits between 2026-08-25 and 2026-10-10, all under the pre-2026-09-14
+  policy that permitted mood-matched stock.
+- **The one human-added file fails on three independent grounds today.**
+  `cheongildip-en.jpg` (Steve, 392aefd, 2026-08-25):
+  - **(a) Wrong pillar.** It is a `local` subject and today is the `bar` slot. The
+    2026-10-13 entry noted this ground lapses on `local` Tuesdays; today it applies
+    again.
+  - **(b) Wrong venue.** It depicts Cheongildip, already published 2026-08-25
+    (media_id 17966641104247745). §3 forbids using a photo "as if it depicts the
+    named place" for any other venue, so it cannot carry a Reel about a bar.
+  - **(c) No rights record, and the file argues against "owner-shot."** Re-confirmed
+    this run: `content/2026-08-25-cheongildip-en.json` has **no** `policy_version`,
+    `asset_source`, `rights_confirmed` or `rights_note` (its only keys are `slug`,
+    `pillar`, `handle`, `publish_at`, `photo`, `slides`, `caption`, `hashtags`), and
+    the image is 1600×939 progressive JPEG with **zero EXIF tags** — the signature of
+    a web-delivered stock image, not a camera original. §3 requires those facts to be
+    *confirmed*; the evidence points the other way.
+- **Option 2 is unavailable.** No partner permission record exists anywhere in the
+  repo, and an unattended run cannot obtain written permission from a venue.
+- **Option 3 does not reach this format.** §3 limits licensed stock to a
+  non-venue-specific editorial *Carousel*; the restriction is on the **format**, and
+  CONTENT.md closes it from the other side ("limited to an occasional editorial
+  Carousel"). §1 fixes Thursday as a Reel.
+
+A typography-only cover is not an escape hatch either: this is a food/venue account
+and the run brief requires a real licensed photo on every post.
+
+### Not blocking: the bar pillar has verifiable material
+
+Checked so the media finding is not confounded with "nothing to write about."
+**Asia's 50 Best Bars 2026** (announced in Macau, reported 2026-07-29) puts four
+Seoul bars in the top 50 — **Zest** No. 2 in Cheongdam-dong (Korea's best bar for a
+third straight year), **Alice** No. 13 in Gangnam, **Bar Cham** No. 33 in a restored
+hanok in Jongno, and **M+MS** No. 42, a newcomer — with Gonggan, Charles H, Le
+Chamber and Soko in the 51–100 band. Source:
+`koreatimes.co.kr/.../20260729/seoul-claims-4-spots-on-asias-50-best-bars-2026-zest-retains-no-2-ranking`
+(WebFetch, as of 2026-10-15).
+
+Two caveats for whoever picks this up. First, **all four top-50 Seoul bars are
+already covered** by this account (`2026-08-25-zest-seoul-en`,
+`2026-09-05-alice-cheongdam-en`, `2026-08-29-bar-cham-en`, `2026-09-01-mms-bar-en`),
+as are all four of the 51–100 entries, so a venue-specific bar Reel would need either
+a new venue or an explicit "2026 list moved" angle. Second, the one angle that is
+genuinely new — the ranking shuffle itself — is **non-venue-specific editorial**,
+which is exactly the shape §3 option 3 permits for a Carousel and forbids for a Reel.
+That is worth noting to a human: the available material and the available media
+licence point at opposite formats.
+
+### Verified working this run
+
+- WebSearch works. WebFetch works on `koreatimes.co.kr`.
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0, re-run this session
+  against `content/2026-10-10-seoul-alley-spending-en.json` into a scratch directory
+  (not committed). Output dimensions checked per file, not just the exit code.
+- The Reel MP4 path still needs `sudo apt-get install -y ffmpeg` at runtime; not
+  exercised this run, as there was no compliant media to build from.
 
 ---
 
