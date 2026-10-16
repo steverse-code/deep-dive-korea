@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-15 that is **twenty-three
+verified, stop without adding a queue item"). As of 2026-10-16 that is **twenty-four
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
@@ -126,6 +126,79 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-16 (Fri), reel / restaurant — SKIPPED
+
+Twenty-fourth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-verified from scratch this run rather than inherited from the 2026-10-15 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Fri 2026-10-16, `%u` = 5 → **reel / restaurant /
+  Collab candidate**.
+- §0: no `pending` or `published` item for 2026-10-16 in `queue.json` (46 entries,
+  newest is 2026-10-10, `held`). Nothing to stop on.
+- §3: a venue-specific Reel needs option 1 (owner original) or option 2 (partner
+  media with written permission). Option 3 (licensed stock) is restricted to a
+  non-venue-specific editorial **Carousel**, which today is not. CONTENT.md
+  "Media and rights" says the same thing independently: "Venue-specific Reels and
+  Collabs must use original or written partner-authorized media."
+- **Neither option 1 nor option 2 exists in the repo.** Checked mechanically, not
+  assumed: all **47** files in `assets/photos/` are already referenced by an
+  existing `content/*.json` (`photo` or `slides[].bg_image`) — the unused set is
+  **empty**. So no owner-supplied or partner-licensed asset has arrived. Every
+  existing photo is third-party licensed stock (Unsplash / Wikimedia CC0) whose
+  own sources slide says it is not the venue, so none of them can be promoted to
+  a Reel asset either.
+- No new media channel appeared: `git fetch --all` leaves `main` level with
+  `origin/main` at b9fac80, there is no other branch, and no inbox/manifest path
+  exists for owner uploads.
+- No ramp flag is set in `queue.json` or any repo note (PIPELINE.md §1), so the
+  ramp constrains nothing this run — the skip is decided on §3 grounds alone.
+
+Stopped under §0: "If rights, venue existence, or current operation cannot be
+verified, stop without adding a queue item."
+
+### Deliberately not done
+
+The one thing that would have shipped today is switching the format to an editorial
+Carousel to unlock §3 option 3. **Not done, and it should not be done by an agent.**
+§1 assigns Friday a Reel, §0 forbids catching up missed days, and PIPELINE.md has no
+format-substitution rule. Reformatting the slot to dodge the media gate is the
+editorial call reserved for a human in the 2026-09-15 entry. Writing a stock-photo
+Reel is also technically possible — `validate_rights()` (scripts/publish.py:78)
+would pass it, see the "publish.py is more permissive than PIPELINE.md" note below —
+and is a straight §3 violation. Not done.
+
+### Verified working this run
+
+- `python3 scripts/cardnews.py content/2026-10-10-seoul-alley-spending-en.json
+  <tmp>` → **7 slides, all 1080×1350, exit 0**, no errors. Rendered to a temp dir,
+  not committed, since there is no new content item to render. Pillow 12.3.0.
+- WebSearch works (MICHELIN Guide Seoul & Busan 2026 Bib Gourmand additions
+  returned current results). WebFetch works — the Wikimedia Commons API still
+  reports `License: cc0` / `AttributionRequired: false` for the 2026-10-10 cover
+  photo, so that post's recorded rights basis re-verifies.
+- `queue.json` parses; 46 entries.
+
+### Still blocked for a human (unchanged, re-checked)
+
+- **`ffmpeg` is absent from this runner** (`which ffmpeg` → nothing), so
+  `scripts/reel.py` could not have produced the 9:16 MP4 today without a runtime
+  `apt-get install`. Per the 2026-09-22 note this is a per-run setup step, not a
+  blocker, but `.github/workflows/daily-content.yml` still has no install step.
+- **`--max-turns 60` is still unraised** at `.github/workflows/daily-content.yml:80`.
+  Unchanged since the 10-15 entry; it is what lost Wed 2026-10-14.
+- **The Instagram access token is still presumed invalid** (code 190, session
+  invalidated — see the header). Not checkable by an agent; assume it stands. It
+  did not affect today's decision, which is a §3 media call either way.
+- **Next real chance to ship is Sat 2026-10-17, a Carousel day** (§1 day 6, local).
+  It needs the token fixed to actually publish, and a lean enough run to clear 60
+  turns. Not queued here — §0 allows at most one item per KST day and forbids
+  working ahead.
 
 ---
 
