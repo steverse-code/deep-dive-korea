@@ -1,0 +1,111 @@
+{
+  "slug": "2026-10-17-bukchon-visiting-hours-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-10-17T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: 'Bukchon, Seoul - Bukchon3401' by Flickr user lumoplank, Creative Commons Zero / Public Domain Dedication, via Wikimedia Commons (File:Bukchon, Seoul - Bukchon3401.jpg, source https://www.flickr.com/photos/199350666@N08/54320904159, dated before 11 February 2025). Licence verified against the Wikimedia Commons API on 2026-10-17 KST — License 'cc0', LicenseShortName 'CC0', LicenseUrl creativecommons.org/publicdomain/zero/1.0, UsageTerms 'Creative Commons Zero, Public Domain Dedication', AttributionRequired 'false', Restrictions field empty, Categories CC-Zero / Seoul / Hanok / Bukchon Hanok Village / 'Flickr images reviewed by FlickreviewR 2' (the Flickr licence was bot-verified at upload). CC0 waives all rights worldwide: commercial use and modification are permitted with no attribution obligation and no share-alike obligation. The photographer is credited on the sources slide anyway as a matter of practice. A share-alike licence was deliberately avoided, as on 2026-10-10: scripts/cardnews.py produces a duotoned derivative, which CC BY-SA would oblige us to relicense under the same terms. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel: this post recommends no venue and names no business as its subject. Its subject is a municipal rule (Jongno-gu's Bukchon Special Management Area designation) covering a residential neighbourhood. The frame is a daytime exterior of a public hanok lane in Bukchon, which is the literal subject of the post rather than a mood substitute, so section 3's 'do not use a mood photo as if it depicts the named place' concern does not arise. Checked by eye at full size and at the 1080x1350 centre crop that cardnews.py applies: no business signage is legible anywhere in the crop; the only legible text is a residential door-number plaque reading '46', which identifies no person and no business. Two pedestrians stand mid-left at roughly 60px tall in a 1350px frame — facial features are not resolvable and they are incidental to a public street scene. No copy on any slide refers to the people in the photograph, and nothing implies they are violating the rule the post describes. The alternative CC0 frame by the same photographer (File:Bukchon, Seoul - Bukchon3283.jpg) was not used: it is a portrait frame whose two pedestrians sit much closer to the camera. Resized to 2400px wide before rendering; no other modification.",
+  "location": "Bukchon Hanok Village, Jongno-gu, Seoul, South Korea",
+  "venue_handle": null,
+  "search_keyword": "Bukchon Hanok Village visiting hours red zone fine",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-10-17-bukchon-visiting-hours-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": "Seoul wants to stay\nopen all night.",
+      "subline": "One neighborhood closes to sightseeing at 5 p.m., and has fined people for it since March 2025",
+      "bg_image": "assets/photos/2026-10-17-bukchon-visiting-hours-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "BUKCHON RED ZONE",
+      "value": "10–5",
+      "label": "The only hours tourists may enter the Red Zone around Bukchon-ro 11-gil. Outside 10 a.m. to 5 p.m., sightseeing there carries a 100,000 won fine",
+      "note": "Source: Seoul Metropolitan Government official notice; Korea Herald and Korea Times, 28 February 2025 · Checked 17 October 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "A city opening up,\na street shutting down.",
+      "body": "In August 2026 Seoul announced a plan to run as a 24-hour destination: a nighttime economy from 6 p.m. to 6 a.m., a target of 30 million foreign visitors and five trillion won more in annual night spending within five years, 269 sports facilities open to midnight, and a late-night 'Firefly Bus' linking Hongdae, Gwanghwamun, DDP, Myeong-dong and Gangnam from October.\n\nBukchon is the exception, and it is a legal one. Jongno-gu designated it a Special Management Area on 1 July 2024 under the Tourism Promotion Act — the tool a Korean district uses when a residential area is being worn down by its own popularity."
+    },
+    {
+      "type": "list",
+      "title": "The rule, exactly\nas written",
+      "items": [
+        {
+          "t": "Red Zone — visits only 10 a.m. to 5 p.m.",
+          "d": "A 34,000 sq m residential hanok block around Bukchon-ro 11-gil. Entering for tourism outside those hours is a 100,000 won fine"
+        },
+        {
+          "t": "Orange and Yellow Zones — no time limit",
+          "d": "The rest of the area. Orange gets active on-street guidance, Yellow gets monitoring. No fine attaches to the hours there"
+        },
+        {
+          "t": "Large buses — 300,000 won",
+          "d": "Vehicles over 16 seats are barred from a 2.3 km stretch of Bukchon-ro, Bukchon-ro 5-gil and Changdeokgung 1-gil. Fines began 1 January 2026"
+        },
+        {
+          "t": "Guidance first, then the fine",
+          "d": "Patrol staff the district calls 'Bukchon sheriffs' explain the rule on the spot. The penalty follows only if you stay on after the warning"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "What this means\nif you're visiting",
+      "items": [
+        {
+          "t": "Go mid-morning, not at sunset",
+          "d": "The golden hour on Bukchon-ro 11-gil is the hour you may not be there for. Arrive after 10 a.m., leave by 5 p.m."
+        },
+        {
+          "t": "Being there is not the offense — sightseeing is",
+          "d": "Residents and their families, shop customers, hanok-stay guests and people simply passing through are all exempt. Photographing and wandering are what the rule targets"
+        },
+        {
+          "t": "Only one lane is a Red Zone",
+          "d": "Most of Bukchon has no hour limit at all. The restriction is narrow, not a village-wide curfew, whatever a blog headline says"
+        },
+        {
+          "t": "Arrive on foot or by subway",
+          "d": "Anguk Station on Line 3 is a few minutes away. A chartered coach cannot legally drop you on the main lanes"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "A neighborhood is not\nan attraction that closes.\nIt is where people live.",
+      "by": "That is the premise of the designation, and the early signs are that it has not emptied the place out. Jongno-gu reports noise, congestion and complaints down since the restrictions began, and Korea Real Estate Board figures put vacancy among medium and large shops in Bukchon at 1.9% in Q3 2025, against 6.2% a year earlier. The chartered-bus pilot was made permanent in February 2026. This post is research, not a personal visit — every figure comes from a published source, checked on 17 October 2026."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Seoul Metropolitan Government notice — Bukchon Special Management Area: Red Zone restricted 5 p.m.–10 a.m., 100,000 won fine, Tourism Promotion Act Art. 48-3(7)",
+        "The Korea Herald, 28 Feb 2025 — 34,000 sq m Red Zone on Bukchon-ro 11-gil; fines from 1 Mar 2025; residents, shoppers, guests and passersby exempt",
+        "The Korea Times, 15 Feb 2026 — buses over 16 seats fined 300,000 won on 2.3 km; vacancy 1.9% Q3 2025 vs 6.2% Q3 2024",
+        "Kyunghyang Shinmun, 28 Feb 2025 and 20 Aug 2026 — 'Bukchon sheriffs' warn first; designation 1 Jul 2024; bus fines from Jan 2026; Seoul 24-hour plan and Firefly Bus",
+        "Photo: 'Bukchon, Seoul - Bukchon3401' by lumoplank, CC0, via Wikimedia Commons, cropped"
+      ],
+      "cta": "We check every claim before we post it.\nSave this before you walk Bukchon"
+    }
+  ],
+  "caption": "Seoul spent August announcing that it wants to be a 24-hour city — a nighttime economy running 6 p.m. to 6 a.m., 30 million foreign visitors and five trillion won more in night spending inside five years, 269 sports facilities open until midnight, and a late-night Firefly Bus linking Hongdae, Gwanghwamun, DDP, Myeong-dong and Gangnam from this month.\n\nOne neighborhood is going the other way, and it has the law behind it. Jongno-gu designated Bukchon a Special Management Area on 1 July 2024 under the Tourism Promotion Act. Inside the Red Zone — a 34,000 sq m residential hanok block around Bukchon-ro 11-gil — tourists may visit only between 10 a.m. and 5 p.m. Come outside those hours to sightsee and the fine is 100,000 won. That has been enforced since 1 March 2025, after a four-month guidance period. Buses over 16 seats are barred from a 2.3 km stretch of Bukchon-ro, Bukchon-ro 5-gil and Changdeokgung 1-gil, with 300,000 won fines from 1 January 2026; the pilot was made permanent in February 2026.\n\nThree things the headlines tend to flatten. The restriction covers one lane, not the village — the Orange and Yellow zones have no hour limit. Being present is not the offense: residents and their families, shop customers, hanok-stay guests and people walking through are exempt, and the rule targets sightseeing and photographing. And you get a warning first — district patrol staff explain the rule on the spot, and the penalty follows only if you stay.\n\nThe practical version is simple. The golden hour you wanted on that lane is the hour the rule exists to protect, so go mid-morning instead, and come on foot or by subway from Anguk Station. Early signs say the trade worked: Jongno-gu reports noise and complaints down, and shop vacancy in Bukchon fell to 1.9% in Q3 2025 from 6.2% a year earlier. Sources in the last slide.",
+  "hashtags": [
+    "#bukchonhanokvillage",
+    "#seoultravel",
+    "#jongno",
+    "#hanok",
+    "#seoulneighborhoods",
+    "#koreatraveltips",
+    "#responsibletravel",
+    "#deepdivekorea"
+  ]
+}
