@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-16 that is **twenty-four
+verified, stop without adding a queue item"). As of 2026-10-18 that is **twenty-five
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
@@ -35,6 +35,27 @@ including anything queued on the next Carousel day (Wed 2026-10-14). Note this i
 media grounds and would be a skip regardless. **Still unresolved as of 2026-10-15**
 and not checkable by an agent (the token lives in a repository secret), so assume it
 stands.
+
+**CONFIRMED 2026-10-18 — the token is dead, now proven rather than presumed.** The
+two entries below said the token blocker was *untested* since 10-10 and should be
+assumed to stand. It has now been tested and it stands. Sat 2026-10-17 (Carousel,
+local) ran, queued and rendered `2026-10-17-bukchon-visiting-hours-en` (commit
+7957fb1), the 19:00 KST publisher picked it up, and it was **held** at
+2026-10-17T22:34:30 KST with the identical fault — `hold_reason:
+publish_failed_manual_review`, OAuthException **code 190**, "session has been
+invalidated" (commit a707112, `fbtrace_id AFD2WVXAyVLXu8xXLJrReZO`). Two readings
+follow, and they point opposite ways:
+
+- **The token fix is now the top-priority human action.** It is no longer a
+  prediction. Two consecutive Carousels — 10-10 and 10-17, the only two that
+  reached the publisher — were authored correctly and lost at the final step. Every
+  future Wed/Sat will be lost the same way until `IG_ACCESS_TOKEN` is re-authorized
+  through Instagram Login (CONNECT-GUIDE.md). An agent cannot do this; the token is
+  a repository secret.
+- **`--max-turns 60` is *not* currently blocking.** The 10-17 run produced a
+  complete item, so it cleared 60 turns. That is the second data point after 10-07
+  on the "lean run clears it" side. The turn cap remains worth raising, but the
+  stacked-faults framing below now resolves to a single live publish-side fault.
 
 **Update 2026-10-15 — the Wed 2026-10-14 test of this never happened.** The entry
 above predicted that the 2026-10-14 Carousel would be queued, rendered, picked up by
@@ -126,6 +147,120 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-18 (Sun), reel / cafe — SKIPPED
+
+Twenty-fifth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-derived mechanically this run, not inherited from the 2026-10-16 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Sun 2026-10-18, `%u` = 7 → **reel / cafe / Collab
+  optional**. The task prompt independently specified `reel`, so the two agree.
+- §0: **no `pending` or `published` item for 2026-10-18** in `queue.json` (47
+  entries: 34 `held`, 13 `published`; newest is 2026-10-17, `held`). Nothing to
+  stop on, so the run proceeded to §2.
+- §3: a Reel needs option 1 (owner original) or option 2 (partner media with
+  written permission). Option 3 (licensed stock) is restricted to a
+  non-venue-specific editorial **Carousel**. CONTENT.md "Media and rights" says the
+  same independently: "Venue-specific Reels and Collabs must use original or
+  written partner-authorized media. Generic stock ... is limited to an occasional
+  editorial Carousel."
+- **Neither option 1 nor option 2 exists in the repo.** Checked mechanically rather
+  than assumed: all **48** files in `assets/photos/` are already referenced by an
+  existing `content/*.json` (`photo` or `slides[].bg_image`), so the unused set is
+  **empty**. `git log -- assets/photos/` attributes every one of them to a
+  `claude[bot]` pipeline commit; no human-supplied asset has landed. Every existing
+  photo is third-party licensed stock (Unsplash / Wikimedia CC0) whose own sources
+  slide states it is not the venue, so none can be promoted to a Reel asset.
+- No new media channel appeared: `git fetch --all` leaves `main` level with
+  `origin/main` at a707112, there is no other branch, and no `inbox/`, `incoming/`,
+  `uploads/`, `media/` or `submissions/` path exists for owner uploads.
+- No ramp flag is set in `queue.json` or any repo note (PIPELINE.md §1), so the ramp
+  constrains nothing this run — the skip is decided on §3 grounds alone.
+
+Stopped under §0: "If rights, venue existence, or current operation cannot be
+verified, stop without adding a queue item."
+
+### The §2 research passed — the stop is purely at §3
+
+Worth recording because it is the strongest cafe-pillar topic to appear in weeks and
+it is **editorial, not venue-specific**, so it would need no venue photo at all on a
+Carousel day:
+
+- Seoul city announced **「2026 서울미식 100선」** on **2026-10-06**, and alongside it
+  the first-ever **「서울 카페·디저트 50선」**, a separate list aimed explicitly at
+  tourists who travel to Seoul for coffee and desserts.
+- The 100 list breaks down as 한식 27 / 양식 23 / 아시안 15 / 그릴 10 / 채식 8 /
+  카페·디저트 9 / 바·펍 8, judged by ~60 domestic food experts; **25 venues are new
+  this year**.
+- **서울미식주간 (Seoul Gourmet Week) runs 2026-10-23 → 10-29** at DDP and across
+  Seoul, with 서울레스토랑위크, 서울미식마켓, 서울미식투어 and 서울미식워크숍.
+- Useful English search phrase: "Seoul Cafe and Dessert 50" / "Seoul Gourmet Week
+  2026".
+
+Sources (as of 2026-10-18): <https://mediahub.seoul.go.kr/archives/2019580>
+(Seoul city media hub, published 2026-10-06 17:13, fetched and verified this run);
+corroborated by <https://www.wikitree.co.kr/articles/1164258>. Supporting trend
+context from <https://en.fnnews.com/news/202602151316437950> (2026-02-17: A Twosome
+Place's signature cake sold ~3.2M units, +~30% YoY; Open Survey "Cafe Trend Report
+2025" found >40% of consumers weigh bakery/dessert when choosing a cafe).
+
+The individual 50-venue list was **not** confirmed from a primary source this run,
+so no specific cafe was named — and naming one would have re-triggered the §3 venue
+photo requirement anyway.
+
+### Deliberately not done
+
+Switching the slot to an editorial Carousel would have unlocked §3 option 3 and
+shipped the topic above today. **Not done, and an agent should not do it.** §1
+assigns Sunday a Reel, §0 forbids catching up missed days, and PIPELINE.md contains
+no format-substitution rule; reformatting the slot to dodge the media gate is the
+editorial call reserved for a human in the 2026-09-15 entry. Writing a stock-photo
+Reel is also technically possible — `validate_rights()` (`scripts/publish.py:78`)
+would pass it, see the permissiveness note below — and is a straight §3 violation.
+Not done. A typography-only cover was likewise not used: the task prompt rules it
+out for this account, and it would not satisfy §3 regardless.
+
+### Verified working this run
+
+The whole render path, including the Reel-only MP4 step, was exercised end to end on
+existing content in a temp dir (nothing committed — there is no new item to render):
+
+- `python3 scripts/cardnews.py content/2026-10-17-bukchon-visiting-hours-en.json
+  <tmp>` → **7 slides, all 1080×1350, exit 0**, no errors. Pillow 13.0.0.
+- `sudo apt-get install -y ffmpeg` succeeded, then `python3 scripts/reel.py ... <tmp>`
+  → **1080×1920, 22.200s MP4, exit 0** (ffmpeg 6.1.1), confirmed 9:16 via `ffprobe`.
+  Only the known benign warning: `! local: tracks.json 에 등록됐지만 파일이 없습니다`
+  (`assets/music/*.mp3` is gitignored, so cloud Reels use synthesized audio).
+- **So there is no technical obstacle to a Reel today.** The blocker is the §3
+  rights rule alone — if a compliant asset existed, this run would have shipped.
+- WebSearch works (returned the 2026-10-06 Seoul list and current cafe-trend
+  coverage). WebFetch works (`mediahub.seoul.go.kr` and `en.fnnews.com` both
+  fetched and verified).
+- `queue.json` parses; 47 entries.
+
+### Still blocked for a human (unchanged, re-checked)
+
+- **The Instagram access token is confirmed dead**, no longer merely presumed — see
+  the header. This is now the highest-value fix: it is the only thing stopping the
+  one format that can ship, and two consecutive correct Carousels have been lost to
+  it. Needs re-authorization through Instagram Login and a new `IG_ACCESS_TOKEN`
+  secret. It did not affect today's decision, which is a §3 call either way.
+- **The §3 media gate** needs one of the three editorial fixes in the 2026-09-15
+  entry (drop in original photos / allow disclaimed stock on Reels / move
+  venue-specific days to Carousel). Twenty-five Reel days lost so far.
+- **`--max-turns 60`** is still unraised at `.github/workflows/daily-content.yml:80`,
+  but the 10-17 run cleared it, so it is not the live fault. Still worth raising.
+- **`ffmpeg` is still absent from the runner image** (`which ffmpeg` → nothing until
+  installed). Per the 2026-09-22 note this is a per-run setup step, not a blocker.
+- **Next real chance to ship is Wed 2026-10-21, a Carousel day** (§1 day 3, cafe) —
+  and the 「서울 카페·디저트 50선」 topic above is a ready-made fit for that slot and
+  pillar. It will still be **held at publish** unless the token is fixed first. Not
+  queued here: §0 allows at most one item per KST day and forbids working ahead.
 
 ---
 
