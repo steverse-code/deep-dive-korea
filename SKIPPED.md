@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-18 that is **twenty-five
+verified, stop without adding a queue item"). As of 2026-10-19 that is **twenty-six
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing holding the account below a daily schedule. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
@@ -147,6 +147,91 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-19 (Mon), reel / restaurant — SKIPPED
+
+Twenty-sixth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-derived mechanically this run rather than inherited from the 2026-10-18 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Mon 2026-10-19, `%u` = 1 → **reel / restaurant /
+  Collab optional**. The task prompt independently specified `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-10-19.** `queue.json` holds the
+  same 47 entries as yesterday (34 `held`, 13 `published`); a string search for
+  `2026-10-19` across the file returns nothing. Nothing to stop on, so the run
+  proceeded to §2.
+- §3: a Reel needs option 1 (owner original) or option 2 (venue/creator media with
+  written permission). Option 3 (licensed stock) is restricted to a
+  non-venue-specific editorial **Carousel**, and CONTENT.md "Media and rights" says
+  the same independently.
+- **Neither option 1 nor option 2 exists in the repo.** Checked mechanically: all
+  **48** files in `assets/photos/` are referenced by an existing `content/*.json`
+  (`photo` or `slides[].bg_image`), so the unused set is **empty**.
+  `git log --author=Steve -- assets/photos/` returns exactly one human-supplied
+  file, `cheongildip-en.jpg` (392aefd, 2026-08-25) — it predates policy v2 and is
+  already consumed by `2026-08-25-cheongildip-en`. The other 46 are `claude[bot]`
+  pipeline commits, all third-party stock (Unsplash / Wikimedia CC0) whose own
+  sources slide states the photo is not the venue, so none can be promoted.
+- No new media channel appeared: `git fetch --all` leaves `main` level with
+  `origin/main` at 90597d7, `main` is the only branch, and no `inbox/`, `incoming/`,
+  `uploads/`, `media/` or `submissions/` path exists. A repo-wide search for
+  `*.mp4 *.mov *.m4v *.mp3 *.wav *.heic` returns **zero** files, so there is no
+  owner video for a Reel either (`assets/music/*` is gitignored by design).
+- No ramp flag is set in `queue.json` or any repo note (PIPELINE.md §1), so the ramp
+  constrained nothing — the skip is decided on §3 grounds alone.
+
+Stopped under §0: "If rights, venue existence, or current operation cannot be
+verified, stop without adding a queue item."
+
+### §2 research — tooling works, and the restaurant pillar has a live hook
+
+Recorded for the next run that can actually ship. **As-of date 2026-10-19.**
+
+- Seoul city's **2026 서울미식 100선** was published **2026-10-06** on the city's own
+  mediahub (official source, fetched this run): 한식 27 / 양식 23 / 아시안 15 /
+  그릴 10 / 채식 8 / 카페&디저트 9 / 바&펍 8, with **25 newly selected** venues
+  (한식 10, 아시안 5, 양식 4, 그릴 1 = 몽탄, 채식 1 = 고사리 익스프레스, 바&펍 4 =
+  백곰막걸리 / 앨리스 청담 / 장생건강원 / 참제철). Newly selected 한식: 리북방,
+  면서울, 산초, 서령, 수퍼판, 유록, 품서울, 하모, 한식공간 소반, 해남천일관.
+  Source: https://mediahub.seoul.go.kr/archives/2019580
+- **서울미식주간 (Taste of Seoul) runs 2026-10-23 → 10-29** at DDP and across Seoul
+  (서울레스토랑위크 / 미식마켓 / 미식투어 / 미식워크숍), same source. Note for
+  whoever runs **Wed 2026-10-21 (Carousel, cafe)**: the first-ever **서울 카페·디저트
+  50선** published alongside the 100선 is an *editorial, non-venue-specific* cafe
+  topic that lands two days before the festival opens — it needs no venue photo and
+  so clears §3 option 3. That is the strongest available use of the next Carousel
+  slot.
+- **Caveat on the official site:** `https://tasteofseoul.visitseoul.net/` is
+  **unreachable from this runner** — `connect ECONNREFUSED 115.68.17.176:443`, not a
+  404. The 50선 full list lives there per the city article, so a future run should
+  expect to source it from the mediahub/press release instead.
+- Venue candidate checked for the restaurant pillar: **해남천일관** (Haenam
+  Cheonilgwan), a newly-selected 한식 entry. Michelin Guide Korea has an official
+  listing (`guide.michelin.com/kr/ko/.../restaurant/haenam-cheonilgwan`) giving hours
+  as Mon–Fri 11:30–14:30 / 17:30–21:30, Sat 10:00–14:30 / 17:30–21:00, closed
+  Sunday. **Not fully §2-verified:** the Michelin page itself renders via JS and came
+  back empty to WebFetch (hours above are from the search index, not the page), the
+  address conflicts across aggregators (서초구 반포대로39길 36-1 vs. a 역삼동 branch
+  claim), and no 천일코스 price could be confirmed. So even with media in hand this
+  venue would need address and price nailed down before it could be written up.
+
+### Verified working this run
+
+- WebSearch works (4 queries, Korean and English). WebFetch works — mediahub.seoul.go.kr
+  returned full text; `tasteofseoul.visitseoul.net` ECONNREFUSED and the Michelin
+  venue page returned a blank body (JS-rendered), both noted above.
+- `python3 scripts/cardnews.py content/2026-10-17-bukchon-visiting-hours-en.json`
+  into a temp dir → **7 slides, 1080×1350, exit 0**, pillow 13.0.0. Rendered to
+  `/tmp` and not committed, since §3 produced no new content to render.
+- `ffmpeg` is still **absent** from the runner image (installable at runtime per the
+  2026-09-22 entry). Moot today: the Reel never reached §4.
+- The dead-token publish blocker is unchanged and **not checkable by an agent**
+  (`IG_ACCESS_TOKEN` is a repository secret). Nothing was queued this run, so no item
+  was exposed to it.
 
 ---
 
