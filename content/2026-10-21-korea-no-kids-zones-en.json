@@ -1,0 +1,112 @@
+{
+  "slug": "2026-10-21-korea-no-kids-zones-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-10-21T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: '2020-08-24 things places in south korea IMG 1015' by Choi Kwang-mo (Choi Kwangmo), own work, Creative Commons Zero / Public Domain Dedication, via Wikimedia Commons. Licence verified against the Wikimedia Commons API on 2026-10-21 KST — License 'cc0', LicenseShortName 'CC0', UsageTerms 'Creative Commons Zero, Public Domain Dedication', AttributionRequired 'false', Restrictions field empty, Categories CC-Zero / Self-published work / 'Interiors of cafes in South Korea' / 'Unidentified buildings in South Korea'. CC0 waives all rights worldwide: commercial use and modification are permitted with no attribution obligation and no share-alike obligation. The photographer is credited on the sources slide anyway as a matter of practice. A share-alike licence was deliberately avoided, as on 2026-10-10 and 2026-10-17: scripts/cardnews.py produces a duotoned derivative, which CC BY-SA would oblige us to relicense under the same terms. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel: this post recommends no venue, names no business as its subject, and its subject is a nationwide commercial practice rather than any one place. Because the subject is a contested practice, the frame was selected specifically so that it cannot be read as an accusation against an identifiable business. Checked by eye at full size and at the exact 1080x1350 centre crop that cardnews.py applies (source 4032x3024 scales to 1800x1350 and is cropped to the centre 1080px, i.e. x 360-1440): no people appear anywhere in the crop; no business name, logo, phone number or address is legible; the only text in frame is on a display easel, a small chalk card and shelf price tags, all checked at 3x magnification and all illegible. Five other CC0 frames from the same photographer's series were examined and REJECTED on this test: IMG_0683 and IMG_0685 carry legible 'MEGA MGC COFFEE' franchise branding, IMG_0682 carries legible 'IL PRIMO' window branding, and IMG_1017 and IMG_1019 show a legible business name on the back wall plus a staff member behind the counter. Attaching a no-kids-zone story to any of those would have implied a factual claim about a named, identifiable business, which is exactly what section 3 forbids. No slide's copy refers to the pictured room, and the sources slide labels the image as a stock photograph of an unidentified cafe interior, so nothing presents it as a venue the post discusses or as a no-kids zone. Resized to 2400px wide before rendering; no other modification.",
+  "location": "South Korea (nationwide)",
+  "venue_handle": null,
+  "search_keyword": "no kids zone Korea cafe children not allowed",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-10-21-korea-no-kids-zones-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": "The sign says\nno children.",
+      "subline": "Korea's no-kids zones are overwhelmingly cafes — and nobody agrees how many of them there are",
+      "bg_image": "assets/photos/2026-10-21-korea-no-kids-zones-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "NO-KIDS ZONES",
+      "value": "74%",
+      "label": "Of the 114 no-kids zones a civic-group survey could actually find in Korea, 84 were cafes. Restaurants were another 22",
+      "note": "Source: survey by Political Mamas and four partner groups, fieldwork September–December 2025, published January 2026 · via Kyunghyang Shinmun, 6 May 2026 · Checked 21 October 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Nobody actually\nkeeps the count.",
+      "body": "You will read that Korea has more than 500 no-kids zones. That figure traces back to a 2023 map anyone could edit, which the Korea Herald put at 451 restaurants and cafes. The civic groups who went looking in late 2025 verified 114. Their live map read 122 on 5 May 2026.\n\nJeju's own check explains the gap. Of 152 businesses on its list in 2024, only 80 were still turning children away — the rest had dropped the policy or closed. There is no register you can look up. Every number in this post is an estimate, and the honest range is wide."
+    },
+    {
+      "type": "list",
+      "title": "What the rule is,\nlegally",
+      "items": [
+        {
+          "t": "No national law bans or permits them",
+          "d": "Refusing entry to children sits in business discretion. There is no statute either way"
+        },
+        {
+          "t": "The human rights body called it discrimination",
+          "d": "In 2017 the NHRCK found blanket bans on under-13s discriminatory: children's right not to face discrimination outweighs the owner's. The finding is not binding"
+        },
+        {
+          "t": "The cut-off is whatever the owner picks",
+          "d": "Signs variously bar under-6s, under-10s or under-13s. No age is fixed in law, so it differs shop to shop"
+        },
+        {
+          "t": "Jeju tried to ban the bans, and failed",
+          "d": "A 2023 ordinance was shelved — no higher law to rest on, and an unfair limit on business freedom. A watered-down awareness ordinance passed instead"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "If you're travelling\nwith children",
+      "items": [
+        {
+          "t": "The odds are strongly in your favour",
+          "d": "Even the highest estimate is a few hundred businesses against the 106,452 coffee shops counted nationwide in 2023. A notable practice, not a common one"
+        },
+        {
+          "t": "Check the listing, don't check the door",
+          "d": "Korean venue pages and reviews flag it. Search the shop's name with 노키즈존, or call and ask: 아이도 들어갈 수 있나요?"
+        },
+        {
+          "t": "Expect it most in cafes, and on Jeju",
+          "d": "Cafes are three in four of the mapped total. Seoul, Gyeonggi and Jeju hold over 60% between them, and Jeju is far the densest for its size"
+        },
+        {
+          "t": "There is now a sign for the opposite",
+          "d": "Jeju pays businesses 300,000 won for high chairs and child kit under a Yes Kids Zone scheme — 64 restaurants applied in its first year, 2025"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "A number that no one\nmeasures will be quoted\nas though someone did.",
+      "by": "Both sides of this argument cite counts that come from volunteers with a shared map. That does not make the practice imaginary — the civic groups verified 114 of them, and Jeju verified 80 in one province alone. It does mean the confident national totals in circulation deserve less weight than they get. This post is research, not a personal visit. Every figure comes from a published source, checked on 21 October 2026."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Kyunghyang Shinmun, 6 May 2026 — civic-group survey, Sep–Dec 2025: 114 no-kids zones; 84 cafes, 22 restaurants; Seoul 30, Gyeonggi 26, Jeju 15; map at 122",
+        "The Korea Herald, 10 Jun 2023 — 451 on a publicly editable map; NHRCK 2017 finding on under-13 bans, non-binding",
+        "The Korea Herald, 16 Oct 2025 — no national law either way; Jeju 2024: 80 of 152 still enforcing; Yes Kids Zone, 300,000 won, 64 applicants",
+        "JejuSori, 11 May 2023 — Jeju ban ordinance shelved: legal reservation, business freedom",
+        "Statistics Korea; Ministry of Agriculture — 100,729 coffee shops end-2022, 106,452 in 2023",
+        "Photo: unidentified cafe interior by Choi Kwang-mo, CC0, Wikimedia Commons. Not a no-kids zone"
+      ],
+      "cta": "We check every claim before we post it.\nSave this before you plan a cafe day"
+    }
+  ],
+  "caption": "You will read that South Korea has more than 500 no-kids zones. It is worth knowing where that number comes from, because it comes from a map anyone could edit. The Korea Herald counted 451 entries on it in 2023. When five civic groups went out and checked, between September and December 2025, they could verify 114 — and their own live map had reached 122 by May 2026. Jeju's provincial government explains the gap neatly: of 152 businesses on its list in 2024, only 80 were still turning children away. The rest had dropped the policy or shut. There is no official register to look up, so treat every figure here, including ours, as an estimate.\n\nWhat the verified count does show clearly is where the practice lives. Of those 114, 84 were cafes — three in four. Another 22 were restaurants. Seoul, Gyeonggi and Jeju held more than 60% between them.\n\nThe legal position surprises people. No national law bans or permits refusing children; it sits in ordinary business discretion. The National Human Rights Commission found in 2017 that blanket bans on under-13s are discriminatory, and that a child's right not to face discrimination outweighs an owner's preference — but that finding carries no legal force. There isn't even a fixed age: signs bar under-6s, under-10s or under-13s depending on who printed them. Jeju tried to outlaw the zones in 2023 and the ordinance was shelved, on the grounds that no higher law authorised it and it would unfairly restrict business freedom. An awareness-raising ordinance passed in its place.\n\nIf you're travelling with kids, the practical read is calm. Even the largest estimate is a few hundred businesses against the 106,452 coffee shops counted nationwide in 2023. Check the venue's Korean listing for 노키즈존 before you go rather than finding out at the door, expect it most often in cafes and most densely on Jeju, and note that Jeju now pays businesses 300,000 won for high chairs and child kit to go the other way. Sources in the last slide.",
+  "hashtags": [
+    "#nokidszone",
+    "#koreancafe",
+    "#koreawithkids",
+    "#familytravelkorea",
+    "#jejuisland",
+    "#cafeculture",
+    "#koreatraveltips",
+    "#deepdivekorea"
+  ]
+}
