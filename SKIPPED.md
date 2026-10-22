@@ -4,9 +4,10 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-20 that is **twenty-seven
+verified, stop without adding a queue item"). As of 2026-10-22 that is **twenty-eight
 consecutive Reel-day skips**, and with the action block withdrawn and the render
-path proven it is the only thing holding the account below a daily schedule. The
+path proven it is the only thing standing between the account and a daily
+*authoring* schedule — publishing is separately dead on the token below. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
 
@@ -147,6 +148,142 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-22 (Thu), reel / bar — SKIPPED
+
+Twenty-eighth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-derived mechanically this run rather than inherited from the 2026-10-20 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Thu 2026-10-22 11:18 KST, `%u` = 4 → **reel / bar /
+  Collab optional**. The task prompt independently specified `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-10-22.** `queue.json` now holds
+  **48** entries (**35 `held`**, 13 `published`) — one more than the 2026-10-20
+  entry recorded, which is yesterday's Carousel being added and then held. The only
+  `2026-10-22` string in the file is the `held_at` timestamp of
+  `2026-10-21-korea-no-kids-zones-en` (held 2026-10-22T00:00:14 KST), which is not a
+  same-day item. Nothing to stop on, so the run proceeded to §2.
+- §3: a Reel needs option 1 (owner original) or option 2 (venue/creator media with
+  written permission). Option 3 (licensed stock) is restricted to a
+  non-venue-specific editorial **Carousel**, and CONTENT.md "Media and rights" says
+  the same independently.
+- **Neither option 1 nor option 2 exists in the repo.** Re-checked mechanically this
+  run: all **49** files in `assets/photos/` are referenced by an existing
+  `content/*.json` (48 content files), so the unused set is **empty**. A repo-wide
+  `git ls-files` filter for `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng`
+  returns **zero** files, so there is no owner video for a Reel either.
+- No new media channel appeared: `git fetch --all` leaves `main` level with
+  `origin/main` at b8e8031, `main` is the only branch, the working tree is clean, and
+  no `inbox/`, `incoming/`, `uploads/`, `media/`, `submissions/` or `originals/` path
+  exists.
+- No ramp flag is set in `queue.json` or any repo note (PIPELINE.md §1), so the ramp
+  constrained nothing — the skip is decided on §3 grounds alone.
+
+Stopped under §0: "If rights, venue existence, or current operation cannot be
+verified, stop without adding a queue item."
+
+**Not done, deliberately: the format was not swapped to Carousel to get a post out.**
+A Carousel would clear §3 on option 3, but PIPELINE.md §1 fixes Thursday as a Reel
+and nothing in §0–§7 authorises substituting a format to dodge a blocked day.
+Changing the weekly slot is an editorial decision for a human, so this run skipped
+rather than quietly rewriting the schedule.
+
+### §2 research — the bar slot is fully researched; only media is missing
+
+**As-of date 2026-10-22.** Worth recording plainly: for the *bar* pillar the research
+is no longer the constraint. Two independent 2026 rankings cover the exact venues the
+repo already has content files for, and the only thing that has ever stopped these
+posts is the photo.
+
+- **Asia's 50 Best Bars 2026**, announced at the Macau ceremony on **28 July 2026**
+  (extended 51–100 list published **14 July 2026**), by UK publisher William Reed on
+  votes from bartenders, bar owners and drinks writers across Asia. Seoul entries as
+  reported by The Korea Times, 29 July 2026: **Zest No. 2** (Cheongdam-dong; also
+  **The Best Bar in Korea for a third consecutive year**; zero-waste, seasonal local
+  ingredients), **Alice No. 13**, **Bar Cham No. 33**, **MMS No. 42**, plus four more
+  in the 51–100 band — **Charles H No. 87** is confirmed by name in the William Reed
+  release, and **eight Seoul bars** are in the top 100 in total.
+  **Caveat for whoever writes this up:** sources disagree on one 51–100 name — one
+  list gives **Gonggan at No. 74** where another gives "Space". Do not print that one
+  without the official list. Tokyo also took four of the 51–100 places.
+- **2026 서울미식 100선** (Seoul Metropolitan Government, press release **6 October
+  2026**): seven categories — Korean 27, Western 23, Asian 15, Grill 10, Café &
+  Dessert 9, Vegetarian 8, **Bar & Pub 8** (sums to 100). Selected by **60 domestic
+  food experts** (food journalists, food travel writers, academic researchers, chefs,
+  tourism specialists); each recommended three venues per category (21 each),
+  recommendations were rank-weighted, and the city chose the final 100 on
+  세계성·전문성·화제성 (global standing, expertise, buzz). **25 venues are new**, of
+  which the four new Bar & Pub entries are **백곰막걸리 (Baekgom Makgeolli), 앨리스
+  청담 (Alice Cheongdam), 장생건강원 (Jangsaeng Geonganwon), 참 제철 (Cham Jecheol)**.
+  **The other four Bar & Pub names are not in any text source** — the city's release,
+  Wikitree and the city mediahub article all name only the new four, and the full 100
+  appears only as images and on the festival site. Do not guess them.
+  *Unverified observation, flagged as such:* 앨리스 청담 and 참 제철 look like the
+  same businesses as Alice (No. 13) and Bar Cham (No. 33) on the 50 Best list, which
+  would be a strong hook — "newly official at home, long ranked abroad" — but the
+  identity of 참 제철 with Bar Cham was **not** confirmed this run and must be checked
+  before it is written.
+- **서울미식주간 2026 runs Fri 2026-10-23 → Thu 2026-10-29** at DDP and across Seoul,
+  with four programs (서울레스토랑위크, 서울미식마켓, 서울미식투어, 서울미식워크숍).
+  **Per-program dates are still unpublished** as of this run — the city's own release
+  says they will be released in stages (순차적으로 공개) on the festival site and
+  `instagram.com/tasteofseoul_official`. The 미식마켓 theme is reported as 집밥
+  (home cooking). The festival opens **tomorrow**.
+
+### Correction to the 2026-10-20 entry: the official site is intermittent, not fixed
+
+The 2026-10-20 entry recorded `tasteofseoul.visitseoul.net` as **reachable again**
+after being down on 10-19, and told future runs to source the lists from it directly.
+**That does not hold.** Both `https://tasteofseoul.visitseoul.net/` and
+`https://tasteofseoul.visitseoul.net/restaurants/list` failed this run with
+`connect ECONNREFUSED 115.68.17.176:443` — the same error as 10-19, from the same IP.
+So the site is **intermittent across days**, not recovered, and a run that needs the
+full 100선/50선 lists cannot count on it. `mediahub.seoul.go.kr` and
+`seoul.go.kr/news/news_report.do` both served full text this run and are the reliable
+fallback, at the cost of only ever naming the 25 new venues rather than all 100.
+
+### Note for the next slot that can ship — Sat 2026-10-24 (Carousel, local)
+
+Wed 2026-10-21 used the cafe slot on no-kids zones, so the 카페·디저트 50선 angle
+recommended by the 10-19 and 10-20 entries is still unused. For Saturday's *local*
+Carousel the stronger option is **서울미식주간 itself**, which will be mid-run on
+10-24 (day 2 of 7): it is editorial, non-venue-specific and city-sourced, so it clears
+§3 option 3 on licensed stock with no venue photo. By then the per-program schedules
+should have been released, which is the one thing missing today. Note the honest hook
+is the same one that made 10-21 work — an official list that the public cannot
+actually read in full, because the site serving it keeps refusing connections.
+
+### Verified working this run
+
+- **WebSearch works** (4 queries, standard and extended, all returned results).
+  **WebFetch works** — `mediahub.seoul.go.kr`, `seoul.go.kr/news/news_report.do`,
+  `wikitree.co.kr` and `kyodonewsprwire.jp` all returned full text. Two failures were
+  the remote's fault, not the tool's: `tasteofseoul.visitseoul.net` ECONNREFUSED (see
+  above) and an `epicureasia.com` article URL that 404s.
+- **`python3 scripts/cardnews.py` works.** Rendered
+  `content/2026-10-21-korea-no-kids-zones-en.json` into a temp dir → **7 slides,
+  all 1080×1350, exit 0**, pillow 13.0.0. Rendered to `/tmp` and **not committed**,
+  since §3 produced no new content to render.
+- `ffmpeg` is still **absent** from the runner image (installable at runtime per the
+  2026-09-22 entry). Moot today: the Reel never reached §4, so `scripts/reel.py` was
+  not exercised.
+- The dead-token publish blocker is unchanged and **not checkable by an agent**
+  (`IG_ACCESS_TOKEN` is a repository secret). It now has a **third** confirmation
+  without any agent action: `2026-10-21-korea-no-kids-zones-en` was queued and
+  rendered correctly yesterday and was **held** at 2026-10-22T00:00:14 KST with the
+  identical fault — `hold_reason: publish_failed_manual_review`, OAuthException
+  **code 190**, "session has been invalidated" (`fbtrace_id AQcvjaPt8uL-8QcaTKLYmYA`).
+  **Three consecutive Carousels — 10-10, 10-17, 10-21 — have now been authored
+  correctly and lost at the final step.** Re-authorizing `IG_ACCESS_TOKEN` through
+  Instagram Login (CONNECT-GUIDE.md) remains the top-priority human action; until it
+  happens, Saturday's Carousel will be lost the same way. Nothing was queued this
+  run, so no item was exposed to it today.
+- `--max-turns 60` did not bite: `.github/workflows/daily-content.yml` is unchanged,
+  but a Reel-day run stops at the §3 gate and stays well inside the budget.
 
 ---
 
