@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-22 that is **twenty-eight
+verified, stop without adding a queue item"). As of 2026-10-23 that is **twenty-nine
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing standing between the account and a daily
 *authoring* schedule — publishing is separately dead on the token below. The
@@ -148,6 +148,136 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-23 (Fri), reel / restaurant — SKIPPED
+
+Twenty-ninth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-derived mechanically this run rather than inherited from the 2026-10-22 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Fri 2026-10-23 11:24 KST, `%u` = 5 → **reel /
+  restaurant / Collab candidate**. The task prompt independently specified `reel`;
+  the two agree.
+- §0: **no `pending` or `published` item for 2026-10-23.** `queue.json` still holds
+  **48** entries and contains no `2026-10-23` string at all. Nothing to stop on, so
+  the run proceeded to §2.
+- §3: a Reel needs option 1 (owner original) or option 2 (venue/creator media with
+  written permission). Option 3 (licensed stock) is restricted to a
+  non-venue-specific editorial **Carousel**, and CONTENT.md "Media and rights" says
+  the same independently.
+- **Neither option 1 nor option 2 exists in the repo.** Re-checked mechanically:
+  all **49** files in `assets/photos/` are referenced by one of the **48**
+  `content/*.json` files, so the unused set is **empty** — unchanged from 10-22, and
+  no asset has been added since `2026-10-21-korea-no-kids-zones-en.jpg`. A repo-wide
+  `git ls-files` filter for `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng`
+  returns **zero** files, so there is no owner video for a Reel either.
+- No new media channel appeared: `git fetch --all` leaves `main` level with
+  `origin/main` at 80fb3af, `main` is the only branch, the working tree is clean,
+  and no `inbox/`, `incoming/`, `uploads/`, `media/`, `submissions/` or `originals/`
+  path exists.
+- No ramp flag is set in `queue.json` or any repo note (PIPELINE.md §1) — the only
+  `ramp` hits are prose in CONTENT.md, PIPELINE.md and this file — so the ramp
+  constrained nothing and the skip is decided on §3 grounds alone.
+
+Stopped under §0: "If rights, venue existence, or current operation cannot be
+verified, stop without adding a queue item."
+
+**Not done, deliberately: the format was not swapped to Carousel to get a post out,**
+and no licensed-stock Reel was attempted. Friday is a Reel in PIPELINE.md §1 and
+nothing in §0–§7 authorises substituting a format to dodge a blocked day; §3 option 3
+says *Carousel*, and CONTENT.md repeats that stock is "limited to an occasional
+editorial Carousel". Both changes are editorial decisions for a human.
+
+### §2 research — the restaurant slot now has a strong, unused 2026 hook
+
+**As-of date 2026-10-23.** As with the bar slot on 10-22, research is not the
+constraint for the restaurant pillar; the photo is.
+
+- **Michelin Guide Seoul & Busan 2026 Bib Gourmand**, announced **26 February 2026**
+  ahead of the star reveal in Busan on 5 March 2026: **8 new entries** across both
+  cities, of which **5 are in Seoul**. Bib Gourmand means a full meal under
+  **45,000 won** per person. New Seoul names reported: **3rd Samgyetang** (Seocho;
+  same family since 1973), **Gosari Express** (Sindang-dong Jungang Market; gosari
+  oil sauce), **Sobakeeri Suzu** (Korean-buckwheat soba), **Andeok** (beef naengguksu,
+  mandutguk) and **Oilje** (perilla-seed miyeok-guk).
+  **Verification status, stated plainly: this came from a single standard WebSearch
+  pass and the primary sources were not fetched this run.** The 8-entry total and the
+  45,000-won ceiling were consistent across sources, but **Oilje's location was not
+  confirmed as Seoul**. Before any of this is written up, fetch the Michelin release
+  directly (`guide.michelin.com/.../korea-bib-gourmand-2026`) and corroborate with
+  Korea JoongAng Daily (`/lifestyle/michelin-releases-2026-bib-gourmand-adds-8-new-korean-restaurants/12491521`).
+  **Note for whoever uses this:** the repo already has `content/2026-09-07-gosari-express-en.json`
+  and a photo for it — but that photo is stock, so it does **not** unblock a Reel.
+- The **affordability** angle is the honest one here: a Michelin-listed meal with a
+  published price ceiling is checkable, non-subjective and useful to a traveller,
+  which suits CONTENT.md's "no unsupported superlatives" rule.
+
+### Correction for Saturday: the full 서울미식 100선 list *is* readable after all
+
+The 10-20 and 10-22 entries recorded that text sources only ever name the **25 new**
+venues and that the full 100 "appears only as images and on the festival site". That
+is now out of date, and it matters for the next post that can ship:
+
+- `tasteofseoul.visitseoul.net` **was reachable this run**, from the same tooling that
+  got `ECONNREFUSED 115.68.17.176:443` on 10-19 and 10-22. So the site is confirmed
+  **intermittent across days** — treat reachability as a coin flip, not as fixed
+  either way.
+- `tasteofseoul.visitseoul.net/restaurants/list` serves the **full 100선 as a
+  paginated, filterable list** — "100개의 지점이 검색되었습니다", pages 1–9, filters for
+  all seven categories (한식·양식·아시아·그릴·채식·바&펍·디저트&카페) and all 25
+  districts. Page 1 alone named 12 venues (9 디저트&카페, 3 한식). A run that needs
+  venue names beyond the new 25 **can** get them here — but only while the site is up,
+  so capture them in the content JSON when it is.
+- The festival index now lists **8 programs**, not the 4 in the press release:
+  서울레스토랑위크, 서울미식마켓, 서울미식투어, **서울미식클래스** (the release called
+  it 워크숍), **서울미식어워즈**, 서울 바비큐 페스티벌, 도곡시장 푸드컬처 페스타,
+  마장동 한우바비큐 체험.
+- **Per-program dates are still unpublished even on day 1.** The index carries no
+  dates, and the city's line is unchanged: schedules release 순차적으로 on the site and
+  `instagram.com/tasteofseoul_official`. So the gap the 10-22 entry hoped would close
+  by Saturday has **not** closed. Do not invent a schedule; the festival window
+  (**23–29 October 2026, DDP and citywide**) is the only date fact confirmed by the
+  city itself (mediahub.seoul.go.kr/archives/2019580).
+- Separately confirmed and still unused: **디저트 50선** is a distinct list of 50 cafes
+  and dessert spots, **presented separately for the first time this year**, judged on
+  drink/dessert quality, the space, popular appeal and accessibility for foreign
+  tourists. It is *not* the 9 디저트&카페 entries inside the 100선. That is a clean
+  editorial Carousel topic for a future cafe slot.
+
+### Note for the next slot that can ship — Sat 2026-10-24 (Carousel, local)
+
+The 10-22 recommendation still stands and is now better supported: 서울미식주간 will be
+**day 2 of 7** on Saturday, it is editorial and non-venue-specific, and it clears §3
+option 3 on licensed stock with no venue photo. Two honest hooks, both verified above:
+the official 100선 list *is* now readable in full on the city's site, while the
+**per-program schedule for a festival already running is still not published** — the
+city opened the week without telling people when its own programs happen.
+
+### Verified working this run
+
+- **WebSearch works** (2 queries, standard, both returned results). **WebFetch works**
+  — `koreaherald.com`, `mediahub.seoul.go.kr`, `tasteofseoul.visitseoul.net/` and
+  `tasteofseoul.visitseoul.net/restaurants/list` all returned full text. **No fetch
+  failed this run**, which is itself the evidence for the intermittency finding above.
+- **`python3 scripts/cardnews.py` works.** Rendered
+  `content/2026-10-21-korea-no-kids-zones-en.json` into `/tmp` → **7 slides, exit 0**,
+  no errors. Rendered to `/tmp` and **not committed**, since §3 produced no new content
+  to render.
+- `ffmpeg` is still **absent** from the runner image (installable at runtime per the
+  2026-09-22 entry). Moot today: the Reel never reached §4, so `scripts/reel.py` was
+  not exercised.
+- The dead-token publish blocker is unchanged and **not checkable by an agent**
+  (`IG_ACCESS_TOKEN` is a repository secret); the three confirmations recorded in the
+  10-22 entry (10-10, 10-17, 10-21, all OAuthException **code 190**) stand, and no new
+  evidence arrived because nothing was queued since. Re-authorizing `IG_ACCESS_TOKEN`
+  through Instagram Login (CONNECT-GUIDE.md) remains the top-priority human action —
+  **Saturday's Carousel will be lost the same way unless it happens first.** Nothing
+  was queued this run, so no item was exposed to it today.
+- `--max-turns 60` did not bite: a Reel-day run stops at the §3 gate well inside budget.
 
 ---
 
