@@ -1,0 +1,113 @@
+{
+  "slug": "2026-10-24-korea-address-system-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-10-24T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: '20250215 동작구 상도로' by Wikimedia Commons user Striker9498, own work, taken 2025-02-15 14:02:43, Creative Commons Zero / Public Domain Dedication. Licence verified against the Wikimedia Commons API on 2026-10-24 KST — License 'cc0', LicenseShortName 'CC0', UsageTerms 'Creative Commons Zero, Public Domain Dedication', AttributionRequired 'false', Restrictions field empty, LicenseUrl creativecommons.org/publicdomain/zero/1.0, Categories CC-Zero / Self-published work / 'Streets in Seoul' / 'Dongjak-gu, Seoul'. CC0 waives all rights worldwide: commercial use and modification are permitted with no attribution obligation and no share-alike obligation. The photographer is credited on the sources slide anyway as a matter of practice. A share-alike licence was deliberately avoided, as on 2026-10-10, 2026-10-17 and 2026-10-21: scripts/cardnews.py produces a duotoned derivative, which CC BY-SA would oblige us to relicense under the same terms. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel: this post recommends no venue, names no business as its subject, and its subject is a nationwide addressing system rather than any one place. The file's EXIF GPS (37.499725, 126.924888) and the legible overhead direction sign ('상도역 Sangdo Stn / 장승배기 Jangseungbaegi / 신림역 Sillim Stn') both place it on Sangdo-ro in Dongjak-gu, Seoul, which matches the uploader's own description, so the image is an honest depiction of an ordinary Seoul neighbourhood road — exactly the kind of '-ro' the post explains, and it is described that way on the sources slide rather than as any venue the post discusses. ORIENTATION FIX: the original is stored 4000x3000 landscape with EXIF orientation tag 6, and scripts/cardnews.py opens images without ImageOps.exif_transpose, so the unmodified file renders rotated 90 degrees. The stored asset therefore has the rotation baked in (exif_transpose applied, EXIF dropped) — verified upright 3000x4000 before any further edit. CROP: the right-hand pavement strip was removed before storing (upright 3000x4000 cropped to 0,0,2520,4000) because two pedestrians stood close to the camera there, one facing it; at the 1080x1350 centre crop cardnews.py applies they would have been rendered at readable size on the cover, where the photo is pasted near full strength under only a partial bottom scrim. Removing them was preferred to publishing an identifiable bystander's face. The remaining frame was then resized to 1512x2400. Checked by eye at full size and at the exact 1080x1350 centre crop the renderer applies (1512x2400 scales to 1080x1714 and is cropped to the centre 1350px, i.e. y 182-1532): the only people left are distant mid-street figures a few pixels tall, inspected at 4x magnification — all are back-turned, side-on or helmeted and none has a resolvable face. Shopfront signage is present, as it is in any street photograph, but no business is the subject of the post, none is named in any slide, and the post makes no claim of any kind about any business visible in frame; the subject is a government addressing rule, so nothing in the copy can be read as an assertion about a pictured shop. No modification beyond exif_transpose, the crop described above, and the resize.",
+  "location": "Seoul, South Korea",
+  "venue_handle": null,
+  "search_keyword": "how to read a Korean address road name gil building number",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-10-24-korea-address-system-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": "The address already\ntells you where it is.",
+      "subline": "A Korean street number is a coordinate, not a label. Three rules and you can walk straight to the place",
+      "bg_image": "assets/photos/2026-10-24-korea-address-system-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "KOREAN ADDRESSES",
+      "value": "× 10",
+      "label": "Multiply a building number on a -daero or -ro by about ten and you get roughly how many metres it sits from the start of that road",
+      "note": "Anyang City's own worked example: Simin-daero runs from number 1 to number 423, and the road is about 4.23 km long · Sources: Anyang City, Hanam City, juso.go.kr · Checked 24 October 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Every road is\na number line.",
+      "body": "A Korean road is measured from a fixed start point, and the direction is set by rule: west to east, south to north. Numbers are then laid down the road at 20-metre intervals — odd on your left, even on your right, as you walk from that start point.\n\nSo the number is a distance, not a position in a queue. Two consecutive numbers sit about 10 metres apart on opposite sides, which is where the ×10 shortcut comes from. On a narrow -gil the steps are tighter, roughly half that, because the interval can be set under 20 metres."
+    },
+    {
+      "type": "list",
+      "title": "Reading the name\nitself",
+      "items": [
+        {
+          "t": "-daero, -ro, -gil tell you the size",
+          "d": "A -daero is 8 lanes or more, a -ro is 2 to 7 lanes, and a -gil is everything smaller. The suffix alone says whether you are heading for a boulevard or an alley"
+        },
+        {
+          "t": "The number in an alley name is the useful part",
+          "d": "An alley is named after its parent road. 'Anyang-ro 398-beon-gil' is the alley that branches off Anyang-ro at number 398 — so about 3.98 km along it"
+        },
+        {
+          "t": "Look for 번 (beon). It changes the meaning",
+          "d": "With 번, the number is a distance. Without it — Seoul's usual form, like Dapsimni-ro 23-gil — it simply counts the side streets in branching order, odd to the left and even to the right"
+        },
+        {
+          "t": "A hyphen means same spot, next door",
+          "d": "12-1 and 12-2 are separate buildings sharing one 20-metre interval, numbered by their main entrances. A further alley off an alley adds 가, 나, 다"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "Using it on\nthe ground",
+      "items": [
+        {
+          "t": "Pick your side before you start walking",
+          "d": "Odd and even sit on opposite sides of the road. Checking whether your number is odd or even halves the search before you take a step"
+        },
+        {
+          "t": "Let the number tell you how far",
+          "d": "Number 18 is near the top of the road; number 320 is a 3-kilometre walk from it. If the count is rising as you walk, you are going the right way"
+        },
+        {
+          "t": "Old lot numbers are still everywhere",
+          "d": "Road-name addresses have been the only legal ones since 1 January 2014, but jibeon lot numbers survive in property records and casual use. Map apps take both; the two do not convert by arithmetic"
+        },
+        {
+          "t": "Signs carry the range",
+          "d": "Street plates show the numbers covered by that stretch, so a plate reading 1→423 is telling you the road's whole span. Read it before you commit to a direction"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "It is a rule of thumb,\nnot a map. Know which\nhalf you are standing in.",
+      "by": "The ×10 trick is an approximation. Numbers are assigned to the road at fixed intervals rather than to buildings, so gaps, infill and odd-shaped plots all bend the arithmetic — and Seoul's plain -gil names carry no distance at all, only a count. The method that works in Anyang will quietly mislead you in Jongno. This post is research, not a personal visit. Every rule here comes from a published government source, checked on 24 October 2026."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "주소정보누리집 juso.go.kr, Ministry of the Interior and Safety — road classes (-daero 8+ lanes, -ro 2–7, -gil the rest); 20 m intervals; odd left, even right; west→east, south→north; 가/나/다 sub-branches",
+        "Anyang City — Simin-daero numbered 1→423 ≈ 4.23 km; 'Anyang-ro 398-beon-gil' branches at basic number 398",
+        "Hanam City — building number × approx. 10 m on -daero/-ro, × approx. 5 m on smaller roads; 20 m basic-number interval",
+        "Geumcheon-gu, Seoul — 20 m is the rule for -daero and -ro; a -gil may be set under 20 m by terrain",
+        "Dongdaemun-gu, Seoul — a -gil is numbered by branching order from the parent road, odd to the left and even to the right",
+        "Gangdong-gu, Seoul; Seoul Mediahub — jibeon and road-name addresses ran in parallel 29 Jul 2011 to 31 Dec 2013; road-name sole legal basis from 1 Jan 2014",
+        "Photo: Sangdo-ro, Dongjak-gu, Seoul, by Striker9498, CC0, Wikimedia Commons. An ordinary Seoul road, not a venue this post recommends"
+      ],
+      "cta": "We check every claim before we post it.\nSave this before your next alley hunt"
+    }
+  ],
+  "caption": "Korean addresses look like a wall of unfamiliar words, and most visitors give up and follow the blue dot. That is a shame, because the address is already telling you where the place is — it just encodes it as a distance rather than a name.\n\nHere is the system. Every road has a fixed start point, with the direction set by rule: west to east, south to north. Numbers are then laid along it at 20-metre intervals, odd numbers on the left and even on the right as you walk from that start. Because the two sides alternate, consecutive numbers sit roughly 10 metres apart — which is why multiplying a building number on a -daero or -ro by about ten gives you its rough distance in metres from the start of the road. Anyang City uses its own street to demonstrate it: Simin-daero runs from number 1 to number 423, and the road is about 4.23 km long. On a narrow -gil the steps are tighter, roughly half that, because the interval can be set under 20 metres.\n\nThe suffix is doing work too. A -daero is eight lanes or more, a -ro is two to seven, and a -gil is everything smaller, so the name alone tells you whether you are heading for a boulevard or a back alley. And when an alley is named after its parent road, look closely for 번 (beon). 'Anyang-ro 398-beon-gil' branches off Anyang-ro at number 398, about 3.98 km along it. But Seoul mostly uses the other form: in a name like Dapsimni-ro 23-gil there is no 번, and the number is not a distance at all — it just counts the side streets in branching order, odd ones to the left and even ones to the right. Same-looking name, completely different meaning. Hyphens, meanwhile, mean neighbours: 12-1 and 12-2 are separate buildings sharing one interval.\n\nTwo honest caveats. Numbers are assigned to the road rather than to buildings, so gaps and infill bend the arithmetic — treat it as a rule of thumb, not a map. And old jibeon lot numbers are still everywhere, in property records and in everyday speech, even though road-name addresses have been the only legal ones since 1 January 2014; map apps accept both, but the two systems do not convert by arithmetic. Know which half you are standing in and you will find the restaurant. Sources in the last slide.",
+  "hashtags": [
+    "#koreantravel",
+    "#seoultravel",
+    "#koreatraveltips",
+    "#koreanaddress",
+    "#seoulneighborhoods",
+    "#dongjakgu",
+    "#traveltipskorea",
+    "#deepdivekorea"
+  ]
+}
