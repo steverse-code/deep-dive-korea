@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-25 that is **thirty
+verified, stop without adding a queue item"). As of 2026-10-26 that is **thirty-one
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing standing between the account and a daily
 *authoring* schedule — publishing is separately dead on the token below. The
@@ -177,6 +177,86 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-26 (Mon), reel / restaurant — SKIPPED
+
+Thirty-first consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-derived mechanically this run rather than inherited from the 2026-10-25 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Mon 2026-10-26 11:09 KST, `%u` = 1 → **reel /
+  restaurant / Collab optional**. The task prompt independently specified `reel`;
+  the two agree.
+- §0: **no `pending` or `published` item for 2026-10-26.** `queue.json` holds **49**
+  entries (36 `held`, 13 `published`) and contains no `2026-10-26` string at all.
+  Nothing to stop on, so the run proceeded.
+- §3: a Reel needs option 1 (owner original) or option 2 (venue/creator media with
+  written permission). Option 3 (licensed stock) is restricted to a
+  non-venue-specific editorial **Carousel**; CONTENT.md "Media and rights" says the
+  same independently ("Venue-specific Reels and Collabs must use original or written
+  partner-authorized media").
+- **Neither option 1 nor option 2 exists in the repo.** All **50** files in
+  `assets/photos/` are referenced by one of the **49** `content/*.json` files, so the
+  unused set is **empty**. A repo-wide `git ls-files` filter for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng` returns **zero** files, so
+  there is no owner video for a Reel either.
+- A fresh audit of all 49 content files (not inherited): **9** carry
+  `policy_version: 2` and all nine are `asset_source: licensed_stock` on a
+  `carousel`. **Zero** files anywhere in the repo declare `original` or
+  `partner_licensed`. The one human-added photo, `assets/photos/cheongildip-en.jpg`
+  (392aefd, 2026-08-25), remains rejected for the reasons set out on 2026-10-25: it
+  predates the policy-v2 rewrite and its post records no rights metadata, so
+  "supplied by the owner" cannot be verified — and it is the wrong pillar besides.
+- No new media channel appeared: `git fetch --all` leaves `main` level with
+  `origin/main` at 06bb749, `main` is the only branch, the tree is clean, and no
+  `inbox/`, `incoming/`, `uploads/`, `media/`, `submissions/`, `originals/` or
+  `footage/` path exists.
+- No ramp flag is set in `queue.json`, `.github/` or `scripts/` (PIPELINE.md §1), so
+  the ramp constrained nothing and the skip is decided on §3 grounds alone.
+
+Stopped under §0: "If rights, venue existence, or current operation cannot be
+verified, stop without adding a queue item." Research was not carried out, because
+the gate that fails is upstream of it: no amount of verified venue fact produces a
+publishable Reel without compliant media.
+
+### Verified working this run
+
+- `scripts/cardnews.py` renders **7 slides** with no error, exit 0, each 1080×1350
+  (run on `content/2026-10-24-korea-address-system-en.json` into a scratch dir
+  outside the repo; nothing committed). Slide 04 — the most text-heavy `list` slide —
+  was opened and inspected by eye: all four item titles and bodies sit inside the
+  text column with no collision and no clipping, per the 2026-09-14 note that `fit()`
+  overflows silently and exit 0 proves nothing.
+- **WebSearch works** (MICHELIN Guide Seoul & Busan 2026 query returned current
+  results). **WebFetch works** on korea.stripes.com.
+- **ffmpeg is still absent from the runner image** (`which ffmpeg` → not found), so
+  §4's `scripts/reel.py` step would need `sudo apt-get install -y ffmpeg` first. Not
+  a blocker (installable per-run) and moot today, but the `ffmpeg 설치` step
+  requested on 2026-09-15 still has not landed in `daily-content.yml`.
+
+### The two publish-side faults, re-checked (both still open)
+
+- **The caption cap is still undocumented.** `scripts/publish.py:36` still sets
+  `MAX_CAPTION = 2200` and raises at publish time (`:73-74`), and a grep of
+  PIPELINE.md and CONTENT.md for `2200` still returns nothing. The 2026-10-25 header
+  note's recommendation stands unactioned, so **the next Carousel run (Wed
+  2026-10-28) must budget the caption itself**: keep `caption` + hashtags under 2200,
+  aim at ~2000, and verify before committing with the one-liner in that note.
+- **`--max-turns 60` is still unraised** (`.github/workflows/daily-content.yml:80`;
+  `timeout-minutes: 30` at `:37`). Unchanged and still human-only to fix.
+- The dead `IG_ACCESS_TOKEN` (OAuthException code 190) was not re-tested this run —
+  nothing was queued, so nothing reached the publisher — and remains last-proven
+  2026-10-17. Assume it stands.
+
+**Not done, deliberately:** the format was not swapped to Carousel to get a post
+out. PIPELINE.md §1 assigns Monday a Reel and the task prompt says `reel`; moving
+venue days to Carousel is one of the three fixes listed in the 2026-09-15 entry and
+is an editorial decision for a human. Also not done: reviving any of the `held`
+items (§0) and catching up the missed days (§0).
 
 ---
 
