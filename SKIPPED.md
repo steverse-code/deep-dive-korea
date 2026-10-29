@@ -4,12 +4,26 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-27 that is **thirty-two
+verified, stop without adding a queue item"). As of 2026-10-29 that is **thirty-three
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing standing between the account and a daily
 *authoring* schedule — publishing is separately dead on the token below. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
+
+**NEW as of 2026-10-29 — the turn cap, not the caption cap, took Wed 2026-10-28.**
+The 2026-10-27 entry warned that the next run was the 10-28 Carousel and told it to
+budget the caption under 2200 characters. That advice was never reached: run
+**40623623652** failed at **11m42s** with `"subtype": "error_max_turns"` and
+`Reached maximum number of turns (60)`, failing step `콘텐츠 작성`. No content JSON,
+no queue entry, no skip note — a silent miss, confirmed this run from the Actions
+log rather than inferred from the empty tree. **Carousel days lost to `--max-turns 60`
+are now 09-30, 10-03, 10-14 and 10-28 — four of the last nine.** So the caption cap
+measured on 10-24 is still untested, and the two publish-side faults are now
+*queued behind each other*: the turn cap stops the item being authored, the caption
+cap would stop a long one being published, and the dead token would stop whatever
+survived. Raising `--max-turns` remains the single highest-value human fix, because
+it is the only one of the three that blocks the format that can still ship.
 
 **NEW as of 2026-10-25 — a second, self-inflicted publish fault: the caption cap.**
 `2026-10-24-korea-address-system-en` (Carousel, the one format that can ship) was
@@ -177,6 +191,96 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-10-29 (Thu), reel / bar — SKIPPED
+
+Thirty-third consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-derived mechanically this run rather than inherited from the 2026-10-27 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Thu 2026-10-29 12:19 KST, `%u` = 4 → **reel / bar /
+  Collab optional**. The task prompt independently specified `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-10-29.** `queue.json` holds **49**
+  entries (**13** `published`, **36** `held`, **0** `pending`) and the string
+  `2026-10-29` does not appear in it. Nothing to stop on, so the run proceeded.
+- §3: a Reel needs option 1 (owner original) or option 2 (venue/creator media with
+  written permission). Option 3 (licensed stock) is restricted to a
+  non-venue-specific editorial **Carousel**, and CONTENT.md "Media and rights" says
+  the same independently. This binds on **format**, so the Thursday/bar escape — a
+  drink or a cocktail style as the subject rather than one venue — is closed too.
+- **Neither option 1 nor option 2 exists in the repo.** All **50** files in
+  `assets/photos/` are referenced by one of the **49** `content/*.json` files, so the
+  unused set is **empty**. `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|png` returns **zero** files, so
+  there is no owner video for a Reel either.
+- A fresh audit of all 49 content files: **9** carry `policy_version: 2` and all nine
+  are `asset_source: licensed_stock` on a `carousel`. **Zero** files anywhere in the
+  repo declare `original` or `partner_licensed`.
+- Primary evidence that the existing bar photos are the forbidden case, read this run
+  from the file rather than from an earlier entry: the sources slide of
+  `content/2026-09-10-le-chamber-en.json` ends "Photo: Unsplash License (Adam Jaime)
+  — a representative classic cocktail, **not Le Chamber itself**". That is precisely
+  §3's "Do not use a mood photo as if it depicts the named place." The same pattern
+  covers all nine `pillar: bar` posts, so none of their photos can be reused today.
+- No new media channel appeared: `git fetch --all` leaves `main` level with
+  `origin/main` at f1e947d, `main` is the only branch, the tree is clean, and no
+  `inbox/`, `incoming/`, `uploads/`, `media/`, `submissions/`, `originals/` or
+  `footage/` path exists. No human has added media since 2026-08-25.
+- No ramp flag is set in `queue.json`, `.github/` or `scripts/` (PIPELINE.md §1), so
+  the ramp constrained nothing and the skip is decided on §3 grounds alone.
+
+Stopped under §0: "If rights, venue existence, or current operation cannot be
+verified, stop without adding a queue item."
+
+### Verified working this run — the whole render path, including the MP4
+
+This is the first entry to prove **both** §4 render steps in one run, which isolates
+§3 as the only remaining blocker on a Reel day:
+
+- `scripts/cardnews.py` renders **7 slides**, exit 0, each **1080×1350**.
+- `sudo apt-get install -y ffmpeg` **succeeds on this runner** (exit 0,
+  `/usr/bin/ffmpeg`), and with it `scripts/reel.py` produced a valid
+  **1080×1920, 22.20s** MP4 — 9:16 confirmed by `ffprobe`, not by filename. Before
+  the install, `reel.py` fails with `FileNotFoundError: 'ffmpeg'` at
+  `scripts/reel.py:45`; note it exits **0** on that traceback, so a caller that
+  checks only the exit status would read the failure as success.
+- Both were run on `content/2026-10-24-korea-address-system-en.json` into
+  `/tmp/rendertest`, outside the repo. **Nothing was committed.**
+- The `ffmpeg 설치` step requested on 2026-09-15 still has not landed in
+  `daily-content.yml`; it costs each run an install but blocks nothing.
+- **WebSearch works** and **WebFetch works** (`korea.stripes.com` returned the
+  Asia's 50 Best Bars 2026 Seoul set). Recorded as a tool check — see below for the
+  one editorially useful fact that fell out of it.
+
+### Worth knowing before the next bar day: the bar beat is fully covered
+
+Not a blocker, but it changes what a human should supply media for. The eight Seoul
+entries on **Asia's 50 Best Bars 2026** are Zest No. 2, Alice No. 13, Bar Cham
+No. 33, M+MS No. 42, Space No. 74, Charles H. No. 87, Le Chamber No. 88 and Soko
+No. 89 (`korea.stripes.com`, fetched this run). **All eight already have posts** —
+and note that "Space" is 공간/**Gong-Gan**, covered on 2026-09-12 at the same No. 74,
+so the two names are one venue and the set really is exhausted. Mr. Ahn's Craft
+Makgeolli, the obvious non-ranked candidate, was covered on 2026-08-27.
+
+So the next bar Reel needs either a venue off that list or a fresh angle on a covered
+one, and the ranked-list well is dry. Candidates that surfaced but were **not
+verified to §2 standard** and must not be used as-is: Damotori, Neulin Maeul Brewery
+(Euljiro) and Juan Makgeolliano — all three appeared only in blogs and travel
+aggregators, with no official listing or credible recent source behind them. Full
+§2 verification was not attempted, because the gate that fails is upstream: no amount
+of verified venue fact produces a publishable Reel without compliant media.
+
+**Not done, deliberately:** the format was not swapped to Carousel to get a post out.
+PIPELINE.md §1 assigns Thursday a Reel and the task prompt says `reel`; moving venue
+days to Carousel is one of the three fixes listed in the 2026-09-15 entry and is an
+editorial decision for a human. Also not done: reviving any of the 36 `held` items
+(§0), catching up 2026-10-28 or any other missed day (§0), and editing PIPELINE.md /
+CONTENT.md to document the caption cap or raise `--max-turns` — those are changes to
+the source of truth and to a workflow file, and are likewise reserved for a human.
 
 ---
 
