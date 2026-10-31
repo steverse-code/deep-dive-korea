@@ -351,5 +351,12 @@
     "held_at": "2026-10-24T22:55:29.660889+09:00",
     "hold_reason": "publish_failed_manual_review",
     "error": "캡션 2328자 — 상한 2200자를 넘습니다."
+  },
+  {
+    "slug": "2026-10-31-seoul-tourist-zones-en",
+    "pillar": "local",
+    "format": "carousel",
+    "publish_at": "2026-10-31T18:30:00+09:00",
+    "status": "pending"
   }
 ]

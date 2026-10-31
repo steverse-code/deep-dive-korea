@@ -1,0 +1,89 @@
+{
+  "slug": "2026-10-31-seoul-tourist-zones-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-10-31T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: 'Myeongdong, Seoul - Myeongdong3165.jpg' by Flickr user lumoplank, uploaded to Wikimedia Commons, Creative Commons Zero / Public Domain Dedication. Licence verified against the Wikimedia Commons API on 2026-10-31 KST — License 'cc0', LicenseShortName 'CC0', UsageTerms 'Creative Commons Zero, Public Domain Dedication', LicenseUrl creativecommons.org/publicdomain/zero/1.0, AttributionRequired 'false', Restrictions field empty, Categories include CC-Zero / Seoul / Myeongdong and 'Flickr images reviewed by FlickreviewR 2' (so the CC0 status was machine-checked against the Flickr source, https://www.flickr.com/photos/199350666@N08/54279090438). CC0 waives all rights worldwide: commercial use and modification are permitted with no attribution obligation and no share-alike obligation. The photographer is credited on the sources slide anyway as a matter of practice. A share-alike licence was deliberately avoided, as on 2026-10-10, 2026-10-17, 2026-10-21 and 2026-10-24: scripts/cardnews.py produces a duotoned derivative, which CC BY-SA would oblige us to relicense under the same terms. A CC BY 4.0 alternative ('Myeongdong street.jpg') was also available and would have been usable, but the CC0 file was preferred because it carries no attribution condition at all. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel: this post recommends no venue, names no business as its subject, and its subject is a statutory designation applied to whole neighbourhoods rather than any one place. SUBJECT HONESTY: the uploader's description is 'The façade of Myeongdong Theater (명동예술극장) at dusk', and the file's coordinates (37.560897, 126.986376) place it in Myeongdong, Jung-gu, Seoul. Myeongdong is one of the eight Seoul special tourist zones this post is actually about, so the image is an honest depiction of a named subject of the post rather than a mood shot standing in for somewhere else, and the sources slide identifies it by name and location. The building is Myeongdong Theater, a public performing-arts venue run by the National Theater Company of Korea — not a restaurant, cafe or bar, not a business this post recommends, and not the subject of any claim in the copy; it appears as architecture that identifies the Myeongdong zone. ORIENTATION: checked for the EXIF rotation problem found on 2026-10-24 — this file has no orientation tag (getexif()[274] is None) and ImageOps.exif_transpose is a no-op on it, so scripts/cardnews.py, which opens images without exif_transpose, renders it upright. CROP: the original is 5215x3476 landscape; the left 22 percent was removed before storing (cropped to 4068x3476, then resized to 2400x2050, EXIF dropped on save). Two reasons: it removes the only human figure in the frame, a dark unlit silhouette at the extreme bottom-left edge, and it re-centres the lit 명동예술극장 / MYEONGDONG THEATER signage so the renderer's centre crop does not cut it mid-word. Verified by rendering the exact 1080x1350 centre crop that scripts/cardnews.py applies and inspecting it at full size: the frame contains the lit facade, the marquee and the dusk sky, and no people at all — no face, identifiable or otherwise, appears anywhere in the published crop. No modification beyond that crop and the resize.",
+  "location": "Seoul, South Korea",
+  "venue_handle": null,
+  "search_keyword": "Seoul special tourist zone late night Myeongdong Hongdae Itaewon",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-10-31-seoul-tourist-zones-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": "Eight parts of Seoul\nthe closing-hours law\ncannot touch.",
+      "subline": "It is a legal status, not a reputation. Here is what it does, where it applies, and what it does not promise",
+      "bg_image": "assets/photos/2026-10-31-seoul-tourist-zones-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "SPECIAL TOURIST ZONES",
+      "value": "8",
+      "label": "Seoul neighbourhoods hold the designation. Inside one, the law a district office would use to impose closing hours on restaurants and bars does not apply at all",
+      "note": "37 zones nationwide across 14 provinces and metropolitan cities · Sources: Tourism Promotion Act art. 74; Ministry of Culture, Sports and Tourism designation table, July 2026 · Checked 31 October 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "A power removed,\nnot a licence given.",
+      "body": "Article 43 of the Food Sanitation Act lets a district office restrict the trading hours and the conduct of food and drink businesses where it judges public order requires it. The limit is set by municipal ordinance, and the Enforcement Decree caps any hours restriction at eight hours a day.\n\nArticle 74 of the Tourism Promotion Act then switches that off: inside a designated special tourist zone, Article 43 does not apply. So the zone does not grant anyone the right to trade late. It takes away the instrument the district would otherwise reach for."
+    },
+    {
+      "type": "list",
+      "title": "The eight,\noldest first",
+      "items": [
+        { "t": "Itaewon — 1997", "d": "The first, and still one of the smallest at 0.39 km²" },
+        { "t": "Myeongdong, Namdaemun, Bukchangdong, Dadong, Mugyodong — 2000", "d": "One zone, five areas, 0.87 km² of central Jung-gu" },
+        { "t": "Dongdaemun Fashion Town — 2002 · Jongno and Cheonggye — 2006", "d": "0.58 and 0.54 km². The night-market and old-centre pair" },
+        { "t": "Jamsil — 2012 · Gangnam MICE — 2014", "d": "The largest, 2.31 km², and the smallest, 0.19 km²" },
+        { "t": "Hongdae Culture and Arts — 2021 · Express Bus Terminal and Sebit — 2024", "d": "The two newest. The Seocho zone, added 26 December 2024, is the first on the Han River" }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "How a neighbourhood\nqualifies",
+      "items": [
+        { "t": "Half a million foreign visitors a year", "d": "The Enforcement Decree threshold is 100,000 over the last year — but 500,000 in Seoul" },
+        { "t": "At most ten per cent unrelated land", "d": "Forest, farmland, industrial sites and housing plots with no direct tourism use are capped, and the area cannot be split into separate pieces" },
+        { "t": "The district applies, the city designates", "d": "A gu office files; the metropolitan or provincial government grants it. The gu must then run a standing promotion plan for the zone" },
+        { "t": "It can be taken away", "d": "The ministry and the city assess how the plan is being delivered. A zone that stops meeting the bar can have its boundary cut or its status revoked" }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "A zone is a postcode,\nnot a promise. Nothing\nin it keeps one door open.",
+      "by": "The exemption removes a power; it creates no obligation. No shop is required to trade a minute later than it wants to, so check the place rather than the neighbourhood. It is narrow, too — it disables the Food Sanitation Act route only. Emergency closing orders run on the separate Infectious Disease Control and Prevention Act, which is why the 2020–21 curfews reached these zones like everywhere else. This post is research, not a personal visit; every rule is from a published source, checked 31 October 2026."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Tourism Promotion Act art. 74 — Food Sanitation Act art. 43 does not apply in a special tourist zone. Also arts. 2(11), 70, 71, 73",
+        "Same Act, Enforcement Decree art. 58 — 100,000 foreign visitors a year, 500,000 in Seoul; cap on non-tourism land",
+        "Food Sanitation Act art. 43, Decree art. 28 — hours and conduct limited by ordinance, eight hours a day at most",
+        "Ministry of Culture, Sports and Tourism, 관광특구 지정 현황, July 2026 — 37 zones in 14 regions; Seoul's eight, with areas and dates",
+        "Infectious Disease Control and Prevention Act — the separate power behind the 2020–21 closing orders",
+        "Photo: Myeongdong Theater, Jung-gu, Seoul, by lumoplank, CC0, Wikimedia Commons. A public arts venue, not a business we recommend"
+      ],
+      "cta": "We check every claim before we post it.\nSave this before your next late one"
+    }
+  ],
+  "caption": "Eight Seoul neighbourhoods carry a legal status most visitors never hear about, and it quietly explains why the lights stay on.\n\nArticle 43 of the Food Sanitation Act lets a district office restrict the trading hours and conduct of food and drink businesses where it judges public order requires it. The limit is set by municipal ordinance and the Enforcement Decree caps it at eight hours a day. Article 74 of the Tourism Promotion Act then removes that power outright: inside a designated special tourist zone, Article 43 does not apply.\n\nSeoul has eight, and the list is a fair map of where the city puts its visitors. Itaewon came first in 1997, then Myeongdong–Namdaemun–Bukchangdong–Dadong–Mugyodong in 2000, Dongdaemun Fashion Town in 2002, Jongno–Cheonggye in 2006, Jamsil in 2012, Gangnam MICE in 2014, Hongdae Culture and Arts in 2021, and the Express Bus Terminal–Sebit zone on the Han River in December 2024. Nationwide there are 37 across 14 provinces and metropolitan cities, on the ministry's July 2026 count.\n\nThey are smaller than you would guess. Gangnam MICE is 0.19 km² and Itaewon 0.39 — a few blocks, not a district. To qualify an area needs 500,000 foreign visitors a year in Seoul, 100,000 elsewhere, no more than ten per cent of its land in uses unrelated to tourism, and an unbroken boundary. A gu office applies, the city designates, and the status can be revoked if the area stops meeting the bar.\n\nOne honest caveat, because it is the part that misleads people. The exemption removes a power; it creates no obligation. Nothing in it requires a single shop to stay open, so a zone is not a promise that anything is serving at 3am — check the place, not the postcode. It is narrow as well: it disables the Food Sanitation Act route only. Emergency closing orders run on a different law, which is why the 2020–21 curfews reached these zones like everywhere else.\n\nSources in the last slide. Research, not a visit.",
+  "hashtags": [
+    "#seoultravel",
+    "#koreatraveltips",
+    "#myeongdong",
+    "#hongdae",
+    "#itaewon",
+    "#seoulnightlife",
+    "#seoulneighborhoods",
+    "#deepdivekorea"
+  ]
+}
