@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-10-30 that is **thirty-four
+verified, stop without adding a queue item"). As of 2026-11-01 that is **thirty-five
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing standing between the account and a daily
 *authoring* schedule — publishing is separately dead on the token below. The
@@ -191,6 +191,109 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-01 (Sun), reel / cafe — SKIPPED
+
+Thirty-fifth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-derived from the repo this run, not inherited from the 2026-10-30 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Sun 2026-11-01 12:00 KST, `%u` = 7 → **reel / cafe**,
+  Collab optional.
+- §0: no `pending` or `published` queue item for 2026-11-01. 50 queue entries, the
+  newest being the 10-31 Carousel (`held`). Nothing to stop on there.
+- §3 option 1 (owner original): still nothing. `git log --author=steve.seil.oh`
+  shows **no human commit since 2026-09-14** and no human-added media since
+  `assets/photos/cheongildip-en.jpg` on 2026-08-25 (392aefd), which predates the
+  policy. All 51 files in `assets/photos/` were fetched by pipeline runs.
+- §3 option 2 (venue/creator media with written permission): unobtainable by an
+  unattended run — see the new finding below for the one route that looked open.
+- §3 option 3 (licensed stock): legal and available, but limited to a
+  **non-venue-specific editorial Carousel**. Today is a Reel, so it is closed.
+  CONTENT.md "Media and rights" agrees independently: "Venue-specific Reels and
+  Collabs must use original or written partner-authorized media."
+
+### NEW — the Creative Commons route was checked properly and does not open §3
+
+Previous entries asserted option 2 was unobtainable without testing it. This run
+tested the strongest version of it: a third-party photo under a standing public
+license, which is arguably "written permission" already granted. Searched
+Wikimedia Commons and government open-license galleries. What exists:
+
+- `File:Coffee_Prince_interior.JPG` on Commons — interior of the first Coffee
+  Prince shop, Hongdae, Mapo-gu. **CC BY-SA 3.0 Unported**, author "Michaela den"
+  (own work), shot **2012-09-20**.
+- Mapo-gu's tourism gallery (600+ photos) is **KOGL/Public Nuri Type 1** — free
+  commercial use with attribution. Busan's tourism archive has Type 0 images.
+  Both are real, usable licenses.
+
+So compliant *licensing* is genuinely obtainable. It still fails, for two
+independent reasons, and the second is the load-bearing one:
+
+1. **This candidate also fails §2.** A 2012 interior photo cannot honestly
+   illustrate the venue in 2026, and Coffee Prince's current operation was not
+   verified. §2 requires current operation; §3 forbids presenting a photo as a
+   place it no longer depicts.
+2. **A stranger's CC photo is option 3, not option 2.** "Venue/creator media with
+   written permission" most plausibly means media from the venue or a creator the
+   account has an exchange with. A Commons upload or a district tourism gallery is
+   third-party licensed media — exactly what option 3 describes, and option 3 is
+   Carousel-only. Reading it into option 2 would route around the restriction the
+   owner added deliberately: 8128750 (2026-09-14) **removed** the previous §4
+   allowance for mood-matched Unsplash stock. An unattended run reinstating that
+   by reinterpretation would be overriding the source of truth on its own
+   judgment, which §0 and CONTENT.md both forbid.
+
+**For a human this is the cheapest of the three fixes in the 2026-09-15 entry.**
+KOGL Type 1 and CC BY are commercially usable with attribution, and the pipeline
+already renders an attribution line on the sources slide. If the intent is that
+publicly licensed media which *genuinely and currently depicts the named venue*
+is acceptable for a Reel, then **say so in PIPELINE.md §3 as a fourth option**
+with the two guards that matter — the photo must depict the named venue, and it
+must be recent enough to still be true — and Reel days unblock immediately
+without reopening the mood-photo loophole. That edit is one paragraph and it is
+the only one of the three fixes that needs no new assets and no human photography.
+
+### The token is still dead, and the publisher's commit message hides it
+
+Fourth confirmation, and the most misleading one yet. The 10-31 Carousel
+(`2026-10-31-seoul-tourist-zones-en`) was authored and rendered correctly, picked
+up by the 19:00 KST publisher, and **held** at 2026-11-01T00:41:00 KST with the
+same OAuthException **code 190** "session has been invalidated"
+(`fbtrace_id AUUIJ0wwDxsBQWmFFGZT4C5`). Holds on this fault: 10-10, 10-17, 10-21,
+10-31. The 10-24 hold was the caption cap, not the token.
+
+**The commit that recorded this is titled `publish: mark posted` (f397f80).** Its
+only change is `status: pending` → `status: held` with a code 190 error. A human
+skimming `git log` sees "publish: mark posted" on 11-01 and reasonably concludes
+the account is shipping; it is not, and has not since 2026-09-26. Worth fixing in
+`scripts/publish.py` so the message reflects the outcome — this is the kind of
+fault that stays invisible precisely because the log claims success.
+
+`IG_ACCESS_TOKEN` must be re-authorized through Instagram Login by a human
+(CONNECT-GUIDE.md). An agent cannot: it is a repository secret, and
+`refresh-token.yml` only extends still-valid tokens.
+
+### Verified working this run
+
+- `scripts/cardnews.py` renders 7 slides at 1080×1350, exit 0, no errors
+  (smoke-tested on the 10-31 content JSON to a temp dir, not committed).
+- WebSearch works. WebFetch works on `commons.wikimedia.org`.
+- pillow 13.0.0 present. **ffmpeg still absent** from the runner image — per the
+  2026-09-22 entry it is installable at runtime, so it remains a per-run setup
+  step rather than a blocker, and it was not needed today.
+
+### One note on this run's invocation
+
+The operator prompt's `DRY RUN 여부:` field arrived **empty**. Treated as not
+true, i.e. a live run, so this skip note is committed; no content, queue or asset
+change was made either way, so the two readings differ only in whether this
+paragraph exists. If the field was meant to carry `true`, the dry-run contract was
+still honoured in substance.
 
 ---
 
