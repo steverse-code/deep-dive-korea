@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-01 that is **thirty-five
+verified, stop without adding a queue item"). As of 2026-11-02 that is **thirty-six
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing standing between the account and a daily
 *authoring* schedule — publishing is separately dead on the token below. The
@@ -191,6 +191,158 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-02 (Mon), reel / restaurant — SKIPPED
+
+Thirty-sixth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-derived mechanically this run, not inherited from the 2026-11-01 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Mon 2026-11-02 12:10 KST, `%u` = 1 → **reel /
+  restaurant**, Collab optional. The task prompt independently specified `reel`;
+  the two agree.
+- §0: **no `pending` or `published` item for 2026-11-02.** `queue.json` holds **50**
+  entries (**13** `published`, **37** `held`, **0** `pending`) and the string
+  `2026-11-02` does not appear in it. Nothing to stop on.
+- §3 option 1 (owner original): **empty.** All **51** files in `assets/photos/` are
+  referenced by one of the **50** `content/*.json` files (resolved every `photo` and
+  every slide `bg_image`), so the unused set is **zero**. `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|png|tiff` returns **zero** files,
+  so there is no owner video for a Reel either. No human commit since **2026-09-14**
+  (`git log` by author: 84 claude[bot], 60 github-actions[bot], 14 Steve, none of the
+  latter since 09-14), and no human-added photo since `cheongildip-en.jpg` on
+  2026-08-25 (392aefd), which predates the policy.
+- §3 option 2 (venue/creator media with written permission): **no paperwork exists.**
+  `git ls-files` filtered for `right|permis|licen|consent|partner|inbox|incoming|
+  upload|submission|original|footage` returns **zero** paths. `git fetch --all` leaves
+  `main` level with `origin/main` at 42a3bba, `main` is the only branch, tree clean —
+  no new media channel appeared. Obtaining permission means contacting a venue, which
+  an unattended run must not do. The Creative-Commons reading of option 2 was tested
+  and rejected on 2026-11-01; not re-litigated here.
+- §3 option 3 (licensed stock): legal and available, but restricted to a
+  **non-venue-specific editorial Carousel**. The restriction binds on **format**, so
+  the escape hatch of writing a venue-less editorial restaurant topic is closed too —
+  it would still be a Reel. A fresh audit agrees: of 50 content files, **10** carry
+  `policy_version: 2` and all ten are `('carousel', 'licensed_stock')`. **Zero** files
+  anywhere declare `original` or `partner_licensed`.
+- No ramp flag is set in `queue.json` or `.github/` (PIPELINE.md §1), so the ramp
+  constrained nothing and the skip is decided on §3 grounds alone.
+
+Stopped under §0: "If rights, venue existence, or current operation cannot be
+verified, stop without adding a queue item."
+
+### CORRECTION — the last successful publish is 2026-10-07, not 2026-09-26
+
+The 2026-11-01 entry states the account "has not [shipped] since 2026-09-26." That
+is wrong, and it understates the account by one post. `queue.json` has **13**
+`published` items and the newest is **`2026-10-07-seoul-cafe-churn-en`**, media_id
+**17885158536504317**, posted 2026-10-08T02:22:59 KST. (The 2026-10-18 entry records
+this correctly; the 11-01 entry contradicts it.) The 09-26 date is the *first*
+success after the action-block run, not the last success.
+
+This matters for the token timeline a human will reconstruct: the token **worked on
+2026-10-07** and first failed on **2026-10-10**. So code 190 dates from somewhere in
+10-08…10-10, which is consistent with a password change or forced session reset in
+that window rather than a long-standing fault. Holds on code 190 since: 10-10,
+10-17, 10-21, 10-31 (10-24 was the caption cap, not the token). Five items have been
+held since the last success.
+
+### The caption drift broke — the 10-25 budget advice worked, but only just
+
+The 2026-10-25 entry predicted the caption would keep climbing past 2200 unless the
+budget was made explicit. Measured across all ten policy-v2 Carousels this run
+(`caption` + 2 + hashtags joined by spaces, i.e. what `publish.py:build_caption()`
+concatenates):
+
+| Date | total | | Date | total |
+|---|---|---|---|---|
+| 09-16 | 929 | | 10-10 | 1572 |
+| 09-19 | 1229 | | 10-17 | 1964 |
+| 09-23 | 1374 | | 10-21 | 2104 |
+| 09-26 | 1689 | | 10-24 | **2328 — over** |
+| 10-07 | 1526 | | 10-31 | **2051 — under** |
+
+10-31 is the **first decrease since 09-16** and the first Carousel authored after the
+cap was documented here, so the advice landed. But 2051 is only **149 characters**
+under the limit, which is less headroom than 10-21 had before it went over. The
+recommendation from 10-25 therefore still stands unchanged and is still a human fix:
+state the 2200-character cap in PIPELINE.md §4 / CONTENT.md, or move
+`build_caption()`'s length check into an authoring-time preflight so an over-length
+caption fails the run that can still fix it.
+
+### Restaurant-beat research, for whenever §3 opens — and two traps in it
+
+The 2026-10-30 entry listed four uncovered Michelin subjects. Verified and expanded
+this run from Asia Economy's English report on the **Michelin Guide Seoul & Busan
+2026** announcement (5 March 2026, Signiel Busan), fetched this run:
+
+- Three stars: **Mingles** (second consecutive year) — already covered (08-28).
+- Two stars: **Mosu** (returned after a closure) and **Sosuheon** (promoted from one
+  star). Ten two-star restaurants were awarded across Seoul and Busan; the article
+  names only these two.
+- New Seoul one stars: **Collage**, **Giwagang**, **Restaurant San**, **Sushi
+  Kanesaka**. Promoted from Michelin-selected: **Gaggan by Choi Junho**,
+  **Restaurant Jueun**, **Hakushi**. Busan: **Ledohé**.
+
+Against the 11 existing `pillar: restaurant` posts (Onjium ×2, Mingles, Le DORER ×2,
+Balwoo Gongyang, Gogung Jeonju, GiwaKang, Yong Fu Jeju, Gosari Express, Sosuheon),
+the uncovered and newly-ranked set is **Mosu, Collage, Restaurant San, Sushi
+Kanesaka, Gaggan by Choi Junho, Restaurant Jueun, Hakushi** — seven subjects, all
+verifiable from an official listing, which satisfies §2 comfortably. The well is not
+dry.
+
+Two traps found while checking Mosu, both of which would have produced a false
+statement in a published post:
+
+1. **Mosu has two stars, not three.** A Daum/Hankyung headline still in search
+   results calls it "Michelin 3-star Mosu Seoul." The 2026 guide gives it **two**;
+   Mingles is Korea's only three-star. Do not take a star count from a headline.
+2. **Mosu's Hannam address is stale.** It closed, then reopened in **March 2025** in
+   Yongsan-gu — secondary sources give `4 Hoenamu-ro 41-gil, Yongsan-gu, Seoul
+   04344`, near Grand Hyatt Seoul, and warn that older listings still show
+   Itaewon/Hannam. **This address is not verified** — `guide.michelin.com`'s Mosu page
+   returned an empty body to WebFetch this run, so no official listing was read.
+   Treat the address as unconfirmed and re-verify from the venue or the Michelin
+   listing before it is used in copy. The general lesson for §2: for any venue that
+   has closed and reopened, an address found in pre-2025 coverage fails the
+   "current operation" test even when the venue itself is fine.
+
+Also unchanged from 10-30: **Sosuheon's existing 09-09 post predates its two-star
+promotion** and may state the wrong star count. Worth a human check before reuse.
+
+### Verified working this run
+
+- `scripts/cardnews.py` renders **7 slides**, exit 0, each **1080×1350** — run on
+  `content/2026-10-31-seoul-tourist-zones-en.json` into `/tmp/rendercheck`, outside
+  the repo. **Nothing was committed from it.**
+- `pillow` **13.0.0** present without installing anything.
+- **WebSearch works.** **WebFetch works** on `asiae.co.kr` (returned the full 2026
+  Michelin rating list). **WebFetch returned an empty body for
+  `guide.michelin.com`** — a new data point; the Carousel days have relied on
+  `commons.wikimedia.org`, which was last proven 2026-11-01.
+- **`ffmpeg` still absent** from the runner image (`which ffmpeg` → nothing), and the
+  `ffmpeg 설치` step requested on 2026-09-15 still has not landed in
+  `daily-content.yml`. Per 2026-09-22 this is a per-run install, not a blocker; it was
+  not installed today because the §3 gate fails upstream of §4, so `scripts/reel.py`
+  was **not** exercised. Treat the MP4 path as last-proven 2026-10-29.
+- `--max-turns 60` is still at `daily-content.yml:80`. This run stayed well inside it
+  by batching each audit into a single `python3`/`git` call. **The next run that can
+  produce anything is Wed 2026-11-04 (Carousel, cafe)** — it faces the turn cap, then
+  the 2200-character caption budget, then the dead token.
+
+### One note on this run's invocation
+
+The operator prompt's `DRY RUN 여부:` field again arrived **empty** (same as
+2026-11-01). Treated as not true, i.e. a live run, so this skip note is committed. No
+content, queue or asset change was made either way. The prompt also instructed the
+run to render seven slides and commit them alongside a content JSON; PIPELINE.md is
+the stated source of truth and its §0/§3 gate fails before §4, so no content was
+authored and nothing was rendered into the repo. The render path was proven
+separately, to a temp directory, as recorded above.
 
 ---
 
