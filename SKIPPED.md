@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-02 that is **thirty-six
+verified, stop without adding a queue item"). As of 2026-11-03 that is **thirty-seven
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing standing between the account and a daily
 *authoring* schedule — publishing is separately dead on the token below. The
@@ -191,6 +191,106 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-03 (Tue), reel / local — SKIPPED
+
+Thirty-seventh consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and was
+re-derived mechanically this run, not inherited from the 2026-11-02 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Tue 2026-11-03 13:26 KST, `%u` = 2 → **reel / local**,
+  Collab *candidate*. The task prompt independently specified `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-11-03.** `queue.json` holds **50**
+  entries (**13** `published`, **37** `held`, **0** `pending`) and the string
+  `2026-11-03` does not appear in it. Nothing to stop on. No ramp flag is set in
+  `queue.json` or repo notes — the only occurrences of "ramp" are the prose in
+  CONTENT.md:20 and PIPELINE.md:29 that *describe* the flag.
+- §3 option 1 (owner original): **empty.** All **51** files in `assets/photos/` are
+  referenced by one of the **50** `content/*.json` files (resolved every `photo` and
+  every slide `bg_image`), so the unused set is **zero**. `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff` returns **zero** files, so
+  there is no owner footage for a Reel either. The newest photos added (2026-10-31,
+  10-24, 10-21, 10-17) are all editorial Carousel stock covers.
+- §3 option 2 (venue/creator media with written permission): **no paperwork exists.**
+  `git ls-files` filtered for `right|permis|licen|consent|partner|inbox|incoming|
+  upload|submission|footage` returns **zero** paths. Obtaining permission means
+  contacting a venue, which an unattended run must not do.
+- §3 option 3 (licensed stock): **barred for this format.** It is limited to "a
+  non-venue-specific editorial Carousel"; today's slot is a Reel, and the `local`
+  pillar on a Collab-candidate day is venue-specific. Also §3's Collab rule would
+  hold the item at `collab_status: requested` regardless.
+
+So §0 applies and the run stops without a queue item. The three possible fixes
+remain editorial and reserved for a human — see the 2026-09-15 entry.
+
+### Correction to the 2026-09-15 entry: policy-v2 metadata is no longer unimplemented
+
+That entry recorded that **zero** of the then-40 `content/` files carried
+`policy_version`, `asset_source`, `rights_confirmed` or `rights_note`. That is now
+stale. Measured this run: **10 of 50** files carry **all four** fields. Every one of
+the 10 declares `asset_source: licensed_stock` with `rights_confirmed: true`, a
+specific per-photo `rights_note` (named photographer, licence, Wikimedia/Commons
+file, verification date), and `format: carousel`.
+
+The practical reading: policy v2 is implemented and being followed correctly, but it
+has only ever been exercised in the **one** combination §3 permits — stock on an
+editorial Carousel. The Reel blocker is therefore purely **media acquisition**, not
+missing plumbing. Nothing in the authoring path needs fixing for a compliant Reel to
+be written; the media simply does not exist in the repo.
+
+### The dead token is confirmed fresher than the log claimed
+
+The 2026-10-25 entry said the token blocker was "last-tested 10-17 and should still
+be assumed to stand". It has since been tested twice more and still stands:
+`2026-10-31-seoul-tourist-zones-en` was held **2026-11-01T00:41:00 KST** with
+`hold_reason: publish_failed_manual_review` and OAuthException **code 190**, "The
+session has been invalidated because the user changed their password". So the token
+is dead as of **2026-11-01**, not 10-17. Re-authorisation remains a human step; the
+monthly refresh cron cannot fix an invalidated session.
+
+### The caption-cap drift reversed — the 10-24 lesson was applied
+
+The 2026-10-25 entry predicted the next Carousel would also run over 2200. It did
+not. Measured across the ten policy-v2 Carousels (caption + 2 + hashtags):
+
+929, 1229, 1374, 1689, 1526, 1572, 1964, 2104, **2328 (held 10-24)**, **2051 (10-31)**
+
+The 10-31 run came in **149 characters under** the cap, so the explicit budget
+worked. The recommended human fix still stands and is still unapplied: neither
+PIPELINE.md §4 nor CONTENT.md states the 2200-character cap, so the budget survives
+only as advice in this file. `build_caption()` (scripts/publish.py:65-75) still
+raises at *publish* time, hours after the run that could have fixed it.
+
+### Still open: publish.py is more permissive than PIPELINE.md §3
+
+Re-verified in source this run. `validate_rights()` (scripts/publish.py:78-93) skips
+all rights checks when `policy_version < 2` (40 of 50 files), and for v2 content
+accepts any `asset_source` in `{original, partner_licensed, licensed_stock}`
+**regardless of `format`**. It does not encode §3's "stock only for a
+non-venue-specific editorial Carousel" rule, so a stock-photo Reel would pass the
+publisher while violating PIPELINE.md. It does correctly enforce the Collab gate
+(`collab_status == "accepted"`).
+
+### Verified working this run — the environment is sound
+
+The blocker is editorial only. Everything mechanical works:
+
+- `TZ=Asia/Seoul date` → 2026-11-03 Tuesday (§1).
+- **WebSearch works.** **WebFetch works** (fetched `english.visitkorea.or.kr`
+  successfully).
+- `python3 scripts/cardnews.py` renders **7 slides at 1080×1350** with no errors
+  (pillow 13.0.0).
+- **ffmpeg is absent from the runner image but `sudo apt-get install -y ffmpeg`
+  succeeded this run** (6.1.1-3ubuntu5), confirming the 2026-09-22 withdrawal of the
+  ffmpeg blocker. With it, `scripts/reel.py` produced a valid **1080×1920, 22.2s**
+  MP4 end-to-end. The only warning is the expected gitignored-music one
+  (`local.mp3` absent → ffmpeg-synthesized audio).
+
+Both renders were written to `/tmp`, not `out/`, to leave the tree clean.
 
 ---
 
