@@ -1,0 +1,89 @@
+{
+  "slug": "2026-11-04-korea-cafe-licence-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-11-04T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: '2020-03-08 12.41.32 파이꽁뜨 실내 전경.jpg' by Wikimedia Commons user Choikwangmo9, Creative Commons Zero / Public Domain Dedication. Licence verified against the Wikimedia Commons API on 2026-11-04 KST — License 'cc0', LicenseShortName 'CC0', UsageTerms 'Creative Commons Zero, Public Domain Dedication', LicenseUrl creativecommons.org/publicdomain/zero/1.0, AttributionRequired 'false', Restrictions field empty, Credit 'Own work', Artist 'Choikwangmo9', Categories include CC-Zero / Self-published work / Cafés in South Korea. Because this is a self-published own-work upload rather than a Flickr transfer, no external licence-review step applies; the CC0 tag is the uploader's own dedication. CC0 waives all rights worldwide: commercial use and modification are permitted with no attribution obligation and no share-alike obligation. The photographer is credited on the sources slide anyway as a matter of practice. A share-alike licence was deliberately avoided, as on 2026-10-10, 2026-10-17, 2026-10-21, 2026-10-24 and 2026-10-31: scripts/cardnews.py produces a duotoned derivative, which CC BY-SA would oblige us to relicense under the same terms. This mattered more than usual here — the best-populated Commons category for Korean cafe interiors ('2020-08-17/24 things places in south korea', also CC0) was rejected on subject grounds rather than licence grounds, see below, and most remaining Korean cafe photographs on Commons are CC BY-SA 2.0/3.0/4.0. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel: this post recommends no venue, names no business as its subject, and its subject is a statutory classification that applies to every food-service business in Korea rather than to any one place. SUBJECT HONESTY: the uploader's description is '파이꽁뜨 실내 전경' (interior view of Pie Comte) and the file's coordinates (37.348647, 127.926789) reverse-geocode to Dangye-dong, Wonju-si, Gangwon State (checked against Nominatim on 2026-11-04). So the image is an honest depiction of what the post is about — the inside of an ordinary Korean cafe — rather than a mood shot standing in for somewhere else, and the sources slide identifies it by location. No claim anywhere in this post refers to the pictured cafe: the post does not say which licence category it holds, does not recommend it, and makes no assertion about whether it is still trading, so no verification of its current operation was required or performed. The only legible text in the frame is the generic word 'COFFEE' on a shelf; there is no chain branding. That is why the alternative CC0 set was rejected — those frames are a Mega MGC Coffee branch with large 'MEGA MGC COFFEE' wall signage, and fronting a post about alcohol licensing with one identifiable chain would imply a claim about that chain that the copy does not make and could not support. ORIENTATION: checked for the EXIF rotation problem found on 2026-10-24 — getexif()[274] is 1 (normal) and ImageOps.exif_transpose is a no-op on this file, so scripts/cardnews.py, which opens images without exif_transpose, renders it upright. CROP: none. The original 4032x3024 frame was resized to 2400x1800 and re-encoded with all EXIF dropped, which also removes the embedded GPS tags. No other modification. PEOPLE: the full frame was inspected at size and the exact 1080x1350 centre crop that scripts/cardnews.py applies was rendered and inspected separately; the cafe is empty in both. No person, face or identifiable individual appears anywhere in the original or in the published crop.",
+  "location": "South Korea",
+  "venue_handle": null,
+  "search_keyword": "why Korean cafes cannot sell alcohol food business licence",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-11-04-korea-cafe-licence-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": "That cafe legally\ncannot sell you\na beer.",
+      "subline": "It is not a house rule. Korean law sorts every place that feeds you into six licence types, and one line decides which",
+      "bg_image": "assets/photos/2026-11-04-korea-cafe-licence-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "FOOD SERVICE LICENCES",
+      "value": "6",
+      "label": "categories cover every business in Korea that cooks and serves you something. Which one a cafe filed under decides what it is allowed to pour",
+      "note": "Food Sanitation Act Enforcement Decree art. 21(8), subitems 가 to 바 · Text read from 국가법령정보센터, the national statute database · Checked 4 November 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The split is not\nabout the food.",
+      "body": "The decree does not sort these businesses by what they cook. Several of the six cook much the same things. It sorts them by whether drinking is allowed on the premises.\n\nA 휴게음식점, the category most cafes file under, is defined as serving tea, ice cream or fast-food and snack-bar fare, and as a business 'where drinking is not permitted'. A 일반음식점 covers the same cooking but is one 'where drinking is incidentally permitted alongside meals'. 제과점, the bakery licence, is a no-drinking category too.\n\nSo a cafe that wants wine on the menu does not add a permit. It has to become a different kind of business."
+    },
+    {
+      "type": "list",
+      "title": "The six, as the\ndecree writes them",
+      "items": [
+        { "t": "휴게음식점 — rest-type", "d": "Tea, ice cream, fast food, snack bars. No drinking" },
+        { "t": "일반음식점 — general restaurant", "d": "Cooked food, drinking allowed alongside a meal" },
+        { "t": "제과점 — bakery", "d": "Bread, tteok, confectionery. No drinking" },
+        { "t": "단란주점 — singing bar", "d": "Mainly alcohol; customers may sing" },
+        { "t": "유흥주점 — entertainment bar", "d": "Mainly alcohol; hosts, singing and dancing allowed" },
+        { "t": "위탁급식 — contract catering", "d": "Cooking in someone else's canteen, under contract" }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "What it changes\nfor you",
+      "items": [
+        { "t": "A cafe with no beer is not being awkward", "d": "It filed under a category that forbids drinking on the premises. No member of staff can waive that" },
+        { "t": "The cafe-bar pouring wine at midnight is a restaurant", "d": "Whatever the sign outside says, it is registered as a 일반음식점" },
+        { "t": "Bringing your own bottle is not a loophole", "d": "The decree's word is 음주행위, the act of drinking — not the sale. The category turns on what may happen in the room" },
+        { "t": "Prices must be posted, VAT included", "d": "Any rest-type or general food business of 150m² or more has to show a price list outside the shop as well as inside" }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Six boxes on a form,\nand one of them quietly\nwrites the menu.",
+      "by": "A change is coming but has not arrived. In July 2026 the Ministry of Food and Drug Safety pre-announced an amendment letting a cafe, restaurant and bakery switch between the three by change filing rather than closing and re-registering, cutting the fee from 28,000 to 9,300 won. As of 4 November 2026 it is still a proposal. This post is research, not a personal visit, and recommends no venue."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "식품위생법 시행령 art. 21(8) — the six 식품접객업 categories, 가목 to 바목, read from 국가법령정보센터",
+        "Same decree — 휴게음식점 and 제과점 are businesses '음주행위가 허용되지 아니하는', 일반음식점 one where '식사와 함께 부수적으로 음주행위가 허용되는'",
+        "식품위생법 시행규칙 별표 17 제7호아목 — 150m² and over must post prices outside and inside; prices shown VAT-included (easylaw.go.kr, 15 Oct 2026)",
+        "식품위생법 art. 97 — up to 3 years or 30 million won for trading without the required 영업신고 (Seoul and Incheon city notices)",
+        "MFDS 입법예고, 10 July 2026 — proposed switching by 변경신고; fee 28,000 to 9,300 won. Still not in force (etoday, SBS Biz)",
+        "Photo: cafe interior, Wonju, Gangwon, by Choikwangmo9, CC0, Wikimedia Commons. Not a venue this post recommends"
+      ],
+      "cta": "We read the decree so you don't have to.\nSave this before your next coffee"
+    }
+  ],
+  "caption": "Ask for a beer in a Korean cafe and you will often be told no. It is rarely a house rule. It is usually the licence on the wall.\n\nKorea's Food Sanitation Act Enforcement Decree, article 21(8), sorts every business that cooks and serves food into six categories. What surprises people is that the dividing line is not the food. Several of the six cook much the same things. The line is whether drinking is allowed on the premises.\n\nA 휴게음식점 — the rest-type category most cafes file under — is defined as serving tea, ice cream, fast food and snack-bar fare, and as a business where drinking is not permitted. A 일반음식점, the general restaurant category, covers the same cooking but is one where drinking is permitted incidentally alongside a meal. 제과점, the bakery licence, is also a no-drinking category. The other three are 단란주점, 유흥주점 and 위탁급식 — contract catering inside someone else's canteen.\n\nSo a cafe that wants wine on the list does not bolt on a permit. It has to be a different kind of business. That is why the natural-wine place pouring at midnight is, on paper, a restaurant whatever its sign says. And note the decree's wording: 음주행위, the act of drinking, not the sale. Bringing your own bottle into a rest-type cafe is not a loophole, because the category is about what may happen in the room.\n\nOne genuinely useful side effect for visitors: any rest-type or general food business of 150m² or more must display a price list outside the shop as well as inside, with prices shown VAT-included. If a larger place has no prices on the door, that is worth noticing.\n\nA change is coming but has not arrived. In July 2026 the Ministry of Food and Drug Safety pre-announced an amendment letting cafes, restaurants and bakeries switch between the three categories with a change filing instead of closing and re-registering, cutting the fee from 28,000 won to 9,300. As of 4 November 2026 it is still a proposal, not law.\n\nSources in the last slide. Research, not a visit, and no venue recommended here.",
+  "hashtags": [
+    "#koreacafes",
+    "#seoulcafe",
+    "#koreancafeculture",
+    "#koreatraveltips",
+    "#cafehoppingkorea",
+    "#koreanfoodlaw",
+    "#deepdivekorea"
+  ]
+}
