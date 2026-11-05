@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-03 that is **thirty-seven
+verified, stop without adding a queue item"). As of 2026-11-05 that is **thirty-eight
 consecutive Reel-day skips**, and with the action block withdrawn and the render
 path proven it is the only thing standing between the account and a daily
 *authoring* schedule — publishing is separately dead on the token below. The
@@ -191,6 +191,88 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-05 (Thu), reel / bar — SKIPPED
+
+Thirty-eighth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged. Every
+claim below was measured this run, not inherited from the 2026-11-03 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Thu 2026-11-05 13:04 KST, `%u` = 4 → **reel / bar**,
+  Collab *optional*. The task prompt independently specified `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-11-05.** `queue.json` holds **51**
+  entries (**13** `published`, **38** `held`, **0** `pending`) and no entry has a
+  `2026-11-05` slug or `publish_at`. Nothing to stop on. Still **no ramp flag** in
+  `queue.json` or repo notes — the only "ramp" occurrences are the prose at
+  CONTENT.md:20 and PIPELINE.md:29 that *describe* the flag.
+- §3 option 1 (owner original): **empty.** Resolved every `photo` and slide
+  `bg_image` across all **51** `content/*.json` files against `assets/photos/`:
+  **52** photos on disk, **52** referenced, **unused set = zero**. `git ls-files`
+  filtered for `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff` returns
+  **zero** files — no owner footage for a Reel either. The working tree is clean
+  with `--untracked-files=all`, so nothing was dropped in for this run.
+- §3 option 2 (venue/creator media with written permission): **no paperwork
+  exists.** `git ls-files` filtered for `right|permis|licen|consent|partner|inbox|
+  incoming|upload|submission|footage` returns **9** paths, and all 9 are the
+  `2026-11-04-korea-cafe-licence-en` slug matching on "licen" — not a grant.
+  Obtaining permission means contacting a venue, which an unattended run must not do.
+- §3 option 3 (licensed stock): **barred for this format.** It is limited to "a
+  non-venue-specific editorial Carousel"; today's slot is a Reel, and the `bar`
+  pillar is inherently venue-specific.
+
+So §0 applies and the run stops without a queue item. The three possible fixes
+remain editorial and reserved for a human — see the 2026-09-15 entry.
+
+### Why this run did not simply ship a stock-photo bar Reel
+
+Worth stating plainly, because nothing in code would have stopped it.
+`validate_rights()` (scripts/publish.py:78) accepts `asset_source: licensed_stock`
+for **any** `format` — it does not encode §3's Carousel-only limit on stock. A
+stock-photo bar Reel would therefore have passed the publisher and shipped. It was
+not written because it would breach PIPELINE.md §3 and CONTENT.md's "Generic stock
+must never be presented as the actual venue" — i.e. it would show a stranger's
+photo of some other room as a named Seoul bar. The gap between the policy and its
+enforcement is the finding here, not a licence to use it.
+
+### §2 research was done and works; the blocker is media, not facts
+
+Research was carried out before the §3 stop, so the blocker is confirmed to be
+media alone. `Asia's 50 Best Bars 2026` (announced 2026-07-28, Wynn Palace, Macau)
+puts **four** Seoul bars on the 1–50 list: **Zest** (No. 2, Cheongdam-dong, best in
+Korea three years running), **Alice** (No. 13, Gangnam), **Bar Cham** (No. 33, a
+restored hanok in Jongno, down from No. 6) and **M+MS** (No. 42, new entry).
+Source: Korea Times, 2026-07-29, as-of date 2026-11-05.
+
+Note for a future bar run: **all four are already covered** by this account —
+`2026-08-25-zest-seoul-en`, `2026-09-05-alice-cheongdam-en`, `2026-08-29-bar-cham-en`,
+`2026-09-01-mms-bar-en`. One outlet (Korea Stripes) reports eight Seoul bars rather
+than four, presumably counting the 51–100 "bubbling under" list; that was not
+resolved this run and should be checked against the official list before use.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-11-05 Thursday → reel / bar (§1).
+- No same-day `pending`/`published` queue item (§0).
+- **WebSearch works.** **WebFetch works** on koreatimes.co.kr.
+- **`scripts/cardnews.py` works:** re-rendered `2026-11-04-korea-cafe-licence-en`
+  to a scratch directory — **7 slides, 1080×1350, no errors** (pillow 13.0.0).
+  Nothing was committed from this test.
+- **ffmpeg is absent from the runner image again** this run (`ffmpeg -version`
+  returns nothing). Per the 2026-09-22 withdrawal above this is a per-run install
+  step, not a blocker, but `scripts/reel.py` could not be exercised because there
+  was no compliant Reel to render in the first place.
+
+### Still true: publishing is dead downstream of authoring
+
+`2026-11-04-korea-cafe-licence-en` — the Carousel authored yesterday, the one format
+that can still be written — was **held at 2026-11-05T02:54:43 KST** with the same
+invalidated-token error (code 190) that took 10-10, 10-17, 10-21 and 10-31. So the
+last successful publish remains **2026-10-07**. Authoring a compliant Carousel still
+produces a held item; the token needs a human.
 
 ---
 
