@@ -4,10 +4,12 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-05 that is **thirty-eight
-consecutive Reel-day skips**, and with the action block withdrawn and the render
-path proven it is the only thing standing between the account and a daily
-*authoring* schedule — publishing is separately dead on the token below. The
+verified, stop without adding a queue item"). As of 2026-11-06 that is **thirty-nine
+consecutive Reel-day skips**, and with the action block withdrawn it is the main
+thing standing between the account and a daily *authoring* schedule — publishing is
+separately dead on the token below. Note that the Carousel render path is proven but
+the **Reel** render path is not: `scripts/reel.py` crashes with a raw
+`FileNotFoundError` on missing ffmpeg, measured 2026-11-06 — see that entry. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
 
@@ -191,6 +193,127 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-06 (Fri), reel / restaurant — SKIPPED
+
+Thirty-ninth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged. Every
+number below was measured this run, not inherited from the 2026-11-05 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Fri 2026-11-06 13:00 KST, `%u` = 5 → **reel /
+  restaurant**, Collab *candidate*. The task prompt independently specified
+  `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-11-06.** `queue.json` holds **51**
+  entries (**13** `published`, **38** `held`, **0** `pending`); no entry has a
+  `2026-11-06` slug or `publish_at`. Nothing to stop on. Still **no ramp flag** in
+  `queue.json` or repo notes — the only "ramp" matches are the prose at
+  CONTENT.md:20 and PIPELINE.md:29 that *describe* the flag.
+- §3 option 1 (owner original): **empty.** Resolved every `photo`/`bg_image` key
+  across all **51** `content/*.json` against `assets/photos/`: **52** on disk, **52**
+  referenced, **unused set = zero**, missing set = zero. `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff` returns **zero** files —
+  no owner footage for a Reel either. `git status --untracked-files=all` is **clean**,
+  so nothing was dropped in for this run.
+- §3 option 2 (venue/creator media with written permission): **no paperwork exists.**
+  `git ls-files` filtered for `right|permis|licen|consent|partner|inbox|incoming|
+  upload|submission|footage` returns **9** paths, and all 9 are the
+  `2026-11-04-korea-cafe-licence-en` slug matching on "licen" — not a grant.
+  Obtaining permission means contacting a venue, which an unattended run must not do.
+- §3 option 3 (licensed stock): **barred for this format.** Stock is limited to "a
+  non-venue-specific editorial Carousel". Today is a Reel, and the `restaurant`
+  pillar is inherently venue-specific, so the escape hatch is closed on both counts.
+
+Friday is additionally a **Collab candidate** day, which closes the gap a second
+time: even with compliant media, §3 requires `collab_status: requested` and forbids
+queueing the item as `pending` until a partner accepts — and an unattended run
+cannot solicit that acceptance.
+
+So §0 applies and the run stops without a queue item. The three possible fixes
+remain editorial and reserved for a human — see the 2026-09-15 entry.
+
+### Why this run did not ship a stock-photo restaurant Reel
+
+Restating the 2026-11-05 finding because it still holds and nothing in code
+prevents the breach: `validate_rights()` (scripts/publish.py:78) accepts
+`asset_source: licensed_stock` for **any** `format`, so a stock-photo restaurant
+Reel would have passed the publisher. It was not written because it would breach
+PIPELINE.md §3 and CONTENT.md's "Generic stock must never be presented as the actual
+venue" — it would show a stranger's photo of some other dining room as a named Seoul
+restaurant. The policy/enforcement gap is the finding, not a licence to use it.
+
+### Correction to the 2026-09-22 withdrawal: reel.py was exercised this run, and it fails
+
+The 2026-09-22 note above withdrew the ffmpeg blocker and the 2026-11-05 entry could
+not test it ("`scripts/reel.py` could not be exercised because there was no compliant
+Reel to render"). **This run exercised it anyway**, against the existing
+`2026-11-04-korea-cafe-licence-en` content, and recorded the actual failure:
+
+```
+File "scripts/reel.py", line 65, in build_segment -> run([...])
+File "scripts/reel.py", line 45, in run -> subprocess.run(cmd, ...)
+FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
+```
+
+`command -v ffmpeg` returns nothing, and `daily-content.yml` installs **pillow only**
+(line 50-51) with no ffmpeg step. The 2026-09-22 withdrawal is still *technically*
+right — the install is available at runtime — but two things are worth recording:
+`reel.py` has **no preflight and no graceful failure**, it dies with a raw
+`FileNotFoundError` partway through segment building; and the `ffmpeg 설치` step
+requested on 2026-09-15 **still has not landed** in `.github/workflows/`, which an
+agent cannot push. So the day media is unblocked, the first Reel run will crash
+unless it remembers to `apt-get install -y ffmpeg` first. Cheap human fixes: add the
+workflow step, and/or add an ffmpeg check to `reel.py`'s entry point.
+
+### §2 research was done and works; the blocker is media, not facts
+
+Research was carried out before the §3 stop, so the blocker is confirmed to be media
+alone. Candidate for whenever a human unblocks media — a **new 2026 Bib Gourmand**
+restaurant, none of which this account has covered except Gosari Express
+(`2026-09-07-gosari-express-en`):
+
+- **Oilje (오일제)** — perilla-seed seaweed soup (*deulkkae miyeok-guk*) and rice
+  cooked to order in a cast-iron/stone pot in an open kitchen. **29 Hangang-daero
+  62da-gil, Yongsan-gu, Seoul.** Current operation confirmed by its live Michelin
+  Guide listing (an official listing per §2). Michelin's English page states
+  "Reservations are not available for this restaurant on our site", so hours are
+  **unconfirmed** and must be checked on Naver before any copy claims them.
+- Other new 2026 Bib entries in Seoul, uncovered: **Andeok** (beef *naengguksu* and
+  *mandutguk*, Jongno-gu), **3rd Samgyetang** (Seocho-gu), **Sobakeeri Suzu** (Korean
+  buckwheat soba; neighborhood not given in source).
+- Bib Gourmand price cap: a full meal **under 45,000 KRW** (~$31) per person.
+- Useful English search phrase for travelers: "Michelin Bib Gourmand Seoul under
+  45,000 won".
+
+Sources: Korea JoongAng Daily, "Michelin releases 2026 Bib Gourmand, adds 8 new
+Korean restaurants", 2026-02-26; Michelin Guide restaurant listing for Oilje.
+As-of date 2026-11-06. Search totals for the 2026 Bib list **conflict across
+outlets** (51 Seoul vs. 71 Korea-wide vs. a 77/58 figure from a blog that appears to
+predate the final release); the Michelin site/app is authoritative and the count was
+deliberately **not** used as a fact here.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-11-06 Friday → reel / restaurant (§1).
+- No same-day `pending`/`published` queue item (§0).
+- **WebSearch works.** **WebFetch works** on koreajoongangdaily.com. WebFetch on
+  `guide.michelin.com` returned an **empty document** (JS-rendered); the Oilje
+  address came from the search index instead. Treat Michelin pages as search-only.
+- **`scripts/cardnews.py` works:** re-rendered `2026-11-04-korea-cafe-licence-en` to
+  a scratch directory — **7 slides, 1080×1350, exit 0, no errors** (pillow 13.0.0).
+  Nothing was committed from this test.
+- **`scripts/reel.py` is broken on this runner** — see the ffmpeg correction above.
+
+### Still true: publishing is dead downstream of authoring
+
+Unchanged and not re-tested this run (no item to publish). The last six Carousels
+are all `held`; five carry the invalidated-token OAuthException code 190 and
+`2026-10-24` carries the 2200-character caption cap. `2026-11-04-korea-cafe-licence-en`
+was held 2026-11-05T02:54:43 KST on the same token error. Authoring a Reel today
+would not have reached Instagram even if §3 had allowed it.
 
 ---
 
