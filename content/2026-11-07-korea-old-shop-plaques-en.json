@@ -1,0 +1,88 @@
+{
+  "slug": "2026-11-07-korea-old-shop-plaques-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "local",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-11-07T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: 'Korean Market Korea on Bike.jpg' by Sebastian Krzemieniewski, Creative Commons Zero / Public Domain Dedication. Licence verified against the Wikimedia Commons API on 2026-11-07 KST: License 'cc0', LicenseShortName 'CC0', UsageTerms 'Creative Commons Zero, Public Domain Dedication', LicenseUrl creativecommons.org/publicdomain/zero/1.0, AttributionRequired 'false', Restrictions field empty, categories CC-Zero / Markets in South Korea / Shopping arcades / 'Files from external sources with reviewed licenses'. Unlike the 2026-11-04 photo this one IS a Flickr transfer (source flickr.com/photos/62725081@N08/30923756622), so the external licence-review step does apply and it has passed: the file page carries {{LicenseReview}} with reviewer INeverCry, date 2016-12-19, confirming the Flickr original was CC0 at upload. CC0 waives all rights worldwide, so commercial use and modification are permitted with no attribution and no share-alike obligation; the photographer is credited on the sources slide anyway as a matter of practice. A share-alike licence was again deliberately avoided, as on 2026-10-10, 10-17, 10-21, 10-24, 10-31 and 11-04, because scripts/cardnews.py renders a duotoned derivative that CC BY-SA would oblige us to relicense. Used under PIPELINE.md section 3 option 3 — licensed stock on a non-venue-specific editorial Carousel: the post is about two government designation schemes that apply nationwide, it recommends no venue and names no business as its subject. SUBJECT HONESTY: the uploader's description is '한국의 아케이드형 시장' (a Korean arcade-type market) and the EXIF capture date is 2016-11-04; the photographer was cycling across Korea. The frame is therefore an honest depiction of exactly what the post is about — a covered street of small independent Korean shops — rather than a mood shot standing in for a named place. The file records no location and none is claimed: the sources slide calls it 'a covered market arcade in South Korea, 2016' and states explicitly that no shop in the photo is a designated 백년가게 or 오래가게. That matters here more than usual, because the post's subject is a plaque awarded to particular shops: several hanging shop signs in the frame are legible (대도철물, 백조, 제일직물, 토마토 and others, with local phone numbers), so the copy was written to make no claim whatsoever about any business pictured — the post does not say any of them is designated, is 30 years old, or is still trading, and no verification of their current operation was required or performed. PEOPLE: unlike 2026-11-04 this frame is not empty. A touring cyclist is centred, seen from directly behind in helmet and jacket, plus two much smaller figures far down the arcade, also from behind. No face is visible anywhere in the original at full size or in the 1080x1350 centre crop that scripts/cardnews.py applies, which was rendered and inspected separately before committing; no individual is identifiable, Commons records no personality-rights restriction on the file (Restrictions empty, no {{Personality rights}} template), the setting is a public street, and no copy in the post refers to any person. In the published output the cyclist sits under the cover slide's dark bottom scrim and, on the inner slides, inside a 66% duotone wash, so the figure reads as texture. ORIENTATION: checked for the EXIF rotation problem found on 2026-10-24 — getexif()[274] is absent and ImageOps.exif_transpose is a no-op on this file, so cardnews.py, which opens images without exif_transpose, renders it upright. CROP: none. The original 5472x3648 frame was resized to 2400x1600 and re-encoded with all EXIF dropped. No other modification.",
+  "location": "South Korea",
+  "venue_handle": null,
+  "search_keyword": "baeknyeon gage oraegage Korea old shop plaque 30 years",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-11-07-korea-old-shop-plaques-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "headline": "That plaque means\nthe shop has stood\nthere 30 years.",
+      "subline": "Korea labels its survivors. Two schemes, two words on a sign, and a free government list of every shop that has earned one",
+      "bg_image": "assets/photos/2026-11-07-korea-old-shop-plaques-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "HUNDRED-YEAR SHOPS",
+      "value": "1,545",
+      "label": "businesses across Korea now hold the 백년가게 plaque. The entry ticket is thirty years in the same trade — then a panel scores what you did with them",
+      "note": "Ministry of SMEs and Startups, 2026 designation announced July 2026 · Running total since the scheme began in 2018 · Checked 7 November 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "Longevity is the\nqualification.",
+      "body": "Most food labels you meet in Korea rate hygiene, or a grade, or a guidebook's opinion. These two rate survival.\n\n백년가게 — 'hundred-year shop' — has been run by the Ministry of SMEs and Startups with the Small Enterprise and Market Service since 2018. A small business needs thirty years or more in food service or retail even to apply. A panel then scores how sustainable it is, how its product and service stand up, and what it means to the neighbourhood.\n\nThere is a sister label for makers: 백년소공인, same idea, fifteen years in manufacturing. Workshops, not dining rooms."
+    },
+    {
+      "type": "list",
+      "title": "The two plaques,\nside by side",
+      "items": [
+        { "t": "백년가게 — national, since 2018", "d": "Ministry of SMEs and Startups. 30 years or more in food or retail. 1,545 designated nationwide" },
+        { "t": "백년소공인 — the maker version", "d": "15 years or more in manufacturing. 1,053 of them. Craft workshops and small factories" },
+        { "t": "오래가게 — Seoul only, since 2017", "d": "City scheme, aimed at visitors. 150 shops across food, crafts and everyday neighbourhood trades" },
+        { "t": "This year's intake was competitive", "d": "747 applied nationally for 300 places, about 2.5 to 1. Seoul's 15 new restaurants came from 1,731 public nominations" }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "How to use it\non the ground",
+      "items": [
+        { "t": "Learn the shapes of two words", "d": "The designation comes with a certification plaque, 인증 현판, hung where customers can see it. 백년가게 and 오래가게" },
+        { "t": "Seoul's 150 are on the map already", "d": "The city says searching 오래가게 in Naver Map shows them, and they sit on its own Smart Seoul Map too" },
+        { "t": "The national list is a free download", "d": "data.go.kr carries the agency's full list — name, address, phone — updated 30 August 2026, no usage restriction" },
+        { "t": "A plaque is not a review", "d": "It records what a shop has already survived. It is not a verdict on the food, and it does not tell you today's opening hours" }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Thirty years in one trade,\nand the state hands you\na sign for the door.",
+      "by": "Seoul's newest additions, announced 21 September 2026, were fifteen restaurants in Gwangjin, Dongdaemun, Seongdong and Jungnang — picked from public nominations, then checked on site. This post is research, not a personal visit, and it recommends no venue."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Ministry of SMEs and Startups, July 2026 — 300 newly designated (150 백년가게, 150 백년소공인); cumulative 2,598, of which 1,545 백년가게 and 1,053 백년소공인; 747 applicants, about 2.5:1 (머니투데이, 세계일보)",
+        "MSS announcement, 4 February 2026 — criteria: 업력 30년 이상 소상공인 for 백년가게, 15년 이상 제조 소공인 for 백년소공인; applications via 소상공인24; designees receive 인증 현판 and a storyboard (이투데이)",
+        "소상공인시장진흥공단, 전국 백년가게 지정리스트 — open CSV of name, address and phone on data.go.kr, updated 30 August 2026, 이용허락범위 제한 없음",
+        "서울특별시, 21 September 2026 — 15 new 오래가게 restaurants in four north-eastern districts from 1,731 nominations; 150 citywide; searchable as 오래가게 on Naver Map and 스마트서울맵 (서울시 내 손안에 서울)",
+        "The Korea Times, 14 October 2026 — Oraegage Week, 150 recognised shops, five neighbourhood tour routes",
+        "Photo: a covered market arcade in South Korea, 2016, by Sebastian Krzemieniewski, CC0, Wikimedia Commons. No shop pictured is a designated 백년가게 or 오래가게"
+      ],
+      "cta": "Two words, decades of evidence.\nSave this for your next walk"
+    }
+  ],
+  "caption": "Korea labels its survivors. Two schemes, two plaques, and both are worth knowing if you would rather eat somewhere that has held the same corner for decades.\n\nThe national one is 백년가게, 'hundred-year shop'. The Ministry of SMEs and Startups has run it with the Small Enterprise and Market Service since 2018. A small business needs thirty years or more in food service or retail even to apply; a panel then scores sustainability, product and service, and what the shop means locally. A sister label, 백년소공인, does the same for makers with fifteen years in manufacturing.\n\nThis year's cohort was announced in July 2026: 150 shops and 150 workshops, chosen from 747 applicants, about 2.5 to 1. That takes the running totals to 1,545 hundred-year shops and 1,053 hundred-year makers. Each gets a certification plaque for the door, a storyboard of the business's history, and preference in small-business lending.\n\nSeoul runs its own, older and smaller. 오래가게 — a pun on 'a shop that lasts' — started in 2017 and is aimed squarely at visitors. Thirty years is the bar here too, across food, crafts and everyday neighbourhood trades. In September 2026 the city added fifteen restaurants in Gwangjin, Dongdaemun, Seongdong and Jungnang, picked from 1,731 public nominations and then verified on site, taking the citywide list to 150.\n\nUsing them is easy. The plaque hangs in plain sight, so the two words are worth memorising. Seoul says its 150 can be found by searching 오래가게 in Naver Map, and on the city's Smart Seoul Map. The national list is simply a government download: the agency publishes every designated shop's name, address and phone on data.go.kr, last updated 30 August 2026, with no usage restriction.\n\nOne caveat. Neither plaque is a review. Both reward longevity and local standing, not the best bowl of anything, and neither tells you today's opening hours.\n\nSources on the last slide. Research, not a visit, and no venue recommended here.",
+  "hashtags": [
+    "#koreatraveltips",
+    "#seoultravel",
+    "#koreanfood",
+    "#traditionalmarket",
+    "#oraegage",
+    "#baeknyeongage",
+    "#seoulneighborhoods",
+    "#deepdivekorea"
+  ]
+}
