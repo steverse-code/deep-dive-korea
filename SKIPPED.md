@@ -4,12 +4,12 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-06 that is **thirty-nine
+verified, stop without adding a queue item"). As of 2026-11-08 that is **forty
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
 separately dead on the token below. Note that the Carousel render path is proven but
 the **Reel** render path is not: `scripts/reel.py` crashes with a raw
-`FileNotFoundError` on missing ffmpeg, measured 2026-11-06 — see that entry. The
+`FileNotFoundError` on missing ffmpeg, re-measured 2026-11-08 — see that entry. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
 
@@ -193,6 +193,147 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-08 (Sun), reel / cafe — SKIPPED
+
+Fortieth consecutive Reel-day skip. No content JSON, no rendered output committed,
+no change to `queue.json`. The §3 media blocker is unchanged. Every number below was
+measured this run, not inherited from the 2026-11-06 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Sun 2026-11-08 12:08 KST, `%u` = 7 → **reel /
+  cafe**, Collab *optional*. The task prompt independently specified `reel`; the
+  two agree.
+- §0: **no `pending` or `published` item for 2026-11-08.** `queue.json` holds **52**
+  entries (**13** `published`, **39** `held`, **0** `pending`); no entry has a
+  `2026-11-08` slug or `publish_at`. Nothing to stop on. Still **no ramp flag** in
+  `queue.json` or repo notes — the only "ramp" matches are the prose at
+  CONTENT.md:20 and PIPELINE.md:29 that *describe* the flag.
+- §3 option 1 (owner original): **empty.** Resolved every `photo`/`bg_image` key
+  across all **52** `content/*.json` against `assets/photos/`: **53** on disk, **53**
+  referenced, **unused set = zero**, missing set = zero. `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff` returns **zero** files —
+  no owner footage for a Reel either. `git status --untracked-files=all` is **clean**,
+  so nothing was dropped in for this run.
+- §3 option 2 (venue/creator media with written permission): **no paperwork exists.**
+  `git ls-files` filtered for `right|permis|licen|consent|partner|inbox|incoming|
+  upload|submission|footage` returns **9** paths, and all 9 are the
+  `2026-11-04-korea-cafe-licence-en` slug matching on "licen" — not a grant.
+  Obtaining permission means contacting a venue, which an unattended run must not do.
+- §3 option 3 (licensed stock): **barred for this format.** Stock is limited to "a
+  non-venue-specific editorial Carousel". Today is a Reel, and the Sunday
+  `cafe`/dessert pillar is a venue recommendation by construction, so the escape
+  hatch is closed on both counts.
+
+A note on one tempting non-escape, because this run's prompt pre-empted it: a
+typography-only Reel cover would clear §3 by using no photograph at all, and it is
+**not** an option. This is a food and venue account; the prompt states outright that
+a typography-only cover "doesn't work here", and CONTENT.md's format standard asks
+for original venue footage. Rendering text over a flat background to dodge the media
+gate would satisfy the letter of §3 while producing something the account should not
+post. The skip is the correct output.
+
+### Verified working this run
+
+- `scripts/cardnews.py` on `content/2026-11-07-korea-old-shop-plaques-en.json`:
+  exit **0**, **7** slides, every one **1080×1350**, opened and measured with Pillow
+  afterwards rather than trusted on exit code (the 2026-09-17 lesson).
+- **WebSearch works.** **WebFetch works** on `koreatimes.co.kr` — a full article
+  body came back, see the topic hand-off below.
+- `python3` 3.12.16 and Pillow are present, as the prompt states.
+
+### Re-confirmed: `scripts/reel.py` still cannot run here
+
+`python3 scripts/reel.py content/2026-11-07-korea-old-shop-plaques-en.json
+/tmp/rendercheck` → exit **1**, uncaught `FileNotFoundError: [Errno 2] No such file
+or directory: 'ffmpeg'` at `scripts/reel.py:45` (`subprocess.run` inside `run()`,
+called from `build_segment`, `reel.py:65`). `which ffmpeg` is empty on this runner
+image. Identical to the 2026-11-06 measurement.
+
+Per the 2026-09-22 finding this is a per-run setup step, not a true blocker — `sudo
+apt-get install -y ffmpeg` succeeds here and `reel.py` then produces a valid
+1080×1920 MP4 — but two things are worth a human's attention. First, the Reel path
+has now been *unexercised* for forty consecutive Reel days, so "it worked on
+2026-09-22" is the newest evidence there is. Second, `run()` should fail with a
+readable message ("ffmpeg not found — install it") instead of a bare traceback; the
+first run that ever gets past the §3 gate should not also have to diagnose this.
+
+### Publish side: the dead token produced fresh evidence overnight
+
+The token blocker is no longer last-tested 2026-11-04. Yesterday's Carousel,
+`2026-11-07-korea-old-shop-plaques-en`, was authored, rendered and queued correctly
+by the 11-07 run (commit 4f0d9d2), the 19:00 KST publisher picked it up, and it was
+**held** at **2026-11-08T01:15:12 KST** with `hold_reason:
+publish_failed_manual_review` and the same OAuthException **code 190** — "The
+session has been invalidated because the user changed their password or Facebook has
+changed the session for security reasons" (`fbtrace_id AHyBd06xD_cDwGNXiT_kZD7`).
+That is the **sixth** code-190 hold (10-10, 10-17, 10-21, 10-31, 11-04, 11-07) and
+`queue.json` now carries **39** held items against 13 published, last success
+2026-10-07.
+
+So the standing diagnosis holds exactly: re-authorizing `IG_ACCESS_TOKEN` through
+Instagram Login (CONNECT-GUIDE.md) remains the **top-priority human action**, it is
+not something an agent can do, and `refresh-token.yml` cannot help because
+`refresh_access_token` extends a live token rather than resurrecting an invalidated
+session. Everything the authoring side is still able to produce — Wed/Sat Carousels
+— is being written correctly and then lost eight hours later at the final step.
+
+Two sub-faults are *not* currently firing, which is worth recording so nobody fixes
+the wrong thing first:
+
+- **The caption cap is being respected.** `2026-11-07`'s `caption` + 8 hashtags
+  measure **2069** characters against `MAX_CAPTION = 2200` — the item reached the
+  Graph API and died on the token, not on `build_caption()`. The explicit budget
+  recommended on 10-25 is working; keep it.
+- **`--max-turns 60` did not fire.** `.github/workflows/daily-content.yml:80` still
+  reads `--max-turns 60`, unraised, but the 11-07 Carousel run completed inside it.
+  That is now three Carousel days in a row — 10-31, 11-04 and 11-07, each with a
+  content commit (77ff22c, b0ef5c0, 4f0d9d2) — that cleared the cap. It stays worth
+  raising as cheap insurance, not as the first fix.
+
+### Hand-off: a researched Carousel topic for Wed 2026-11-11 (cafe)
+
+§2 research ran before the §3 gate closed the day, so rather than discard it: the
+next Carousel day is **Wed 2026-11-11, cafe pillar**, and Korea's 2025–26 dessert
+cycle is a strong *non-venue-specific editorial* angle — it names no venue, so §3
+option 3 applies and the day can actually ship. Sources found this run, with the
+usual caveat that these are **leads for the 11-11 run to verify, not pre-verified
+copy**:
+
+- **The Korea Times / Hankook Ilbo, 14 January 2026** — "dujjonku" (두쫀쿠, Dubai
+  chewy cookie) traced from the 2024 Dubai-chocolate trend into convenience stores
+  and hotel dining. Fetched in full this run. Figures cited there: CU's kataifi
+  chocolate chewy rice cake past **1.8 m units in three months** and Dubai-themed
+  lines past **8.3 m** overall; GS25 past **1 m units** at a **97%** sell-through
+  since October 2025; 7-Eleven's Kadayif Ball lifting dessert-category sales
+  **250%** in 11 days; Emart24's two kataifi mochi lines past **180,000** units a
+  month. Pierre Gagnaire à Séoul at Lotte Hotel Seoul served a dujjonku-inspired
+  petit four, substituting Pailleté Feuilletine because kataifi had become hard to
+  source — a nice concrete detail, and note it is a *past* seasonal menu.
+- **Korea Credit Data, Q4 2025 small-business report** (via asiae.co.kr, 9 March
+  2026) — bakery and dessert sales **+9.5%**, with an explicit warning that the
+  fading dujjonku craze leaves small operators holding inventory. Private data, so
+  attribute it to Korea Credit Data rather than presenting it as official.
+- **Open Survey, Cafe Trend Report 2025** — over **40%** of consumers name bakery
+  and dessert as a cafe-choice factor. Also private data.
+- **MAFRA / KREI coffee industry analysis, 21 August 2026** — domestic coffee market
+  past **KRW 3.7 trillion**; per Korea JoongAng Daily on the same dataset, roasted
+  coffee overtook liquid coffee (KRW 1.1 tn in 2024) for the first time since the
+  series began in 2018. This is the **official** anchor; pull the primary report
+  from mafra.go.kr rather than relying on the summaries.
+- **Rejected as unusable:** gitnux.org (aggregator, figures not traceable to a
+  primary source) and the Expert Market Research / travel-blog pages. Do not cite.
+
+The arc writes itself and needs no venue: a craze starts abroad, Korean
+convenience-store R&D industrialises it in about ten weeks, hotels cite it, the
+ingredient runs short, then the inventory bill arrives — with the official coffee
+numbers underneath as the stable baseline. Whoever takes 11-11 should re-verify
+every figure at the primary source, keep caption + hashtags under ~2000 characters,
+and source the photo as a non-venue-specific CC0 frame the way 10-10 through 11-07
+did.
 
 ---
 
