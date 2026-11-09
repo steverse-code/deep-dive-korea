@@ -4,12 +4,14 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-08 that is **forty
+verified, stop without adding a queue item"). As of 2026-11-09 that is **forty-one
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
-separately dead on the token below. Note that the Carousel render path is proven but
+separately dead on the token below. Measured 2026-11-09: **no file in `content/` has
+ever carried `asset_source: original` or `partner_licensed`**, so the gate has never
+once been cleared — see that entry. Note that the Carousel render path is proven but
 the **Reel** render path is not: `scripts/reel.py` crashes with a raw
-`FileNotFoundError` on missing ffmpeg, re-measured 2026-11-08 — see that entry. The
+`FileNotFoundError` on missing ffmpeg, re-measured 2026-11-09 — see that entry. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
 
@@ -193,6 +195,130 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-09 (Mon), reel / restaurant — SKIPPED
+
+Forty-first consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged. Every
+number below was measured this run, not inherited from the 2026-11-08 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Mon 2026-11-09 12:30 KST, `%u` = 1 → **reel /
+  restaurant**, Collab *optional*. The task prompt independently specified `reel`;
+  the two agree.
+- §0: **no `pending` or `published` item for 2026-11-09.** `queue.json` holds **52**
+  entries (**13** `published`, **39** `held`, **0** `pending`); grepping the whole
+  serialised queue for `2026-11-09` returns **zero** hits, so neither a slug nor a
+  `publish_at` claims today. Nothing to stop on. Still **no ramp flag**: the union of
+  all keys across all 52 entries is exactly `error, format, held_at, hold_reason,
+  media_id, pillar, publish_at, published_at, slug, status`, and the only "ramp"
+  matches in the repo remain the prose at CONTENT.md:20 and PIPELINE.md:29 that
+  *describe* the flag PIPELINE.md §1 says to respect.
+- §3 option 1 (owner original): **empty.** Resolved every `photo`/`bg_image` key
+  across all **52** `content/*.json` against `assets/photos/`: **53** on disk, **53**
+  referenced, **unused set = zero**, missing set = zero — so there is no unclaimed
+  frame sitting in the repo waiting to be used. `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff|cr2|arw` returns **zero**
+  files — no owner footage for a Reel either. `git status --untracked-files=all` is
+  **clean**, so nothing was dropped in for this run.
+- §3 option 2 (venue/creator media with written permission): **no paperwork exists.**
+  `git ls-files` filtered for `right|permis|licen|consent|partner|inbox|incoming|
+  upload|submission|footage` returns **9** paths, and all 9 are the
+  `2026-11-04-korea-cafe-licence-en` slug matching on "licen" — a post about licence
+  types, not a licence grant. Obtaining real permission means contacting a venue,
+  which an unattended run must not do.
+- §3 option 3 (licensed stock): **barred for this format.** Stock is limited to "a
+  non-venue-specific editorial Carousel". Today is a Reel, and the Monday
+  `restaurant` pillar is a venue recommendation by construction, so the escape hatch
+  is closed on both counts.
+
+### Measured this run: the Reel format has never once been produced under policy v2
+
+Worth stating plainly, because forty-one skip entries describe the blocker without
+quantifying how total it is. Auditing `policy_version` / `format` / `asset_source` /
+`rights_confirmed` across all **52** files in `content/`:
+
+- **40** files (2026-08-25 → 2026-09-13) carry **none** of the four v2 rights keys.
+  These are the pre-rewrite posts that relied on the mood-stock allowance 8128750
+  removed; as the 2026-09-14 entry notes, none of them would be publishable today.
+- **12** files carry `policy_version: 2`, and the set of `(policy_version, format)`
+  pairs among them is exactly `{(2, 'carousel')}` — all twelve are Carousels, all
+  twelve are `asset_source: licensed_stock`, all twelve `rights_confirmed: true`.
+- **Zero** files in the repo, at any policy version, carry `asset_source: original`
+  or `partner_licensed`.
+
+So the §3 gate has never been cleared by anything. "The Reel path is unexercised" is
+not merely a rendering observation (below) — no compliant Reel *input* has ever
+existed either. The three editorial fixes in the 2026-09-15 entry remain the only
+ways out, and all three are human decisions.
+
+### Verified working this run
+
+- `scripts/cardnews.py` on `content/2026-11-07-korea-old-shop-plaques-en.json`:
+  exit **0**, **7** slides, every one **1080×1350** RGB, opened and measured with
+  Pillow afterwards rather than trusted on exit code (the 2026-09-17 lesson).
+- **WebSearch works.** **WebFetch works** on `koreaherald.com` — a full article body
+  came back (article 10550038, the Starbucks Korea `cagongjok` equipment ban).
+- `python3` **3.12.16** and Pillow **13.0.0** are present, as the prompt states.
+
+### Re-confirmed: `scripts/reel.py` still cannot run here
+
+`python3 scripts/reel.py content/2026-11-07-korea-old-shop-plaques-en.json
+/tmp/rendercheck` → exit **1**, uncaught `FileNotFoundError: [Errno 2] No such file
+or directory: 'ffmpeg'` at `scripts/reel.py:45` (`subprocess.run` inside `run()`,
+called from `build_segment` at `reel.py:65`, from `build_reel` at `reel.py:244`).
+`which ffmpeg` is empty on this runner image. Identical to the 2026-11-06 and
+2026-11-08 measurements.
+
+Per the 2026-09-22 finding this is a per-run setup step, not a true blocker — `sudo
+apt-get install -y ffmpeg` succeeds here and `reel.py` then produces a valid
+1080×1920 MP4 — but the Reel path has now been unexercised for **forty-one**
+consecutive Reel days, so "it worked on 2026-09-22" is still the newest evidence
+there is. `run()` should also fail with a readable message ("ffmpeg not found —
+install it") instead of a bare traceback; the first run that ever gets past the §3
+gate should not have to diagnose this too.
+
+### Publish side: no new evidence today, by construction
+
+Nothing was due at the 19:00 KST publisher on Sun 2026-11-08, because 11-08 was
+itself a Reel-day skip and `queue.json` carries **0** `pending` entries. The
+publisher therefore had nothing to pick up and produced no new token evidence. The
+dead-token blocker stands exactly as last tested on **2026-11-08** (the 11-07
+Carousel, held 2026-11-08T01:15:12 KST, OAuthException **code 190**, `fbtrace_id
+AHyBd06xD_cDwGNXiT_kZD7`) — the sixth code-190 hold, last successful publish
+2026-10-07. Re-authorizing `IG_ACCESS_TOKEN` through Instagram Login
+(CONNECT-GUIDE.md) remains the **top-priority human action** and is not something an
+agent can do; `refresh-token.yml` cannot help, because `refresh_access_token`
+extends a live token rather than resurrecting an invalidated session.
+
+`--max-turns 60` did not fire again this run. `.github/workflows/daily-content.yml:80`
+still reads `--max-turns 60`, unraised; it stays worth raising as cheap insurance,
+not as the first fix.
+
+### Hand-off: the 2026-11-11 topic is already researched — do not redo it
+
+The 2026-11-08 entry closes with a fully sourced Carousel angle for **Wed
+2026-11-11 (cafe)** — Korea's 2025–26 dessert cycle, non-venue-specific so §3
+option 3 applies. It is **still unconsumed**, since 11-09 and 11-10 are both Reel
+days and will both skip. The 11-11 run should start from that hand-off rather than
+re-researching: re-verify each figure at its primary source, keep caption +
+hashtags under ~2000 characters against `MAX_CAPTION = 2200`, and source a
+non-venue-specific CC0 photo the way 10-10 through 11-07 did.
+
+Checked this run for overlap, since four cafe-pillar Carousels already exist and a
+fifth must not repeat them: `korea-cup-rules` (09-16, reusable-cup discounts),
+`korea-cafe-seat-time` (09-23, the 91-minute americano — this is the `cagongjok`
+seat-economics story, so **the Korea Herald Starbucks-equipment article fetched
+above is already covered; do not build 11-11 on it**), `seoul-cafe-churn` (10-07,
+492 Seoul closures) and `korea-cafe-licence` (11-04, licence types). The dessert-cycle
+angle is clear of all four. One adjacent lead surfaced and is flagged *unverified*:
+National Tax Service data reported as the **first nationwide decline** in coffee-shop
+count since the series began, which is a national counterpart to 10-07's Seoul-only
+figure — if 11-11 prefers it, pull it from the NTS release itself, as the search hits
+were aggregators.
 
 ---
 
