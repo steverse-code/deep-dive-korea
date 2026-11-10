@@ -4,14 +4,14 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-09 that is **forty-one
+verified, stop without adding a queue item"). As of 2026-11-10 that is **forty-two
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
-separately dead on the token below. Measured 2026-11-09: **no file in `content/` has
-ever carried `asset_source: original` or `partner_licensed`**, so the gate has never
-once been cleared — see that entry. Note that the Carousel render path is proven but
-the **Reel** render path is not: `scripts/reel.py` crashes with a raw
-`FileNotFoundError` on missing ffmpeg, re-measured 2026-11-09 — see that entry. The
+separately dead on the token below. Re-measured 2026-11-10: **no file in `content/`
+has ever carried `asset_source: original` or `partner_licensed`**, so the gate has
+never once been cleared — see that entry. Note that the Carousel render path is proven
+but the **Reel** render path is not: `scripts/reel.py` crashes with a raw
+`FileNotFoundError` on missing ffmpeg, re-measured 2026-11-10 — see that entry. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
 
@@ -195,6 +195,110 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-10 (Tue), reel / local — SKIPPED
+
+Forty-second consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged. Every
+number below was measured this run, not inherited from the 2026-11-09 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Tue 2026-11-10 14:04 KST, `%u` = 2 → **reel / local**,
+  Collab *candidate*. The task prompt independently specified `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-11-10.** `queue.json` holds **52**
+  entries (**13** `published`, **39** `held`, **0** `pending`); grepping the whole
+  serialised queue for `2026-11-10` returns **zero** hits in either `slug` or
+  `publish_at`, and `content/` has no `2026-11-10-*` file. Nothing to stop on. Still
+  **no ramp flag** anywhere in the queue or repo notes — the only "ramp" matches
+  remain the prose at CONTENT.md:20 and PIPELINE.md:29 that *describe* the flag §1
+  says to respect.
+- §3 option 1 (owner original): **empty.** Resolved every image reference across all
+  **52** `content/*.json` against `assets/photos/`: **53** on disk, **53**
+  referenced, **unused set = zero**, missing set = zero — no unclaimed frame is
+  sitting in the repo. `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff|cr2|arw` returns **zero**
+  files, so there is no owner footage for a Reel either. `git status
+  --untracked-files=all` is **clean** — nothing was dropped in for this run.
+- §3 option 2 (venue/creator media with written permission): **no paperwork exists.**
+  `git ls-files` filtered for `right|permis|licen|consent|partner|inbox|incoming|
+  upload|submission|footage` returns **9** paths, and all 9 are the
+  `2026-11-04-korea-cafe-licence-en` slug matching on "licen" — a post *about* licence
+  types, not a licence grant. Obtaining real permission means contacting a venue,
+  which an unattended run must not do.
+- §3 option 3 (licensed stock): **barred for this format.** Stock is limited to "a
+  non-venue-specific editorial Carousel". Today is a Reel, and the Tuesday
+  `local` (local food) pillar is a venue/dish recommendation by construction, so the
+  escape hatch is closed on both counts. Swapping the day to a Carousel is one of the
+  three editorial fixes in the 2026-09-15 entry and is explicitly reserved for a
+  human.
+- Rights audit across `content/` is unchanged: the set of
+  `(policy_version, format, asset_source)` triples is exactly
+  `{(2, carousel, licensed_stock): 12, (none, none, none): 40}`. **Zero** files at any
+  policy version carry `original` or `partner_licensed`, so no compliant Reel *input*
+  has ever existed.
+
+### Verified working this run
+
+- `scripts/cardnews.py` on `content/2026-11-07-korea-old-shop-plaques-en.json`:
+  exit **0**, **7** slides, every one **1080×1350** RGB, opened and measured with
+  Pillow afterwards rather than trusted on exit code (the 2026-09-17 lesson).
+- **WebSearch works. WebFetch works** on `koreaherald.com` (article 10550038 returned
+  a full article body).
+- `python3` **3.12.16** and Pillow **13.0.0** are present.
+
+### Re-confirmed: `scripts/reel.py` still cannot run here
+
+`python3 scripts/reel.py content/2026-11-07-korea-old-shop-plaques-en.json
+/tmp/reelcheck` → exit **1**, uncaught `FileNotFoundError: [Errno 2] No such file or
+directory: 'ffmpeg'` at `scripts/reel.py:45`. `which ffmpeg` is empty on this runner
+image. Identical to the 2026-11-06, 11-08 and 11-09 measurements. Per the 2026-09-22
+finding this is a per-run setup step rather than a true blocker — `sudo apt-get
+install -y ffmpeg` succeeds here and `reel.py` then produces a valid 1080×1920 MP4 —
+but the Reel path has now been unexercised for **forty-two** consecutive Reel days,
+so "it worked on 2026-09-22" is still the newest evidence there is.
+
+### Publish side: no new evidence today, by construction
+
+`queue.json` carries **0** `pending` entries and 2026-11-09 was itself a Reel-day
+skip, so the 19:00 KST publisher had nothing to pick up and produced no new token
+evidence. The dead-token blocker stands exactly as last tested on **2026-11-08** (the
+11-07 Carousel, held 2026-11-08T01:15:12 KST, OAuthException **code 190**,
+`fbtrace_id AHyBd06xD_cDwGNXiT_kZD7`) — the sixth code-190 hold, last successful
+publish **2026-10-07**. Re-authorizing `IG_ACCESS_TOKEN` through Instagram Login
+(CONNECT-GUIDE.md) remains the **top-priority human action** and is not something an
+agent can do. `--max-turns 60` did not fire again this run;
+`.github/workflows/daily-content.yml:80` still reads `--max-turns 60`, unraised.
+
+### Hand-off for Wed 2026-11-11 (cafe Carousel) — still the dessert-cycle angle
+
+The 2026-11-08 entry's sourced Carousel angle (Korea's 2025–26 dessert cycle,
+non-venue-specific so §3 option 3 applies) is **still unconsumed** — 11-09 and 11-10
+both skipped as that entry predicted. Tomorrow is a Carousel, the one format that can
+still be authored and rendered end to end. Start from that hand-off rather than
+re-researching, re-verify each figure at its primary source, keep `caption` +
+hashtags under ~2000 characters against `MAX_CAPTION = 2200`, and source a
+non-venue-specific CC0 photo the way 10-10 through 11-07 did.
+
+**One upgrade from this run: the NTS lead the 11-09 entry flagged *unverified* now has
+numbers.** National Tax Service TASIS data puts registered coffee/beverage shops at
+**95,337 in Q1 2025, down 743** from 96,080 a year earlier — reported as the first
+decline since the series began, and the national counterpart to 10-07's Seoul-only
+492-closure figure. A later Segye report gives **93,551 as of April 2026, down 1,699
+YoY**, i.e. a second consecutive annual fall. **Caveat unchanged and important:** both
+figures still came through news outlets citing TASIS, not the NTS release itself — the
+primary TASIS table was *not* fetched directly this run, so re-verify at source before
+either number goes in a caption, and note the Segye piece carries a 2026-10 publication
+date against an April 2026 reference period. Sources:
+[newsis](https://www.newsis.com/view/NISX20250526_0003189542),
+[insideretail.asia](https://insideretail.asia/2025/05/27/cafe-boom-reverses-for-first-time-in-years-as-market-saturation-bites/),
+[segye](https://www.segye.com/newsView/20261009501247).
+
+Also unchanged from the 11-09 entry: **do not** build 11-11 on the Starbucks
+`cagongjok` equipment ban — `korea-cafe-seat-time` (09-23) already covers that
+seat-economics story.
 
 ---
 
