@@ -1,0 +1,88 @@
+{
+  "slug": "2026-11-11-korea-cafe-cup-rules-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-11-11T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: '2020-08-17 things places in south korea IMG 0685.jpg' by Choi Kwang-mo, Creative Commons Zero / Public Domain Dedication. Licence verified against the Wikimedia Commons API on 2026-11-11 KST for this exact file (sha1 16c6a9c9995fe132f436df589355bb7ea5d0ec83): License 'cc0', LicenseShortName 'CC0', UsageTerms 'Creative Commons Zero, Public Domain Dedication', LicenseUrl creativecommons.org/publicdomain/zero/1.0, AttributionRequired 'false', Restrictions field empty, Credit 'Own work', categories CC-Zero / FAL / Self-published work / Interiors of cafes in South Korea. Unlike the 2026-11-07 photo this is NOT a Flickr transfer but the uploader's own work, so no external licence-review step applies and none is claimed; the file is additionally offered under the Free Art License, which we do not rely on. CC0 waives all rights worldwide, so commercial use and modification are permitted with no attribution and no share-alike obligation; the photographer is credited on the sources slide anyway as a matter of practice. A share-alike licence was again deliberately avoided, as on 2026-10-10, 10-17, 10-21, 10-24, 10-31, 11-04 and 11-07, because scripts/cardnews.py renders a duotoned derivative that CC BY-SA would oblige us to relicense; the two best-composed alternatives found in the same Commons category (Korea 2015 (23595095360).jpg and Coffee and Tea at Droptop Cafe, Seoul.jpg) were rejected on exactly that ground. Used under PIPELINE.md section 3 option 3 - licensed stock on a non-venue-specific editorial Carousel: the post is about a nationwide single-use-cup rule and a pending amendment to it, it recommends no venue and names no business as its subject. SUBJECT HONESTY: the frame is the inside of a Korean cafe showing a yellow cup-return notice ('RETURN - please bring your finished cups here') and a counter dispenser of single-use straws. That is an honest depiction of exactly what the post is about - how a cup is handled inside a Korean cafe - rather than a mood shot standing in for a named place. The uploader's own description is 'Unidentified places in South Korea'; the file's EXIF GPS is 37.349839 / 127.948739, which is Wonju, Gangwon-do, and the sources slide says only that, with the capture date. BRAND: the untouched original is identifiable. Its centre-right wall carries 'MEGA MGC COFFEE / 100% Premium Arabica / MEGA SIZE TWO SHOT' and the bottom-left corner a 'Unicorn Magic Ade' product poster, so the default centre crop that scripts/cardnews.py applies would have put a named franchise's branding in the middle of a post about cup regulation and implied a claim about that chain we have neither made nor verified. The frame was therefore pre-cropped (see CROP below) to exclude the branded wall and nearly all of the poster. What remains of the brand is the illegible 3mm line at the foot of the yellow RETURN notice, which disappears entirely under the 66% duotone wash. No business is named anywhere in the post, none is said to comply or not comply with any rule, and no verification of any pictured business's current operation was required or performed. TIMING: the EXIF capture date is 2020-08-16 21:41:23, which PREDATES every rule the post discusses (the in-store plastic-cup ban was restored in April 2022, the paper-cup ban ran November 2022 to November 2023, the industry agreement took effect September 2026). The single-use straws visible in the frame were lawful when photographed and the copy makes no suggestion otherwise; the sources slide states the capture date so the reader can place it. PEOPLE: none. The original contains no person at full size, and the crop contains none either; both were rendered and inspected before committing. No personality-rights template and no Restrictions entry on the file. ORIENTATION: checked for the EXIF rotation problem found on 2026-10-24 - getexif()[274] is 1 and ImageOps.exif_transpose is a no-op, so cardnews.py, which opens images without exif_transpose, renders it upright. CROP: yes, and deliberate. The 4032x3024 original was cropped to the box (241, 483, 1854, 2499), i.e. the left-hand 40% of the width and the middle 67% of the height, giving 1613x2016 - a 0.8001 ratio, so cardnews.py's cover-crop to 1080x1350 is effectively a straight resize and composes the slides as inspected. Re-encoded at quality 92 through a fresh RGB canvas with all EXIF, including the GPS tag, dropped. No other modification: no retouching, no object removed or added.",
+  "location": "South Korea",
+  "venue_handle": null,
+  "search_keyword": "Korea cafe disposable cup rule plastic cup ban takeout tumbler discount",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-11-11-korea-cafe-cup-rules-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE RULES",
+      "headline": "Sit down, and the\nlaw changes\nyour cup.",
+      "subline": "Single-use plastic is banned inside Korean cafes. Paper is not — and the government is drafting that ban for the third time",
+      "bg_image": "assets/photos/2026-11-11-korea-cafe-cup-rules-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "ONE YEAR, 24 CHAINS",
+      "value": "1.09 billion",
+      "label": "disposable cups went through the 24 franchise groups that have a cup agreement with the ministry — in a single year, and up 1.6% on the year before",
+      "note": "Ministry of Climate, Energy and Environment figures released via Rep. Seo Wang-jin, reported 6 October 2026 · 2025 total, against 1.072 billion in 2024 and 830 million in 2019 · Checked 11 November 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The cup depends\non where you drink it.",
+      "body": "One line in the resource-saving law decides what you are handed. Food-service businesses may not use single-use plastic cups for customers drinking in. Sit down and the drink has to arrive in something reusable — a mug, a glass, a steel tumbler. The penalty runs to 3 million won.\n\nTake the same drink out of the door and the rule stops applying. That is why staff ask, and why the answer changes the cup.\n\nThe one hole in it is paper. A matching ban on in-store paper cups was written in November 2022, given a year's grace, and then withdrawn in November 2023 to spare small operators. Paper has been unrestricted ever since."
+    },
+    {
+      "type": "list",
+      "title": "What is actually\nin force today",
+      "items": [
+        { "t": "In-store plastic cups — banned", "d": "Nationwide, at any food-service business. Fines reach 3 million won" },
+        { "t": "In-store paper cups — allowed", "d": "The ban was scrapped in November 2023 and has never come back" },
+        { "t": "Takeaway — no cup rule at all", "d": "The restriction only covers drinking on the premises" },
+        { "t": "Enforcement — light", "d": "Single-use violations drew an average of about 72 fines a year across five years" }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "What changed\nin September",
+      "items": [
+        { "t": "23 brands, about 22,000 shops", "d": "Signed 14 July 2026 with the climate ministry, in effect since September. Ediya, Starbucks, Paris Baguette, three burger chains and 150-odd independents" },
+        { "t": "Reusable cups for anyone staying", "d": "Paper included — the signatories went past what the law requires of them" },
+        { "t": "Bring a cup, save up to 800 won", "d": "300-400 won off at the till, the rest in the government's Carbon Neutrality Action Points" },
+        { "t": "No double-cupping, straws on request", "d": "Ask at the kiosk or the counter — they are no longer left out for the taking" }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Korea banned the in-store\npaper cup, un-banned it,\nand is now drafting it again.",
+      "by": "On 10 August 2026 the climate ministry told the president it wants the plastic rule extended to paper, phased in from larger shops — floor-area thresholds of 33㎡ or 100㎡ are being discussed, with standards and a timetable promised within the year. Nothing is final, so the rule above is the one you will meet this month. Research, not a visit; no venue recommended."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Seoul Economic Daily, 6 Oct 2026 — 1.089bn cups at 24 franchise groups in 2025, up 1.6%; plastic ban in force but weakly enforced, ~72 fines a year; paper ban withdrawn Nov 2023",
+        "Seoul Economic Daily, 10 Aug 2026 — ministry proposes extending the in-store ban to paper cups by floor area (33㎡ or 100㎡ under discussion)",
+        "World Coffee Portal, 16 July 2026 — agreement signed 14 July, ~22,000 outlets, in force since Sept 2026: reusable dine-in cups, up to ₩800 for your own",
+        "Seoul city — in-store single-use rules sit under the Act on the Promotion of Saving and Recycling of Resources; fines reach ₩3 million",
+        "Jeju coverage, 17 Jan 2026 — the ₩300 deposit still runs there, with 60% of cups returned in 2025; national rollout was dropped in late 2025",
+        "Photo: a cafe interior in Wonju, 16 Aug 2020, by Choi Kwang-mo, CC0, Wikimedia Commons. It predates every rule here; no business pictured is named or assessed"
+      ],
+      "cta": "Staying or going?\nSave this before you order"
+    }
+  ],
+  "caption": "In a Korean cafe, one question decides what your drink arrives in. Staying or going?\n\nThe resource-saving law bars food-service businesses from using single-use plastic cups for customers drinking on the premises. Sit down and it has to be a mug, a glass or a reusable tumbler; the fine reaches 3 million won. Walk out with it and the rule no longer applies. That is the whole logic behind the question at the till.\n\nPaper is the gap. A matching ban on in-store paper cups was written in November 2022, given a year's grace period, then withdrawn in November 2023 to spare small operators — so paper has been unrestricted ever since, and plenty of places quietly use it.\n\nThat may not last. On 10 August 2026 the Ministry of Climate, Energy and Environment told the president it wants the plastic rule extended to paper, phased in from larger shops first. Thresholds of 33㎡ or 100㎡ are being discussed and the ministry has promised standards and a timetable within the year. Nothing is final yet.\n\nSomething did change in September. Twenty-three brands and around 150 independent cafes — roughly 22,000 shops, Ediya and Starbucks and Paris Baguette among them — signed an agreement with the ministry in July that took effect in September: reusable cups for anyone drinking in, paper included; no double-cupping; straws only if you ask. Bring your own cup and you can save up to 800 won, 300 to 400 of it off the price and the rest in government carbon points.\n\nScale, for context: those franchise groups still got through 1.09 billion disposable cups in 2025, up 1.6% on the year.\n\nOne more thing if you are in Jeju. The 300-won cup deposit still runs there; you get it back when you return the cup, and 60% of them came back last year.\n\nSources on the last slide. Research, not a visit, and no venue recommended here.",
+  "hashtags": [
+    "#koreatraveltips",
+    "#seoulcafe",
+    "#koreancafe",
+    "#cafehopping",
+    "#zerowastetravel",
+    "#koreanlaw",
+    "#deepdivekorea"
+  ]
+}
