@@ -4,16 +4,25 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-10 that is **forty-two
+verified, stop without adding a queue item"). As of 2026-11-12 that is **forty-three
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
-separately dead on the token below. Re-measured 2026-11-10: **no file in `content/`
+separately dead on the token below. Re-measured 2026-11-12: **no file in `content/`
 has ever carried `asset_source: original` or `partner_licensed`**, so the gate has
-never once been cleared — see that entry. Note that the Carousel render path is proven
-but the **Reel** render path is not: `scripts/reel.py` crashes with a raw
-`FileNotFoundError` on missing ffmpeg, re-measured 2026-11-10 — see that entry. The
+never once been cleared, and **all 14** photos added since the policy rewrite are
+pipeline-fetched Carousel stock — see that entry. Note that the Carousel render path
+is proven but the **Reel** render path is not: `scripts/reel.py` crashes with a raw
+`FileNotFoundError` on missing ffmpeg, re-measured 2026-11-12 — see that entry. The
 three possible fixes are editorial and reserved for a human — see the 2026-09-15
 entry.
+
+**Token blocker re-tested 2026-11-12 and still live — now seven straight code-190
+holds.** The 11-11 Carousel was authored and rendered correctly and then held at
+2026-11-12T02:49:50 KST on OAuthException code 190. Every Carousel authored since
+10-10 has died the same way; last successful publish is 2026-10-07, **36 days** ago.
+Re-authorizing `IG_ACCESS_TOKEN` (CONNECT-GUIDE.md) is the top-priority human action:
+the authoring side is working and three finished posts have now been thrown away by
+one expired credential.
 
 **NEW as of 2026-10-29 — the turn cap, not the caption cap, took Wed 2026-10-28.**
 The 2026-10-27 entry warned that the next run was the 10-28 Carousel and told it to
@@ -195,6 +204,171 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-12 (Thu), reel / bar — SKIPPED
+
+Forty-third consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged. Every
+number below was measured this run, not inherited from the 2026-11-10 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Thu 2026-11-12 13:45 KST, `%u` = 4 → **reel / bar**,
+  Collab *optional*. The task prompt independently specified `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-11-12.** `queue.json` holds **53**
+  entries (**13** `published`, **40** `held`, **0** `pending`). Grepping the whole
+  serialised queue for `2026-11-12` returns exactly **one** hit, and it is the
+  `held_at` timestamp of the *11-11* Carousel — **not** a `slug` or a `publish_at`,
+  so it is not a same-day item and does not trigger §0. `content/` has no
+  `2026-11-12-*` file. Still **no ramp flag** anywhere in the queue or repo notes;
+  the only "ramp" matches remain the prose at CONTENT.md:20 and PIPELINE.md:29 that
+  *describe* the flag §1 says to respect.
+- §3 option 1 (owner original): **empty.** Resolved every image reference across all
+  **53** `content/*.json` against `assets/photos/`: **54** on disk, **54**
+  referenced, **unused set = zero**, missing set = zero — no unclaimed frame is
+  sitting in the repo. `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff|cr2|arw` returns **zero**
+  files, so there is no owner footage for a Reel either. `git status
+  --untracked-files=all` is **clean** — nothing was dropped in for this run.
+  Separately re-confirmed against history: of the **14** files added to
+  `assets/photos/` since the policy rewrite (8128750, 2026-09-14), **all 14** are
+  pipeline-fetched editorial stock named for a Carousel slug. The last
+  human-committed photo is still `cheongildip-en.jpg` (392aefd, **2026-08-25**),
+  which predates the policy by three weeks.
+- §3 option 2 (venue/creator media with written permission): **no paperwork exists.**
+  `git ls-files` filtered for `right|permis|licen|consent|partner|inbox|incoming|
+  upload|submission|footage` returns **9** paths, and all 9 are the
+  `2026-11-04-korea-cafe-licence-en` slug matching on "licen" — a post *about* licence
+  types, not a licence grant. Obtaining real permission means contacting a venue,
+  which an unattended run must not do.
+- §3 option 3 (licensed stock): **barred for this format.** Stock is limited to "a
+  non-venue-specific editorial Carousel". Today is a Reel, and the Thursday `bar`
+  pillar is a single-venue recommendation by construction, so the escape hatch is
+  closed on both counts. Swapping the day to a Carousel is one of the three
+  editorial fixes in the 2026-09-15 entry and is explicitly reserved for a human.
+- Rights audit across `content/`: the set of
+  `(policy_version, format, asset_source)` triples is exactly
+  `{(2, carousel, licensed_stock): 13, (none, none, none): 40}`. **Zero** files at any
+  policy version carry `original` or `partner_licensed`, so no compliant Reel *input*
+  has ever existed. Note what this implies for the one `bar` Reel the account has
+  authored: `2026-09-03-charles-h-en` ran a stock bar photo as its `bg_image` cover
+  and disclosed it only in sources-slide prose ("Cover photo is a licensed stock
+  image of a bar, not a photo of this bar"). That disclosure pattern is exactly what
+  8128750 withdrew, so re-running today's pillar the old way is not available.
+
+### Verified working this run
+
+- `scripts/cardnews.py` on `content/2026-11-11-korea-cafe-cup-rules-en.json`:
+  exit **0**, **7** slides, every one **1080×1350** RGB, opened and measured with
+  Pillow afterwards rather than trusted on exit code (the 2026-09-17 lesson).
+- **WebSearch works. WebFetch works** — the Wikimedia Commons `extmetadata` API
+  re-returned `License: cc0` for the 11-11 cover file, and `mafra.go.kr` article
+  579325 returned a full press-release body.
+- **New WebFetch datapoint: `law.go.kr` is useless to this pipeline.** Fetching
+  `law.go.kr/법령/농수산물의원산지표시등에관한법률` returns the statute *title only* —
+  the article text is client-rendered. Statutory figures must therefore be sourced
+  from a 농관원/농식품부 press release or a ministry PDF, not from the statute page.
+  Worth knowing before a future run burns turns on it.
+- `python3` **3.12.16** and Pillow **13.0.0** are present.
+
+### Re-confirmed: `scripts/reel.py` still cannot run here
+
+`python3 scripts/reel.py content/2026-11-11-korea-cafe-cup-rules-en.json
+/tmp/reelcheck2` → exit **1**, uncaught `FileNotFoundError: [Errno 2] No such file or
+directory: 'ffmpeg'` at `scripts/reel.py:45`. `which ffmpeg` is empty on this runner
+image. Identical to the 2026-11-06 / 11-08 / 11-09 / 11-10 measurements. Per the
+2026-09-22 finding this is a per-run setup step rather than a true blocker — `sudo
+apt-get install -y ffmpeg` succeeds here and `reel.py` then produces a valid
+1080×1920 MP4 — but the Reel path has now been unexercised for **forty-three**
+consecutive Reel days, so "it worked on 2026-09-22" is still the newest evidence
+there is.
+
+### Publish side: NEW evidence today — the seventh code-190 hold
+
+Unlike 11-10, this run *does* carry new publish evidence, because 11-11 was a
+Carousel that actually shipped to the API. `2026-11-11-korea-cafe-cup-rules-en` was
+authored and rendered correctly off the 11-10 hand-off, then **held** at
+**2026-11-12T02:49:50 KST** with `hold_reason: publish_failed_manual_review` and
+OAuthException **code 190** (`fbtrace_id AwAKaH9ZaIvG-8NNUDYj2Ia`) — the same
+"session has been invalidated because the user changed their password" message.
+
+That makes **seven** code-190 holds (10-10, 10-17, 10-21, 10-31, 11-04, 11-07,
+11-11) and moves the token blocker's last-tested date from 2026-11-08 to **today**.
+It is not stale and it is not intermittent: **every** Carousel authored since 10-10
+has died on it. Last successful publish is still `2026-10-07-seoul-cafe-churn-en`,
+now **36 days** ago. Re-authorizing `IG_ACCESS_TOKEN` through Instagram Login
+(CONNECT-GUIDE.md) remains the **top-priority human action** and is not something an
+agent can do. Note the compounding waste: the authoring side is working — 11-04,
+11-07 and 11-11 were all produced on schedule — and all three were thrown away at
+19:00 KST by one expired credential.
+
+`--max-turns 60` did not fire again this run;
+`.github/workflows/daily-content.yml:80` still reads `--max-turns 60`, unraised.
+
+**Caption cap: no longer drifting.** Measured across all 13 policy-v2 Carousels,
+caption + hashtags runs 929, 1229, 1374, 1689, 1526, 1572, 1964, 2104, **2328**,
+2051, 2110, 2069, **1915**. The 10-24 breach (2328) is still the only one over
+`MAX_CAPTION = 2200`, and the last four runs have held 90–285 characters under it,
+so the explicit budget the 10-25 entry asked for is being honoured in practice. The
+10-25 recommendation stands anyway: the cap is still **unwritten** in PIPELINE.md §4
+and CONTENT.md, so compliance currently depends on each run reading this file.
+
+### Hand-off for Sat 2026-11-14 (local / neighborhood Carousel)
+
+The 11-10 dessert-cycle hand-off was **consumed** by 11-11, so Saturday needs a new
+angle. Researched and partly verified this run — a non-venue-specific editorial
+topic, so §3 option 3 applies and it can ship:
+
+**"The board on the wall tells you where your meat came from — and lying on it is a
+7-year offence."** Korea's 원산지표시법 (Act on Origin Labelling of Agricultural and
+Fishery Products) obliges *every* 일반음식점 / 휴게음식점 / 위탁급식소 / 집단급식소 to
+post origin for a fixed list of items, which is why that small print board hangs by
+the door of restaurants travelers eat in daily. Useful to an English audience
+because it is a trust tool they can actually read: the country name is in the board
+even when the menu is not.
+
+Facts gathered, with their verification state:
+
+- **Penalties — verified at an official source.** 농관원/농식품부 releases state false
+  labelling (거짓표시) carries **up to 7 years' imprisonment or a fine up to 100
+  million won**, while non-labelling or wrong-method labelling (미표시·표시방법 위반)
+  carries an **administrative fine up to 10 million won**. Sources:
+  [mafra.go.kr 579325](https://www.mafra.go.kr/bbs/home/792/579325/artclView.do),
+  [mafra.go.kr 578682](https://www.mafra.go.kr/bbs/home/792/578682/artclView.do).
+- **Enforcement scale — verified, and the strongest stat for a cover.** In a 17-day
+  Chuseok sweep, **7 Sept – 23 Sept 2026**, 농관원 inspected **13,251** businesses and
+  caught **256**: **104** for false labelling (referred for criminal charges) and
+  **152** for non-labelling (fines totalling **35.87 million won**). Release dated
+  1 Oct 2026, same mafra.go.kr/579325 URL above.
+- **The labelled item list — NOT yet primary-verified, do not publish as-is.**
+  Secondary guides agree on **6 meats** (beef, pork, chicken, duck, lamb, goat
+  incl. dairy goat) and **3 agricultural items** (rice; napa-cabbage kimchi, which
+  must carry origin for *both* the cabbage and the chilli powder — e.g. "배추김치
+  (배추 국내산, 고춧가루 중국산)"; and soybeans for tofu/soy dishes), plus **20
+  seafood species** for **29** total. One of those guides contradicts itself on the
+  total within the same page. Confirm the list and count against the 농관원 고시 or a
+  ministry PDF before it goes in a slide — and per the WebFetch note above, do not
+  expect law.go.kr to serve it.
+- **A live 2026 change worth one line.** An amendment effective **22 Oct 2026**
+  requires delivery-app operators to notify listed restaurants of the origin-labelling
+  rules and sanctions; the underlying duty on the restaurant is unchanged. Sourced
+  only to a payments-industry explainer
+  ([tossplace](https://tossplace.com/story/food_delivery_apps_origin)) — verify at
+  농식품부 before using, or drop it, since the post works without it.
+
+Angle guidance: lead with the 13,251-inspected / 256-caught enforcement figure, not
+with the prison term — the useful message is "this board is checked", not "Korean
+restaurants lie". Keep `caption` + hashtags under ~2000 characters against
+`MAX_CAPTION = 2200`, and source a non-venue-specific CC0 photo (a restaurant origin
+board, a market meat counter, or a generic Korean restaurant interior) the way 10-10
+through 11-11 did, verifying the licence against the Wikimedia Commons `extmetadata`
+API for the exact file as 11-11 did.
+
+Also still true from earlier entries: **do not** build on the Starbucks `cagongjok`
+equipment ban (covered by 09-23) or on cafe closure counts (covered by 10-07 and
+11-11's hand-off).
 
 ---
 
