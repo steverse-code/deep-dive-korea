@@ -4,22 +4,32 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-12 that is **forty-three
+verified, stop without adding a queue item"). As of 2026-11-13 that is **forty-four
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
-separately dead on the token below. Re-measured 2026-11-12: **no file in `content/`
+separately dead on the token below. Re-measured 2026-11-13: **no file in `content/`
 has ever carried `asset_source: original` or `partner_licensed`**, so the gate has
 never once been cleared, and **all 14** photos added since the policy rewrite are
-pipeline-fetched Carousel stock — see that entry. Note that the Carousel render path
-is proven but the **Reel** render path is not: `scripts/reel.py` crashes with a raw
-`FileNotFoundError` on missing ffmpeg, re-measured 2026-11-12 — see that entry. The
-three possible fixes are editorial and reserved for a human — see the 2026-09-15
-entry.
+pipeline-fetched Carousel stock — see that entry. The three possible fixes are
+editorial and reserved for a human — see the 2026-09-15 entry.
 
-**Token blocker re-tested 2026-11-12 and still live — now seven straight code-190
-holds.** The 11-11 Carousel was authored and rendered correctly and then held at
+**The Reel render path is no longer unproven — it was exercised end to end on
+2026-11-13 and it works.** Every entry from 2026-11-06 to 2026-11-12 recorded only
+that `scripts/reel.py` dies on missing ffmpeg and left "it worked on 2026-09-22" as
+the newest positive evidence. This run installed ffmpeg and ran the real §4
+two-step, producing a valid **1080×1920 / h264 / 30fps / 666-frame / 22.2s** MP4
+with AAC audio. So the *only* thing standing between this pipeline and a Reel is
+§3 media — not the renderer, and not ffmpeg. Two mechanical gotchas for whoever
+ships the first Reel are recorded in today's entry: `reel.py` does **not** render
+its own slides, and the MP4 must be probed *after* the process exits.
+
+**Token blocker still live — seven straight code-190 holds, last tested 2026-11-12.**
+The 11-11 Carousel was authored and rendered correctly and then held at
 2026-11-12T02:49:50 KST on OAuthException code 190. Every Carousel authored since
-10-10 has died the same way; last successful publish is 2026-10-07, **36 days** ago.
+10-10 has died the same way; last successful publish is 2026-10-07, **37 days** ago
+as of 2026-11-13. No new publish evidence on 11-12 or 11-13: both were Reel skip
+days, so nothing was due at 19:00 KST and the publisher had nothing to pick up.
+The next real test is Sat **2026-11-14**.
 Re-authorizing `IG_ACCESS_TOKEN` (CONNECT-GUIDE.md) is the top-priority human action:
 the authoring side is working and three finished posts have now been thrown away by
 one expired credential.
@@ -204,6 +214,184 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+
+## 2026-11-13 (Fri), reel / restaurant — SKIPPED
+
+Forty-fourth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged. Every
+number below was measured this run, not inherited from the 2026-11-12 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Fri 2026-11-13 12:57 KST, `%u` = **5** → **reel /
+  restaurant**, Collab **candidate**. The task prompt independently specified
+  `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-11-13.** `queue.json` holds **53**
+  entries (**13** `published`, **40** `held`, **0** `pending`). Grepping the whole
+  serialised queue for `2026-11-13` returns **zero** hits — unlike 11-12, not even a
+  `held_at` collision. `content/` has no `2026-11-13-*` file. Still **no ramp flag**
+  anywhere: a regex for `"*ramp*"` keys across `queue.json` returns nothing, and the
+  only "ramp" matches in the repo remain the prose at CONTENT.md:20 and
+  PIPELINE.md:29 that *describe* the flag §1 says to respect.
+- §3 option 1 (owner original): **empty.** Resolved every image reference across all
+  **53** `content/*.json` against `assets/photos/`: **54** on disk, **54**
+  referenced, **unused set = zero**, missing set = zero — no unclaimed frame is
+  sitting in the repo. `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff|tif|cr2|arw` returns
+  **zero** files, so there is no owner footage for a Reel either. `git status
+  --untracked-files=all` is **clean** — nothing was dropped in for this run. The last
+  human-committed photo is still `cheongildip-en.jpg` (392aefd, **2026-08-25**),
+  which predates the policy rewrite (8128750, 2026-09-14) by three weeks; every
+  photo commit since is a `claude[bot]` Carousel-stock fetch.
+- §3 option 2 (venue/creator media with written permission): **no paperwork exists.**
+  `git ls-files` filtered for `right|permis|licen|consent|partner|inbox|incoming|
+  upload|submission|footage` returns **9** paths, and all 9 are the
+  `2026-11-04-korea-cafe-licence-en` slug matching on "licen" — a post *about* licence
+  types, not a licence grant. Obtaining real permission means contacting a venue,
+  which an unattended run must not do.
+- §3 option 3 (licensed stock): **barred for this format, and today doubly so.**
+  Stock is limited to "a non-venue-specific editorial Carousel". Today is a Reel, and
+  the Friday `restaurant` pillar is a single-venue recommendation by construction, so
+  the escape hatch is closed on both counts. Friday is also a **Collab candidate**,
+  and §3 is stricter again there: a Collab "must use original or written
+  partner-authorized media" (CONTENT.md, Media and rights), and a Collab item must
+  stay held until `collab_status: accepted`, which needs a human operator because the
+  Instagram Login integration cannot invite collaborators. So the Collab branch is
+  not a way around the media gate; it is the same gate plus a second one.
+- Rights audit across `content/`: the set of
+  `(policy_version, format, asset_source)` triples is exactly
+  `{(2, carousel, licensed_stock): 13, (none, none, none): 40}`. **Zero** files at any
+  policy version carry `original` or `partner_licensed`, so no compliant Reel *input*
+  has ever existed. For today's pillar specifically, the account's last `restaurant`
+  Reel was `2026-09-13`; re-running one the pre-8128750 way — a stock photo as the
+  cover with a disclosure buried in sources-slide prose, as `2026-09-03-charles-h-en`
+  did — is exactly what the policy rewrite withdrew and is not available.
+
+### NEW this run: the Reel render path works, measured end to end
+
+This is the first positive measurement of the Reel path in **52 days** (the previous
+newest was 2026-09-22) and it changes the standing framing in the header. Sequence,
+exactly as PIPELINE.md §4 prescribes it:
+
+```
+sudo apt-get install -y ffmpeg                  → exit 0, ffmpeg 6.1.1-3ubuntu5
+python3 scripts/cardnews.py content/2026-11-11-korea-cafe-cup-rules-en.json OUT
+                                                → exit 0, 7 slides, all 1080×1350 RGB
+python3 scripts/reel.py     content/2026-11-11-korea-cafe-cup-rules-en.json OUT
+                                                → exit 0, <slug>_reel.mp4
+```
+
+`ffprobe` on the result: **h264, 1080×1920, 30/1 fps, 666 frames, 22.200 s, 7.70 MB**,
+plus an **AAC 44.1 kHz mono** track. 9:16 confirmed by measurement, and 22.2 s sits
+inside CONTENT.md's 15–30 s window. Audio is the **synthesised** pillar fallback, not
+the licensed track: `reel.py` printed `! cafe: tracks.json 에 등록됐지만 파일이
+없습니다 → assets/music/cafe.mp3`, which is correct and expected — `.gitignore`
+excludes `assets/music/*` so the Incompetech mp3s are never in a fresh checkout. Per
+assets/music/README.md a Reel that needs the licensed track must be built where the
+mp3 exists; a CI-built Reel will always carry synth audio, which is copyright-safe.
+
+Two mechanical traps found by hitting them, worth writing down because the next
+person to ship a Reel will hit both:
+
+1. **`reel.py` does not render its own slides.** Run against a fresh empty output
+   directory it fails — with ffmpeg *absent* at `reel.py:45` (`FileNotFoundError:
+   'ffmpeg'`, the error all seven previous entries recorded), and with ffmpeg
+   *present* at `reel.py:65`, where ffmpeg itself reports `Error opening input file
+   .../<slug>_01.jpg`. It consumes the JPGs `cardnews.py` leaves in
+   `<out>/<slug>/`, so §4's two commands are a mandatory order into the **same**
+   output directory, not a convenience. Earlier entries only ever saw trap 1 because
+   ffmpeg was missing first, and so read the crash as the whole story.
+2. **Probe the MP4 only after the process exits.** `ffprobe` run while `reel.py` was
+   still writing reported `moov atom not found / Invalid data found`, on a file that
+   was already 4.98 MB and finished valid at 7.70 MB. A render check that probes
+   early will report a corrupt Reel that is in fact fine.
+
+So ffmpeg remains a per-run setup step (2026-09-22 finding, now re-confirmed) and the
+renderer is sound. **§3 media is the only thing blocking a Reel.**
+
+### Also verified working this run
+
+- `scripts/cardnews.py` on `content/2026-11-11-korea-cafe-cup-rules-en.json`:
+  exit **0**, **7** slides, every one **1080×1350** RGB, opened and measured with
+  Pillow afterwards rather than trusted on exit code (the 2026-09-17 lesson).
+- **WebSearch works. WebFetch works** — see the Saturday hand-off below, which
+  upgraded a fact the 11-12 entry explicitly flagged as unverified.
+- `python3` **3.12.16** and Pillow **13.0.0** are present.
+- `--max-turns 60` did not fire this run.
+  `.github/workflows/daily-content.yml:80` still reads `--max-turns 60`, unraised.
+
+### Publish side: no new evidence, by construction
+
+Nothing shipped to the API since the 11-12 entry and nothing could have: 11-12 and
+11-13 were both Reel skip days, so the 19:00 KST publisher had no due item to pick
+up either evening. `queue.json` is byte-identical on the publish side — newest
+`held_at` is still **2026-11-12T02:49:50** (the 11-11 Carousel), and the code-190
+tally is still **seven** (10-10, 10-17, 10-21, 10-31, 11-04, 11-07, 11-11). Last
+successful publish remains `2026-10-07-seoul-cafe-churn-en`, now **37 days** ago.
+Re-authorizing `IG_ACCESS_TOKEN` through Instagram Login (CONNECT-GUIDE.md) is still
+the **top-priority human action** and still not something an agent can do — the token
+is a repository secret. Saturday 2026-11-14 is the next item that will actually test
+it, and on current evidence it will be the eighth code-190 hold.
+
+### Hand-off for Sat 2026-11-14 (local / neighborhood Carousel)
+
+**The 11-12 hand-off stands and its one open item is now closed.** Angle unchanged:
+the origin-labelling board on the restaurant wall. Read the 11-12 entry for the
+framing — lead with enforcement scale, not the prison term.
+
+The 11-12 entry said the labelled-item list was "**NOT yet primary-verified, do not
+publish as-is**" because secondary guides disagreed and one contradicted itself. It
+is now verified against a **government** source — Seoul's official food-safety
+portal, [fsi.seoul.go.kr 음식점 원산지 표시](https://fsi.seoul.go.kr/front/M0000067/content/view.do)
+— which gives the full list and the fine schedule:
+
+- **29 items = 6 + 3 + 20**, confirming the count the 11-12 entry could not.
+- **Livestock (6):** beef, pork, chicken, duck, lamb, goat (incl. dairy goat) —
+  covering meat, packaged meat and processed meat products.
+- **Agricultural (3):** rice (in 밥/죽/누룽지, incl. glutinous and brown);
+  soybeans (두부류 excl. processed tofu and yuba, 콩비지, 콩국수); napa-cabbage
+  kimchi, **labelled for both the cabbage and the chilli powder**.
+- **Seafood (20):** olive flounder, Korean rockfish, red sea bream, loach, eel,
+  webfoot octopus, mackerel, hairtail, pollack (excl. dried 황태/북어), squid,
+  swimming crab, yellow croaker, tuna, monkfish, baby octopus, scallop, sea squirt,
+  yellowtail, abalone, bluefin croaker. Plus **live seafood held in a tank** for
+  cooking, which is covered on top of the 20. The last five were the 2023-07-01
+  expansion from 15 species, so **any page still saying 15 or 12 is stale** — and
+  several district-office pages are (Gangdong says 15, Seoul's welfare pages say 12,
+  a 2013 Gunsan PDF says 16). Do not source the list from a district office.
+
+**One correction to carry into the copy.** The 11-12 entry's "administrative fine up
+to 10 million won" is the statutory *ceiling*, not what a restaurant actually faces.
+The schedule for non-labelling is **₩300,000 / 600,000 / 1,000,000** by violation
+count for each listed item, rising to **₩1m / 2m / 3m** for beef specifically;
+labelling-*method* violations run ₩150,000–500,000, and ₩250,000–1.5m for beef. Live
+seafood is the only line that reaches ₩10m (₩50,000–10,000,000). False labelling is
+the serious one and is unchanged: **up to 7 years or ₩100m**. Two or more violations
+in 2 years can also get the business **publicly named online** plus mandatory
+education — a good, under-used slide fact.
+
+**One dead link to skip.** The 해양수산부 release on the 15→20 expansion
+(`mof.go.kr/doc/ko/selectDoc.do?docSeq=48425`) now **404s**; the expansion is
+attested by the fsi.seoul.go.kr list above instead. Also still true from the 11-12
+entry: `law.go.kr` serves statute **titles only** (client-rendered), so do not spend
+turns there — and the 2026-10-22 delivery-app amendment is still sourced only to a
+payments-industry explainer, so verify at 농식품부 or drop it; the post works without.
+
+Carried forward unchanged from 11-12: the 농관원 Chuseok sweep figures (**7–23 Sept
+2026**, **13,251** businesses inspected, **256** caught — **104** false labelling
+referred for criminal charges, **152** non-labelling fined **₩35.87m** total, release
+1 Oct 2026, [mafra.go.kr 579325](https://www.mafra.go.kr/bbs/home/792/579325/artclView.do)
+and [578682](https://www.mafra.go.kr/bbs/home/792/578682/artclView.do)) — that is
+still the cover stat. Keep `caption` + hashtags under ~2000 characters against
+`MAX_CAPTION = 2200`, and source a non-venue-specific CC0 photo (an origin board, a
+market meat counter, a generic restaurant interior) verifying the licence against the
+Wikimedia Commons `extmetadata` API for the exact file, as 10-10 through 11-11 did.
+
+Also still true from earlier entries: **do not** build on the Starbucks `cagongjok`
+equipment ban (covered by 09-23) or on cafe closure counts (covered by 10-07 and
+11-11's hand-off).
 
 ---
 
