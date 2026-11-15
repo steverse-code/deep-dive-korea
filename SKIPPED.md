@@ -4,10 +4,10 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-13 that is **forty-four
+verified, stop without adding a queue item"). As of 2026-11-15 that is **forty-five
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
-separately dead on the token below. Re-measured 2026-11-13: **no file in `content/`
+separately dead on the token below. Re-measured 2026-11-15: **no file in `content/`
 has ever carried `asset_source: original` or `partner_licensed`**, so the gate has
 never once been cleared, and **all 14** photos added since the policy rewrite are
 pipeline-fetched Carousel stock — see that entry. The three possible fixes are
@@ -19,17 +19,24 @@ that `scripts/reel.py` dies on missing ffmpeg and left "it worked on 2026-09-22"
 the newest positive evidence. This run installed ffmpeg and ran the real §4
 two-step, producing a valid **1080×1920 / h264 / 30fps / 666-frame / 22.2s** MP4
 with AAC audio. So the *only* thing standing between this pipeline and a Reel is
-§3 media — not the renderer, and not ffmpeg. Two mechanical gotchas for whoever
-ships the first Reel are recorded in today's entry: `reel.py` does **not** render
+§3 media — not the renderer. Two mechanical gotchas for whoever
+ships the first Reel are recorded in that entry: `reel.py` does **not** render
 its own slides, and the MP4 must be probed *after* the process exits.
+**Correction added 2026-11-15:** that run installed ffmpeg *ad hoc* in its own
+session and the install step was never committed — `daily-content.yml` line 50 is
+still only `pillow 설치`, so ffmpeg is **absent on a stock runner** and `reel.py`
+would fail today. The renderer is proven; the runner is not provisioned for it.
 
 **Token blocker still live — seven straight code-190 holds, last tested 2026-11-12.**
 The 11-11 Carousel was authored and rendered correctly and then held at
 2026-11-12T02:49:50 KST on OAuthException code 190. Every Carousel authored since
 10-10 has died the same way; last successful publish is 2026-10-07, **37 days** ago
-as of 2026-11-13. No new publish evidence on 11-12 or 11-13: both were Reel skip
-days, so nothing was due at 19:00 KST and the publisher had nothing to pick up.
-The next real test is Sat **2026-11-14**.
+as of 2026-11-13. No new publish evidence on 11-12 through 11-14: 11-12,
+11-13 and 11-15 were Reel skip days, and **Sat 11-14 — the Carousel that was meant
+to test the token — was lost to the `--max-turns 60` cap before it wrote anything**
+(see the 2026-11-15 entry). So nothing has been due at 19:00 KST since 11-11, the
+last successful publish is now **39 days** old, and the next real test is Wed
+**2026-11-18**.
 Re-authorizing `IG_ACCESS_TOKEN` (CONNECT-GUIDE.md) is the top-priority human action:
 the authoring side is working and three finished posts have now been thrown away by
 one expired credential.
@@ -214,6 +221,162 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+## 2026-11-15 (Sun), reel / cafe — SKIPPED
+
+Forty-fifth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged. Every
+number below was measured this run, not inherited from the 2026-11-13 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Sun 2026-11-15 12:39 KST, `%u` = 7 → **reel /
+  cafe-dessert**, Collab *optional*. The task prompt independently specified
+  `reel`; the two agree.
+- §0: **no `pending` or `published` item for 2026-11-15.** `queue.json` holds **53**
+  entries (**13** `published`, **40** `held`, **0** `pending`); grepping the whole
+  serialised queue for `2026-11-15` returns **zero** hits, so neither a slug nor a
+  `publish_at` claims today, and `content/` has no `2026-11-15-*` file. Still **no
+  ramp flag**: the union of all keys across all 53 entries is exactly `error,
+  format, held_at, hold_reason, media_id, pillar, publish_at, published_at, slug,
+  status`, and the only "ramp" matches in the repo remain the prose at
+  CONTENT.md:20 and PIPELINE.md:29 that *describe* the flag §1 says to respect.
+- §3 option 1 (owner original): **empty.** Resolved every `assets/photos/`
+  reference across all **53** `content/*.json`: **54** on disk, **53** referenced.
+  The one unreferenced file is `2026-09-16-korea-cup-rules-en.jpg`, which is itself
+  Carousel stock belonging to a policy-v2 item — not an unclaimed owner frame.
+  `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff|cr2|arw` returns **zero**
+  files, so there is no owner footage for a Reel either, and
+  `git status --untracked-files=all` is **clean** — nothing was dropped in for this
+  run.
+- §3 option 2 (venue/creator media with written permission): **no paperwork
+  exists.** Re-measured across all 53 content files: **13** carry policy v2 and
+  **all 13** are `format: carousel` + `asset_source: licensed_stock`. Zero files
+  have ever carried `original` or `partner_licensed`. No file sets a
+  `partner_handle`, and no file has a `collab_status` other than `not_requested`.
+  Obtaining real permission means contacting a venue, which an unattended run must
+  not do.
+- §3 option 3 (licensed stock): **barred for this format.** Stock is limited to "a
+  non-venue-specific editorial Carousel". Today is a Reel, and a Sunday
+  cafe/dessert Reel is venue-specific by construction.
+
+So §0 applies and the run stops without a queue item. The three possible fixes
+remain editorial and reserved for a human — see the 2026-09-15 entry.
+
+### NEW — Sat 2026-11-14 died on the turn cap, and it was the run that was ready
+
+The fifth Carousel day lost this way, and the most expensive one. The 2026-11-13
+entry handed it a **fully primary-verified** angle (the 29-item origin-labelling
+board, checked against Seoul's own food-safety portal) precisely so the run would
+be cheap. It still failed: run **43554040429**, 2026-11-14T03:55Z, **13m49s**,
+failing step `콘텐츠 작성`, `Action failed with error: Claude execution failed:
+Reached maximum number of turns (60)`. No content JSON, no queue entry, no skip
+note — a silent miss, confirmed from the Actions log this run.
+
+Carousel days lost to `--max-turns 60`: **09-30, 10-03, 10-14, 10-28, 11-14** —
+five, against 13 lifetime published posts. `.github/workflows/daily-content.yml:80`
+still reads `--max-turns 60`. Raising it (120 is a safe start;
+`timeout-minutes: 30` at line 37 is the real ceiling and 11-14 only used 14 min of
+it) remains the single highest-value human fix, because it is the only one of the
+known faults that blocks the format that can still ship.
+
+### NEW — the watchdog cannot recover a turn-cap failure, by design
+
+Worth recording because it looked like a second failure on 11-14 and is not: the
+watchdog *did* run (2026-11-14T07:04Z, after the pipeline had already failed) and
+reported success without restoring anything. That is its specification, not a bug.
+`.github/workflows/watchdog.yml:24-28` counts `daily-content.yml` runs created
+since 00:00 UTC and re-dispatches only `if: steps.check.outputs.count == '0'`. It
+tests whether a run **exists**, never whether it **succeeded**, so a run that
+fires and dies on the turn cap satisfies it. PIPELINE.md §6's "the watchdog may
+restore a missed content-generation run" is therefore true only for a *dropped*
+GitHub schedule, not for a failed run.
+
+Consequence: **every turn-cap failure is unrecoverable for that day.** The two
+faults compound — the cap kills the Carousel, the watchdog declines to retry it.
+The jq filter would need `select(.conclusion == "success")` (or `!= "failure"`)
+added at watchdog.yml:27; the job already holds `actions: write`. Flagged, not
+done: this agent's token has no `workflows: write`, and changing recovery
+behaviour is a human call.
+
+### Publish side: unchanged, and 11-14 produced no new evidence
+
+Because 11-14 wrote nothing, nothing was due at 19:00 KST, and the publish run
+(2026-11-14T16:29Z) succeeded in **15s** with nothing to pick up. So the code-190
+tally is still **seven** (10-10, 10-17, 10-21, 10-31, 11-04, 11-07, 11-11), the
+newest `held_at` is still **2026-11-12T02:49:50** (the 11-11 Carousel), and the
+last successful publish is still `2026-10-07-seoul-cafe-churn-en` — now **39 days**
+ago. Re-authorizing `IG_ACCESS_TOKEN` through Instagram Login (CONNECT-GUIDE.md)
+is still the top-priority human action and still impossible for an agent: it is a
+repository secret. The next item that will actually test it is whatever survives
+Wed **2026-11-18**.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-11-15 (Sun), `%u` = 7.
+- `scripts/cardnews.py` renders **7 slides at 1080×1350 with no errors** — run for
+  real this run against `content/2026-11-11-korea-cafe-cup-rules-en.json` into a
+  temp directory, so the renderer is proven on this runner without touching the
+  committed `out/` tree.
+- **WebSearch works. WebFetch works** on `hankyung.com`; `news1.kr`'s AMP URL
+  returns only headline and subheadline, not the article body.
+- **`ffmpeg` is missing again.** The 2026-11-13 run proved the Reel path end to end
+  only because it installed ffmpeg ad hoc in its own session — **no install step was
+  ever committed**: `grep -n ffmpeg .github/workflows/daily-content.yml` returns
+  nothing and line 50 is still just `pillow 설치`. `scripts/reel.py` would die here.
+  Moot today (§3 stops first), but whoever ships the first Reel needs that step
+  committed, which needs `workflows: write`.
+
+### Hand-off for Wed 2026-11-18 (cafe Carousel) — the contraction/consolidation split
+
+Two angles are now ready and neither needs fresh research. **11-21 (Sat, local):**
+take the origin-labelling board from the 2026-11-13 entry — it is fully verified
+and was never consumed. **11-18 (Wed, cafe):** the cafe-count angle below, which
+this run upgraded from the "NOT yet primary-verified" state the 11-09/11-11
+hand-offs left it in.
+
+The numbers, all now attached to dated, attributed reports:
+
+- **93,542** coffee/beverage businesses (커피음료점) nationwide **as of June 2026**,
+  **down 1.5% YoY**, a **second consecutive annual decline** since June 2024.
+  Attributed to 국세청 (NTS) by Hankyung, published **2026-08-31**.
+  [hankyung.com/article/202608314344g](https://www.hankyung.com/article/202608314344g)
+- **April 2026: 93,551**, down **1,699 (-1.8%)** from 95,250 in April 2025, after a
+  **peak of 96,300 in April 2024**. News1, published **2026-06-07**.
+  [news1.kr/economy/trend/6189108](https://www.news1.kr/economy/trend/6189108)
+- The counter-movement, which is the actual story: the **big-5 low-cost chains went
+  from under 3,000 stores in 2020 to over 10,000 in 2025**. As of April 2026 Mega
+  MGC ~**4,000** stores (~**4,400** by August 2026), Compose ~**3,000**, 빽다방
+  ~**1,800**. Seoul coffee *franchise* outlets were **6,766 in Q4 2025, down 368
+  YoY** — so even the chain total fell in Seoul while the discount brands grew.
+  Same Hankyung piece.
+- Supporting cost pressure: coffee **import prices up 14%** with continued drought
+  in Brazil; independent operators quoted that one discount brand opening nearby
+  halves their sales. News1 subheadline, 2026-06-07.
+
+**Frame it as the split, not the decline** — Korea has fewer cafes than two years
+ago *and* more cafe chains, so the cafe a traveler walks past is likelier to be a
+₩1,500 chain counter than it was in 2024. That framing is also what keeps the post
+off ground already covered: **10-07 (`seoul-cafe-churn`) and 11-11 already used raw
+closure counts**, so a post that leads with "cafes are closing" repeats them. Lead
+with the consolidation contrast or drop the angle.
+
+**Caveat, unchanged and load-bearing:** both headline counts still come *through
+news outlets citing the NTS*, not from an NTS/TASIS release fetched directly —
+`tasis.nts.go.kr` was **not** fetched this run. Re-verify at source before a number
+goes in a caption, or attribute to the outlet in the sources slide. This pair
+supersedes the 11-09/11-11 hand-off's "95,337 in Q1 2025, down 743 from 96,080",
+which is a year older and a different reference period. One trap: a
+`thecheck.co.kr` startup-info page carries an impossible "2028년 1분기" figure —
+do not use that page.
+
+Also still true: keep `caption` + hashtags under ~2000 characters against
+`MAX_CAPTION = 2200` (measure before committing), source a non-venue-specific CC0
+photo and verify the licence against the Wikimedia Commons `extmetadata` API for
+the exact file, as 10-10 through 11-11 did, and **do not** build on the Starbucks
+`cagongjok` equipment ban (covered by 09-23).
 
 ---
 
