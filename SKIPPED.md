@@ -4,13 +4,23 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-15 that is **forty-five
+verified, stop without adding a queue item"). As of 2026-11-17 that is **forty-seven
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
-separately dead on the token below. Re-measured 2026-11-15: **no file in `content/`
+separately dead on the token below. Re-measured 2026-11-17: **no file in `content/`
 has ever carried `asset_source: original` or `partner_licensed`**, so the gate has
 never once been cleared, and **all 14** photos added since the policy rewrite are
-pipeline-fetched Carousel stock — see that entry. The three possible fixes are
+pipeline-fetched Carousel stock — see the 2026-11-17 entry.
+
+**NEW 2026-11-17 — one Reel day is missing from the ledger below, and the run that
+lost it reported `success`.** Mon **2026-11-16** ran for 6m50s, went green on every
+step, and committed nothing at all: no queue item (correct), but also **no skip
+note** (not correct). It is recorded retroactively inside the 2026-11-17 entry, which
+is why the count jumps 45 → 47. PIPELINE.md §0 never actually requires a skip note,
+so a literal reading permits this; the recommended one-line fix to §0 is in that
+entry. Until it is made, **a missing day is only detectable from the Actions log,
+not from this repo** — the turn-cap misses at least show `conclusion: failure`,
+whereas this one does not. The three possible fixes are
 editorial and reserved for a human — see the 2026-09-15 entry.
 
 **The Reel render path is no longer unproven — it was exercised end to end on
@@ -35,8 +45,10 @@ as of 2026-11-13. No new publish evidence on 11-12 through 11-14: 11-12,
 11-13 and 11-15 were Reel skip days, and **Sat 11-14 — the Carousel that was meant
 to test the token — was lost to the `--max-turns 60` cap before it wrote anything**
 (see the 2026-11-15 entry). So nothing has been due at 19:00 KST since 11-11, the
-last successful publish is now **39 days** old, and the next real test is Wed
-**2026-11-18**.
+last successful publish is now **41 days** old (re-measured 2026-11-17), and the next
+real test is Wed **2026-11-18** — tomorrow. Confirmed 2026-11-17: 11-16 was a Reel
+day that wrote nothing and 11-17 is a Reel skip, so the 11-15/11-16 publish runs
+both succeeded with nothing to pick up and produced no new token evidence.
 Re-authorizing `IG_ACCESS_TOKEN` (CONNECT-GUIDE.md) is the top-priority human action:
 the authoring side is working and three finished posts have now been thrown away by
 one expired credential.
@@ -221,6 +233,206 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+## 2026-11-17 (Tue), reel / local — SKIPPED
+
+Forty-seventh consecutive Reel-day skip, and the first entry that has to cover
+**two** days: Mon **2026-11-16** was also a Reel day, it ran, it succeeded, and it
+left **nothing behind** — no content JSON, no queue change and no skip note (see
+below). So the 46th skip is recorded here retroactively and today's is the 47th.
+No content JSON, no rendered output committed, no change to `queue.json` this run
+either. The §3 media blocker is unchanged. Every number below was measured this
+run, not inherited from the 2026-11-15 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Tue 2026-11-17 14:35 KST, `%u` = 2 → **reel / local
+  food**, Collab *candidate*. The task prompt independently specified `reel`; the
+  two agree.
+- §0: **no `pending` or `published` item for 2026-11-17.** `queue.json` holds **53**
+  entries (**13** `published`, **40** `held`, **0** `pending`) — unchanged from
+  11-15, because nothing has been written since. Grepping the whole serialised
+  queue for `2026-11-17` returns **zero** hits, so neither a slug nor a
+  `publish_at` claims today, and `content/` has no `2026-11-17-*` file. Still **no
+  ramp flag**: the union of all keys across all 53 entries is exactly `error,
+  format, held_at, hold_reason, media_id, pillar, publish_at, published_at, slug,
+  status`, and the only "ramp" matches in the repo remain the prose at
+  CONTENT.md:20 and PIPELINE.md:29 that *describe* the flag §1 says to respect.
+- §3 option 1 (owner original): **empty.** Resolved every `assets/photos/`
+  reference across all **53** `content/*.json`: **54** on disk, **54** referenced,
+  **zero unreferenced** — so not one frame on disk is an unclaimed owner photo.
+  (This is a small correction to the 11-15 entry, which reported 53 referenced and
+  called `2026-09-16-korea-cup-rules-en.jpg` unreferenced. It *is* referenced —
+  by `2026-09-16-korea-cup-rules-en.json`, which uses the `-cover` variant as its
+  cover `bg_image` and the plain file elsewhere. The conclusion is unchanged and
+  in fact slightly stronger.) `git ls-files` filtered for
+  `mp4|mov|m4v|avi|webm|mkv|mp3|wav|m4a|heic|raw|dng|tiff|cr2|arw` returns **zero**
+  files, so there is no owner footage for a Reel either, and
+  `git status --untracked-files=all` is **clean** — nothing was dropped in for this
+  run.
+- §3 option 2 (venue/creator media with written permission): **no paperwork
+  exists.** Re-measured across all 53 content files: **13** carry policy v2 and
+  **all 13** are `format: carousel` + `asset_source: licensed_stock`; the other 40
+  predate the policy and carry no `asset_source` at all. The `(format,
+  asset_source)` tally is exactly `{(carousel, licensed_stock): 13, (none, none):
+  40}`. Zero files have ever carried `original` or `partner_licensed`. No file sets
+  a `partner_handle`, and no file has a `collab_status` other than
+  `not_requested`. Obtaining real permission means contacting a venue, which an
+  unattended run must not do.
+- §3 option 3 (licensed stock): **barred for this format.** Stock is limited to "a
+  non-venue-specific editorial Carousel". Today is a Reel. Note the bar is on the
+  **format**, not only the subject: even a non-venue-specific editorial *Reel*
+  could not use stock, so there is no "editorial Reel" escape hatch. And Tuesday is
+  a Collab *candidate* day, which CONTENT.md ("Media and rights") restricts to
+  original or written-partner media — so today is blocked twice over.
+
+So §0 applies and the run stops without a queue item. The three possible fixes
+remain editorial and reserved for a human — see the 2026-09-15 entry.
+
+### NEW — Mon 2026-11-16 ran, succeeded, and wrote nothing: a *silent successful* skip
+
+This is a new failure mode and it is worth separating from the turn-cap misses,
+because it does not look like a failure from any angle an automated check can see.
+Run **43799347964**, created 2026-11-16T03:38:00Z, finished 03:44:50Z
+(**6m50s**), conclusion **`success`**, every step green including `콘텐츠 작성`.
+And yet `git log` has no 11-16 commit at all: HEAD is still
+**624921a** ("skip: 2026-11-15 …"), measured this run with `git rev-parse HEAD`.
+No content JSON, no queue change, **and no SKIPPED.md entry**.
+
+The decision itself was almost certainly correct — 11-16 was a Monday Reel and the
+§3 blocker above applied identically — so this is not a bad call, it is an
+**unrecorded** call. That distinction matters for three reasons:
+
+- **The skip ledger silently lost a day.** Without this entry the file would have
+  jumped from "45th" on 11-15 to "46th" today, and the count of consecutive skips —
+  the single number that tells a human how long this blocker has stood — would have
+  been permanently one short.
+- **It is invisible to every existing check.** The turn-cap misses (09-30, 10-03,
+  10-14, 10-28, 11-14) at least show `conclusion: failure` in the Actions list. This
+  one shows `success`. The watchdog, which only counts whether a run *exists*
+  (watchdog.yml:24-28, see the 11-15 entry), was satisfied twice over.
+- **It cost nothing and proves nothing.** Six minutes and fifty seconds of model
+  time produced no artifact, so the run cannot be distinguished after the fact from
+  one that never reached a decision.
+
+Causes that were **ruled out** this run: not the turn cap (the run succeeded, and
+`error_max_turns` appears nowhere in its log); not a push failure (no commit object
+exists to have failed to push); not a DRY-RUN flag (the `DRY RUN 여부` env var is
+present but **empty** on the 11-16 run's own recorded prompt, identical to today's,
+and empty is not `true`). What remains is that the run reached the correct §3 skip
+and then simply did not perform the §0 bookkeeping — PIPELINE.md §0 says "stop
+without adding a queue item" and never says to write a skip note, so a literal
+reading of §0 permits exactly what 11-16 did. **The repo convention of committing a
+skip note lives only in `git log` and in this file, not in the source of truth.**
+
+**Recommended human fix (flagged, not done — an agent should not edit the source of
+truth on its own judgment):** add one line to PIPELINE.md §0 making the skip note
+mandatory, e.g. *"When stopping under this section, append a dated entry to
+SKIPPED.md recording which gate stopped the run, and commit it. Do not add a queue
+item."* That turns a silent success into a committed artifact and makes a missing
+day detectable by looking at the repo instead of the Actions log. A cheap companion
+check: have the watchdog require that a Reel day produced *either* a queue item or
+a new SKIPPED.md entry.
+
+### Day-loss tally, restated with 11-16 included
+
+Of the last **nine** scheduled content days, **three** produced no artifact of any
+kind: 11-14 (Carousel, turn cap, `failure`), 11-16 (Reel, silent success, this
+entry), and — for a different and legitimate reason — every Reel day produced no
+*queue* item by design. Separating the two kinds of loss:
+
+- **Carousel days lost to `--max-turns 60`: five** — 09-30, 10-03, 10-14, 10-28,
+  11-14. `.github/workflows/daily-content.yml:80` still reads `--max-turns 60`.
+  Raising it (120 is a safe start; `timeout-minutes: 30` at line 37 is the real
+  ceiling and 11-14 used only 14 min) remains the **single highest-value human
+  fix**, because it is the only known fault that blocks the format that can still
+  ship. Today's run, for calibration, reached its §3 decision in roughly 20 turns.
+- **Reel days lost to §3 media: 47 consecutive**, correctly and by design.
+- **Days lost to missing bookkeeping: one, new** — 11-16, above.
+
+### Publish side: unchanged, and the next real test is tomorrow
+
+Nothing has been authored since the 11-11 Carousel, so nothing was due at 19:00 KST
+on 11-16 and the publish run (**43947573894**, 2026-11-16T20:13:45Z) succeeded with
+nothing to pick up — as did 11-15's. So the code-190 tally is still **seven**
+(10-10, 10-17, 10-21, 10-31, 11-04, 11-07, 11-11), the newest `held_at` is still
+**2026-11-12T02:49:50**, and the last successful publish is still
+`2026-10-07-seoul-cafe-churn-en` — now **41 days** ago. Re-authorizing
+`IG_ACCESS_TOKEN` through Instagram Login (CONNECT-GUIDE.md) is still the
+top-priority human action and still impossible for an agent: it is a repository
+secret. The item that will actually test it is whatever survives Wed
+**2026-11-18** — tomorrow, a cafe Carousel, with a ready angle handed off below.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-11-17 (Tue), `%u` = 2.
+- `scripts/cardnews.py` renders **7 slides at 1080×1350 with no errors** — run for
+  real against `content/2026-11-11-korea-cafe-cup-rules-en.json` into a temp
+  directory, so the renderer is proven on this runner without touching the
+  committed `out/` tree. Pillow **13.0.0**.
+- **WebSearch works. WebFetch works** — WebFetch verified on `segye.com`, which
+  returned full article body including figures and quoted sentences.
+- **`ffmpeg` is still missing** (`command -v ffmpeg` → nothing), and still not
+  committed: `grep -n ffmpeg .github/workflows/daily-content.yml` returns nothing
+  and line 50 is still just `pillow 설치`. `scripts/reel.py` would die here. Moot
+  today (§3 stops first), but whoever ships the first Reel needs that step
+  committed, which needs `workflows: write`.
+
+### Hand-off for Wed 2026-11-18 (cafe Carousel) — the caveat is now closed
+
+The 11-15 entry handed off the cafe contraction/consolidation split with one
+load-bearing caveat: both headline counts came *through* outlets citing the NTS,
+never from a second independent outlet or from source. **That caveat is now
+narrower.** A third outlet, found and fetched this run, carries the same April 2026
+figures and adds survival data the earlier pair did not have:
+
+- Segye Ilbo, published **2026-10-09 05:00 KST**:
+  [segye.com/newsView/20261009501247](https://www.segye.com/newsView/20261009501247)
+  — "전국 커피음료점은 올해 4월 기준 9만3551곳으로 1년 전보다 1699곳 줄었다."
+  That is **93,551 as of April 2026, down 1,699 (−1.8%) from 95,250**, a **second
+  consecutive annual decline** — digit-for-digit the News1 (2026-06-07) figures,
+  from a different outlet on a different date. Two independent outlets now agree on
+  the same number, so it is safe to use **attributed to the outlets**.
+- **New from the same piece, and a better hook than the raw count:** cafe survival
+  rates, attributed to the NTS's *100대 생활업종 생존율* release of April 2025
+  (2023 basis) — **1-year 83.5%, 3-year 53.2%, 5-year 34.6%**. The article's own
+  framing: "카페 세 곳이 문을 열면 5년 뒤 영업을 이어가는 곳은 한 곳 정도라는
+  의미다" — of three cafes that open, about one is still trading five years later.
+  This is a *rate*, not a closure count, which is what keeps it clear of the ground
+  10-07 (`seoul-cafe-churn`) and 11-11 already covered.
+
+**Still true and still load-bearing:** `tasis.nts.go.kr` was **not** fetched this
+run either, so nothing here is verified at source. Attribute to the outlet on the
+sources slide, as 10-10 through 11-11 did. The consolidation contrast (big-5
+discount chains from under 3,000 stores in 2020 to over 10,000 in 2025; Mega MGC
+~4,400 by Aug 2026) is in the 11-15 entry and is still the recommended frame —
+**fewer cafes, more cafe chains, one in three surviving five years.** Do not lead
+with "cafes are closing."
+
+Also still true: keep `caption` + hashtags under ~2000 characters against
+`MAX_CAPTION = 2200` (measure before committing), source a non-venue-specific CC0
+photo and verify the licence against the Wikimedia Commons `extmetadata` API for
+the exact file, and **do not** build on the Starbucks `cagongjok` equipment ban
+(covered by 09-23).
+
+### Topic research for today's slot (not the blocker)
+
+Recorded so the effort is not spent twice. Today's slot was local food, and the
+angle that looked most promising is **착한가격업소** — the value-price shops that
+local governments designate and list publicly, with set menu prices (kimchi stew
+and kalguksu at ₩6,000, doenjang stew at ₩9,000 on Dongdaemun-gu's own 2026 list;
+a Seoul city media piece from June 2026 covers a shop where every item is ₩6,000).
+This is worth keeping because it is **structurally stock-eligible**: the subject is
+a government scheme and a price list, not a venue, so it fits §3 option 3 on a
+**Saturday local Carousel** without recommending anywhere. Park it as the backup
+for **Sat 2026-11-21**, behind the origin-labelling board from the 2026-11-13 entry,
+which is fully verified and still unconsumed. Caveat: the Dongdaemun-gu page is a
+single district's list and the Seoul piece is five months old, so prices need
+re-checking against the national 착한가격업소 listing before any number goes in
+copy. A related inflation hook — kalguksu showing the steepest rise among Seoul
+dining-out staples, per Korea Times — was found **undated** in search results and
+is **not** usable until the publication date is confirmed.
 
 ---
 ## 2026-11-15 (Sun), reel / cafe — SKIPPED
