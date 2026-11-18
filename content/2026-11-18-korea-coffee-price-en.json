@@ -1,0 +1,112 @@
+{
+  "slug": "2026-11-18-korea-coffee-price-en",
+  "policy_version": 2,
+  "format": "carousel",
+  "pillar": "cafe",
+  "handle": "@deep_dive_korea",
+  "publish_at": "2026-11-18T18:30:00+09:00",
+  "asset_source": "licensed_stock",
+  "rights_confirmed": true,
+  "rights_note": "Photo: '2020-08-16 things places in south korea IMG 0121.jpg' by Choi Kwang-mo, Creative Commons Zero / Public Domain Dedication. Licence verified against the Wikimedia Commons API on 2026-11-18 KST for this exact file (sha1 56e62dcdd584e72cf32fb0f3d7c76c0528bc2461): License 'cc0', LicenseShortName 'CC0', UsageTerms 'Creative Commons Zero, Public Domain Dedication', LicenseUrl creativecommons.org/publicdomain/zero/1.0, AttributionRequired 'false', Restrictions field empty, Credit 'Own work', Artist 'Choi Kwang-mo', categories CC-Zero / FAL / Self-published work / Coffee in South Korea / Iced black coffee. The downloaded bytes were sha1-checked against the API value before use, so the licence applies to the file actually rendered. As on 2026-11-11 this is the uploader's own work rather than a Flickr transfer, so no external licence-review step applies and none is claimed; the file is additionally offered under the Free Art License, which we do not rely on. CC0 waives all rights worldwide, so commercial use and modification are permitted with no attribution and no share-alike obligation; the photographer is credited on the sources slide anyway as a matter of practice. A share-alike licence was again deliberately avoided, as on 2026-10-10, 10-17, 10-21, 10-24, 10-31, 11-04, 11-07 and 11-11, because scripts/cardnews.py renders a duotoned derivative that CC BY-SA would oblige us to relicense. Used under PIPELINE.md section 3 option 3 - licensed stock on a non-venue-specific editorial Carousel: the post is about a nationwide coffee-price trend, it recommends no venue and names no business as its subject. SUBJECT HONESTY: the frame is a glass of iced black coffee on a coaster on a cafe table, which is exactly what the post is about - what an iced americano costs in a Korean cafe - rather than a mood shot standing in for a named place. The uploader's own description is 'Unidentified places in South Korea'; the file's EXIF GPS is 37.326244 / 127.941581, which is Wonju, Gangwon-do, and the sources slide says only that, with the capture date. BRAND: none. The glass is unbranded in-store glassware, the coaster and furniture carry no marks, and the two sibling files in the same Commons category (IMG 0154 and IMG 0156) were rejected precisely because they show A Twosome Place branded cups - a named franchise must not appear in a post about chains raising prices, since that would imply a claim about that chain we have neither made nor verified. No business pictured is named, none is said to have raised or held any price, and no verification of any pictured business's current operation was required or performed. TIMING: the EXIF capture date is 2020-08-11 20:29:47, which PREDATES every price change the post discusses (the earliest is February 2025). The copy makes no suggestion that the pictured drink was bought at any of the prices quoted, and the sources slide states the capture date so the reader can place it. PEOPLE: the untouched original contains a partially visible person at the top right - a denim-clad lap and a hand holding a phone, no face - and the crop removes all of it. Both the original and the crop were rendered and inspected at full size before committing, including a dedicated high-resolution pass over the top strip of the crop, which contains no person. No personality-rights template and no Restrictions entry on the file. ORIENTATION: checked for the EXIF rotation problem found on 2026-10-24 - getexif()[274] is 1 and ImageOps.exif_transpose is a no-op, so cardnews.py, which opens images without exif_transpose, renders it upright. This check mattered here: the two rejected sibling files both carry orientation 6 and would have rendered sideways. CROP: yes, and deliberate. The 4032x3024 original was cropped to the box (0, 649, 1900, 3024), i.e. the left-hand 47% of the width and the lower 79% of the height, giving 1900x2375 - a 0.8000 ratio, so cardnews.py's cover-crop to 1080x1350 is effectively a straight resize and composes the slides as inspected. The crop was chosen to exclude the person; because the glass is wider than any 0.8-ratio frame that excludes them, the glass is cut at the right edge, which is intended. Re-encoded at quality 92 through a fresh RGB canvas with all EXIF, including the GPS tag, dropped - verified by reopening the saved file and finding an empty EXIF table. No other modification: no retouching, no object removed or added.",
+  "location": "South Korea",
+  "venue_handle": null,
+  "search_keyword": "Korea cafe coffee prices americano cost cheap coffee chains 2026",
+  "partner_handle": null,
+  "collab_required": false,
+  "collab_status": "not_requested",
+  "photo": "2026-11-18-korea-coffee-price-en.jpg",
+  "slides": [
+    {
+      "type": "cover",
+      "eyebrow": "CAFE PRICES",
+      "headline": "The one price\nKorean cafes\nwon't raise.",
+      "subline": "Coffee costs are up across the country. Look at what actually moved in 2026 and the americano is almost never on the list",
+      "bg_image": "assets/photos/2026-11-18-korea-coffee-price-en.jpg"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "SIX MONTHS OF DOUBLE DIGITS",
+      "value": "40,083",
+      "label": "won per kilo — what coffee cost to import in June, up 19.6% on the year and the sixth straight month of double-digit rises",
+      "note": "Korea Customs Service figures, reported 31 July 2026 · 34,505 won/kg in February 2026, over 40,000 from May · Checked 18 November 2026"
+    },
+    {
+      "type": "point",
+      "index": "01",
+      "title": "The americano is\nthe shelf price.",
+      "body": "Koreans price a cafe by one drink. The americano is what goes on the sign, what gets compared between chains, and what makes the news when it moves — so it is the last line on the menu anyone touches.\n\nEverything around it is fair game. The Venti raised about a dozen drinks and topping options at the end of May and left the americano where it was. Mega MGC added 200 won to three Hal-Mega drinks on 19 June and left the americano where it was. Pascucci raised 31 items this month and held the regular americano at 4,700 won.\n\nThe result is a menu that reads as cheap as it did last year and costs more to order from."
+    },
+    {
+      "type": "list",
+      "title": "What actually\nmoved in 2026",
+      "items": [
+        {
+          "t": "The Venti — 29 May",
+          "d": "About a dozen drinks and toppings up 100–500 won. Icheon rice latte 2,800 → 3,300; a large oat or decaf swap 800 → 1,000. Americano held"
+        },
+        {
+          "t": "Mega MGC — 19 June",
+          "d": "Three Hal-Mega drinks up 200 won each. Americano held"
+        },
+        {
+          "t": "Mammoth — 11 August",
+          "d": "Small iced americano 1,200 → 1,400, medium 1,600 → 1,800. Hot and large held"
+        },
+        {
+          "t": "Pascucci — November",
+          "d": "31 drinks and cakes up 4.9% on average, about 1.7× September inflation. Regular americano held at 4,700"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "title": "What the cheap\ntier costs now",
+      "items": [
+        {
+          "t": "Mammoth — 1,400 won",
+          "d": "Small iced americano since 11 August 2026, up from 1,200. The lowest of the big chains"
+        },
+        {
+          "t": "Mega MGC — 1,700 won",
+          "d": "Hot americano since April 2025, up from 1,500 after ten years unchanged. Iced held at 2,000"
+        },
+        {
+          "t": "Compose — 1,800 won",
+          "d": "Iced americano since February 2025, up from 1,500"
+        },
+        {
+          "t": "Pascucci — 4,700 won",
+          "d": "Regular americano, held through the November round. The mid tier is a different market"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "The 1,500-won americano\ndid not survive 2025.\n2026 came for the rest\nof the menu.",
+      "by": "Each price above is the one its chain announced on the date given; franchise menus vary by store and size, so read the board rather than this post. Green beans have eased since the late-2025 peak, but a won near 1,500 to the dollar keeps the landed cost rising. Research, not a visit; no cafe recommended."
+    },
+    {
+      "type": "source",
+      "title": "Sources",
+      "sources": [
+        "Herald Business, 31 Jul 2026 — Korea Customs Service: coffee imports 40,083 won/kg in June, +19.6% y/y, sixth straight double-digit month; 34,505 won/kg in February",
+        "Hankyung 'Price&', 4 Nov 2026 — Pascucci raises 31 items 4.9%, americano held at 4,700 won; The Venti, Mega MGC and Mammoth rounds; September inflation 2.9%, dining out 2.5%",
+        "eToday, 29 May 2026 — aT arabica averages 5,158 $/t in 2024 and 8,117 $/t in 2025; The Venti menu increases; won near 1,500 to the dollar",
+        "Food Today, 31 Mar 2025 — Mega MGC hot americano 1,500 → 1,700 won from 21 April 2025, its first in ten years; Compose iced 1,500 → 1,800",
+        "Korea's national statistics office via Newsis, 2 Oct 2026 — consumer prices up 2.9% year on year in September",
+        "Photo: iced black coffee in a cafe near Wonju, Gangwon-do, 11 Aug 2020, by Choi Kwang-mo, CC0, Wikimedia Commons. It predates every price here; no business pictured is named or assessed"
+      ],
+      "cta": "Order the americano.\nSave this for the rest"
+    }
+  ],
+  "caption": "Korea's cheap-coffee era did not end this year. It ended in 2025 — and 2026 has been quietly taking everything you would add to the cup.\n\nThe input cost first. In June the Korea Customs Service put the import price of coffee at 40,083 won a kilo, up 19.6% on the year and the sixth straight month of double-digit rises; in February it was 34,505. The beans themselves have actually cooled — aT's average arabica price was 7,301 dollars a tonne in July against a two-year peak of 8,990 in November 2025 — but a won sitting near 1,500 to the dollar keeps the landed cost climbing anyway.\n\nWhat the chains did with that is the interesting part. The americano is the drink Koreans price a cafe by, so it is the last line anyone touches. The Venti raised about a dozen drinks and toppings at the end of May and left the americano alone: its Icheon rice latte went 2,800 to 3,300 won, a large oat or decaf swap 800 to 1,000. Mega MGC added 200 won to three Hal-Mega drinks on 19 June and left the americano alone. Pascucci raised 31 drinks and cakes this month by an average of 4.9% — roughly 1.7 times September's 2.9% inflation — and held the regular americano at 4,700 won.\n\nSo the menu reads as cheap as it did last year and costs more to order from. If you are ordering by price here, order the americano; the increase went into the cold brew, the topping and the seasonal cup.\n\nWhere the floor sits: Mammoth took its small iced americano from 1,200 to 1,400 won on 11 August, still the lowest of the big chains. Mega MGC went 1,500 to 1,700 on the hot americano back in April 2025, its first move in ten years. Compose went 1,500 to 1,800 on the iced in February 2025. Those are the prices each chain announced; franchise menus vary by store and size, so read the board.\n\nSources on the last slide. Research, not a visit, and no cafe recommended here.",
+  "hashtags": [
+    "#koreancafe",
+    "#koreacoffee",
+    "#americano",
+    "#seoultravel",
+    "#koreaonabudget",
+    "#coffeeprices",
+    "#deepdivekorea"
+  ]
+}
