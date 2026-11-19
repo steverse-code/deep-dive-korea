@@ -4,13 +4,15 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-17 that is **forty-seven
+verified, stop without adding a queue item"). As of 2026-11-19 that is **forty-eight
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
-separately dead on the token below. Re-measured 2026-11-17: **no file in `content/`
-has ever carried `asset_source: original` or `partner_licensed`**, so the gate has
-never once been cleared, and **all 14** photos added since the policy rewrite are
-pipeline-fetched Carousel stock — see the 2026-11-17 entry.
+separately dead on the token below. Re-measured 2026-11-19: **no file in `content/`
+has ever carried `asset_source: original` or `partner_licensed`** (14 of 54 files
+are policy-v2 and all 14 are `licensed_stock`), so the gate has never once been
+cleared, and **all 14** photos added since the policy rewrite are pipeline-fetched
+Carousel stock. New on 2026-11-19: the repo contains **no video or audio file at
+all** — see the 2026-11-19 entry.
 
 **NEW 2026-11-17 — one Reel day is missing from the ledger below, and the run that
 lost it reported `success`.** Mon **2026-11-16** ran for 6m50s, went green on every
@@ -37,21 +39,19 @@ session and the install step was never committed — `daily-content.yml` line 50
 still only `pillow 설치`, so ffmpeg is **absent on a stock runner** and `reel.py`
 would fail today. The renderer is proven; the runner is not provisioned for it.
 
-**Token blocker still live — seven straight code-190 holds, last tested 2026-11-12.**
-The 11-11 Carousel was authored and rendered correctly and then held at
-2026-11-12T02:49:50 KST on OAuthException code 190. Every Carousel authored since
-10-10 has died the same way; last successful publish is 2026-10-07, **37 days** ago
-as of 2026-11-13. No new publish evidence on 11-12 through 11-14: 11-12,
-11-13 and 11-15 were Reel skip days, and **Sat 11-14 — the Carousel that was meant
-to test the token — was lost to the `--max-turns 60` cap before it wrote anything**
-(see the 2026-11-15 entry). So nothing has been due at 19:00 KST since 11-11, the
-last successful publish is now **41 days** old (re-measured 2026-11-17), and the next
-real test is Wed **2026-11-18** — tomorrow. Confirmed 2026-11-17: 11-16 was a Reel
-day that wrote nothing and 11-17 is a Reel skip, so the 11-15/11-16 publish runs
-both succeeded with nothing to pick up and produced no new token evidence.
-Re-authorizing `IG_ACCESS_TOKEN` (CONNECT-GUIDE.md) is the top-priority human action:
-the authoring side is working and three finished posts have now been thrown away by
-one expired credential.
+**Token blocker still live — EIGHT straight code-190 holds, last tested 2026-11-18.**
+The 2026-11-17 entry named Wed 11-18 as the next real test of the token. It ran, and
+it failed identically: `2026-11-18-korea-coffee-price-en` was authored, rendered and
+queued, then **held** at **2026-11-19T03:45:36 KST** on OAuthException **code 190**,
+"session has been invalidated" (`fbtrace_id AZnGr_CckiGBGmxpU5BmWy1`, commit
+155b9f4). Every Carousel authored since 10-10 has died the same way — 10-10, 10-17,
+10-21, 10-31, 11-04, 11-07, 11-11, 11-18 — and `--max-turns 60` did not bite on
+11-18, so the authoring side is working and the credential is the whole fault. Last
+successful publish is **2026-10-07, 43 days** ago (re-measured 2026-11-19).
+**Eight** finished posts have now been thrown away by this one expired credential,
+and nine in total since 10-10 counting the 10-24 caption-cap loss.
+Re-authorizing `IG_ACCESS_TOKEN` (CONNECT-GUIDE.md) is the top-priority human
+action. The next item that could test it is the Sat **2026-11-21** Carousel.
 
 **NEW as of 2026-10-29 — the turn cap, not the caption cap, took Wed 2026-10-28.**
 The 2026-10-27 entry warned that the next run was the 10-28 Carousel and told it to
@@ -233,6 +233,137 @@ valid 1080×1920 / 22.2s MP4. A run that needs the Reel path can install it itse
 so it is a per-run setup step, not a blocker. Adding it to `daily-content.yml`
 would still save the install on every run — see the 2026-09-15 entry for why an
 agent cannot push that change. **Only the media blocker stops Reel days.**
+
+---
+## 2026-11-19 (Thu), reel / bar — SKIPPED
+
+Forty-eighth consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. The §3 media blocker is unchanged and still
+decisive. Every number below was measured this run, not inherited from the
+2026-11-17 entry.
+
+### The §3 decision, re-derived this run
+
+- §1: `TZ=Asia/Seoul date` → Thu 2026-11-19 13:54 KST, `%u` = 4 → **reel / bar**,
+  Collab optional. No ramp flag exists in `queue.json` or any repo note (grepped
+  this run: "ramp" appears only in PIPELINE.md:29 and CONTENT.md:20, i.e. the rules
+  themselves, never as a set flag).
+- §0: no `pending` or `published` queue item for 2026-11-19. Clear to proceed.
+- §3 option 1 — **owner-supplied original: none.** `git log --name-status --
+  assets/photos/` shows every one of the 14 photos added since the policy rewrite
+  (8128750, 2026-09-14) was added by a pipeline run and is Carousel stock. The last
+  human-added photo, `cheongildip-en.jpg` (392aefd), predates the policy.
+- §3 option 2 — **written venue permission: unobtainable** by an unattended run.
+- §3 option 3 — **licensed stock: available and legal, but forbidden here.** Stock
+  is permitted only for a non-venue-specific editorial *Carousel*. Today is a Reel,
+  so the exemption does not apply. The constraint binds on **format**, so no
+  editorial re-angling rescues the day.
+
+Stopped under §0: "If rights ... cannot be verified, stop without adding a queue
+item." Re-measured this run and worth stating precisely, because it is the whole
+blocker in one line: of the **54** files in `content/`, **14** carry
+`policy_version: 2`, **all 14** of those carry `asset_source: licensed_stock`, and
+**zero** have ever carried `original` or `partner_licensed`. The §3 gate has never
+been cleared in the history of this repo.
+
+**New measurement this run — there is no video or audio file in the repo at all.**
+Previous entries established that no compliant *photo* exists. A `find` across the
+whole tree for `*.mp4 *.mov *.m4v *.webm *.mp3 *.wav` returns **zero** hits. So the
+Reel gap is not "a stock photo we may not use" — it is the total absence of moving
+footage, and `assets/music/` is gitignored to `tracks.json` + `README.md`, i.e. the
+registered tracks have no files either. A human dropping in photos alone still
+leaves `reel.py` synthesizing its audio, as documented on 2026-09-15.
+
+### Renderer: Carousel path verified again; Reel path would fail on this runner
+
+- `python3 scripts/cardnews.py content/2026-11-18-korea-coffee-price-en.json
+  <scratch>` → exit 0, **7 slides at 1080×1350**, no errors. Rendered to a scratch
+  directory outside the repo, so nothing was committed. pillow 13.0.0.
+- **`ffmpeg` and `ffprobe` are both ABSENT** on this runner, re-confirmed this run
+  (`which` → nothing). `.github/workflows/daily-content.yml:50-51` is still only
+  `pillow 설치` / `pip install --quiet pillow`. The 2026-11-15 correction stands
+  unchanged: the Reel renderer is proven (2026-11-13, a real 1080×1920 / h264 /
+  22.2s MP4), but **the runner is not provisioned for it**, so §4's two-step would
+  die at `scripts/reel.py` today even if media appeared. The one-line workflow fix
+  in the 2026-09-15 entry is still unapplied and still needs `workflows: write`,
+  which this agent does not have.
+
+### Publish side: the token blocker claimed an eighth item, 2026-11-18
+
+The 2026-11-17 entry named Wed 2026-11-18 as "the next real test" of the token. It
+ran, and it failed the same way. `2026-11-18-korea-coffee-price-en` was authored,
+rendered and queued `pending` (ddd3ca6), the 19:00 KST publisher picked it up, and
+it was **held** at **2026-11-19T03:45:36 KST** with `hold_reason:
+publish_failed_manual_review` and OAuthException **code 190**, "session has been
+invalidated" (`fbtrace_id AZnGr_CckiGBGmxpU5BmWy1`, commit 155b9f4).
+
+- That is the **eighth consecutive code-190 hold**: 10-10, 10-17, 10-21, 10-31,
+  11-04, 11-07, 11-11, 11-18. (10-24 sits inside that run of dates but was the
+  caption-cap fault, not the token.)
+- **Last successful publish is 2026-10-07 — 43 days ago** as of today. Eight
+  finished, correct posts have been thrown away by this credential, nine in total
+  since 10-10 counting the 10-24 caption-cap loss.
+- `--max-turns 60` did **not** bite on 11-18: the run produced a complete item.
+- Re-authorizing `IG_ACCESS_TOKEN` through Instagram Login (CONNECT-GUIDE.md)
+  remains the **top-priority human action**. An agent cannot do it; the token is a
+  repository secret. Note this is publish-side and does not affect today's
+  decision, which is a §3 skip regardless.
+- Minor, introduced by that commit: `queue.json` now ends **without a trailing
+  newline** (155b9f4 shows `\ No newline at end of file`). Harmless to the parser,
+  but it will show as noise in the next queue diff.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → Thu 2026-11-19, `%u` = 4 (§1).
+- `WebSearch` works.
+- `WebFetch` works, **with a new gotcha worth recording**: `theworlds50best.com`
+  now **301-redirects to `the50.com`**, and WebFetch does not follow cross-host
+  redirects — it returns the target for a second call. The redirected story page
+  fetched fine; `the50.com/bars/best-in-asia/list/1-10` returns **404**, so the
+  list-path URLs under the old host no longer resolve on the new one. Use the
+  `/stories/News/...` pages, and expect one extra call per 50 Best URL.
+- `scripts/cardnews.py` renders 7 slides cleanly (above). `scripts/reel.py` not
+  exercised: no ffmpeg, and no media to feed it.
+
+### Research done anyway — a ready bar candidate for whoever shoots first
+
+Thursday is the bar pillar, so §2 research was carried out even though §3 closes
+the day. It is recorded here so the work is not lost. **Asia's 50 Best Bars 2026**
+was announced 2026-07-28 in Macau; Hope & Sesame (Guangzhou) took No. 1. **Seoul
+placed four bars**: **Zest No. 2** (also The Best Bar in Korea, third straight
+year), **Alice No. 13**, **Bar Cham No. 33**, **MMS No. 42**. Sources: Korea Times
+2026-07-29 (`koreatimes.co.kr/lifestyle/travel-food/20260729/seoul-claims-4-spots-on-asias-50-best-bars-2026-zest-retains-no-2-ranking`),
+Herald Corp (`biz.heraldcorp.com/article/10827855`) for the ranks 13/33/42, and the
+official Destination Awards page for Best Bar in Korea. As-of date **2026-11-19**;
+hours and addresses were **not** verified to §2 standard because the day cannot
+ship — do that before use.
+
+Two things follow for a human:
+
+- All four already exist in this repo — `zest-seoul-en` (published 2026-08-25),
+  `alice-cheongdam-en`, `bar-cham-en`, `mms-bar-en` (all `held`) — and all four
+  photos are pipeline-fetched stock. So the obvious Reel is blocked not for lack of
+  a subject but for lack of one authorized frame of any of them.
+- The ranking angle would make a strong **non-venue-specific editorial Carousel**
+  ("Seoul's four bars on Asia's 50 Best 2026, and what the list actually measures"),
+  which §3 option 3 *does* permit. It does not fit Sat 2026-11-21 (local /
+  neighborhood) but would fit a Wed cafe-or-bar slot or a human-chosen editorial
+  day. Flagged, not queued: changing the weekly slot table is an editorial decision
+  and §0 forbids an unattended run from inventing one.
+
+### Unchanged asks for a human (none actionable by this agent)
+
+1. **Re-authorize `IG_ACCESS_TOKEN`** — eight lost posts, 43 days without a
+   publish. Highest value.
+2. **Unblock Reel days** by one of: dropping original footage/photos into
+   `assets/`; restoring a stock allowance for Reels in §3; or moving venue-specific
+   days to Carousel. Editorial, so an unattended run will not choose.
+3. **Add the ffmpeg install step** to `daily-content.yml` (needs `workflows:
+   write`), without which the first Reel fails even with media.
+4. **Raise `--max-turns`** above 60, and **state the 2200-character caption cap**
+   in PIPELINE.md §4 / CONTENT.md.
+5. **Add a one-line "record a skip note" requirement to §0** so a no-op day is
+   detectable from the repo rather than only from the Actions log (2026-11-17).
 
 ---
 ## 2026-11-17 (Tue), reel / local — SKIPPED
