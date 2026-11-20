@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-19 that is **forty-eight
+verified, stop without adding a queue item"). As of 2026-11-20 that is **forty-nine
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
 separately dead on the token below. Re-measured 2026-11-19: **no file in `content/`
@@ -13,6 +13,16 @@ are policy-v2 and all 14 are `licensed_stock`), so the gate has never once been
 cleared, and **all 14** photos added since the policy rewrite are pipeline-fetched
 Carousel stock. New on 2026-11-19: the repo contains **no video or audio file at
 all** — see the 2026-11-19 entry.
+
+**NEW 2026-11-20 — the blocker is the *format rule*, not a shortage of usable
+photos.** Earlier entries say "no compliant media exists"; that holds only inside
+this repo. This run verified a concrete counter-example in one WebFetch — a
+CC BY-SA 4.0 Commons photo whose own description names 안동장, a 1948 Euljiro
+restaurant that fits Friday's pillar exactly. It was still skipped, because the only
+honest `asset_source` for an unaffiliated photographer's file is `licensed_stock`,
+which §3 confines to Carousels. That reframes the fix: see the **fourth option** in
+the 2026-11-20 entry, which needs no new photography and no blanket stock
+allowance.
 
 **NEW 2026-11-17 — one Reel day is missing from the ledger below, and the run that
 lost it reported `success`.** Mon **2026-11-16** ran for 6m50s, went green on every
@@ -235,6 +245,89 @@ would still save the install on every run — see the 2026-09-15 entry for why a
 agent cannot push that change. **Only the media blocker stops Reel days.**
 
 ---
+## 2026-11-20 (Fri), reel / restaurant — SKIPPED
+
+Forty-ninth consecutive Reel-day skip. No content JSON, no rendered output, no
+change to `queue.json`. §0 checked first: `queue.json` holds 54 items and none is
+dated 2026-11-20, so no same-day `pending`/`published` item existed. §1: `date +%u`
+→ 5 → reel / restaurant / Collab candidate, which agrees with the prompt's format.
+Stopped at §3 under §0 ("If rights ... cannot be verified, stop without adding a
+queue item").
+
+**NEW — the blocker is the format rule, not media scarcity, and that is now backed
+by a verified example rather than asserted.** Every entry from 2026-09-14 onward
+says "no compliant media exists." That is true only of *this repo*. Measured this
+run: venue-accurate, commercially-reusable, third-party-licensed media of a
+qualifying Friday restaurant exists publicly and is verifiable in a single WebFetch.
+
+- `commons.wikimedia.org/wiki/File:Andongjang.jpg` — author **Seefooddiet**, own
+  work, dated 2024-07-16, released under **CC BY-SA 4.0**, and the file's own
+  description identifies it as 안동장 (安東莊), "a historic chinese restaurant in
+  Seoul, South Korea."
+- The venue checks out as a §2 subject: 서울 중구 을지로 124, near Euljiro 3-ga
+  station, opened **1948**, third generation, and widely credited as the origin of
+  굴짬뽕 (oyster jjamppong) — confirmed across siksinhot.com and polle.com listings.
+  (Current hours were *not* confirmable from an official listing, which would have
+  been its own §2 failure, but §3 decided it first.)
+
+**Why that still does not clear §3, and why the run skipped anyway.** The honest
+`asset_source` label for a photo taken by an unaffiliated Commons photographer is
+`licensed_stock`: `original` is false, and `partner_licensed` would misstate the
+rights basis because there is no partner — not the venue, not the photographer.
+CONTENT.md limits `licensed_stock` to "an occasional editorial Carousel" and says it
+"must never be presented as the actual venue"; §3 option 3 says the same. §3 option
+2 ("venue/creator media with written permission") *could* be read to cover a
+standing public CC grant from the media's creator, and that reading would let a Reel
+ship today — but it only works by relabelling the single metadata field that exists
+to record the rights basis. That defeats the gate instead of passing it, so an
+unattended run will not take it. Widening the policy stays a human decision.
+
+Second, narrower point for whoever makes that decision: **CC BY-SA is the wrong
+licence to start with.** Share-alike plausibly makes a Reel built from the photo an
+adaptation, which would put the post itself under SA. CC0 and CC BY files carry no
+such term and Commons holds plenty of both, so this is a filter criterion, not an
+obstacle.
+
+**A fourth human fix, cheaper than the three in the 2026-09-15 entry.** Those three
+(ship original photos, restore a blanket stock allowance, or move venue days to
+Carousel) all assume media must be created, negotiated, or given up on. This one
+does not:
+
+> Amend §3 to permit third-party media under an irrevocable public licence (CC0 or
+> CC BY — **not** CC BY-SA) on any format, *only* where the file's own description
+> identifies the named venue; keep `asset_source: licensed_stock`; and require the
+> author, licence and file URL in `rights_note` and on the sources slide.
+
+That leaves both of §3's actual prohibitions intact — nothing is scraped from venue
+social media, and no mood photo is passed off as the named place — while unblocking
+all five Reel days (Mon/Tue/Thu/Fri/Sun) without the owner photographing anything.
+If it is adopted, also add the matching format check to
+`publish.py:validate_rights()`, which today accepts any of the three
+`asset_source` values regardless of format (noted 2026-09-15 and still true).
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → 2026-11-20 Friday → §1 reel / restaurant.
+- WebSearch works. WebFetch works on commons.wikimedia.org. Plain `curl` egress
+  works (Commons API query returned the `Restaurants in Seoul` category listing).
+- `scripts/cardnews.py` renders **7 slides at 1080×1350, exit 0, no errors**
+  (re-run this session against `content/2026-11-18-korea-coffee-price-en.json`;
+  pillow 13.0.0).
+
+### Still standing, unchanged by this run
+
+- **Token, top priority.** Eight straight code-190 holds; last tested 2026-11-18.
+  Next real test is the Sat **2026-11-21** Carousel. Not checkable by an agent.
+- **ffmpeg still not provisioned.** `which ffmpeg` → not found, and
+  `.github/workflows/daily-content.yml` line 50 is still only `pillow 설치`. The
+  renderer itself is proven (2026-11-13); the runner is not. Not re-tested here
+  because the §3 gate stopped the run before any Reel needed building.
+- `--max-turns 60` unraised; this lean skip run cleared it comfortably.
+- §0 still carries no skip-note requirement, so a silent miss like 2026-11-16
+  remains invisible from the repo alone.
+
+---
+
 ## 2026-11-19 (Thu), reel / bar — SKIPPED
 
 Forty-eighth consecutive Reel-day skip. No content JSON, no rendered output
