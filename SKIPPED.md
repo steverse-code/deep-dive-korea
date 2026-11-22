@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-20 that is **forty-nine
+verified, stop without adding a queue item"). As of 2026-11-22 that is **fifty
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
 separately dead on the token below. Re-measured 2026-11-19: **no file in `content/`
@@ -13,6 +13,16 @@ are policy-v2 and all 14 are `licensed_stock`), so the gate has never once been
 cleared, and **all 14** photos added since the policy rewrite are pipeline-fetched
 Carousel stock. New on 2026-11-19: the repo contains **no video or audio file at
 all** — see the 2026-11-19 entry.
+
+**NEW 2026-11-22 — Sat 2026-11-21 ran no content at all, the second silent miss in
+seven days, and it cancelled the token test two entries were waiting on.** No
+commit, no content JSON, no queue item, no skip note — invisible from this repo and
+checkable only in the Actions log. So the token count stays at **eight** code-190
+holds, last tested **2026-11-18**, and the next possible test is Wed **2026-11-25**.
+See the 2026-11-22 entry; it also narrows the 11-20 recommendation below, which
+would **not** have unblocked a cafe Reel: Commons has zero freely-licensed photos of
+the researched venue, and the venue-named Korean cafe files that do exist are all
+CC BY-SA.
 
 **NEW 2026-11-20 — the blocker is the *format rule*, not a shortage of usable
 photos.** Earlier entries say "no compliant media exists"; that holds only inside
@@ -245,6 +255,173 @@ would still save the install on every run — see the 2026-09-15 entry for why a
 agent cannot push that change. **Only the media blocker stops Reel days.**
 
 ---
+## 2026-11-22 (Sun), reel / cafe — SKIPPED
+
+Fiftieth consecutive Reel-day skip. No content JSON, no rendered output committed,
+no change to `queue.json`. §0 checked first: `queue.json` holds 54 items and none is
+dated 2026-11-22, so no same-day `pending`/`published` item existed; no ramp flag is
+set anywhere (`grep -rn ramp` hits only PIPELINE.md:29 and CONTENT.md:20, i.e. the
+rules themselves). §1: `TZ=Asia/Seoul date` → Sun 2026-11-22 12:54 KST, `%u` = 7 →
+**reel / cafe**, Collab optional, which agrees with the prompt's format. Stopped at
+§3 under §0 ("If rights ... cannot be verified, stop without adding a queue item").
+
+### NEW AND IMPORTANT — Sat 2026-11-21 is a second silent miss, and it cost the token test
+
+The 2026-11-19 and 2026-11-20 entries both named Sat **2026-11-21** (Carousel /
+local — the one format that can still ship) as the next real test of
+`IG_ACCESS_TOKEN`. **That run produced nothing at all.** Measured this run:
+
+- `git log --since=2026-11-20` returns exactly one commit, 0470820 (the 11-20 skip
+  note). There is no 11-21 commit of any kind.
+- `content/` has no `2026-11-21-*` file; `out/` has no 11-21 directory; `queue.json`
+  is unchanged at 54 items, newest `2026-11-18-korea-coffee-price-en`.
+- No skip note was written either.
+
+So 11-21 is the **second known silent miss** after Mon 2026-11-16, and the first to
+fall on a *shippable* day. Consequences, all of which change the state the previous
+two entries recorded:
+
+- **The token is still last-tested 2026-11-18**, not 11-21. The count stands at
+  **eight** consecutive code-190 holds (10-10, 10-17, 10-21, 10-31, 11-04, 11-07,
+  11-11, 11-18), not nine. The next possible test is the Wed **2026-11-25**
+  Carousel.
+- **Last successful publish is 2026-10-07 — 46 days ago** as of today.
+- A Carousel day was lost to something other than the three known publish faults.
+  Whether it was the turn cap (`--max-turns 60`, still unraised at
+  `.github/workflows/daily-content.yml:80`), a scheduling miss, or a run that went
+  green while committing nothing (the 11-16 failure mode) is **not determinable from
+  this repo** — only from the Actions log. That is exactly the gap flagged on
+  2026-11-17: §0 carries no skip-note requirement, so a no-op day leaves no trace
+  here. Two silent misses in seven days moves ask 5 below up the list.
+
+### §2 passed this run — today's failure is purely §3
+
+Research was carried out to PIPELINE.md §2 standard so the work is not lost, and
+unlike most entries in this ledger the verification actually cleared. Subject:
+**NUDAKE (누데이크), Haus Dosan** — a dessert-led cafe, which fits Sunday's
+cafe/dessert pillar.
+
+- Official name and address, from the **Seoul city tourism listing** (official):
+  Gentle Monster Haus Dosan, **50 Apgujeong-ro 46-gil, Gangnam-gu, Seoul 06020**,
+  with "Nudake Café on B1". Hours **daily 11:00–21:00**, phone 1660-1010, nearest
+  station **Apgujeong Rodeo (Suin-Bundang Line) Exit 5, 690 m**. The page was
+  published 2023-06-28 and carries an **Edited Date of 2026-08-08**, so current
+  operation is confirmed from an official listing within the last four months.
+  `english.visitseoul.net/shopping/GentleMonsterHausDosan/ENPozt8oi`
+- Corroborated by the **Gangnam district tourism listing** (official), which adds
+  the one fact a traveler needs and the city page omits: the cafe is **"closed the
+  first Monday of each month."** It names the signature item as the **Peak Cake**
+  (matcha cream inside a squid-ink pastry shell) and places Nudake on B1 of House
+  Dosan. Phone 070-4128-2125.
+  `visitgangnam.net/en/places/nudake-haus-dosan-sweetness-between-art-and-gourmet`
+- **Not verified, so it must not appear in copy:** the Peak Cake price (neither
+  official listing gives one), and the 070 phone number, which the two Gangnam
+  listings give inconsistently (…2125 vs …2126). A third-party aggregator pass on
+  Fritz Coffee (Dohwa) was also run first and **discarded**: its hours conflicted
+  three ways across trip.com/timeout/tablejourney with no official listing behind
+  any of them, which is a §2 failure in its own right. Recorded so the next cafe run
+  does not repeat it.
+- As-of date **2026-11-22**. Useful English search phrase for travelers:
+  "Nudake Haus Dosan Apgujeong dessert cafe". Nothing above was written as if the
+  account visited.
+
+As-of this entry the cafe pillar's published subjects are anthracite (×2),
+hanyakbang, terarosa (×2), momos, onion anguk, hakrim dabang, suyeonsanbang,
+sungsimdang, mido dabang plus six editorial Carousels; Nudake is new, so there is no
+dedup conflict.
+
+### NEW — the 2026-11-20 "fourth option" would NOT have unblocked today
+
+This is the substantive correction this run adds. The 2026-11-20 entry proposed
+amending §3 to permit third-party media under an irrevocable public licence (CC0 or
+CC BY, **not** CC BY-SA) where the file's own description names the venue, and
+presented it as the cheap fix that "unblocks all five Reel days." Measured against
+an actual cafe-pillar subject, it is **necessary but not sufficient**:
+
+- **For Nudake there is no freely-licensed photo at all.** Commons search returns
+  **0 hits** for `Nudake`, **0** for `누데이크`, and **0 relevant** for `Haus Dosan`
+  (the three hits are unrelated German-language PDFs). An amended §3 grants nothing
+  where no file exists.
+- **The venue-named Korean cafe photos that do exist are all the excluded licence.**
+  `File:Hakrim Dabang 01.jpg` and `02.jpg` (author **Seefooddiet**, own work,
+  2025-01-10, 3024×4032 and 4032×3024) and `File:Sungsimdang 2019.jpg` +
+  `File:Sungsimdang display stand.jpg` (author **Trainholic**, own work, 2019-06-08)
+  are **all CC BY-SA 4.0** — precisely the licence 11-20 ruled out, and note that
+  Hakrim Dabang and Sungsimdang are both already published subjects here.
+- **The non-SA, venue-named pool is effectively empty.** A `haslicense:
+  attribution-only|unrestricted` sweep surfaced exactly two usable-looking
+  candidates, and both fail for non-licence reasons:
+  `File:Cafe Pascucci, Apgujeong-dong, Seoul, South Korea.jpg` is **Public domain**
+  but is a 2006 chain-franchise photo at **1024×768** — below the 1080×1920 Reel
+  frame, so it cannot fill it; and `File:Cafe Seoul 20190324 131853.jpg` is **CC0**
+  but its own description ends "**Now closed**", which is a §2 current-operation
+  failure before §3 is even reached.
+
+So the honest version of the 11-20 recommendation is narrower: **CC0/CC BY coverage
+of named Korean cafes is too thin to carry a venue pillar on its own.** Adopting the
+fourth option is still worth doing — it is free and it would unblock the occasional
+day where a good file happens to exist — but for the cafe pillar it has to be paired
+with option 1 (owner photography) or option 2 (written venue permission), or the
+venue days have to move to Carousel. Whoever makes the call should not expect the
+licence amendment alone to produce five Reel days a week.
+
+§3 as it stands today, re-derived for this subject: option 1 **original — none**
+(`git log --name-status -- assets/` shows the newest photo is
+`2026-11-18-korea-coffee-price-en.jpg`, added by the 11-18 pipeline run; no human
+has added media since the policy rewrite). Option 2 **written permission —
+unobtainable** by an unattended run. Option 3 **licensed stock — forbidden here**,
+being limited to a non-venue-specific editorial Carousel; today is a Reel, and the
+constraint binds on format, so no re-angling rescues it. Re-measured: of **54**
+files in `content/`, **14** are `policy_version: 2`, **all 14** are
+`licensed_stock`, **all 14** are Carousels, and **zero** have ever carried
+`original` or `partner_licensed`. There is still **no video or audio file anywhere in
+the tree** (`find` for `*.mp4 *.mov *.m4v *.webm *.mp3 *.wav *.m4a` → 0 hits).
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → Sun 2026-11-22 12:54 KST, `%u` = 7 (§1).
+- **WebSearch works.** **WebFetch works** on `english.visitseoul.net` and
+  `visitgangnam.net` (both returned full structured listings).
+- Plain `curl` egress to the **Commons API works** (`list=search`,
+  `prop=imageinfo&iiprop=extmetadata` both returned licence metadata). **New gotcha:**
+  called back-to-back in a shell loop it intermittently returns an **empty body**,
+  which crashes a naive `json.load`. Put a `sleep 2` between calls and parse
+  defensively — three of ten probes failed this way before the sleep was added.
+- **`scripts/cardnews.py` renders cleanly: exit 0, 7 slides at 1080×1350, no
+  errors** (pillow **13.0.0**, run against `content/2026-11-18-korea-coffee-price-en.json`
+  into a scratch directory outside the repo, so nothing was committed).
+- **`scripts/reel.py` fails exactly as predicted:** `FileNotFoundError: [Errno 2] No
+  such file or directory: 'ffmpeg'` at `scripts/reel.py:45`, **exit 1**. This is the
+  first time the stock-runner failure has been reproduced by running it rather than
+  inferred from `which ffmpeg`. The 2026-11-15 correction stands:
+  `.github/workflows/daily-content.yml:51` is still only `pip install --quiet pillow`,
+  so the renderer is proven (2026-11-13) but **the runner is not provisioned** and the
+  first Reel would die here even with compliant media in hand.
+
+### Unchanged asks for a human (none actionable by this agent)
+
+1. **Re-authorize `IG_ACCESS_TOKEN`** (CONNECT-GUIDE.md) — eight lost posts, **46
+   days** without a publish. Still highest value. Not checkable by an agent; the
+   token is a repository secret. Next possible test: Wed **2026-11-25**.
+2. **Unblock Reel days.** Now four options, and per the measurement above the
+   licence amendment is the cheapest but not self-sufficient: drop original
+   footage/photos into `assets/`; get written venue permission; restore a stock
+   allowance for Reels; move venue-specific days to Carousel; and/or adopt the
+   CC0/CC-BY amendment as a supplement. Editorial, so an unattended run will not
+   choose. If the amendment is adopted, also add the matching format check to
+   `publish.py:validate_rights()`, which still accepts any `asset_source` for any
+   format.
+3. **Add an ffmpeg install step** to `daily-content.yml` (needs `workflows: write`),
+   without which the first Reel fails at `reel.py:45` even with media.
+4. **Raise `--max-turns`** above 60 (`daily-content.yml:80`), and **state the
+   2200-character caption cap** in PIPELINE.md §4 / CONTENT.md.
+5. **Add a one-line "record a skip note" requirement to §0.** Promoted this run:
+   with 11-16 and now **11-21** both invisible from the repo, a no-op day is
+   detectable only from the Actions log, and 11-21 silently cancelled the token test
+   two entries had been waiting on.
+
+---
+
 ## 2026-11-20 (Fri), reel / restaurant — SKIPPED
 
 Forty-ninth consecutive Reel-day skip. No content JSON, no rendered output, no
