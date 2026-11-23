@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-22 that is **fifty
+verified, stop without adding a queue item"). As of 2026-11-23 that is **fifty-one
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
 separately dead on the token below. Re-measured 2026-11-19: **no file in `content/`
@@ -13,6 +13,19 @@ are policy-v2 and all 14 are `licensed_stock`), so the gate has never once been
 cleared, and **all 14** photos added since the policy rewrite are pipeline-fetched
 Carousel stock. New on 2026-11-19: the repo contains **no video or audio file at
 all** — see the 2026-11-19 entry.
+
+**NEW 2026-11-23 — the free-licence pool is now measured, not guessed, and it is
+about twenty files.** `incategory:"Restaurants in Seoul"` returns **8** files under
+`haslicense:unrestricted` and **12** under `haslicense:attribution` — twenty in
+total for the whole category, of which the identifiable ones are chains
+(McDonald's ×2, Bored & Hungry) and most of the rest are unnamed storefronts the
+11-20 amendment would not reach anyway. Three pillars have now been tested against
+that amendment and all three fail differently: 11-20 found a venue-named photo under
+the excluded CC BY-SA, 11-22 found no file at all, and 11-23 found the right licence
+on a **142×72 trademark**. If it is adopted it needs two more acceptance criteria —
+minimum resolution and "a photograph, not a logo." See the 2026-11-23 entry, which
+also records a WebFetch gotcha: `guide.michelin.com` returns an **empty body**
+rather than an error.
 
 **NEW 2026-11-22 — Sat 2026-11-21 ran no content at all, the second silent miss in
 seven days, and it cancelled the token test two entries were waiting on.** No
@@ -255,6 +268,171 @@ would still save the install on every run — see the 2026-09-15 entry for why a
 agent cannot push that change. **Only the media blocker stops Reel days.**
 
 ---
+## 2026-11-23 (Mon), reel / restaurant — SKIPPED
+
+Fifty-first consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. §0 checked first: `queue.json` holds 54 items
+and none is dated 2026-11-23, so no same-day `pending`/`published` item existed; no
+ramp flag is set anywhere (`grep -rn ramp` still hits only PIPELINE.md:29 and
+CONTENT.md:20, i.e. the rules themselves). §1: `TZ=Asia/Seoul date` → Mon 2026-11-23
+13:34 KST, `%u` = 1 → **reel / restaurant**, Collab optional, which agrees with the
+prompt's format. Stopped at §3 under §0 ("If rights ... cannot be verified, stop
+without adding a queue item").
+
+### NEW — the first numeric measure of the free-licence pool, and it bounds the 11-20 amendment
+
+The 2026-11-20 entry proposed amending §3 to allow CC0/CC BY third-party media whose
+description names the venue, and called it the fix that "unblocks all five Reel
+days." 2026-11-22 narrowed that to "necessary but not sufficient" from one cafe
+subject. This run measured the pool itself rather than one venue, for Monday's
+restaurant pillar, straight against the Commons search API:
+
+- `incategory:"Restaurants in Seoul" haslicense:unrestricted` → **8 files total**.
+- `incategory:"Restaurants in Seoul" haslicense:attribution` → **12 files total**.
+
+**Twenty freely-licensed files for the whole Seoul-restaurants category**, and the
+contents are worse than the count suggests. Four are an unnamed 2007 set (`August
+2007, restaurant in Seoul`, …`2`, …`3`, plus one of its toilets); three more are
+unnamed Insadong storefronts (`Seoul-Insadong-Restaurant-01`,
+`…-A restaurant entrance-01`, `…-Gruel shop-01`); the clearly identifiable ones are
+chains or novelties — `Mcdonalds seoul.JPG`, `McDonald's Delivery Fleet.jpg`,
+`Bored & Hungry exterior.jpg`, `Boeing 747 Restaurant Outside.jpg`. An unnamed
+storefront is exactly the "mood photo standing in for the named place" that §3
+forbids outright, so the amendment would not reach it: the amendment's own test is
+that *the file's description identifies the venue*. The named, non-chain residue of
+the entire category is roughly two files. That is the ceiling on what the licence
+change can deliver for one pillar in one city, and it should be stated plainly to
+whoever decides.
+
+### NEW — the restaurant pillar fails the amendment on a *third* distinct ground
+
+Subject chosen for §2 was **우래옥 / Woo Lae Oak**, Jung-gu — the oldest active
+Pyongyang-naengmyeon house in Seoul, a Michelin Bib Gourmand listing, open since
+1946. Commons holds **exactly one** file for it, and it is instructive:
+
+- `File:우래옥(又來屋).png` — **CC BY 4.0** (`LicenseShortName: CC BY 4.0`,
+  `LicenseUrl creativecommons.org/licenses/by/4.0`, `AttributionRequired: true`),
+  `Artist: 우래옥`, `Credit: 우래옥 상표`, `DateTimeOriginal: 1969-07-05`. The licence
+  is exactly the one the 11-20 amendment asks for, and the description names the
+  venue.
+- It is **142 × 72 pixels**, and it is a **trademark** — the restaurant's wordmark,
+  not a photograph of the restaurant. It cannot fill a 1080×1920 Reel frame (it is
+  13% of the frame's width), and a brand mark is not a depiction of the venue in the
+  sense §3 means. There is also no evidence the Commons uploader held the rights to
+  release a company's trademark, and a CC licence over a mark does not clear
+  trademark use in the first place.
+
+Three pillars have now been tested against the proposed amendment and all three
+fail, each for a different reason, which is why this is worth recording rather than
+repeating:
+
+| Run | Pillar | Venue | Why the amendment would not have helped |
+|---|---|---|---|
+| 11-20 | restaurant | 안동장 | A real venue-named photo exists, but **CC BY-SA** — the licence 11-20 itself excludes |
+| 11-22 | cafe | NUDAKE | **Zero files**; the non-SA fallbacks were 1024×768 or "Now closed" |
+| 11-23 | restaurant | 우래옥 | Right licence, names the venue — but a **142×72 trademark**, not a photo |
+
+So the honest recommendation to a human is now narrower still: if the amendment is
+adopted, it needs **two acceptance criteria beyond the licence** — a minimum source
+resolution (≥1080 on the short edge for a 1080×1920 Reel) and "a photograph of the
+place, not a logo, map, menu scan or signage crop." Licence alone has not been the
+binding constraint in two of the three tests.
+
+### §2 research recorded (partial clear — see the caveat)
+
+Done to PIPELINE.md §2 standard so the work is not lost. Subject **Woo Lae Oak
+(우래옥)**, which is new: the restaurant pillar's prior subjects are onjium (×2),
+mingles, le dorer (×2), balwoo gongyang, gogung jeonju, giwakang, yong fu jeju,
+gosari express and sosuheon, so there is no dedup conflict.
+
+- **Name and address**, consistent across every source: 우래옥 / Woo Lae Oak,
+  **62-29 Changgyeonggung-ro, Jung-gu, Seoul 04546**, about one minute from Euljiro
+  4-ga station (Lines 2/5). Phone +82 2-2265-0151.
+- **Current operation**: carried by the **Michelin Guide Seoul** listing (Bib
+  Gourmand) and by Korean listing/press coverage dated 2026. Opened **1946**;
+  Wikipedia records a Pyongyang predecessor, 명월관.
+- **Closed Mondays** — agreed by Michelin and the Korean listings, and worth noting
+  because Monday is this account's restaurant-Reel slot. A Monday post telling
+  travelers to go today would have been wrong on the one fact that matters most.
+- **Not verified, so it must not appear in copy.** Hours conflict three ways
+  (11:30–21:00 Michelin / 11:20–21:00 a 2026 Korean listing / 11:30–21:30 a 2022
+  Seoul city media piece), and the naengmyeon price conflicts between **18,000 won**
+  and **16,000 won** in sources of similar date. Reservation policy ("4+ guests, one
+  week ahead" vs "two weeks ahead") is equally unsettled.
+- **Caveat on the source quality, stated plainly:** `guide.michelin.com` is **not
+  fetchable from this runner** — plain `curl` gets **HTTP 202** (bot challenge) and
+  **WebFetch returns an empty body** on both the `/en/` and `/kr/ko/` paths. So the
+  Michelin facts above come from search-result summaries, not from the page itself,
+  and no official Seoul/VisitKorea tourism listing for this venue surfaced at all.
+  Had §3 not stopped the run first, this would have needed one more pass on a
+  fetchable official or booking source before anything shipped. **New gotcha for
+  later runs: WebFetch "works" is not a global property — it works on
+  visitseoul/visitgangnam/commons and fails closed, with an empty body rather than
+  an error, on Michelin.** An empty body is easy to mistake for a page that says
+  nothing.
+- As-of date **2026-11-23**. Useful English search phrase: "Woo Lae Oak Euljiro
+  Pyongyang naengmyeon Seoul". Nothing above was written as if the account visited.
+
+### §3, re-derived for this subject
+
+Option 1 **original — none.** `git log --name-status -- assets/` shows the newest
+media is still `2026-11-18-korea-coffee-price-en.jpg`, added by the 11-18 pipeline
+run itself; no human has added media since the policy rewrite. A fresh `find` for
+`*.mp4 *.mov *.m4v *.webm *.mp3 *.wav *.m4a` across the tree still returns **0
+hits** — there is no video or audio file in this repo. Option 2 **written permission
+— unobtainable** by an unattended run. Option 3 **licensed stock — forbidden here**:
+§3 confines it to a non-venue-specific editorial Carousel and CONTENT.md says it
+"must never be presented as the actual venue." Today is a Reel and the constraint
+binds on format, so no re-angling rescues it. Of **54** files in `content/`, **14**
+are `policy_version: 2`, **all 14** are `licensed_stock`, **all 14** are Carousels,
+and **zero** have ever carried `original` or `partner_licensed`.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → Mon 2026-11-23 13:34 KST, `%u` = 1 (§1).
+- **WebSearch works** (English and Korean queries both returned usable results).
+- **WebFetch is partial** — see the Michelin finding above.
+- **`curl` egress to the Commons API works**, including `list=search` with
+  `haslicense:` and `prop=imageinfo&iiprop=extmetadata|size|sha1`. The 11-22 gotcha
+  reproduced: a `sleep 2` between back-to-back calls is still needed, and the parse
+  must tolerate an empty body.
+- **`scripts/cardnews.py` renders cleanly: exit 0, 7 slides, every one 1080×1350,
+  no errors** (pillow **13.0.0**, run against
+  `content/2026-11-18-korea-coffee-price-en.json` into `/tmp` outside the repo, so
+  nothing was committed).
+- **`scripts/reel.py` still dies on ffmpeg:** `FileNotFoundError: [Errno 2] No such
+  file or directory: 'ffmpeg'`, **exit 1**. `which ffmpeg` → not found, and
+  `.github/workflows/daily-content.yml:50-51` is still only
+  `pip install --quiet pillow`. Renderer proven 2026-11-13; runner still not
+  provisioned.
+- No silent miss to report for the last cycle: `git log --since=2026-11-21` returns
+  44c7a6a, the 11-22 skip note, and Sun 11-22 was a Reel day with no shippable
+  format, so nothing is missing from the ledger between then and now.
+
+### Unchanged asks for a human (none actionable by this agent)
+
+1. **Re-authorize `IG_ACCESS_TOKEN`** (CONNECT-GUIDE.md). Still eight consecutive
+   code-190 holds (10-10, 10-17, 10-21, 10-31, 11-04, 11-07, 11-11, 11-18), last
+   tested **2026-11-18**, next possible test the Wed **2026-11-25** Carousel. Last
+   successful publish **2026-10-07 — 47 days ago**. Highest value; not checkable by
+   an agent.
+2. **Unblock Reel days**, and note this run narrows the menu: drop original
+   footage/photos into `assets/`; obtain written venue permission; restore a stock
+   allowance for Reels; move venue-specific days to Carousel; and/or adopt the
+   CC0/CC-BY amendment — which, on three pillar tests, needs the resolution and
+   photograph-not-logo criteria above and still only reaches a handful of files.
+   Editorial, so an unattended run will not choose. If adopted, add the matching
+   format check to `publish.py:validate_rights()`, which still accepts any
+   `asset_source` for any format.
+3. **Add an ffmpeg install step** to `daily-content.yml` (needs `workflows: write`);
+   without it the first Reel fails at `reel.py:45` even with compliant media.
+4. **Raise `--max-turns`** above 60 (`daily-content.yml:80`), and **state the
+   2200-character caption cap** in PIPELINE.md §4 / CONTENT.md.
+5. **Add a one-line "record a skip note" requirement to §0**, so a no-op day is
+   visible from the repo rather than only from the Actions log (11-16 and 11-21).
+
+---
+
 ## 2026-11-22 (Sun), reel / cafe — SKIPPED
 
 Fiftieth consecutive Reel-day skip. No content JSON, no rendered output committed,
