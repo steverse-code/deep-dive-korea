@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-23 that is **fifty-one
+verified, stop without adding a queue item"). As of 2026-11-24 that is **fifty-two
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
 separately dead on the token below. Re-measured 2026-11-19: **no file in `content/`
@@ -13,6 +13,19 @@ are policy-v2 and all 14 are `licensed_stock`), so the gate has never once been
 cleared, and **all 14** photos added since the policy rewrite are pipeline-fetched
 Carousel stock. New on 2026-11-19: the repo contains **no video or audio file at
 all** — see the 2026-11-19 entry.
+
+**NEW 2026-11-24 — for the first time the media itself is compliant and only the
+*format clause* blocks it.** The three pillar tests below all failed on the media
+(wrong licence, no file, a trademark). Tuesday's local-food pillar does not:
+`File:Korea-Tongyeong_food-Chungmu_gimbap-01.jpg` is **CC BY 3.0**, **2489×1659**,
+and a real photograph — it clears every acceptance criterion 11-20 and 11-23
+derived. It is honestly *non-venue-specific*, which makes it textbook §3 **option 3**
+material; it is barred only because option 3 ends in the word "Carousel". So the
+cheapest fix is narrower than the 11-20 amendment: extend option 3 to
+non-venue-specific editorial **Reels**. See the 2026-11-24 entry, which also records
+a fourth failure mode for the 11-20 amendment (the file's *description* names only
+the city — the dish appears only in the filename and categories) and the first
+video file this ledger has found (640×360, unusable).
 
 **NEW 2026-11-23 — the free-licence pool is now measured, not guessed, and it is
 about twenty files.** `incategory:"Restaurants in Seoul"` returns **8** files under
@@ -268,6 +281,191 @@ would still save the install on every run — see the 2026-09-15 entry for why a
 agent cannot push that change. **Only the media blocker stops Reel days.**
 
 ---
+## 2026-11-24 (Tue), reel / local — SKIPPED
+
+Fifty-second consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. §0 checked first: `queue.json` holds 54 items
+(41 `held`, 13 `published`) and none is dated 2026-11-24, so no same-day
+`pending`/`published` item existed; no ramp flag is set anywhere (`grep -rn ramp`
+outside this file still hits only PIPELINE.md:29 and CONTENT.md:20, i.e. the rules
+themselves). §1: `TZ=Asia/Seoul date` → Tue 2026-11-24 16:27 KST, `%u` = 2 →
+**reel / local food**, Collab candidate, which agrees with the prompt's format.
+Stopped at §3 under §0 ("If rights ... cannot be verified, stop without adding a
+queue item").
+
+### NEW — the local-food pillar is the first one where the media is substantively fine, and *only* the format clause blocks it
+
+Three pillars had been tested against the 11-20 CC0/CC-BY amendment and all three
+failed on the media itself: 11-20 (restaurant) found the right photo under the
+excluded CC BY-SA, 11-22 (cafe) found no file at all, 11-23 (restaurant) found the
+right licence on a 142×72 trademark. Tuesday's pillar is different, and the
+difference matters for whoever decides the fix.
+
+Measured this run against the Commons search API for 충무김밥 / chungmu gimbap:
+
+- `chungmu gimbap haslicense:unrestricted` → **0** files.
+- `chungmu gimbap haslicense:attribution` → **1** file.
+- `충무김밥`, any licence → **7** files, including the first **video** file this
+  ledger has ever turned up.
+
+The one attribution-licensed file clears every acceptance criterion the previous
+three runs derived:
+
+- `commons.wikimedia.org/wiki/File:Korea-Tongyeong_food-Chungmu_gimbap-01.jpg`
+- **CC BY 3.0** — attribution only, **not** share-alike, so the 11-20 licence
+  filter passes and the adaptation/SA worry from that entry does not arise;
+- **2489 × 1659**, short edge 1659, comfortably over the ≥1080 minimum the 11-23
+  entry asked for;
+- a real **photograph**, not a logo, map or signage crop — the 11-23 criterion;
+- author **Junho Jung** (Flickr `phploveme`), source
+  `flickr.com/photos/phploveme/3505721145`, dated 2009-05-04.
+
+So for the first time the binding constraint is **not** the licence, the
+resolution, or logo-vs-photograph. It is the Carousel-only clause in §3 option 3.
+
+**One honest correction to that, found by WebFetching the file page rather than
+trusting the filename.** The file's own *description* reads only "View of Tongyeong,
+South Gyeongsang province, South Korea" (Korean: 대한민국 경상남도 통영시 풍경). It
+names neither a venue **nor the dish** — "Chungmu gimbap" appears only in the
+filename and the category tags. So this file would also fail the 11-20 amendment as
+written, whose test is that *the file's own description identifies the named venue*.
+That is a **fourth** distinct failure mode, and it suggests the amendment's test
+should read "the file's description, filename or categories," because Commons
+descriptions are routinely this thin.
+
+But the amendment is the wrong lever for this pillar anyway, which is the actual
+finding:
+
+> A dish-focused local-food post does not need a file that names a venue. It needs a
+> file that is honestly **not** venue-specific — and this one is exactly that. It
+> depicts chungmu gimbap in Tongyeong and claims nothing about any particular shop.
+
+That is textbook §3 **option 3** material: correctly licensed stock for a
+non-venue-specific editorial piece, with no risk of the thing §3 actually forbids
+(passing a mood photo off as the named place). It is blocked solely because option 3
+ends in the word "Carousel" and Tuesday is a Reel. This is the case the 2026-09-15
+entry predicted in the abstract — "even a dish-focused editorial angle cannot use
+stock, because §3 option 3 permits stock only for a Carousel" — now confirmed
+against a specific, verified, fully compliant file.
+
+**So the cheapest fix for Tue/local is narrower than the 11-20 amendment and needs
+no new acceptance criteria:**
+
+> Extend §3 option 3 (and CONTENT.md's matching sentence) from "a non-venue-specific
+> editorial **Carousel**" to "a non-venue-specific editorial **Carousel or Reel**",
+> keeping `asset_source: licensed_stock`, keeping the "never presented as the actual
+> venue" prohibition, and requiring author, licence and file URL in `rights_note`
+> and on the sources slide.
+
+This unblocks the dish-and-custom half of the Reel schedule (Tue/local, and
+editorial angles on other days) without any new photography, any partner
+negotiation, or any blanket stock allowance for venue-specific Reels — which should
+stay blocked, because that is the prohibition with teeth. Still editorial, so an
+unattended run will not make it.
+
+The video file is **not** a usable escape hatch, for the record:
+`File:(윰댕) 충무김밥 + 깍두기 꿀조합♥ 먹방♥.webm`, CC BY 3.0, is **640 × 360** — below
+even 720p, let alone 1080×1920 — and it is a third-party YouTube mukbang, not
+documentary footage of the dish or a venue. It fails the resolution criterion by a
+wide margin. Worth noting only because the repo still contains no video at all and
+this is the first candidate ever identified.
+
+### §2 research recorded (dish level clears; venue level does not)
+
+Subject **chungmu gimbap (충무김밥)** — new for this pillar. Prior local subjects are
+cheongildip, yonggeumok, naeho naengmyeon, gugil ttarogukbap, geuyetnal chodang
+sundubu, samdae gwangyang, imun seolnongtang, hankook jib and dongnae halmae
+pajeon, plus the nationwide editorial Carousels, so there is no dedup conflict.
+
+- **Carried by an official listing.** `english.visitkorea.or.kr` (VisitKorea,
+  `rgnContentsView.do?vcontsId=85867`) covers chungmu gimbap and names Ttungbo
+  Halmae Gimbap in Tongyeong's Jungang Traditional Market as a known spot for it.
+- **Dish facts that are consistent across sources** and would have been safe in
+  copy: Tongyeong was formerly named **Chungmu**, and the dish takes its name from
+  the old name; the rice is rolled **plain, with no fillings**, and the toppings —
+  seasoned squid and radish kimchi — are served **alongside** rather than inside;
+  the standard explanation of why is that fillings spoiled quickly at sea, so
+  separating them kept a sailor's meal from going off. Also reported, less firmly:
+  a vendor named **Eo Du-i** popularized the dish at a 1980s government festival.
+- **Not verified, so it must not appear in copy.** Which shop *originated* the dish
+  is **contested** — guides variously credit Ttungbo Halmae Gimbap (325
+  Tongyeonghaean-ro) and Chungmu Halmae Gimbap (129-1 Jung-ang-dong). Hours
+  conflict (06:00–22:00 vs 06:00–00:00). No price was confirmable at all. A
+  venue-specific post would have failed §2 on top of §3; the dish-focused angle is
+  what the research actually supports, which is the same angle §3's format clause
+  forbids.
+- As-of date **2026-11-24**. Useful English search phrase: "Chungmu gimbap Tongyeong
+  Jungang Market plain rice rolls squid". Nothing above was written as if the account
+  visited.
+
+### §3, re-derived for this subject
+
+Option 1 **original — none.** `git log --name-status -- assets/` shows the newest
+media is still `assets/photos/2026-11-18-korea-coffee-price-en.jpg`, added by the
+11-18 pipeline run itself (ddd3ca6); no human has added media since the policy
+rewrite. A fresh `find` for `*.mp4 *.mov *.m4v *.webm *.mp3 *.wav *.m4a` across the
+tree still returns **0 hits** — there is still no video or audio file in this repo.
+Option 2 **written permission — unobtainable** by an unattended run; and note the
+CC BY grant above is a public licence from an unaffiliated photographer, not a
+partner relationship, so labelling it `partner_licensed` would misstate the rights
+basis (11-20). Option 3 **licensed stock — substantively satisfied but
+format-barred**, as set out above. Of **54** files in `content/`, **14** are
+`policy_version: 2`, **all 14** are `licensed_stock`, **all 14** are Carousels, and
+**zero** have ever carried `original` or `partner_licensed`.
+
+Tuesday is also a Collab-candidate day, and that path is closed too: §3 says a
+Collab item must keep `collab_status: requested` and must not be queued as
+`pending` until the partner accepts, while §5 requires `status: pending`. An
+unattended run cannot obtain an acceptance, and CONTENT.md requires original or
+partner-authorized media for Collabs regardless.
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → Tue 2026-11-24 16:27 KST, `%u` = 2 (§1).
+- **WebSearch works** (English and mixed English/Korean queries both usable).
+- **WebFetch works on `commons.wikimedia.org`** and was decisive this run — it is
+  what caught that the description names only the city. The 11-23 Michelin gotcha
+  was not re-tested.
+- **`curl` egress to the Commons API works**, including `list=search` with
+  `haslicense:` and `prop=imageinfo&iiprop=extmetadata|size|url|mime`. The `sleep 2`
+  between back-to-back calls and the empty-body tolerance are both still needed.
+- **`scripts/cardnews.py` renders cleanly: exit 0, 7 slides, every one 1080×1350,
+  no errors** (pillow **13.0.0**, run against
+  `content/2026-11-18-korea-coffee-price-en.json` into `/tmp/rendertest` outside the
+  repo, so nothing was committed).
+- **`scripts/reel.py` still dies on ffmpeg:** `FileNotFoundError: [Errno 2] No such
+  file or directory: 'ffmpeg'`, **exit 1**. `which ffmpeg` → not found, and
+  `.github/workflows/daily-content.yml:50-51` is still only
+  `pip install --quiet pillow`. Renderer proven 2026-11-13; runner still not
+  provisioned.
+- No silent miss to report: `git log --since=2026-11-23` shows 1d9ff7e, the 11-23
+  skip note, and Mon 11-23 is accounted for in the ledger.
+
+### Unchanged asks for a human (none actionable by this agent)
+
+1. **Re-authorize `IG_ACCESS_TOKEN`** (CONNECT-GUIDE.md). Still eight consecutive
+   code-190 holds (10-10, 10-17, 10-21, 10-31, 11-04, 11-07, 11-11, 11-18), last
+   tested **2026-11-18**; the next possible test is the Wed **2026-11-25** Carousel,
+   i.e. tomorrow. Last successful publish **2026-10-07 — 48 days ago**. Highest
+   value; not checkable by an agent.
+2. **Unblock Reel days.** This run adds a fifth and cheapest option to the menu —
+   extend §3 option 3 to non-venue-specific editorial **Reels** (above) — alongside:
+   drop original footage/photos into `assets/`; obtain written venue permission;
+   restore a blanket stock allowance for Reels; move venue-specific days to
+   Carousel; or adopt the 11-20 CC0/CC-BY amendment with the 11-23 resolution and
+   photograph-not-logo criteria plus the description/filename widening found today.
+   Editorial, so an unattended run will not choose. If any is adopted, add the
+   matching format check to `publish.py:validate_rights()`, which still accepts any
+   `asset_source` for any format.
+3. **Add an ffmpeg install step** to `daily-content.yml` (needs `workflows: write`);
+   without it the first Reel fails at `reel.py` even with compliant media.
+4. **Raise `--max-turns`** above 60 (`daily-content.yml:80`), and **state the
+   2200-character caption cap** in PIPELINE.md §4 / CONTENT.md.
+5. **Add a one-line "record a skip note" requirement to §0**, so a no-op day is
+   visible from the repo rather than only from the Actions log (11-16 and 11-21).
+
+---
+
 ## 2026-11-23 (Mon), reel / restaurant — SKIPPED
 
 Fifty-first consecutive Reel-day skip. No content JSON, no rendered output
