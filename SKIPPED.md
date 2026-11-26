@@ -4,7 +4,7 @@ The media-rights blocker below stops every **Reel** day (Mon/Tue/Thu/Fri/Sun). I
 does **not** stop Wed/Sat, which are Carousels: PIPELINE.md §3 option 3 allows
 licensed stock on a non-venue-specific editorial Carousel. Each entry below
 records one skipped run. Stopped under PIPELINE.md §0 ("If rights ... cannot be
-verified, stop without adding a queue item"). As of 2026-11-24 that is **fifty-two
+verified, stop without adding a queue item"). As of 2026-11-26 that is **fifty-three
 consecutive Reel-day skips**, and with the action block withdrawn it is the main
 thing standing between the account and a daily *authoring* schedule — publishing is
 separately dead on the token below. Re-measured 2026-11-19: **no file in `content/`
@@ -13,6 +13,31 @@ are policy-v2 and all 14 are `licensed_stock`), so the gate has never once been
 cleared, and **all 14** photos added since the policy rewrite are pipeline-fetched
 Carousel stock. New on 2026-11-19: the repo contains **no video or audio file at
 all** — see the 2026-11-19 entry.
+
+**NEW 2026-11-26 — the first test of a *public-sector* venue, and it produces the best
+media candidate this ledger has ever recorded — but of the wrong building.** Previous
+runs tested unaffiliated photographers (11-20, 11-23) and a non-venue-specific dish
+photo (11-24). Thursday's bar pillar allows a different test: a venue whose **own
+operator** is a government body that publishes under a public licence. 전통주갤러리
+(The Sool Gallery) is run by **MAFRA + aT**, and the ministries' own joint press
+release carries **공공누리 제1유형 (KOGL Type 1, attribution only — commercial use and
+derivatives permitted)** with no third-party-copyright exclusion, and embeds a
+**7360 × 4912** interior photograph. That is a venue-operator-published, free-licence,
+full-resolution real photograph — it clears every acceptance criterion 11-20, 11-23
+and 11-24 derived, by a wider margin than anything before it. It is still unusable,
+for a reason none of the earlier tests hit: **the photo is of the 2015 Insa-dong
+premises the gallery has since left.** See the 2026-11-26 entry, which also proposes
+a **sixth** and much narrower unblocking option than any on the list.
+
+**NEW 2026-11-26 — Wed 2026-11-25 ran no content at all: the third silent miss, and
+the third cancelled token test.** The 11-24 entry named Wed 11-25 as "the next
+possible test" of the credential. Like 11-16 and 11-21 it left no commit, no queue
+item and no skip note. So the token count is **still eight** code-190 holds, still
+last tested **2026-11-18**, and the next possible test is Sat **2026-11-28**. Measured
+this run: of the **14** Carousel days since 2026-10-08, **5 produced nothing**
+(10-14, 10-28, 11-14, 11-21, 11-25) — and **three of the last four**. The format that
+can still ship is now failing to author more often than it ships, which makes raising
+`--max-turns` and the §0 skip-note requirement more urgent than the Reel blocker.
 
 **NEW 2026-11-24 — for the first time the media itself is compliant and only the
 *format clause* blocks it.** The three pillar tests below all failed on the media
@@ -281,6 +306,255 @@ would still save the install on every run — see the 2026-09-15 entry for why a
 agent cannot push that change. **Only the media blocker stops Reel days.**
 
 ---
+## 2026-11-26 (Thu), reel / bar — SKIPPED
+
+Fifty-third consecutive Reel-day skip. No content JSON, no rendered output
+committed, no change to `queue.json`. §0 checked first: `queue.json` holds **54**
+items (41 `held`, 13 `published`) and **none is dated 2026-11-25 or 2026-11-26**, so
+no same-day `pending`/`published` item existed; no ramp flag is set anywhere
+(`grep -rn ramp` outside this file still hits only PIPELINE.md:29 and CONTENT.md:20,
+i.e. the rules themselves). §1: `TZ=Asia/Seoul date` → Thu 2026-11-26 14:50 KST,
+`%u` = 4 → **reel / bar**, Collab optional, which agrees with the prompt's format.
+Stopped at §3 under §0 ("If rights ... cannot be verified, stop without adding a
+queue item"). The day was in fact barred **twice over** — see the renderer section.
+
+### NEW — the public-sector venue test: the best media candidate ever found here, of a building the venue no longer occupies
+
+Every previous media test in this ledger probed a *third-party* rightsholder:
+11-20 an unaffiliated photographer (CC BY-SA, excluded), 11-23 the right licence on a
+142×72 trademark, 11-24 a correctly-licensed but non-venue-specific dish photo.
+Thursday's bar pillar allows a test none of them could run, and it goes directly at
+§3 **option 2** rather than option 3:
+
+> If the venue's **own operator** is a public body that releases its material under a
+> public licence, is the operator's photo of its own premises "venue/creator media
+> with written permission"?
+
+**The factual leg checks out, and more convincingly than anything before it.**
+
+- **The venue is public-sector.** 전통주갤러리 (The Sool Gallery) is operated by the
+  **Ministry of Agriculture, Food and Rural Affairs (농림축산식품부)** and the **Korea
+  Agro-Fisheries & Food Trade Corporation (aT)** — confirmed both in English by
+  The Korea Times, 2026-07-09, and in a MAFRA release describing it as "2015년에
+  농림축산식품부와 한국농수산식품유통공사가 설립한 우리 술 소통공간".
+- **The operators' own press release is KOGL Type 1.** `mcst.go.kr`
+  `/site/s_notice/press/pressView.jsp?pSeq=14057` (MAFRA + MCST joint release,
+  2015-02-10) states verbatim: *"…저작물은 「공공누리」 1유형(출처표시) 공공저작물
+  자유이용허락 조건에 따라 이용할 수 있습니다."* **Type 1 permits commercial use and
+  derivative works, requiring only attribution** — so it is strictly more permissive
+  than the CC BY-SA file rejected on 11-20, and it carries **no**
+  "제3자 저작권 있음" exclusion, which ministry pages often do.
+- **The photo is real, and enormous.** The release embeds two images captioned
+  "전통주 갤러리 내부 모습" (interior of the gallery). One was downloaded and measured
+  with pillow this run: `K20150210143313526_EMB00000d140001.jpg`, **7360 × 4912**,
+  **21.9 MB**, JPEG — an un-downsized camera original. Short edge 4912 against the
+  ≥1080 minimum the 11-23 entry asked for; a photograph, not a logo or a map, which
+  is the other 11-23 criterion. For scale, the best previous candidate (11-24) was
+  2489 × 1659.
+
+**And then it fails, on a test no previous entry had to apply: the photo is of the
+wrong building.** The 2015 release opens the gallery **in Insa-dong**
+("…문체부와 손 잡고 인사동에 '전통주 갤러리' 개소"). The gallery is no longer there.
+It now operates at **18 Bukchon-ro, Jongno-gu**, on the ground floor of the
+한식문화공간 이음 (Korean Food Culture Space "Eum"), and a **second branch opened
+2026-07-10** on **B2 of Doota Mall, Dongdaemun**, opposite the DDP. A MAFRA release
+confirms both are current, referring to September tasting-and-sales events at
+"북촌(1호), 동대문 두타몰(2호)".
+
+So presenting an eleven-year-old interior of a vacated address as The Sool Gallery
+would be precisely the thing §3 exists to forbid — "Do not use a mood photo as if it
+depicts the named place" — with the aggravating factor that it is not a mood photo
+but a *specific wrong room*. A reader who went to Bukchon expecting it would be
+misled. This is a §2/§3 failure on **currency**, and it is a **fifth** distinct
+failure mode for the media hunt, after licence (11-20), absence (11-22), subject
+(11-23, a trademark) and description (11-24).
+
+**No KOGL-licensed photo of either current location was found this run.** Two
+dead ends worth recording so the next run does not repeat them:
+
+- the second embedded image, `K20150210143313526_EMB00000d140008.jpg`, is
+  **unretrievable** — `curl` exits **52** (empty reply from server) on both a plain
+  and a `-L` request, while its sibling on the identical path downloads fine;
+- **MAFRA's press-release board is not searchable by plain GET.**
+  `mafra.go.kr/bbs/home/792/artclList.do?srchColumn=sj&srchWrd=<term>` returns
+  **HTTP 200** with a well-formed page containing **zero** article rows for both
+  "전통주 갤러리" and "두타몰". The listing is evidently built client-side or by POST.
+  A `site:mafra.go.kr` WebSearch did surface individual `artclView.do` releases, so
+  that is the working route in.
+
+**A classification caveat, in case a current-venue KOGL photo is found later.** Even
+then, `asset_source` is a judgment call this agent will not make alone. KOGL Type 1 is
+a *blanket public licence*, not a grant to this account; by the same reasoning the
+11-20 entry applied to CC BY, labelling it `partner_licensed` would overstate the
+relationship, which leaves `licensed_stock` and its Carousel-only clause. The
+difference from 11-20 is real and worth weighing, though: there the licensor was a
+stranger to the venue, whereas here **the licensor *is* the venue's operator**, which
+is the substance §3 option 2 is reaching for.
+
+**Recommended amendment — a sixth option, and the narrowest one yet.** Unlike the
+11-24 proposal it does not loosen the stock rule for Reels at all:
+
+> Extend §3 **option 2** from "venue/creator media with written permission" to
+> "venue/creator media with written permission, **including a public licence granted
+> by the venue's own operator** (e.g. KOGL Type 1, CC BY) **where the media depicts
+> the venue's current premises**", recording `asset_source: partner_licensed`, and
+> requiring the licence type, the publishing body, the source URL and the photo's
+> date in `rights_note` and on the sources slide.
+
+Why this is the safest of the six on the menu: it keeps the blanket prohibition on
+stock-as-venue fully intact, it requires an affiliation between licensor and venue
+that a stranger's CC BY file can never satisfy, and the explicit **currency** clause
+is what today's candidate failed on — without it the amendment would have licensed
+exactly the misleading post described above. It unblocks venue-specific Reels for
+public-sector and publicly-funded venues (traditional-liquor galleries, municipal
+markets, museum cafes, 찾아가는 양조장 breweries), which is a meaningful slice of this
+account's beat, with no new photography and no partner negotiation. Still editorial,
+so an unattended run will not make it.
+
+### §2 research recorded (venue verified; hours and prices deliberately not)
+
+Subject **The Sool Gallery / 전통주갤러리** — new for this pillar. Prior bar subjects
+are Zest, Ahn Makgeolli, Bar Cham, MMS, Charles H., Alice Cheongdam, Soko Hannam,
+Le Chamber and Gong Gan, so there is no dedup conflict. As-of date **2026-11-26**.
+
+**Verified, and safe for copy:**
+
+- Official name 전통주갤러리 (The Sool Gallery); **1호점** on the 1st floor of the
+  한식문화공간 이음, **18 Bukchon-ro, Jongno-gu, Seoul** (across from the
+  Constitutional Court, near Anguk station).
+- Operated by **MAFRA + aT**; **established 2015** (MAFRA release; The Korea Times
+  2026-07-09).
+- **2호점 opened 2026-07-10** on **B2, Doota Mall, Dongdaemun**, opposite the DDP, a
+  mall the ministry puts at ~14,000 visitors a day with a high share of foreign
+  visitors (The Korea Times 2026-07-09; Newsis 2026-07-09).
+- The second branch's stated programme: guided tasting sessions by flavour profile,
+  **traditional-liquor cocktail** demonstrations aimed at younger drinkers, and
+  pop-ups rotating breweries from around the country.
+- Both branches were current as of a MAFRA release scheduling September
+  award-winner tastings at "북촌(1호), 동대문 두타몰(2호)".
+
+**Reported but NOT verified to §2 standard — must not appear in copy:**
+
+- **Hours.** Seoul city citizen-reporter pieces give Tue–Sun 10:00–19:00 for the
+  Bukchon branch, but the most recent confirmation is 2024/2025 and an older piece
+  gives 10:00–20:00 for the previous Gangnam-era location. No official current
+  listing was reachable this run.
+- **Tasting format and cost.** "Free monthly rotating tasting, five people at a
+  ㅁ-shaped bar in the centre of the gallery, reserved online and filling within
+  minutes" is consistently reported; a ₩5,000 no-show deposit refunded on
+  attendance appears in a 2023 piece only. Reservation is variously said to be via
+  Naver (Gangnam era) and via the 한식진흥원 site (current). Unconfirmed.
+- The count of liquors shown (≈300 displayed / ≈80 sampled and sold) comes from a
+  neighbourhood guide, not the operator.
+
+**A WebFetch gotcha:** `english.visitkorea.or.kr/svc/searchList.do?keyword=...`
+returns **HTTP 404**; the English VisitKorea search path used by older notes no
+longer resolves. Third-party mirrors expose what look like VisitKorea content IDs
+(e.g. `3080695`) but the official detail URL for them was not recovered this run.
+
+Nothing above was written as if the account visited. Useful English search phrase for
+travellers: "Sool Gallery Bukchon traditional Korean liquor free tasting reservation".
+
+### §3, re-derived for this subject
+
+Option 1 **original — none.** `git log --name-status -- assets/` shows the newest
+media is still `assets/photos/2026-11-18-korea-coffee-price-en.jpg`, added by the
+11-18 pipeline run itself (ddd3ca6). The only human-added photo in repo history is
+still `cheongildip-en.jpg` (392aefd, 2026-08-25), which predates the policy rewrite
+and carries no stated provenance, so it cannot be claimed as `original` either. A
+fresh `find` for `*.mp4 *.mov *.m4v *.webm *.mp3 *.wav *.m4a` across the tree still
+returns **0 hits** — still no video or audio file in this repo at all.
+Option 2 **written permission — unobtainable** by an unattended run, and the
+public-licence variant tested above fails on currency (and needs a wording decision
+besides). Option 3 **licensed stock — format-barred**: today is a Reel. Of **54**
+files in `content/`, **14** are `policy_version: 2`, **all 14** are
+`licensed_stock`, **all 14** are Carousels, and **zero** have ever carried
+`original` or `partner_licensed`. The §3 gate has still never been cleared.
+
+### The renderer: Carousel path clean, Reel path still dead on this runner
+
+The day was barred twice, and the second bar is worth stating plainly because it
+would survive any §3 amendment:
+
+- `python3 scripts/cardnews.py content/2026-11-18-korea-coffee-price-en.json
+  /tmp/rendertest` → **exit 0, 7 slides, every one 1080 × 1350**, no errors, pillow
+  **13.0.0**. Rendered outside the repo, so nothing was committed. Per the 2026-09-14
+  warning that renders must be *looked at* and not merely exit-code checked, slide 01
+  was opened and inspected: photo-backed cover, English copy, headline and subline
+  inside their boxes, no overflow or collision.
+- `python3 scripts/reel.py …` → **`FileNotFoundError: [Errno 2] No such file or
+  directory: 'ffmpeg'`, exit 1.** `which ffmpeg ffprobe` → both absent.
+  `.github/workflows/daily-content.yml:50-51` is still only `pillow 설치` /
+  `pip install --quiet pillow`. The 2026-11-15 correction stands: the Reel renderer
+  itself is proven (2026-11-13, a real 1080×1920 / h264 / 22.2s MP4), but **the
+  runner has never been provisioned for it**. So even with perfect media, §4's
+  two-step would have failed today at step two.
+
+### Publish side: a third cancelled token test, and Carousel days are now the fragile ones
+
+Wed **2026-11-25** was named by the 11-24 entry as the next possible test of
+`IG_ACCESS_TOKEN`. `git log --since=2026-11-24` returns exactly one commit — 098c555,
+the 11-24 skip note — and `queue.json` has no 2026-11-25 item. So 11-25 produced **no
+commit, no content JSON, no queue entry and no skip note**: the **third** silent miss,
+after 11-16 and 11-21, and the **third** consecutive cancellation of the token test.
+Diagnosable only from the Actions log, which this agent cannot read.
+
+- Token status unchanged: **eight** consecutive code-190 holds (10-10, 10-17, 10-21,
+  10-31, 11-04, 11-07, 11-11, 11-18), last tested **2026-11-18**. Last successful
+  publish **2026-10-07 — 50 days ago**. Next possible test: Sat **2026-11-28**.
+- Measured this run, and it reframes the priorities: of the **14** Carousel days from
+  2026-10-08 to 2026-11-25, **9 were authored and 5 produced nothing** (10-14, 10-28,
+  11-14 to the turn cap; 11-21 and 11-25 silently) — and **three of the last four**
+  Carousel days produced nothing at all. The Reel blocker costs days that were never
+  publishable anyway while the token is dead; the Carousel misses cost the only days
+  that could have proved the token one way or the other. On current evidence
+  **raising `--max-turns` and adding the §0 skip-note requirement are now worth more
+  than any §3 amendment.**
+
+### Verified working this run
+
+- `TZ=Asia/Seoul date` → Thu 2026-11-26 14:50 KST, `%u` = 4 (§1).
+- **WebSearch works**, English and Korean, standard and extended modes.
+- **WebFetch works** on `mcst.go.kr` and `koreatimes.co.kr`. **New gotcha:**
+  `english.visitkorea.or.kr/svc/searchList.do` → **HTTP 404**.
+- **`curl` egress works** to `mcst.go.kr` and `mafra.go.kr`, including downloading a
+  21.9 MB image. Two new gotchas recorded above (curl exit 52 on one sibling image;
+  MAFRA's board search returning 200 with no rows).
+- **Commons is empty for this pillar**, measured rather than assumed:
+  `incategory:"Bars in Seoul"` → **0** files, with and without `haslicense:`;
+  `incategory:"Drinking establishments in South Korea"` → **0**. Neither category
+  exists; a namespace-14 search finds no Korean bar category at all. `Category:Soju`,
+  `Category:Makgeolli` and `Category:Cocktails with soju` do exist, but those are
+  drink categories, i.e. 11-24's non-venue-specific case, which is format-barred.
+- `scripts/cardnews.py` renders 7 clean slides; `scripts/reel.py` fails on ffmpeg
+  (both above).
+
+### Unchanged asks for a human (none actionable by this agent)
+
+1. **Re-authorize `IG_ACCESS_TOKEN`** (CONNECT-GUIDE.md). Eight code-190 holds, last
+   tested 2026-11-18, last successful publish 2026-10-07 — **50 days**. Still the
+   highest-value action, and three straight attempts to even re-test it have been
+   cancelled by silent misses.
+2. **Raise `--max-turns`** above 60 (`daily-content.yml:80`) and **add a one-line
+   "record a skip note" requirement to §0.** Promoted above the Reel blocker this
+   run: three of the last four Carousel days — the only format that can ship —
+   produced nothing, and two of those were invisible from this repo.
+3. **Unblock Reel days** by one of six now: drop original footage/photos into
+   `assets/`; obtain written venue permission; restore a blanket stock allowance for
+   Reels; move venue-specific days to Carousel; extend §3 option 3 to
+   non-venue-specific editorial Reels (11-24); or **extend §3 option 2 to a public
+   licence from the venue's own operator, with a currency clause** (this entry —
+   narrowest, and the only one that unblocks *venue-specific* Reels without weakening
+   the stock prohibition). Editorial, so an unattended run will not choose. If any is
+   adopted, add the matching format check to `publish.py:validate_rights()`, which
+   still accepts any `asset_source` for any format.
+4. **Add an ffmpeg install step** to `daily-content.yml` (needs `workflows: write`);
+   without it the first Reel fails at `reel.py` even with compliant media — verified
+   again today.
+5. **State the 2200-character caption cap** in PIPELINE.md §4 / CONTENT.md.
+
+---
+
 ## 2026-11-24 (Tue), reel / local — SKIPPED
 
 Fifty-second consecutive Reel-day skip. No content JSON, no rendered output
